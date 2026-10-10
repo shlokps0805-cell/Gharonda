@@ -5,17 +5,19 @@ import React, { useState } from 'react';
 
 const manifests = import.meta.glob('../../content/generated/optimized.json', { import: 'default', eager: true });
 const optimized = new Set(Object.values(manifests)[0] || []);
+// photos keep their file names when replaced, so each build adds its own ?v= to their links
+const V = typeof __MEDIA_VERSION__ === 'string' ? `?v=${__MEDIA_VERSION__}` : '';
 
 export function mediaUrl(file) {
   if (!file) return '';
   if (/^(https?:)?\/\//.test(file) || file.startsWith('/')) return file;
-  return '/media/' + file;
+  return '/media/' + file + V;
 }
 
 export function srcSet(file) {
   if (!optimized.has(file)) return undefined;
   const base = '/media/optimized/' + file.replace(/\.[^.]+$/, '');
-  return `${base}-800.webp 800w, ${base}-1600.webp 1600w`;
+  return `${base}-800.webp${V} 800w, ${base}-1600.webp${V} 1600w`;
 }
 
 export default function Photo({ src, alt = '', sizes = '600px', style, eager = false, onLoad }) {

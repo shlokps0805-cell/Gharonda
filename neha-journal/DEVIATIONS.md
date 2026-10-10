@@ -3,7 +3,7 @@
 Every place the build intentionally differs from the design files or the final plan, one line each.
 
 ## Hosting and setup
-- **Hosting is Render, not Vercel/Netlify** (the students asked for Render). `render.yaml` at the repo root replaces `vercel.json`/`netlify.toml`, with the same cache rules (a year for `/assets/` and `/media/optimized/`, no caching for `index.html`) plus an `X-Robots-Tag: noindex` header.
+- **Hosting is Render, not Vercel/Netlify** (the students asked for Render). `render.yaml` at the repo root replaces `vercel.json`/`netlify.toml`, with cache rules (a year for `/assets/`, no caching for `index.html`; photo links carry a per-build `?v=` so a replaced or once-missing photo is never stuck in a browser) plus an `X-Robots-Tag: noindex` header.
 - **The site lives in `neha-journal/`**, not the repository root, because the repository already holds an unrelated project (the Gharonda presentation), which is left untouched. Render builds from that folder (`rootDir`).
 - **Built in one pass instead of stopping after each phase**, because the launch is midnight IST tonight (11 Oct 2026). Every phase was still checked in the browser; see `PLAN.md`.
 - **Sticker images are WebP, at most 640 px on the long side** (from the exported PNGs, 10 MB → under 1 MB). Pixels are not redrawn, recoloured or re-cut; only scaled and compressed.
