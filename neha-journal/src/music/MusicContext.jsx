@@ -37,6 +37,7 @@ export function MusicProvider({ songs, playlist, hostRef, children }) {
   const endGuard = useRef('');
   const lastPos = useRef(0);
   const pausedForGame = useRef(false);
+  const started = useRef(''); // the loaded item has already played, so play again means resume
   const state = useRef({});
   state.current = { order, pos, status, playlistMode };
 
@@ -56,8 +57,10 @@ export function MusicProvider({ songs, playlist, hostRef, children }) {
     setPos(p);
     setMuted(false);
     if (!ready.current) { wanted.current = true; setStatus('loading'); return; }
-    if (loadedUri.current !== s.uri) { spotify.load(s.uri); loadedUri.current = s.uri; endGuard.current = ''; lastPos.current = 0; }
-    spotify.play();
+    if (loadedUri.current !== s.uri) { spotify.load(s.uri); loadedUri.current = s.uri; endGuard.current = ''; lastPos.current = 0; started.current = ''; }
+    // after a pause, carry on from the same spot instead of starting the song (or playlist) over
+    if (started.current === s.uri && state.current.status === 'paused') spotify.resume();
+    else spotify.play();
     setStatus('loading');
     confirmPlaying();
   }, [playable, confirmPlaying]);
@@ -84,6 +87,7 @@ export function MusicProvider({ songs, playlist, hostRef, children }) {
     });
     const off = spotify.onUpdate(d => {
       if (d.isPaused === false) {
+        started.current = loadedUri.current;
         clearTimeout(confirmT.current);
         setStatus('playing');
       } else if (d.isPaused === true && state.current.status === 'playing') {
