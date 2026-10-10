@@ -1,0 +1,102 @@
+[
+  {
+    "id": "friend-1",
+    "friend": "friend-1",
+    "headline": "A note from Friend 1",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  },
+  {
+    "id": "friend-2",
+    "friend": "friend-2",
+    "headline": "A note from Friend 2",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  },
+  {
+    "id": "friend-3",
+    "friend": "friend-3",
+    "headline": "A note from Friend 3",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": {
+      "file": "",
+      "youtube": ""
+    },
+    "videoNote": "SAMPLE · recorded on the balcony, 11pm. the plants say hi too."
+  },
+  {
+    "id": "friend-4",
+    "friend": "friend-4",
+    "headline": "A note from Friend 4",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  },
+  {
+    "id": "friend-5",
+    "friend": "friend-5",
+    "headline": "A note from Friend 5",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  },
+  {
+    "id": "friend-6",
+    "friend": "friend-6",
+    "headline": "A note from Friend 6",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  },
+  {
+    "id": "friend-7",
+    "friend": "friend-7",
+    "headline": "A note from Friend 7",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  },
+  {
+    "id": "friend-8",
+    "friend": "friend-8",
+    "headline": "A note from Friend 8",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  },
+  {
+    "id": "friend-9",
+    "friend": "friend-9",
+    "headline": "A note from Friend 9",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  },
+  {
+    "id": "friend-10",
+    "friend": "friend-10",
+    "headline": "A note from Friend 10",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  },
+  {
+    "id": "friend-11",
+    "friend": "friend-11",
+    "headline": "A note from Friend 11",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  },
+  {
+    "id": "friend-12",
+    "friend": "friend-12",
+    "headline": "A note from Friend 12",
+    "photo": "",
+    "photoCaption": "SAMPLE · Pictured: the authors, moments before the pigeon incident.",
+    "video": null
+  }
+]

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33}a{color:#204670}a:hover{color:#5E3695}.nh-scroll::-webkit-scrollbar{display:none}</style></helmet>
+<div ref="{{ root }}" data-screen-label="00-System/Sample-page-v2" style="position:relative;width:1440px;height:900px;overflow:hidden;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(251,249,245,.14) 40%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px"></div>
+
+<div style="position:absolute;left:4px;top:120px"><dc-import name="Sticker" kind="lavender" size="150" rotate="-8" hint-size="150px,150px"></dc-import></div>
+<div style="position:absolute;left:1180px;top:-26px"><dc-import name="Sticker" kind="washi-stars" size="170" rotate="12" hint-size="170px,31px"></dc-import></div>
+
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="grid" coil="silver" ribbon="{{ false }}" hint-size="1192px,768px"></dc-import></div>
+
+<div class="nh-scroll" style="position:absolute;left:148px;top:36px;width:1100px;height:740px;overflow-y:auto;scrollbar-width:none">
+<div style="position:relative;height:1700px">
+<div style="position:absolute;left:12px;top:30px;display:flex;flex-direction:column;gap:10px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670;white-space:nowrap">02 · TIMELINE · 2014 – 2026</div><div style="font:400 48px/1.05 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">then, now, <span style="font-style:italic">always</span></div></div>
+<div style="position:absolute;left:12px;top:116px;display:flex;align-items:center;gap:6px"><span style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695;margin-right:4px">ERAS</span><sc-for list="{{ eraChips }}" as="c" hint-placeholder-count="5"><div onClick="{{ c.go }}" title="{{ c.t }}" style="height:28px;padding:0 10px;border-radius:999px;border:1.5px solid #204670;background:#FFFFFF;display:flex;align-items:center;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.06em;color:#204670;cursor:pointer;transition:transform 150ms cubic-bezier(0.34,1.56,0.64,1),background 150ms" style-hover="background:#DCCBF3;transform:translateY(-1px)">{{ c.y }}</div></sc-for></div>
+<div style="position:absolute;left:446px;top:10px;width:236px;filter:drop-shadow(0 1px 2px rgba(19,15,31,.25)) drop-shadow(0 6px 12px rgba(19,15,31,.12));transform:rotate(-3deg)"><div style="padding:24px 18px 14px;background-color:#FBF9F5;background-image:repeating-linear-gradient(180deg,transparent 0 29px,rgba(142,167,201,.45) 29px 30px);background-position:0 16px;clip-path:polygon(0 6%,8% 2%,15% 7%,24% 1%,33% 5%,41% 0,52% 6%,61% 2%,70% 7%,79% 1%,88% 5%,100% 2%,100% 100%,0 100%);font:600 25px/30px 'Caveat',cursive;color:#204670">SAMPLE · "five minutes," she said. three hours later…</div></div>
+<div style="position:absolute;left:556px;top:2px"><dc-import name="Fastener" kind="pin" size="16" hint-size="20px,21px"></dc-import></div>
+
+<div onClick="{{ open3 }}" title="open this era" style="position:absolute;left:0;top:150px;cursor:zoom-in"><dc-import name="PhotoFrame" type="polaroid" ratio="3:2" size="600" rotate="-2" caption="the night we missed the last train" by="taken by Friend 4" hint-size="660px,560px"></dc-import></div>
+<div style="position:absolute;left:396px;top:128px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div>
+<div style="position:absolute;left:560px;top:592px"><dc-import name="Sticker" kind="disco-violet" size="116" rotate="7" hint-size="116px,116px"></dc-import></div>
+<div style="position:absolute;left:-14px;top:600px"><dc-import name="Sticker" kind="tulips" size="116" rotate="-6" hint-size="68px,116px"></dc-import></div>
+
+<div onClick="{{ open0 }}" title="open this era" style="position:absolute;left:716px;top:44px;cursor:zoom-in"><dc-import name="PhotoFrame" type="corners" ratio="4:5" size="288" rotate="2" caption="first day, room 204" by="taken by Friend 2" tone="{{ 1 }}" hint-size="300px,440px"></dc-import></div>
+<div style="position:absolute;left:984px;top:6px"><dc-import name="Sticker" kind="jelly-star" size="92" rotate="12" hint-size="92px,92px"></dc-import></div>
+<div onClick="{{ open1 }}" title="open this era" style="position:absolute;left:706px;top:478px;cursor:zoom-in"><dc-import name="PhotoFrame" type="taped" ratio="1:1" size="240" rotate="-3" caption="chai, 2am" by="taken by Friend 1" tone="{{ 2 }}" hint-size="260px,340px"></dc-import></div>
+<div style="position:absolute;left:986px;top:500px"><dc-import name="Sticker" kind="date-stamp" size="116" rotate="6" hint-size="116px,80px"></dc-import></div>
+<div style="position:absolute;left:992px;top:612px"><dc-import name="Sticker" kind="object-2" size="70" rotate="-4" hint-size="70px,70px"></dc-import></div>
+
+<div onClick="{{ open3 }}" title="open this era" style="position:absolute;left:20px;top:790px;cursor:zoom-in"><dc-import name="PhotoFrame" type="film" ratio="3:2" size="480" rotate="1" caption="rare footage of her on time" by="taken by Friend 6" tone="{{ 2 }}" hint-size="508px,420px"></dc-import></div>
+<div onClick="{{ open1 }}" title="open this era" style="position:absolute;left:580px;top:780px;cursor:zoom-in"><dc-import name="PhotoFrame" type="clipped" ratio="3:4" size="360" rotate="-2" caption="graduation, finally" by="taken by Friend 3" hint-size="380px,560px"></dc-import></div>
+<div style="position:absolute;left:968px;top:800px"><dc-import name="Sticker" kind="headphone-cat" size="116" rotate="-6" hint-size="116px,102px"></dc-import></div>
+<div style="position:absolute;left:520px;top:1150px"><dc-import name="Sticker" kind="core-memory" size="170" rotate="6" hint-size="170px,68px"></dc-import></div>
+<div onClick="{{ open2 }}" title="open this era" style="position:absolute;left:30px;top:1240px;cursor:zoom-in"><dc-import name="PhotoFrame" type="polaroid" ratio="1:1" size="240" rotate="2" caption="the haircut" by="taken by Friend 5" tone="{{ 1 }}" hint-size="290px,360px"></dc-import></div>
+<div onClick="{{ open4 }}" title="open this era" style="position:absolute;left:330px;top:1260px;cursor:zoom-in"><dc-import name="PhotoFrame" type="torn" ratio="4:5" size="240" rotate="-3" caption="her, mid-laugh" by="taken by Friend 8" hint-size="256px,380px"></dc-import></div>
+<div onClick="{{ open4 }}" title="open this era" style="position:absolute;left:800px;top:1380px;cursor:zoom-in"><dc-import name="PhotoFrame" type="slide" ratio="1:1" size="240" rotate="2" caption="beach, again" by="taken by Friend 7" tone="{{ 2 }}" hint-size="300px,380px"></dc-import></div>
+</div>
+</div>
+<div style="position:absolute;left:148px;top:700px;width:1100px;height:80px;background:linear-gradient(180deg,rgba(251,249,245,0),#FBF9F5 85%);pointer-events:none"></div>
+<div style="position:absolute;left:1252px;top:96px;width:2px;height:620px;background:repeating-linear-gradient(180deg,rgba(61,74,102,.35) 0 3px,transparent 3px 5px);pointer-events:none"></div>
+<div style="position:absolute;left:1250px;top:{{ thumbY }}px;width:6px;height:150px;border-radius:3px 3px 1px 1px;background:linear-gradient(180deg,#5E3695,#3D4A66);clip-path:polygon(0 0,100% 0,100% 88%,50% 100%,0 88%);pointer-events:none"></div>
+
+<div style="position:absolute;left:148px;top:36px;width:1100px;height:740px;overflow:hidden;pointer-events:{{ ovPE }};opacity:{{ ovOp }};transform:{{ ovTf }};transform-origin:30% 30%;transition:opacity 300ms cubic-bezier(0.25,1,0.5,1),transform 420ms cubic-bezier(0.34,1.56,0.64,1)">
+<div style="position:absolute;inset:0;background-color:#FFFFFF;background-image:repeating-linear-gradient(0deg,transparent 0 23px,rgba(142,167,201,.32) 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,rgba(142,167,201,.32) 23px 24px)"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(circle at 96% 4%,{{ era.glow }},rgba(255,255,255,0) 34%)"></div>
+<div class="nh-scroll" style="position:absolute;inset:0;overflow-y:auto;scrollbar-width:none">
+<div style="position:relative;height:1180px">
+<div style="position:absolute;left:12px;top:24px;display:flex;align-items:center;gap:16px"><div onClick="{{ close }}" style="display:inline-flex;align-items:center;height:40px;padding:0 18px;border-radius:999px;border:1.5px solid #204670;background:#FFFFFF;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;white-space:nowrap;cursor:pointer" style-hover="background:#E6EDF4">← BACK TO THE TIMELINE</div><span style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">or press Esc</span></div>
+<div style="position:absolute;right:28px;top:28px;display:flex;align-items:center;gap:6px"><sc-for list="{{ eraNav }}" as="c" hint-placeholder-count="5"><div onClick="{{ c.go }}" style="height:28px;padding:0 10px;border-radius:999px;border:1.5px solid #204670;background:{{ c.bg }};display:flex;align-items:center;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.06em;color:{{ c.fg }};cursor:pointer">{{ c.y }}</div></sc-for></div>
+<div style="position:absolute;left:12px;top:96px;display:flex;flex-direction:column;gap:10px;width:560px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#5E3695;white-space:nowrap">ERA {{ era.no }} OF 05 · {{ era.years }} · {{ era.count }} PHOTOS</div><div style="font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">{{ era.title }}</div><div style="font:600 30px/1.1 'Caveat',cursive;color:#204670">{{ era.sub }}</div></div>
+<div style="position:absolute;left:640px;top:96px;width:200px;filter:drop-shadow(0 1px 2px rgba(19,15,31,.25)) drop-shadow(0 6px 12px rgba(19,15,31,.12));transform:rotate(3deg)"><div style="padding:24px 16px 14px;background-color:#FFFFFF;background-image:repeating-linear-gradient(180deg,transparent 0 27px,rgba(142,167,201,.45) 27px 28px);background-position:0 16px;clip-path:polygon(0 6%,8% 2%,15% 7%,24% 1%,33% 5%,41% 0,52% 6%,61% 2%,70% 7%,79% 1%,88% 5%,100% 2%,100% 100%,0 100%);font:400 21px/28px 'Kalam',cursive;color:#5E3695">{{ era.note }}</div></div>
+<div style="position:absolute;left:730px;top:86px"><dc-import name="Fastener" kind="pin" size="16" hint-size="20px,21px"></dc-import></div>
+<div style="position:absolute;left:900px;top:92px"><dc-import name="Sticker" kind="{{ era.s1 }}" size="120" rotate="8" hint-size="120px,120px"></dc-import></div>
+<sc-for list="{{ era.photos }}" as="p" hint-placeholder-count="8">
+<div style="position:absolute;left:{{ p.x }}px;top:{{ p.y }}px;transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1)" style-hover="transform:translateY(-4px)"><dc-import name="PhotoFrame" type="{{ p.t }}" ratio="{{ p.r }}" size="{{ p.s }}" rotate="{{ p.rot }}" tone="{{ p.tone }}" caption="{{ p.cap }}" by="{{ p.by }}" hint-size="260px,320px"></dc-import></div>
+</sc-for>
+<div style="position:absolute;left:{{ era.s2x }}px;top:{{ era.s2y }}px"><dc-import name="Sticker" kind="{{ era.s2 }}" size="110" rotate="-6" hint-size="110px,110px"></dc-import></div>
+<div style="position:absolute;left:12px;top:1100px;display:flex;align-items:center;gap:16px"><div onClick="{{ prev }}" style="display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;border:1.5px solid #204670;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;cursor:pointer;white-space:nowrap" style-hover="background:#E6EDF4">← {{ era.prevL }}</div><div onClick="{{ next }}" style="display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;background:#204670;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF;cursor:pointer;white-space:nowrap" style-hover="background:#16324F">{{ era.nextL }} →</div></div>
+</div>
+</div>
+</div>
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:1290px;top:830px"><dc-import name="Sticker" kind="eight-ball" size="64" rotate="-8" hint-size="64px,64px"></dc-import></div>
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="playing" title="Song title · Artist" picked="picked by Friend 3" hint-size="280px,80px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;musicTrail&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  root = React.createRef();
+  state = { sy: 0, era: null, last: 0 };
+  static ERAS = [
+    { years: '2014 – 2016', y: '2014', title: 'room 204', sub: 'school corridors and the wrong classroom', note: 'she sat in the wrong class for 20 minutes. took notes.', s1: 'books', s2: 'paint-star', glow: 'rgba(206,217,228,.9)', caps: ['first day, room 204', 'sports day, last place', 'the canteen table', 'exam week, somehow fine', 'farewell, crying', 'matching keychains', 'the bus stop', 'class photo, she blinked'] },
+    { years: '2017 – 2019', y: '2017', title: 'college, finally', sub: 'chai at 2am and one very long graduation', note: 'four years, one scooter, zero parking spots.', s1: 'iced-coffee', s2: 'clef', glow: 'rgba(220,203,243,.9)', caps: ['chai, 2am', 'fest night', 'the hostel balcony', 'project due tomorrow', 'goa, the first time', 'her first haircut regret', 'library naps', 'graduation, finally'] },
+    { years: '2020 – 2021', y: '2020', title: 'the indoor years', sub: 'video calls, banana bread, a lot of plants', note: 'she named every plant. one is still sulking.', s1: 'lavender', s2: 'headphone-cat', glow: 'rgba(172,191,211,.8)', caps: ['call no. 412', 'the banana bread', 'balcony concert', 'the haircut', 'puzzle, 1000 pieces', 'masks, matching', 'first meet-up after', 'plant no. 9'] },
+    { years: '2022 – 2024', y: '2022', title: 'new city, same us', sub: 'the night we missed the last train', note: '"five minutes," she said. three hours later…', s1: 'disco-violet', s2: 'tulips', glow: 'rgba(196,168,230,.7)', caps: ['the night we missed the last train', 'rare footage of her on time', 'the new flat', 'running club, week 1', 'mango neighbour', 'monsoon dhaba', 'her desk, day one', 'rooftop, 11pm'] },
+    { years: '2025 – 2026', y: '2025', title: 'now, always', sub: 'her, mid-laugh, as usual', note: 'and the best part is it is not finished.', s1: 'jelly-star', s2: 'bow', glow: 'rgba(222,192,196,.8)', caps: ['her, mid-laugh', 'beach, again', 'the birthday plan', 'brunch that ran till dinner', 'the new job', 'all of us, finally', 'she got a dog (almost)', 'last month'] }
+  ];
+  static LAYOUT = [
+    { x: 0, y: 260, t: 'polaroid', r: '3:2', s: 420, rot: -2 }, { x: 500, y: 300, t: 'corners', r: '4:5', s: 220, rot: 2 }, { x: 790, y: 270, t: 'taped', r: '3:4', s: 240, rot: -3 },
+    { x: 30, y: 690, t: 'film', r: '3:2', s: 340, rot: 1 }, { x: 430, y: 700, t: 'clipped', r: '1:1', s: 240, rot: -2 }, { x: 740, y: 690, t: 'polaroid', r: '1:1', s: 200, rot: 3 },
+    { x: 60, y: 1030, t: 'slide', r: '1:1', s: 160, rot: -3 }, { x: 900, y: 650, t: 'torn', r: '4:5', s: 150, rot: 4 }
+  ];
+  componentDidMount() {
+    const el = this.root.current; if (!el) return;
+    this._key = e => { if (e.key === 'Escape' && this.state.era !== null) this.setEra(null); };
+    window.addEventListener('keydown', this._key);
+    const sc = el.querySelector('.nh-scroll');
+    if (sc) sc.addEventListener('scroll', () => this.setState({ sy: sc.scrollTop / Math.max(1, sc.scrollHeight - sc.clientHeight) }));
+    if (this.props.musicTrail === false) return;
+    let last = null; const G = ['♪', '♫', '♩', '♬'], C = ['#5E3695', '#A57BD5', '#204670', '#C4A8E6', '#320F6F'];
+    this._mm = e => {
+      const r = el.getBoundingClientRect(), k = r.width / el.offsetWidth;
+      const x = (e.clientX - r.left) / k, y = (e.clientY - r.top) / k;
+      if (last && Math.hypot(x - last[0], y - last[1]) < 34) return; last = [x, y];
+      const n = document.createElement('span'); const i = Math.floor(Math.random() * 4);
+      n.textContent = G[i];
+      n.style.cssText = `position:absolute;left:${x + 8}px;top:${y - 6}px;font:700 ${18 + Math.round(Math.random() * 10)}px/1 'DM Sans',sans-serif;color:${C[Math.floor(Math.random() * C.length)]};pointer-events:none;z-index:50;text-shadow:0 0 1px #fff,0 1px 2px rgba(19,15,31,.25)`;
+      el.appendChild(n);
+      const dx = (Math.random() - .5) * 30, rot = (Math.random() - .5) * 40;
+      const a = n.animate([{ transform: 'translate(0,0) scale(.6) rotate(0deg)', opacity: 0 }, { transform: `translate(${dx * .3}px,-10px) scale(1) rotate(${rot * .3}deg)`, opacity: 1, offset: .2 }, { transform: `translate(${dx}px,-46px) scale(.9) rotate(${rot}deg)`, opacity: 0 }], { duration: 900, easing: 'cubic-bezier(0.25,1,0.5,1)' });
+      a.onfinish = () => n.remove();
+    };
+    el.addEventListener('mousemove', this._mm);
+  }
+  componentDidUpdate() {}
+  setEra(i) { this.setState({ era: i, last: i ?? this.state.last }); }
+  componentWillUnmount() { window.removeEventListener('keydown', this._key); if (this.root.current && this._mm) this.root.current.removeEventListener('mousemove', this._mm); }
+  renderVals() {
+    const E = Component.ERAS, L = Component.LAYOUT;
+    const open = this.state.era !== null, ei = open ? this.state.era : this.state.last, e = E[ei];
+    const era = { ...e, no: String(ei + 1).padStart(2, '0'), count: '24', s2x: 960, s2y: 1010,
+      prevL: ei > 0 ? E[ei - 1].years : 'BACK TO THE TIMELINE', nextL: ei < 4 ? E[ei + 1].years : 'BACK TO THE TIMELINE',
+      photos: L.map((p, i) => ({ ...p, tone: (i + ei) % 3, cap: e.caps[i], by: 'taken by Friend ' + ((i + ei * 3) % 12 + 1) })) };
+    const go = i => () => this.setEra(i);
+    return {
+      era, ovPE: open ? 'auto' : 'none', ovOp: open ? 1 : 0, ovTf: open ? 'scale(1)' : 'scale(.94) translateY(12px)',
+      close: () => this.setEra(null), prev: () => this.setEra(ei > 0 ? ei - 1 : null), next: () => this.setEra(ei < 4 ? ei + 1 : null),
+      eraChips: E.map((x, i) => ({ y: x.y, t: x.years + ' · ' + x.title, go: go(i) })),
+      eraNav: E.map((x, i) => ({ y: x.y, go: go(i), bg: i === ei ? '#204670' : '#FFFFFF', fg: i === ei ? '#FFFFFF' : '#204670' })),
+      open0: go(0), open1: go(1), open2: go(2), open3: go(3), open4: go(4),
+      root: this.root,
+      thumbY: Math.round(96 + this.state.sy * 470),
+      tabs: ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'].map(l => ({ l, s: l === 'Timeline' ? 'active' : 'default' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

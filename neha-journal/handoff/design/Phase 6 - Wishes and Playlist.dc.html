@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33;-webkit-font-smoothing:antialiased}a{color:#DCCBF3;text-decoration-color:#A57BD5;text-underline-offset:4px}a:hover{color:#FFFFFF}</style></helmet>
+<section style="padding:96px;display:flex;flex-direction:column;gap:96px;background:#141E33;min-width:1984px">
+<div style="display:flex;flex-direction:column;gap:16px;width:1840px">
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.18em;color:#C4A8E6">NEHA · THE BIRTHDAY JOURNAL · PHASE 6</div>
+<div style="font:400 88px/1 'Libre Caslon Text',serif;color:#FFFFFF;white-space:nowrap">Wishes <span style="font-style:italic">and the mixtape</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:22px;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.06em"><sc-for list="{{ nav }}" as="n" hint-placeholder-count="10"><a href="#{{ n.id }}">{{ n.name }}</a></sc-for></div>
+<div style="display:flex;gap:16px;padding-top:8px"><sc-for list="{{ audit }}" as="a" hint-placeholder-count="3"><div style="flex:1;padding:16px 20px;background:#FBF9F5;border-radius:4px;display:flex;flex-direction:column;gap:6px"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div></div></sc-for></div>
+</div>
+<sc-for list="{{ wishes }}" as="f" hint-placeholder-count="6">
+<div id="{{ f.id }}" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">{{ f.name }}</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">{{ f.sub }}</span></div>
+<div style="display:flex;gap:40px;align-items:flex-start"><dc-import name="WishScene" state="{{ f.st }}" hint-size="1440px,900px"></dc-import>
+<div style="width:360px;display:flex;flex-direction:column;gap:12px;padding:24px;background:#FBF9F5;border-radius:4px"><div style="font:400 26px/1.15 'Libre Caslon Text',serif;color:#130F1F">{{ f.title }}</div><sc-for list="{{ f.notes }}" as="a" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid #E3E8EF"><div style="font:700 11px/1.3 'Courier Prime',monospace;letter-spacing:.06em;color:#204670">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div><div style="font:400 12px/1.4 'Courier Prime',monospace;color:#3D4A66">{{ a.m }}</div></div></sc-for></div></div>
+</div>
+</sc-for>
+<div id="open" style="display:flex;flex-direction:column;gap:16px;width:1840px">
+<div style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">05-Wishes/Opening-keyframes</div>
+<div style="display:flex;gap:16px"><sc-for list="{{ keys }}" as="k" hint-placeholder-count="4"><div style="flex:1;display:flex;flex-direction:column;gap:10px;padding:16px;background:#FBF9F5;border-radius:4px"><div style="height:220px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:20px;border-radius:3px;background:repeating-linear-gradient(180deg,#FFFFFF 0 31px,#DDE5F0 31px 32px)"><dc-import name="Envelope" size="small" state="{{ k.s }}" color="#C4A8E6" label="Friend 2" hint-size="200px,130px"></dc-import></div><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#5E3695">{{ k.n }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F">{{ k.u }}</div></div></sc-for></div>
+</div>
+<sc-for list="{{ play }}" as="f" hint-placeholder-count="4">
+<div id="{{ f.id }}" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">{{ f.name }}</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">{{ f.sub }}</span></div>
+<div style="display:flex;gap:40px;align-items:flex-start"><dc-import name="PlaylistScene" state="{{ f.st }}" hint-size="1440px,900px"></dc-import>
+<div style="width:360px;display:flex;flex-direction:column;gap:12px;padding:24px;background:#FBF9F5;border-radius:4px"><div style="font:400 26px/1.15 'Libre Caslon Text',serif;color:#130F1F">{{ f.title }}</div><sc-for list="{{ f.notes }}" as="a" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid #E3E8EF"><div style="font:700 11px/1.3 'Courier Prime',monospace;letter-spacing:.06em;color:#204670">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div><div style="font:400 12px/1.4 'Courier Prime',monospace;color:#3D4A66">{{ a.m }}</div></div></sc-for></div></div>
+</div>
+</sc-for>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const N = (t, d, m) => ({ t, d, m: m || '' });
+    const wishes = [
+      { id: 'grid', st: 'grid', name: '05-Wishes/Grid', sub: 'all 12 placeholder colours · 3 opened', title: 'letters from her people', notes: [N('LAYOUT', 'One wide lined page (as approved in Phase 1): header, Caveat line and counter at the top, the group photo clipped top-right, 12 envelopes in a 4 × 3 grid within ±2°.'), N('ENVELOPES', 'Friend colour, name alternating Caveat / Kalam, every seal the same red wax, no postage stamp. Opened ones keep the flap up and the seal broken.'), N('PLACEHOLDERS', 'Names and colours swap in from the team’s file.')] },
+      { id: 'hover', st: 'hover', name: '05-Wishes/Grid-hover', sub: 'Friend 6 hovered', title: 'Hover', notes: [N('HOVER', 'Envelope lifts 4px and sways ±2° once.', '200ms cubic-bezier(0.34,1.56,0.64,1)')] },
+      { id: 'light', st: 'light', name: '05-Wishes/Wish-light', sub: 'Friend 2 · lavender · 648 sample words', title: 'A full wish, light colour', notes: [N('PAGE', 'The journal page is tinted 30% of the writer’s colour, with a light-leak corner. Text pairs from the Phase 1 friend chart (ink on light).'), N('CUT-OUT', '860 px newspaper clipping at −1°, gold binder clip + washi. “THE NEHA TIMES”, Libre Caslon headline, Courier dateline, two justified 18 px columns (~42 characters), hyphenated, sign-off in the writer’s hand.', 'scrolls inside; headline stays'), N('CONTROLS', 'Back to all letters (Esc), prev / next, “2 OF 12”, and “you’re lavender to me”.')] },
+      { id: 'dark', st: 'dark', name: '05-Wishes/Wish-dark', sub: 'Friend 5 · plum', title: 'A full wish, dark colour', notes: [N('PAGE', 'Rich plum page; controls and “you’re plum to me” in white (10.7:1). The clipping keeps its newsprint so body text stays ink on paper (16:1).')] },
+      { id: 'video', st: 'video', name: '05-Wishes/Wish-video', sub: 'Friend 3 · denim', title: 'Video wish', notes: [N('VIDEO', '760 px 16:9 in a clipped white print with play, scrubber, time and captions. Phone videos use 9:16 at 360 px wide. A short note beneath in Kalam.')] },
+      { id: 'end', st: 'end', name: '05-Wishes/End', sub: 'all 12 opened', title: 'That’s everyone', notes: [N('END STATE', 'When the last letter closes, the page fades to white and the line writes itself in.', 'stroke-write 1200ms · then stays')] }
+    ];
+    const play = [
+      { id: 'pl', st: 'default', name: '06-Playlist/Default', sub: 'night desk · art option A on the case', title: 'The mixtape', notes: [N('LEFT', 'Clear cassette case with the handmade insert and spine; the cassette half out with “for neha”, an A in a circle and two reels. Spotify embed slot 300 × 80 on a paper label, plus “save to your Spotify”.'), N('RIGHT', 'Liner notes on white paper with a gold clip: side A and side B, 15 tracks — number, title (Libre Caslon), artist, the reason in handwriting, picked by. Track 2 shows the hover play icon. Scrolls inside the paper.'), N('OPENING', 'On tab open the cassette slides halfway out of its case.', '600ms spring')] },
+      { id: 'playing', st: 'playing', name: '06-Playlist/Playing', sub: 'track 3 playing', title: 'A track playing · approved look', notes: [N('LOCKED', 'Approved by Shlok: this night-desk, cassette and liner-notes look is the reference for the Playlist build.'), N('PLAYING', 'Soft lavender bar and a tiny spinning record on the row; reels turn in the big cassette and in the mini player.', '2.4s per turn · linear')] },
+      { id: 'arta', st: 'art-a', name: '06-Playlist/Art-option-A', sub: 'photo-led · recommended', title: 'Option A · photo-led', notes: [N('ART', 'A cut-out collage: one black-and-white portrait with four smaller toned photos, headphones cat, vinyl, bow, and the “happy birthday” ribbon across the corner. Title in Libre Caslon with “neha” under a lavender marker stroke; “vol. 1”, “11.10.26”, “for neha, from her people”, a nickname scribble, a dusty-rose kiss mark, SIDE A / SIDE B.'), N('WHY A', 'It is the most personal object in the journal; her face carries it.')] },
+      { id: 'artb', st: 'art-b', name: '06-Playlist/Art-option-B', sub: 'type-led', title: 'Option B · type-led', notes: [N('ART', 'Ransom-note title as the hero, one small portrait, CD, glitter clef and the ribbon. Cleaner, but less of her.')] }
+    ];
+    return {
+      wishes, play,
+      keys: [{ s: 'closed', n: '1 · CLICK', u: 'Seal presses in (scale .94, 80ms).' }, { s: 'cracked', n: '2 · CRACK', u: 'Seal splits, halves drop and fade (400ms).' }, { s: 'open', n: '3 · FLAP', u: 'Flap folds open (rotateX 180°, 500ms spring).' }, { s: 'letter', n: '4 · PAGE TURN', u: 'The journal turns to that friend’s spread (450ms) and the clipping drops in (350ms spring).' }],
+      nav: [...wishes, { id: 'open', name: '05-Wishes/Opening' }, ...play],
+      audit: [
+        { t: 'AUDIT · LAYER 1 SPEC 5/5', d: 'Grid with all 12 colours, hover, opening keyframes, light and dark 648-word wishes in justified columns, video wish, end state; playlist default and playing, cassette case, spine, liner notes ×15, Spotify slot + save button, two art options with A recommended.' },
+        { t: 'AUDIT · LAYER 2 CRAFT 4/5 · FOUND → FIXED', d: 'Opened flap covered the group photo → opened envelopes moved to the first three. Piano sticker sat on the Spotify button → moved clear. Cassette label hid behind the case → slid further out. Envelope names raised to 28 px so handwriting stays ≥ 22 px.' },
+        { t: 'AUDIT · LAYER 3 COHESION 4/5', d: 'Wishes stay on the gingham desk; only the Playlist uses the midnight → wine desk. Decision: the Wishes grid keeps the approved single wide lined page, because a 4 × 3 grid of 200 px envelopes cannot fit one half of a spread. Render: 10 frames, 0 missing.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

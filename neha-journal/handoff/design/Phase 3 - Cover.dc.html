@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33;-webkit-font-smoothing:antialiased}a{color:#DCCBF3;text-decoration-color:#A57BD5;text-underline-offset:4px}a:hover{color:#FFFFFF}</style></helmet>
+<section style="padding:96px;display:flex;flex-direction:column;gap:96px;background:#141E33;min-width:1984px">
+<div style="display:flex;flex-direction:column;gap:16px;width:1840px">
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.18em;color:#C4A8E6">NEHA · THE BIRTHDAY JOURNAL · PHASE 3</div>
+<div style="font:400 88px/1 'Libre Caslon Text',serif;color:#FFFFFF;white-space:nowrap">The cover, <span style="font-style:italic">contents and the global frame</span></div>
+<div style="display:flex;gap:16px;flex-wrap:wrap;padding-top:8px"><sc-for list="{{ audit }}" as="a" hint-placeholder-count="3"><div style="flex:1;min-width:380px;padding:16px 20px;background:#FBF9F5;border-radius:4px;display:flex;flex-direction:column;gap:6px"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div></div></sc-for></div>
+</div>
+<sc-for list="{{ frames }}" as="f" hint-placeholder-count="4">
+<div id="{{ f.id }}" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">{{ f.name }}</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">{{ f.sub }}</span></div>
+<div style="display:flex;gap:40px;align-items:flex-start">
+<dc-import name="CoverScene" state="{{ f.st }}" hint-size="1440px,900px"></dc-import>
+<div style="width:360px;display:flex;flex-direction:column;gap:12px;padding:24px;background:#FBF9F5;border-radius:4px">
+<div style="font:400 26px/1.15 'Libre Caslon Text',serif;color:#130F1F">{{ f.title }}</div>
+<sc-for list="{{ f.notes }}" as="a" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid #E3E8EF"><div style="font:700 11px/1.3 'Courier Prime',monospace;letter-spacing:.06em;color:#204670">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div><div style="font:400 12px/1.4 'Courier Prime',monospace;color:#3D4A66">{{ a.m }}</div></div></sc-for>
+</div>
+</div>
+</div>
+</sc-for>
+<div id="global" style="display:flex;flex-direction:column;gap:16px;width:1840px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">02-Cover/Global-frame</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">tabs · page turn · cursor · player · desk</span></div>
+<div style="display:grid;grid-template-columns:300px 1fr 1fr 1fr;gap:16px">
+<div style="padding:20px;background:#FBF9F5;border-radius:4px;display:flex;flex-direction:column;gap:12px"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">DIVIDER TABS</div><div style="display:flex;gap:18px;align-items:center"><sc-for list="{{ tabStates }}" as="t" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;align-items:center;gap:6px"><dc-import name="DividerTab" label="Timeline" state="{{ t.s }}" hint-size="72px,104px"></dc-import><span style="font:700 10px/1 'Courier Prime',monospace;color:#3D4A66">{{ t.n }}</span></div></sc-for></div><div style="font:400 13px/1.45 'DM Sans',sans-serif;color:#130F1F">Rest · hover +6px (200ms spring) · active +12px, deeper colour, gold clip.</div></div>
+<div style="padding:20px;background:#FBF9F5;border-radius:4px;display:flex;flex-direction:column;gap:12px"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">SPIRAL PAGE TURN · 450MS</div><div style="display:flex;gap:12px"><sc-for list="{{ turn }}" as="k" hint-placeholder-count="3"><div style="flex:1;position:relative;height:150px;border-radius:4px;background:#CED9E4;perspective:700px"><div style="position:absolute;left:46px;top:20px;width:90px;height:110px;background:#FFFFFF;border-radius:2px 5px 5px 2px;box-shadow:0 1px 3px rgba(19,15,31,.2)"></div><div style="position:absolute;left:46px;top:20px;width:90px;height:110px;background:{{ k.f }};border-radius:2px 5px 5px 2px;transform-origin:0 50%;transform:{{ k.tf }};box-shadow:{{ k.sh }}"></div><div style="position:absolute;left:12px;bottom:8px;font:700 10px/1 'Courier Prime',monospace;color:#204670">{{ k.n }}</div></div></sc-for></div><div style="font:400 13px/1.45 'DM Sans',sans-serif;color:#130F1F">Lifts from the right edge, flips over the spiral, cubic-bezier(0.65,0,0.35,1). Backwards reverses. Jumping several sections riffles 2–3 pages at 120ms each.</div></div>
+<div style="padding:20px;background:#FBF9F5;border-radius:4px;display:flex;flex-direction:column;gap:12px"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">CURSOR · MUSIC NOTES</div><div style="position:relative;height:150px;border-radius:4px;background:url(assets/bg/gingham.jpeg) center/cover;overflow:hidden">
+<div style="position:absolute;left:70px;top:70px"><div style="position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;border:1.5px solid #FFFFFF;box-shadow:0 0 0 1px rgba(32,70,112,.3)"></div><div style="position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:#A57BD5"></div><span style="position:absolute;left:-40px;top:8px;font:700 20px/1 'DM Sans',sans-serif;color:#5E3695">♪</span><span style="position:absolute;left:-62px;top:22px;font:700 18px/1 'DM Sans',sans-serif;color:#A57BD5;opacity:.6">♫</span></div>
+<div style="position:absolute;left:190px;top:56px;display:flex;align-items:center;gap:6px"><span style="font:700 12px/1 'Courier Prime',monospace;color:#204670;background:#FFFFFF;padding:6px 10px;border-radius:999px">ON A LINK</span><dc-import name="Sticker" kind="star-glass" size="32" hint-size="32px,32px"></dc-import></div>
+</div><div style="font:400 13px/1.45 'DM Sans',sans-serif;color:#130F1F">8px lavender dot + 28px white ring. On anything clickable it becomes a 32px glass-star sticker. Trail: a note (♪ ♫ ♩ ♬) every 34px, floats up 46px, fades 900ms. Everywhere on the site; off for reduced motion.</div></div>
+<div style="padding:20px;background:#FBF9F5;border-radius:4px;display:flex;flex-direction:column;gap:10px"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">MINI PLAYER · 4 STATES</div><div style="display:grid;grid-template-columns:1fr;gap:8px"><sc-for list="{{ players }}" as="p" hint-placeholder-count="4"><div style="display:flex;align-items:center;gap:10px"><div style="zoom:.62"><dc-import name="MiniPlayer" state="{{ p.s }}" hint-size="280px,80px"></dc-import></div><span style="font:700 10px/1.3 'Courier Prime',monospace;color:#3D4A66">{{ p.n }}</span></div></sc-for></div><div style="font:400 13px/1.45 'DM Sans',sans-serif;color:#130F1F">Slides in from the left edge. Keeps playing across every section.</div></div>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const N = (t, d, m) => ({ t, d, m });
+    return {
+      audit: [
+        { t: 'AUDIT · LAYER 1 SPEC 5/5', d: 'Cover photo with gold corners, name, cover line, clipped note, 7 fixed stickers incl. the three words + date stamp, live physics stickers, open link, reset link; menu, stuck, resized, contents, global frame. All four frames named 02-Cover/….' },
+        { t: 'AUDIT · LAYER 2 CRAFT 4/5 · FOUND → FIXED', d: 'Physics pile rose over the cover’s bottom text → cover stickers drop at 72% size so the pile rests below the journal. Date stamp vanished on navy (navy ink) → moved onto the photo’s pale corner. No fasteners on stickers; gold only on paper and the photo.' },
+        { t: 'AUDIT · LAYER 3 COHESION 4/5', d: 'Same desk, coil, tabs and player as Phases 1–2; the cover is the journal that rose from the envelope. Render: 4 scenes + global strip, 0 missing images. Decision: the contents spread uses a plain white inside-cover on the left and the lined page on the right.' }
+      ],
+      frames: [
+        { id: 'default', st: 'default', name: '02-Cover/Default', sub: 'live · the 40 stickers fall when the frame comes into view', title: 'The cover she comes back to', notes: [N('PHOTO', 'Hero 4:5 at 520 × 650, gold photo corners, tilted 2°.', 'hover photo: lift −4px, 200ms spring'), N('NAME', 'Pinyon Script 170 in white on brown leather; cover line in Courier Prime.', ''), N('STICKERS', '7 fixed on the cover (flat, stuck), 40 physics stickers resting on the desk. Drag, throw or right-click any loose one.', 'see Phase 2 physics values'), N('OPEN', '“open the journal →” or a click anywhere on the cover opens the contents.', 'cover flips left over the spiral · 600ms · cubic-bezier(0.65,0,0.35,1)')] },
+        { id: 'menu', st: 'menu', name: '02-Cover/Sticker-menu', sub: 'dragging · thrown · menu open · first-drag hint', title: 'Playing with the stickers', notes: [N('DRAGGING', 'Lifted 10px, scale 1.06, deeper shadow, gloss sweeps across.', '150ms spring'), N('DROPPED', 'Wherever she lets go, the sticker sticks there: on the cover, the desk, anywhere. “Let it fall” drops it back into the physics pile.', 'no jitter: resting stickers sleep'), N('MENU', 'Stick here · Let it fall · Duplicate · Bring to front · Size S / M / L + slider 40–320 · Angle −180° to 180° · Peel off (delete).', 'pops in .9 → 1, 120ms spring · Esc closes'), N('HINT TOAST', 'Shown on the first drag only, beside the sticker.', 'fades after 5s · 300ms')] },
+        { id: 'stuck', st: 'stuck', name: '02-Cover/Stuck-and-resized', sub: 'two stickers stuck higher up · one mid-resize', title: 'Stuck down and resized', notes: [N('STUCK', 'Cookie bear and camera cat stuck on the cover by Neha: flat, tighter shadow, no pin or clip. Physics ignores them.', 'press 160ms'), N('RESIZE', 'Corner handle on hover; drag scales 40–320 with a live size label.', 'handle fades in 150ms'), N('DUPLICATE', 'Copy pops out 24px away with a small bounce.', '260ms spring'), N('DELETE', 'Peels from one corner, curls and fades.', '400ms cubic-bezier(0.25,1,0.5,1)')] },
+        { id: 'contents', st: 'contents', name: '02-Cover/Contents', sub: 'the first spread · “rare footage” hovered', title: 'Contents', notes: [N('LEFT PAGE', 'Group photo held by a gold binder clip, the welcome note in Caveat, three stuck stickers.', ''), N('CONTENTS', 'Six handwritten links, each with a sticker doodle and a page number; “the back pages” at the foot.', ''), N('HOVER', 'Lavender underline draws in; the doodle wiggles ±12°.', '200ms · doodle 300ms')] }
+      ],
+      tabStates: [{ s: 'default', n: 'REST' }, { s: 'hover', n: 'HOVER' }, { s: 'active', n: 'ACTIVE' }],
+      turn: [{ n: 'START', tf: 'rotateY(-14deg)', f: '#FFFFFF', sh: '4px 3px 8px rgba(19,15,31,.25)' }, { n: 'MIDDLE', tf: 'rotateY(-84deg)', f: '#E6E1F0', sh: 'none' }, { n: 'END', tf: 'rotateY(-168deg)', f: '#EEE9F4', sh: '-3px 3px 6px rgba(19,15,31,.2)' }],
+      players: [{ s: 'paused', n: 'PAUSED' }, { s: 'playing', n: 'PLAYING' }, { s: 'press', n: 'PRESS PLAY' }, { s: 'muted', n: 'SOUND OFF' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

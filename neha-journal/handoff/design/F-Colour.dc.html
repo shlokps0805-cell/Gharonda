@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33}a{color:#204670}a:hover{color:#5E3695}</style></helmet>
+<div data-screen-label="00-System/Colour-map-v2" style="position:relative;width:1440px;background:#FBF9F5;border-radius:4px;overflow:hidden">
+<div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px;pointer-events:none"></div>
+<div style="position:relative;padding:96px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid #CED9E4;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">00 · SYSTEM · COLOUR-MAP-V2</div><div style="font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F">Picked straight from your pictures</div></div>
+<div style="font:600 32px/1 'Caveat',cursive;color:#5E3695;transform:rotate(-2deg)">blue sky, violet night, one red ribbon.</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Sampled from the resources</div><div style="font:400 13px/1 'Courier Prime',monospace;color:#3D4A66">k-means on each image · % = share of that image</div></div>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:20px">
+<sc-for list="{{ sources }}" as="s" hint-placeholder-count="6">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="height:120px;border-radius:6px;background:#ECE8F2;display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="{{ s.img }}" alt="" style="max-width:{{ s.mw }};max-height:110px;display:block"></img></div>
+<div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#130F1F">{{ s.n }}</div>
+<div style="display:flex;flex-direction:column;gap:4px"><sc-for list="{{ s.c }}" as="c" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:8px"><div style="width:28px;height:16px;border-radius:3px;background:{{ c.h }};box-shadow:inset 0 0 0 1px rgba(19,15,31,.12)"></div><span style="font:400 11px/1 'Courier Prime',monospace;color:#3D4A66">{{ c.h }} · {{ c.p }}</span></div></sc-for></div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Five families</div><div style="display:flex;gap:16px;font:400 13px/1 'Courier Prime',monospace;color:#3D4A66"><span>● sampled</span><span>○ derived for contrast or depth</span></div></div>
+<sc-for list="{{ fams }}" as="f" hint-placeholder-count="5">
+<div style="display:grid;grid-template-columns:160px 1fr 300px;gap:24px;align-items:center;padding:12px 0;border-top:1px solid #E3E8EF">
+<div style="font:400 24px/1 'Libre Caslon Text',serif;color:#130F1F">{{ f.n }}</div>
+<div style="display:flex;gap:12px">
+<sc-for list="{{ f.sw }}" as="c" hint-placeholder-count="4">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px"><div style="height:64px;border-radius:6px;background:{{ c.h }};box-shadow:inset 0 0 0 1px rgba(19,15,31,.1);display:flex;align-items:flex-end;padding:8px;font:700 11px/1 'Courier Prime',monospace;color:{{ c.on }}">{{ c.r }}</div><div style="display:flex;justify-content:space-between;font:700 11px/1 'Courier Prime',monospace;color:#130F1F"><span>{{ c.mark }} {{ c.n }}</span><span style="font-weight:400;color:#3D4A66">{{ c.h }}</span></div></div>
+</sc-for>
+</div>
+<div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#3D4A66;text-wrap:pretty">{{ f.use }}</div>
+</div>
+</sc-for>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:6px;background:#E6EDF4"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670">PER SCREEN</div><div style="font:400 17px/1.55 'DM Sans',sans-serif;color:#130F1F">Black + white, plus two families: blue for the day pages, purple for the night ones. Purple fasteners count as the second. Red stays a pop, under 10%.</div></div>
+<div style="display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:6px;background:#EEE7F8"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#5E3695">GRADIENTS ALLOWED</div><div style="font:400 17px/1.55 'DM Sans',sans-serif;color:#130F1F">Midnight → wine desk · lavender light leak in one page corner · holo shimmer on stickers. Never behind long text, never neon.</div></div>
+<div style="display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:6px;background:#F3E6E8"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#7A1F2B">RED, ONLY HERE</div><div style="font:400 17px/1.55 'DM Sans',sans-serif;color:#130F1F">Ribbon bookmark · one tab underline · wax seals · a few stickers · the gingham hearts and cherries. Never a button, never a fastener.</div></div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:0">
+<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Section map</div><div style="font:400 13px/1 'Courier Prime',monospace;color:#3D4A66">✳ planned exception</div></div>
+<div style="display:grid;grid-template-columns:180px 1fr 1fr 1fr 1fr;border-top:1.5px solid #130F1F">
+<sc-for list="{{ heads }}" as="h" hint-placeholder-count="5"><div style="padding:12px 0;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#3D4A66;border-bottom:1px solid #CED9E4">{{ h }}</div></sc-for>
+<sc-for list="{{ map }}" as="r" hint-placeholder-count="8">
+<div style="padding:14px 0;border-bottom:1px solid #E3E8EF;display:flex;align-items:baseline;gap:10px"><span style="font:700 11px/1 'Courier Prime',monospace;color:#5E3695">{{ r.no }}</span><span style="font:400 20px/1.2 'Libre Caslon Text',serif;color:#130F1F">{{ r.n }}</span></div>
+<sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="4">
+<div style="padding:14px 16px 14px 0;border-bottom:1px solid #E3E8EF;display:flex;gap:10px;align-items:flex-start"><div style="flex:none;width:26px;height:26px;border-radius:5px;background:{{ c.bg }};box-shadow:inset 0 0 0 1px rgba(19,15,31,.12)"></div><div style="display:flex;flex-direction:column;gap:3px"><div style="font:600 14px/1.25 'DM Sans',sans-serif;color:#130F1F">{{ c.n }}</div><div style="font:400 12px/1.35 'Courier Prime',monospace;color:#3D4A66">{{ c.note }}</div></div></div>
+</sc-for>
+</sc-for>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Friend colours · Wishes</div><div style="font:600 26px/1 'Caveat',cursive;color:#5E3695">each friend picks the one that is her, to them.</div></div>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:16px">
+<sc-for list="{{ friends }}" as="c" hint-placeholder-count="12">
+<div style="height:120px;border-radius:6px;background:{{ c.h }};padding:14px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 1px 2px rgba(19,15,31,.2)">
+<div style="font:600 28px/1 'Caveat',cursive;color:{{ c.t }}">{{ c.n }}</div>
+<div style="display:flex;justify-content:space-between;font:700 11px/1 'Courier Prime',monospace;color:{{ c.t }}"><span>{{ c.h }}</span><span>{{ c.r }}</span></div>
+</div>
+</sc-for>
+</div>
+<div style="font:400 13px/1.5 'Courier Prime',monospace;color:#3D4A66">text pairing shown on each card · full-page wish uses a soft tint of the light colours (ink text) and the rich colour itself for the dark ones (white text) · all pass AA for body text</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const src = (n, img, c, mw) => ({ n, img, mw: mw || '90%', c: c.map(([h, p]) => ({ h, p })) });
+    const sources = [
+      src('gingham background', 'assets/bg/gingham.jpeg', [['#F7F1E6', '40%'], ['#CED9E4', '25%'], ['#ACBFD3', '12%'], ['#96A4BA', '3%'], ['#BA2F1F', 'hearts']]),
+      src('checkered star', 'assets/stickers/check-star.png', [['#130F1F', '24%'], ['#A57BD5', '24%'], ['#C4A8E6', '3%']], '110px'),
+      src('glitter clef', 'assets/stickers/clef.png', [['#320F6F', '33%'], ['#5E3695', '28%'], ['#8A63BC', '24%']], '80px'),
+      src('jellyfish + jelly star', 'assets/stickers/jellyfish.png', [['#B2B2E5', '40%'], ['#D0B0F5', '29%'], ['#999AD7', '20%']], '100px'),
+      src('satin bow', 'assets/stickers/bow.png', [['#CA9AA1', '36%'], ['#DEC0C4', '24%'], ['#C95A5B', 'gingham']], '140px')
+    ];
+    const sw = (n, h, mark, r, on) => ({ n, h, mark: mark ? '●' : '○', r: r || '', on: on || '#130F1F' });
+    const fams = [
+      { n: 'Black', sw: [sw('ink', '#130F1F', 1, 'white 17.3', '#FFFFFF'), sw('soft black', '#1C1828', 0, 'dark page', '#FFFFFF'), sw('midnight', '#141E33', 0, 'white 16.6', '#FFFFFF')], use: 'Text, sticker black, the night desk and the Darkroom page.' },
+      { n: 'White', sw: [sw('paper', '#FBF9F5', 0, 'ink 17.9'), sw('cream', '#F7F1E6', 1, 'gingham'), sw('mist white', '#ECE8F2', 0, 'cards')], use: 'Journal pages, photo borders, die-cut edges. Paper is a cool white so the blue desk stays clean.' },
+      { n: 'Blue', sw: [sw('powder', '#CED9E4', 1, 'ink 13.1'), sw('dusty', '#ACBFD3', 1, 'ink 10.0'), sw('slate', '#96A4BA', 1), sw('navy', '#204670', 1, 'white 9.7', '#FFFFFF')], use: 'Atmosphere and structure. Navy is the primary button, the cover cloth, headings on light tints.' },
+      { n: 'Purple', sw: [sw('lilac', '#DCCBF3', 0, 'ink 12.4'), sw('soft purple', '#C4A8E6', 1, 'fasteners'), sw('lavender', '#A57BD5', 1, 'ink 5.7'), sw('violet', '#5E3695', 1, 'white 8.6', '#FFFFFF'), sw('deep violet', '#320F6F', 1, 'white 14.6', '#FFFFFF')], use: 'Every clip, pin and the coil. Violet is the night pages and the second button.' },
+      { n: 'Red', sw: [sw('blush', '#DEC0C4', 1), sw('satin rose', '#CA9AA1', 1), sw('cherry', '#BA2F1F', 1, 'white 6.0', '#FFFFFF'), sw('wine', '#7A1F2B', 0, 'white 10.2', '#FFFFFF')], use: 'Small pops only. Cherry from the gingham hearts, rose from the bow, wine for seals.' }
+    ];
+    const c = (bg, n, note) => ({ bg, n, note });
+    const G = 'url(assets/bg/gingham.jpeg) center/cover', N = 'linear-gradient(160deg,#141E33,#3A1C2E)';
+    const map = [
+      { no: '00', n: 'Opening', cells: [c(G, 'gingham', 'softened 12% veil'), c('#F4EDE0', 'cream envelope', 'paper inside'), c('#C4A8E6', 'purple', 'seal pulse ring'), c('#7A1F2B', 'wine seal', '')] },
+      { no: '01', n: 'Cover', cells: [c(G, 'gingham', ''), c('#204670', 'navy linen cover', 'photo 560 × 700'), c('#204670', 'blue', 'name, cover line'), c('#BA2F1F', 'cherry ribbon', 'bookmark')] },
+      { no: '02', n: 'Timeline', cells: [c(G, 'gingham', ''), c('#FBF9F5', 'white + grid', 'string across'), c('#C4A8E6', 'purple', 'clothespins on the string'), c('#ACBFD3', 'dusty blue', 'era years')] },
+      { no: '03', n: 'Darkroom', cells: [c(N, 'midnight → wine', 'night desk'), c('#1C1828', 'dark page', ''), c('#5E3695', 'purple', 'safelight glow is violet'), c('#E86A5A', 'film date stamps', 'texture only')] },
+      { no: '04', n: 'Wishes ✳', cells: [c(G, 'gingham', ''), c('#ECE8F2', 'friend tint', 'per letter'), c('#A63A48', '12 friend colours', 'planned exception'), c('#7A1F2B', 'seal = darker shade', '')] },
+      { no: '05', n: 'Playlist', cells: [c(N, 'midnight → wine', ''), c('#EEE7F8', 'lavender page', ''), c('#5E3695', 'purple', 'tracks, cassette'), c('#BA2F1F', 'cherry', 'playing bar only')] },
+      { no: '06', n: 'Jokes', cells: [c(G, 'gingham', ''), c('#CDB79A', 'kraft board', 'pinned notes'), c('#C4A8E6', 'purple', 'all pins'), c('#204670', 'navy', 'found stamp')] },
+      { no: '07', n: 'Games ✳', cells: [c(G, 'gingham', ''), c('#FBF9F5', 'grid page', ''), c('#204670', 'blue', 'tiles, buttons'), c('#DCCBF3', '4 group colours', 'powder · lilac · rose · navy')] }
+    ];
+    const fr = [['Wine', '#7A1F2B', 1, '10.2'], ['Rosewood', '#A63A48', 1, '6.3'], ['Dusty rose', '#DEC0C4', 0, '11.2'], ['Plum', '#4A3560', 1, '10.7'], ['Lavender', '#C4A8E6', 0, '9.0'], ['Lilac', '#DCCBF3', 0, '12.4'], ['Periwinkle', '#B2B2E5', 0, '9.3'], ['Dusty blue', '#ACBFD3', 0, '10.0'], ['Denim', '#3D5A8A', 1, '6.9'], ['Midnight', '#141E33', 1, '16.6'], ['Slate', '#5C6B85', 1, '5.4'], ['Mist', '#CED9E4', 0, '13.1']];
+    const friends = fr.map(([n, h, d, r]) => ({ n, h, t: d ? '#FFFFFF' : '#130F1F', r: (d ? 'white ' : 'ink ') + r + ':1' }));
+    return { sources, fams, map, friends, heads: ['SECTION', 'DESK', 'PAGE', 'MAIN FAMILY', 'ACCENT'] };
+  }
+}
+</script>
+</body>
+</html>

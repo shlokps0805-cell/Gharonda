@@ -1,0 +1,47 @@
+[
+  {
+    "id": "puzzle-1",
+    "groups": [
+      {
+        "name": "SAMPLE · THINGS SHE ORDERS TWICE",
+        "words": [
+          "CHAI",
+          "FRIES",
+          "MANGO",
+          "NACHOS"
+        ],
+        "level": 1
+      },
+      {
+        "name": "SAMPLE · HER ALARM TONES",
+        "words": [
+          "DISCO",
+          "RAIN",
+          "BIRDS",
+          "TRUMPET"
+        ],
+        "level": 2
+      },
+      {
+        "name": "SAMPLE · SPUN AT 2AM",
+        "words": [
+          "VINYL",
+          "CHAIR",
+          "PLATE",
+          "PEN"
+        ],
+        "level": 3
+      },
+      {
+        "name": "SAMPLE · WORDS SHE MADE UP",
+        "words": [
+          "BLORP",
+          "ZEST",
+          "FLIM",
+          "OOF"
+        ],
+        "level": 4
+      }
+    ]
+  }
+]

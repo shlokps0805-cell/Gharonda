@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33;-webkit-font-smoothing:antialiased}a{color:#DCCBF3;text-decoration-color:#A57BD5;text-underline-offset:4px}a:hover{color:#FFFFFF}</style></helmet>
+<section style="padding:96px;display:flex;flex-direction:column;gap:96px;background:#141E33;min-width:1984px">
+<div style="display:flex;flex-direction:column;gap:16px;width:1840px">
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.18em;color:#C4A8E6">NEHA · THE BIRTHDAY JOURNAL · PHASE 7B</div>
+<div style="font:400 88px/1 'Libre Caslon Text',serif;color:#FFFFFF;white-space:nowrap">Games, <span style="font-style:italic">can you solve her?</span></div>
+<div style="display:flex;gap:16px;padding-top:8px"><sc-for list="{{ audit }}" as="a" hint-placeholder-count="3"><div style="flex:1;padding:16px 20px;background:#FBF9F5;border-radius:4px;display:flex;flex-direction:column;gap:6px"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div></div></sc-for></div>
+</div>
+<sc-for list="{{ frames }}" as="f" hint-placeholder-count="8">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">{{ f.name }}</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">{{ f.sub }}</span></div>
+<div style="display:flex;gap:40px;align-items:flex-start"><dc-import name="GamesScene" state="{{ f.st }}" hint-size="1440px,900px"></dc-import>
+<div style="width:360px;display:flex;flex-direction:column;gap:12px;padding:24px;background:#FBF9F5;border-radius:4px"><div style="font:400 26px/1.15 'Libre Caslon Text',serif;color:#130F1F">{{ f.title }}</div><sc-for list="{{ f.notes }}" as="a" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid #E3E8EF"><div style="font:700 11px/1.3 'Courier Prime',monospace;letter-spacing:.06em;color:#204670">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div><div style="font:400 12px/1.4 'Courier Prime',monospace;color:#3D4A66">{{ a.m }}</div></div></sc-for></div></div>
+</div>
+</sc-for>
+<div style="display:flex;flex-direction:column;gap:16px;width:1840px">
+<div style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">Other states <span style="font-weight:400;color:#ACBFD3">· shown at 40%</span></div>
+<div style="display:grid;grid-template-columns:repeat(3,576px);gap:24px 32px">
+<sc-for list="{{ strip }}" as="s" hint-placeholder-count="13"><div style="display:flex;flex-direction:column;gap:8px"><div style="width:576px;height:360px;overflow:hidden;border-radius:3px"><div style="zoom:.4"><dc-import name="GamesScene" state="{{ s.st }}" hint-size="1440px,900px"></dc-import></div></div><div style="display:flex;gap:10px;align-items:baseline"><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">{{ s.n }}</span><span style="font:400 13px/1.4 'DM Sans',sans-serif;color:#CED9E4">{{ s.u }}</span></div></div></sc-for>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const N = (t, d, m) => ({ t, d, m: m || '' });
+    return {
+      audit: [
+        { t: 'AUDIT · LAYER 1 SPEC 5/5', d: 'Spread with four cards (name, Caveat line, preview, stickers, no stamps); Connections: default, selected, wrong (“one away…”), one solved, all solved; Wordle: empty, mid, typing, not in word list, solved with share row, not solved; Cryptic: unsolved, hint 1, all hints, wrong, solved + explanation, 14-day streak; Neha’s World: empty, loading, playing, paused.' },
+        { t: 'AUDIT · LAYER 2 CRAFT 4/5 · FOUND → FIXED', d: 'Two 8-balls on the spread → one swapped for the vinyl. Cards are 250 × 420, not 320 × 420: four 320 px cards cannot fit across one 1180 px page with margins. Original game colours only on these pages; gold clips on cards and the console.' },
+        { t: 'AUDIT · LAYER 3 COHESION 4/5', d: 'Every game sits on the grid page (cryptic on lined) with stickers in the margins and a “back to the games” tab. No NYT branding, no characters from existing games. Render: 8 full frames + 13 state thumbnails, 0 missing.' }
+      ],
+      frames: [
+        { st: 'spread', name: '08-Games/Spread', sub: '', title: 'can you solve her?', notes: [N('CARDS', 'Puzzle-book cards held by gold clips or washi, each with a tiny preview in its own colours.', 'hover: lift −4px, straighten · 200ms spring')] },
+        { st: 'conn-one', name: '08-Games/Connections', sub: 'one group solved · three tiles selected', title: 'connections, the neha edition', notes: [N('TILES', '16 grey tiles 150 × 80, bold body-sans caps; selected tiles darker grey with white text.', 'select 120ms'), N('SOLVED', 'Groups become full-width bars in the classic yellow → green → blue → purple, name in bold caps, words beneath.', 'tiles fly up into the bar · 450ms spring')] },
+        { st: 'conn-solved', name: '08-Games/Connections-solved', sub: 'all four groups', title: 'All solved', notes: [N('DONE', '“solved with 2 mistakes” in Caveat, plus a small palette confetti burst (white, powder blue, lavender, violet, dusty rose).', '900ms')] },
+        { st: 'wordle-mid', name: '08-Games/Wordle-mid', sub: 'two rows played', title: 'wordle, the neha edition', notes: [N('GRID', '6 × 5 boxes and a QWERTY keyboard whose keys take the results. Classic green, yellow and grey.'), N('FLIP', 'Letters flip one after another to show their colour.', '250ms each · rotateX')] },
+        { st: 'wordle-solved', name: '08-Games/Wordle-solved', sub: 'got it in 4', title: 'Solved', notes: [N('WIN', 'Winning row does a small bounce; “you got it in 4” with a share-style result row and Copy result.', 'bounce 100ms stagger')] },
+        { st: 'cry-allhints', name: '08-Games/Cryptic-hints', sub: 'all three hints unfolded', title: 'daily cryptic', notes: [N('HINTS', 'A folded paper strip under the clue; each click unfolds the next fold: 1 the definition is underlined, 2 the trick, 3 a letter.', 'unfold 300ms each'), N('STREAK', '14 days: filled lavender solved, outlined today, empty missed, faded future; “streak: 5”.')] },
+        { st: 'cry-solved', name: '08-Games/Cryptic-solved', sub: 'with the explanation', title: 'Solved', notes: [N('EXPLAIN', 'A card unfolds splitting the clue into definition and wordplay, with a line on how it works. Today’s streak dot fills.', '400ms')] },
+        { st: 'world-empty', name: '08-Games/Worlds-empty', sub: 'the slot before the game is added', title: 'Neha’s World', notes: [N('SLOT', '16:9 960 × 540 screen in a navy console held by two gold clips, title, controls card with keycaps, power-up legend with three empty sticker frames, best score, expand.'), N('EXPAND', 'The game grows to 1280 × 720 over a dimmed desk.', '450ms spring · desk dims 60%')] }
+      ],
+      strip: [['conn-default', 'CONNECTIONS · DEFAULT', 'nothing selected'], ['conn-selected', 'FOUR SELECTED', 'Submit turns black'], ['conn-wrong', 'WRONG GUESS', 'tiles shake 300ms · “one away…”'], ['wordle-empty', 'WORDLE · EMPTY', 'Caveat hint note clipped beside'], ['wordle-typing', 'ROW BEING TYPED', 'darker box borders'], ['wordle-notword', 'NOT IN WORD LIST', 'row shakes · toast'], ['wordle-lost', 'NOT SOLVED', 'reveals the word'], ['cry-unsolved', 'CRYPTIC · UNSOLVED', 'all hints folded'], ['cry-hint1', 'FIRST HINT', 'definition underlined'], ['cry-wrong', 'WRONG CHECK', 'boxes shake, rose outline'], ['world-loading', 'WORLD · LOADING', 'lavender bar'], ['world-playing', 'PLAYING', 'only the screen changes'], ['world-paused', 'PAUSED', 'soft overlay + resume']].map(([st, n, u]) => ({ st, n, u }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33;-webkit-font-smoothing:antialiased}a{color:#DCCBF3;text-decoration-color:#A57BD5;text-underline-offset:4px}a:hover{color:#FFFFFF}</style></helmet>
+<section style="padding:96px;display:flex;flex-direction:column;gap:96px;background:linear-gradient(180deg,#141E33,#1A1A38 50%,#141E33);min-width:1632px">
+<div style="display:flex;flex-direction:column;gap:18px;width:1440px">
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.18em;color:#C4A8E6">NEHA · THE BIRTHDAY JOURNAL · PHASE 1 V2</div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px"><div style="font:400 88px/.95 'Libre Caslon Text',serif;color:#FFFFFF;white-space:nowrap">Foundations, <span style="font-style:italic">as a journal</span></div><div style="padding-bottom:12px"><dc-import name="Sticker" kind="happy-birthday" size="250" rotate="-4" hint-size="250px,82px"></dc-import></div></div>
+<div style="display:flex;flex-wrap:wrap;gap:22px;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.06em;padding-top:12px">
+<sc-for list="{{ frames }}" as="f" hint-placeholder-count="12"><a href="#{{ f.id }}">{{ f.n }}</a></sc-for>
+</div>
+</div>
+<div id="direction" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Direction-v2</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">journal · coils · paper · tabs · page turn · envelope</span></div>
+<dc-import name="F-Direction" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="palette" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Palette-options-v2</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">2a recommended</span></div>
+<dc-import name="F-Palette" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="colour" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Colour-map-v2</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">sampled colours · families · section map · friend colours</span></div>
+<dc-import name="F-Colour" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="backgrounds" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Backgrounds-v2</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">4a recommended</span></div>
+<dc-import name="F-Backgrounds" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="type" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Type-v2</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">5a recommended</span></div>
+<dc-import name="F-Type" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="stickers" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Stickers-v2</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">56 stickers · hover any</span></div>
+<dc-import name="F-Stickers" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="comp-a" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Components-v2 · A</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">buttons · fasteners · photo frames</span></div>
+<dc-import name="F-CompA" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="comp-b" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Components-v2 · B</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">full-page wishes ×3</span></div>
+<dc-import name="F-CompB" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="comp-c" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Components-v2 · C</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">live sticker playground · menu · player · music-note cursor</span></div>
+<dc-import name="F-CompC" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="comp-d" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Components-v2 · D</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">envelopes · seals · timeline eras · games · platformer</span></div>
+<dc-import name="F-CompD" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="sample" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Sample-page-v2</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">1440 × 900 · scroll the page · move the mouse</span></div>
+<dc-import name="F-Sample" hint-size="1440px,900px"></dc-import>
+</div>
+<div id="tokens" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">00-System/Tokens-v2</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">for the build</span></div>
+<dc-import name="F-Tokens" hint-size="1440px,900px"></dc-import>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { frames: [
+      { id: 'direction', file: 'F-Direction', n: '00-System/Direction-v2', d: 'journal · coils · paper · tabs · page turn · envelope' },
+      { id: 'palette', file: 'F-Palette', n: '00-System/Palette-options-v2', d: '2a recommended' },
+      { id: 'colour', file: 'F-Colour', n: '00-System/Colour-map-v2', d: 'sampled colours · families · section map · friend colours' },
+      { id: 'backgrounds', file: 'F-Backgrounds', n: '00-System/Backgrounds-v2', d: '4a recommended' },
+      { id: 'type', file: 'F-Type', n: '00-System/Type-v2', d: '5a recommended' },
+      { id: 'stickers', file: 'F-Stickers', n: '00-System/Stickers-v2', d: '56 stickers · hover any' },
+      { id: 'comp-a', file: 'F-CompA', n: '00-System/Components-v2 · A', d: 'buttons · fasteners · photo frames' },
+      { id: 'comp-b', file: 'F-CompB', n: '00-System/Components-v2 · B', d: 'full-page wishes ×3' },
+      { id: 'comp-c', file: 'F-CompC', n: '00-System/Components-v2 · C', d: 'live sticker playground · menu · player · music-note cursor' },
+      { id: 'comp-d', file: 'F-CompD', n: '00-System/Components-v2 · D', d: 'envelopes · seals · timeline eras · games · platformer' },
+      { id: 'sample', file: 'F-Sample', n: '00-System/Sample-page-v2', d: '1440 × 900 · scroll the page · move the mouse' },
+      { id: 'tokens', file: 'F-Tokens', n: '00-System/Tokens-v2', d: 'for the build' }
+    ] };
+  }
+}
+</script>
+</body>
+</html>

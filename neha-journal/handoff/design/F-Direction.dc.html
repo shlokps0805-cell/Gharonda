@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33}a{color:#204670}a:hover{color:#5E3695}</style></helmet>
+<div data-screen-label="00-System/Direction-v2" style="position:relative;width:1440px;background:#FBF9F5;border-radius:4px;overflow:hidden">
+<div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px;pointer-events:none"></div>
+<div style="position:relative;padding:96px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid #CED9E4;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">00 · SYSTEM · DIRECTION-V2</div><div style="font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F">The birthday journal</div></div>
+<div style="max-width:520px;text-align:right;font:400 17px/1.55 'DM Sans',sans-serif;color:#3D4A66;text-wrap:pretty">A spiral-bound journal left open on a desk, filled by her friends with photos, notes, stickers and keepsakes. Every section is a page.</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Closed cover</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">1180 × 756 · shown at 45%</div></div>
+<div style="position:relative;height:420px;border-radius:6px;overflow:hidden;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:rgba(251,249,245,.14)"></div>
+<div style="position:absolute;left:24px;top:34px;width:1192px;height:830px;transform:scale(.45);transform-origin:0 0">
+<dc-import name="SpiralJournal" w="1180" h="756" paper="cover-navy" coil="silver" elastic="{{ true }}" ribbon="{{ true }}" hint-size="1192px,824px"></dc-import>
+<div style="position:absolute;left:110px;top:56px"><dc-import name="PhotoFrame" type="polaroid" ratio="4:5" size="440" rotate="-2" caption="her cover photo" label="photo · 4:5 · hero (560 × 700 on the cover)" show-caption="{{ false }}" hint-size="490px,700px"></dc-import></div>
+<div style="position:absolute;left:640px;top:210px;font:400 190px/1 'Pinyon Script',cursive;color:#FFFFFF">Neha</div>
+<div style="position:absolute;left:660px;top:430px;font:700 20px/1 'Courier Prime',monospace;letter-spacing:.2em;color:#DCCBF3">THE BIRTHDAY JOURNAL · 11.10.2026</div>
+<div style="position:absolute;left:940px;top:520px"><dc-import name="Sticker" kind="disco-violet" size="190" rotate="8" hint-size="190px,190px"></dc-import></div>
+<div style="position:absolute;left:580px;top:560px"><dc-import name="Sticker" kind="bow" size="200" rotate="-6" hint-size="200px,120px"></dc-import></div>
+<div style="position:absolute;left:470px;top:20px"><dc-import name="Sticker" kind="jelly-star" size="140" rotate="10" hint-size="140px,140px"></dc-import></div>
+</div>
+</div>
+<div style="font:400 15px/1.55 'DM Sans',sans-serif;color:#3D4A66">Navy linen board, violet elastic band, cherry ribbon bookmark. The band only appears here; it slides off as the cover opens.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Inside the cover · contents</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">sketch · 45%</div></div>
+<div style="position:relative;height:420px;border-radius:6px;overflow:hidden;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:rgba(251,249,245,.14)"></div>
+<div style="position:absolute;left:24px;top:34px;width:1192px;height:830px;transform:scale(.45);transform-origin:0 0">
+<dc-import name="SpiralJournal" w="1180" h="756" paper="lined" coil="silver" hint-size="1192px,768px"></dc-import>
+<div style="position:absolute;left:150px;top:44px;font:400 61px/1 'Libre Caslon Text',serif;color:#130F1F">contents</div>
+<div style="position:absolute;left:150px;top:160px;display:flex;flex-direction:column;gap:22px">
+<sc-for list="{{ contents }}" as="c" hint-placeholder-count="6"><div style="display:flex;align-items:center;gap:20px;width:620px"><dc-import name="Sticker" kind="{{ c.k }}" size="46" rotate="{{ c.r }}" hint-size="46px,46px"></dc-import><span style="font:600 46px/1 'Caveat',cursive;color:#204670;white-space:nowrap">{{ c.t }}</span><span style="flex:1;border-bottom:2px dotted #ACBFD3;transform:translateY(8px)"></span><span style="font:600 44px/1 'Caveat',cursive;color:#5E3695">{{ c.p }}</span></div></sc-for>
+</div>
+<div style="position:absolute;left:860px;top:96px"><dc-import name="PhotoFrame" type="clipped" ratio="4:5" size="250" rotate="4" show-caption="{{ false }}" tone="{{ 1 }}" hint-size="270px,340px"></dc-import></div>
+<div style="position:absolute;left:880px;top:470px;width:240px;font:400 38px/1.1 'Kalam',cursive;color:#5E3695;transform:rotate(-3deg)">start anywhere. we did.</div>
+</div>
+</div>
+<div style="font:400 15px/1.55 'DM Sans',sans-serif;color:#3D4A66">Each line is a link with a handwritten page number and a small sticker doodle. A soft-purple binder clip holds a little photo in the corner.</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:5fr 7fr;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Spiral · two coils</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="position:relative;height:300px;border-radius:6px;overflow:hidden;background:#CED9E4;padding:24px 0 0 40px"><dc-import name="SpiralJournal" w="240" h="260" paper="white" coil="silver" edges="{{ false }}" loops="{{ 7 }}" hint-size="240px,260px"></dc-import></div><div style="display:flex;align-items:center;gap:8px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#130F1F">6a · SILVER METAL</div><div style="font:700 10px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#FFFFFF;background:#5E3695;border-radius:999px;padding:5px 9px">CHOSEN</div></div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#3D4A66">Classic, crisp; the chrome sparkle and disco stickers echo it.</div></div>
+<div style="display:flex;flex-direction:column;gap:12px"><div style="position:relative;height:300px;border-radius:6px;overflow:hidden;background:#CED9E4;padding:24px 0 0 40px"><dc-import name="SpiralJournal" w="240" h="260" paper="white" coil="purple" edges="{{ false }}" loops="{{ 7 }}" hint-size="240px,260px"></dc-import></div><div style="display:flex;align-items:center;gap:8px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#130F1F">6b · SOFT-PURPLE COATED</div></div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#3D4A66">Matches every clip and pin, so the whole binding reads as one system.</div></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Paper</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">grain on all · faint gutter shadow at the coil</div></div>
+<div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px">
+<sc-for list="{{ papers }}" as="p" hint-placeholder-count="5"><div style="display:flex;flex-direction:column;gap:10px"><div style="height:300px;padding:28px 0 0 20px;border-radius:6px;background:#CED9E4;overflow:hidden"><dc-import name="SpiralJournal" w="104" h="240" paper="{{ p.k }}" coil="silver" loops="{{ 7 }}" hint-size="116px,252px"></dc-import></div><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#130F1F">{{ p.n }}</div><div style="font:400 13px/1.45 'DM Sans',sans-serif;color:#3D4A66">{{ p.u }}</div></div></sc-for>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:5fr 7fr;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Divider tabs</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">64 × 96 · 72px zone · hover any</div></div>
+<div style="display:flex;gap:32px;padding:24px 0 24px 0;border-radius:6px;background:#E6EDF4;justify-content:center">
+<div style="position:relative;display:flex;flex-direction:column"><div style="position:absolute;left:0;top:0;bottom:0;width:8px;background:#ECE8E1;box-shadow:inset -1px 0 0 #DCD6CC"></div><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="display:flex;flex-direction:column;gap:20px;justify-content:center">
+<div style="display:flex;align-items:center;gap:12px"><dc-import name="DividerTab" label="Wishes" hint-size="72px,104px"></dc-import><span style="font:400 13px/1.4 'Courier Prime',monospace;color:#3D4A66">default<br>40px out</span></div>
+<div style="display:flex;align-items:center;gap:12px"><dc-import name="DividerTab" label="Wishes" state="hover" hint-size="72px,104px"></dc-import><span style="font:400 13px/1.4 'Courier Prime',monospace;color:#3D4A66">hover +6px<br>200ms spring</span></div>
+<div style="display:flex;align-items:center;gap:12px"><dc-import name="DividerTab" label="Wishes" state="active" hint-size="72px,104px"></dc-import><span style="font:400 13px/1.4 'Courier Prime',monospace;color:#3D4A66">active +12px<br>deeper + clip</span></div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Page turn · 450ms</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">rotateY around the coil · cubic-bezier(0.65,0,0.35,1)</div></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+<sc-for list="{{ turn }}" as="k" hint-placeholder-count="3">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;height:260px;border-radius:6px;background:#CED9E4;overflow:hidden;perspective:900px">
+<div style="position:absolute;left:62px;top:40px;width:150px;height:180px;border-radius:2px 6px 6px 2px;background:#FBF9F5;box-shadow:0 2px 6px rgba(19,15,31,.2)"><div style="position:absolute;left:24px;top:28px;width:90px;height:8px;background:#DCE3EC"></div><div style="position:absolute;left:24px;top:46px;width:70px;height:8px;background:#DCE3EC"></div><div style="position:absolute;left:24px;top:72px;width:90px;height:70px;background:#E6DDF5"></div></div>
+<div style="position:absolute;left:62px;top:40px;width:150px;height:180px;transform-origin:0 50%;transform:{{ k.tf }};transform-style:preserve-3d">
+<div style="position:absolute;inset:0;border-radius:2px 6px 6px 2px;background:{{ k.face }};box-shadow:{{ k.sh }}"><sc-if value="{{ k.front }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;left:24px;top:28px;width:90px;height:8px;background:#ACBFD3"></div><div style="position:absolute;left:24px;top:52px;width:90px;height:90px;background:#CED9E4"></div></sc-if></div>
+</div>
+<div style="position:absolute;left:52px;top:40px;display:flex;flex-direction:column;gap:12px"><sc-for list="{{ coil6 }}" as="c" hint-placeholder-count="6"><div style="width:22px;height:7px;border-radius:4px;background:linear-gradient(180deg,#EBE0F8,#C4A8E6 35%,#9277BF 60%,#D6C3EF);transform:rotate(-9deg)"></div></sc-for></div>
+</div>
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#130F1F">{{ k.n }}</div><div style="font:400 13px/1.45 'DM Sans',sans-serif;color:#3D4A66">{{ k.u }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:7fr 5fr;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Opening envelope · colour check</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">full sequence in Phase 2</div></div>
+<div style="position:relative;height:440px;border-radius:6px;overflow:hidden;background:url(assets/bg/gingham.jpeg) center/cover;display:flex;align-items:center;justify-content:center">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(251,249,245,.2) 30%,rgba(32,70,112,.22) 100%)"></div>
+<div style="position:relative;transform:scale(.82)"><dc-import name="Envelope" state="pulse" hint-size="560px,360px"></dc-import></div>
+<div style="position:absolute;left:40px;top:40px"><dc-import name="Sticker" kind="jelly-star" size="96" rotate="-8" hint-size="96px,96px"></dc-import></div>
+<div style="position:absolute;right:48px;bottom:32px"><dc-import name="Sticker" kind="happy-birthday" size="190" rotate="-4" hint-size="190px,62px"></dc-import></div>
+</div>
+<div style="font:400 15px/1.55 'DM Sans',sans-serif;color:#3D4A66">Cream envelope, wine wax seal with a lilac pulse, navy-star postage stamp, "For Neha" in Caveat. The card that rises out ends on the journal cover.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Long pages scroll</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">inside the page, not the window</div></div>
+<div style="position:relative;height:440px;border-radius:6px;background:#CED9E4;overflow:hidden;padding:28px 0 0 56px">
+<dc-import name="SpiralJournal" w="380" h="384" paper="white" coil="silver" loops="{{ 10 }}" hint-size="392px,396px"></dc-import>
+<div style="position:absolute;left:104px;top:56px;display:grid;grid-template-columns:1fr 1fr;gap:14px;width:290px">
+<div style="height:150px;background:repeating-linear-gradient(135deg,#BCCDDE 0 10px,#C9D6E3 10px 20px);border:6px solid #FFFFFF;box-shadow:0 1px 3px rgba(19,15,31,.2)"></div><div style="height:120px;background:repeating-linear-gradient(135deg,#CFC1E8 0 10px,#DAD0EE 10px 20px);border:6px solid #FFFFFF;box-shadow:0 1px 3px rgba(19,15,31,.2)"></div><div style="height:130px;background:repeating-linear-gradient(135deg,#CFC1E8 0 10px,#DAD0EE 10px 20px);border:6px solid #FFFFFF;box-shadow:0 1px 3px rgba(19,15,31,.2)"></div><div style="height:160px;background:repeating-linear-gradient(135deg,#BCCDDE 0 10px,#C9D6E3 10px 20px);border:6px solid #FFFFFF;box-shadow:0 1px 3px rgba(19,15,31,.2)"></div>
+</div>
+<div style="position:absolute;left:56px;top:330px;width:380px;height:82px;background:linear-gradient(180deg,rgba(251,249,245,0),#FBF9F5 80%)"></div>
+<div style="position:absolute;left:418px;top:56px;width:2px;height:300px;background:repeating-linear-gradient(180deg,rgba(61,74,102,.35) 0 3px,transparent 3px 5px)"></div>
+<div style="position:absolute;left:416px;top:74px;width:6px;height:96px;border-radius:3px 3px 1px 1px;background:linear-gradient(180deg,#5E3695,#3D4A66);clip-path:polygon(0 0,100% 0,100% 88%,50% 100%,0 88%)"></div>
+</div>
+<div style="font:400 15px/1.55 'DM Sans',sans-serif;color:#3D4A66">The scrollbar is a dotted pencil line with a pencil-tip thumb; the bottom 80px fades into the paper.</div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      contents: [
+        { t: 'then, now, always', p: '02', k: 'paint-star', r: -6 }, { t: 'rare footage', p: '06', k: 'camera', r: 4 }, { t: 'letters from her people', p: '10', k: 'postage-stamp', r: -3 },
+        { t: 'songs that sound like neha', p: '14', k: 'cd', r: 6 }, { t: 'the joke archive', p: '18', k: 'eight-ball', r: -4 }, { t: 'can you solve her?', p: '22', k: 'check-star', r: 3 }
+      ],
+      papers: [{ k: 'lined', n: 'WHITE · LINED', u: 'Plain white with lines. The default page' }, { k: 'white', n: 'PLAIN WHITE', u: 'Cover inside' }, { k: 'grid', n: 'GRID', u: '24px faint grid. Timeline, Games' }, { k: 'kraft', n: 'KRAFT', u: 'Sparingly: the Jokes board' }, { k: 'dark', n: 'DARK', u: 'The Darkroom' }],
+      tabs: ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'],
+      coil6: [1, 2, 3, 4, 5, 6],
+      turn: [
+        { n: '0 MS · START', u: 'right edge lifts 4px, shadow grows under it', tf: 'rotateY(-14deg)', face: '#FBF9F5', sh: '6px 4px 12px rgba(19,15,31,.25)', front: true },
+        { n: '225 MS · MIDDLE', u: 'page stands at 90°, a sliver over the coil', tf: 'rotateY(-84deg)', face: '#E6E1F0', sh: '0 0 0 rgba(0,0,0,0)', front: false },
+        { n: '450 MS · END', u: 'lands to the left, back side shown, fades', tf: 'rotateY(-168deg)', face: '#EEE9F4', sh: '-4px 4px 10px rgba(19,15,31,.2)', front: false }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

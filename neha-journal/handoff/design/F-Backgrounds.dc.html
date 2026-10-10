@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33}a{color:#204670}a:hover{color:#5E3695}</style></helmet>
+<div data-screen-label="00-System/Backgrounds-v2" style="position:relative;width:1440px;background:#FBF9F5;border-radius:4px;overflow:hidden">
+<div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px;pointer-events:none"></div>
+<div style="position:relative;padding:96px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid #CED9E4;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">00 · SYSTEM · BACKGROUNDS-V2</div><div style="font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F">The desk it sits on</div></div>
+<div style="font:600 32px/1 'Caveat',cursive;color:#5E3695;transform:rotate(-2deg)">each shown at 1440 × 900, scaled to fit.</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,400px);gap:24px">
+<sc-for list="{{ desks }}" as="d" hint-placeholder-count="3">
+<div id="{{ d.id }}" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;color:#FFFFFF;background:#204670;border-radius:4px;padding:5px 8px">{{ d.id }}</div><div style="font:400 24px/1 'Libre Caslon Text',serif;color:#130F1F">{{ d.name }}</div><sc-if value="{{ d.rec }}" hint-placeholder-val="{{ false }}"><div style="margin-left:auto;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF;background:#5E3695;border-radius:999px;padding:7px 12px">RECOMMENDED</div></sc-if></div>
+<div style="position:relative;width:400px;height:250px;overflow:hidden;border-radius:4px;box-shadow:0 1px 2px rgba(19,15,31,.2)">
+<div style="position:absolute;left:0;top:0;width:1440px;height:900px;transform:scale(.27778);transform-origin:0 0;background:{{ d.bg }}">
+<div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px"></div>
+<div style="position:absolute;inset:0;background:{{ d.over }}"></div>
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="white" coil="silver" hint-size="1192px,768px"></dc-import></div>
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:160px;top:80px;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">02 · TIMELINE</div>
+<div style="position:absolute;left:158px;top:104px;font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F">then, now, always</div>
+<div style="position:absolute;left:170px;top:220px"><dc-import name="PhotoFrame" type="polaroid" ratio="4:5" size="300" rotate="-3" caption="goa, 2019" show-caption="{{ false }}" hint-size="330px,460px"></dc-import></div>
+<div style="position:absolute;left:560px;top:230px"><dc-import name="PhotoFrame" type="clipped" ratio="3:2" size="420" rotate="2" show-caption="{{ false }}" tone="{{ 1 }}" hint-size="440px,300px"></dc-import></div>
+<div style="position:absolute;left:1020px;top:200px"><dc-import name="PhotoFrame" type="taped" ratio="3:4" size="240" rotate="3" show-caption="{{ false }}" tone="{{ 2 }}" hint-size="260px,340px"></dc-import></div>
+<div style="position:absolute;left:580px;top:560px;width:380px;font:600 34px/1.1 'Caveat',cursive;color:#204670">the summer we learned every word to that one song</div>
+<div style="position:absolute;left:1000px;top:580px"><dc-import name="Sticker" kind="disco-violet" size="150" rotate="6" hint-size="150px,150px"></dc-import></div>
+<div style="position:absolute;left:20px;top:470px"><dc-import name="Sticker" kind="{{ d.s1 }}" size="170" rotate="-6" hint-size="170px,170px"></dc-import></div>
+<div style="position:absolute;left:1150px;top:-20px"><dc-import name="Sticker" kind="{{ d.s2 }}" size="140" rotate="8" hint-size="140px,140px"></dc-import></div>
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="playing" note-color="{{ d.note }}" hint-size="280px,80px"></dc-import></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ d.pts }}" as="p" hint-placeholder-count="3"><div style="display:flex;gap:10px;font:400 15px/1.5 'DM Sans',sans-serif;color:#130F1F"><span style="color:#5E3695">✦</span><span>{{ p }}</span></div></sc-for></div>
+</div>
+</sc-for>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;padding-top:8px;border-top:1px solid #CED9E4">
+<div style="font:400 17px/1.6 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty"><b style="font-weight:600">Recommendation:</b> 4a, your gingham, for the day sections. 4b, black fading to red, for the Darkroom, so changing tabs feels like the evening coming in. </div>
+<div style="font:400 17px/1.6 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty"><b style="font-weight:600">Refinements to your background:</b> a 12% paper-white veil so the white journal separates from it, a soft navy vignette at the edges, 4% film grain. The image itself is not repainted. At 1920 it is scaled with cover, so the checks grow to about 1.6×.</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      tabs: ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'].map(l => ({ l, s: l === 'Timeline' ? 'active' : 'default' })),
+      desks: [
+        { id: '4a', name: 'Your gingham', rec: true, bg: 'url(assets/bg/gingham.jpeg) center/cover', over: 'radial-gradient(ellipse at 50% 45%,rgba(251,249,245,.14) 40%,rgba(32,70,112,.16) 100%)', s1: 'tulips', s2: 'bow', note: '#204670', pts: ['Blue, cream and cherry, exactly from the image', 'Cherries + hearts give the red pop for free', 'Busiest of the three: the veil keeps it behind the page'] },
+        { id: '4b', name: 'Black → red · Darkroom', rec: false, bg: 'linear-gradient(180deg,#0B0910 0%,#1E0E14 45%,#4A141C 78%,#6E1A24 100%)', over: 'radial-gradient(circle at 92% 6%,rgba(202,154,161,.3),rgba(202,154,161,0) 32%)', s1: 'disco-violet', s2: 'sparkle', note: '#FFFFFF', pts: ['Black at the top fading to deep red at the bottom', 'Every sticker edge glows', 'Night pages: Darkroom, Playlist'] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

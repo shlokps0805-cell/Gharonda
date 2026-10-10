@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33}a{color:#204670}a:hover{color:#5E3695}</style></helmet>
+<div data-screen-label="00-System/Stickers-v2" style="position:relative;width:1440px;background:#FBF9F5;border-radius:4px;overflow:hidden">
+<div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px;pointer-events:none"></div>
+<div style="position:relative;padding:96px 96px 64px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid #CED9E4;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">00 · SYSTEM · STICKERS-V2</div><div style="font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F">Peel here</div></div>
+<div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px"><div style="font:600 32px/1 'Caveat',cursive;color:#5E3695;transform:rotate(-2deg)">{{ total }} stickers, room for more.</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">{{ countLine }}</div></div>
+</div>
+
+<sc-for list="{{ groups }}" as="g" hint-placeholder-count="7">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:32px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">{{ g.code }}</span><span style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">{{ g.name }}</span><span style="font:700 12px/1 'Courier Prime',monospace;color:#3D4A66">{{ g.n }}</span></div>
+<div style="max-width:640px;text-align:right;font:400 14px/1.5 'DM Sans',sans-serif;color:#3D4A66;text-wrap:pretty">{{ g.note }}</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:28px 20px;align-items:center">
+<sc-for list="{{ g.items }}" as="s" hint-placeholder-count="6">
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px;width:{{ s.cell }}px">
+<div style="height:{{ s.boxH }}px;display:flex;align-items:center;justify-content:center"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.rot }}" hint-size="120px,120px"></dc-import></div>
+<div style="font:700 11px/1.2 'Courier Prime',monospace;color:#130F1F;text-align:center;white-space:nowrap">{{ s.label }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="position:relative;background:linear-gradient(160deg,#141E33,#3A1C2E);padding:64px 96px 80px;display:flex;flex-direction:column;gap:32px">
+<div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px;pointer-events:none"></div>
+<div style="position:relative;display:flex;justify-content:space-between;align-items:baseline"><div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#C4A8E6">ON THE DESK</span><span style="font:400 31px/1 'Libre Caslon Text',serif;color:#FFFFFF">All of them, hover state</span></div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#ACBFD3">gloss mid-sweep · 2px lift · deeper shadow · holo shimmer on some</div></div>
+<div style="position:relative;display:flex;flex-wrap:wrap;gap:24px 22px;align-items:center">
+<sc-for list="{{ all }}" as="s" hint-placeholder-count="20"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.small }}" rotate="{{ s.rot }}" hover="{{ true }}" hint-size="80px,80px"></dc-import></sc-for>
+</div>
+</div>
+
+<div style="position:relative;padding:64px 96px 96px;display:grid;grid-template-columns:5fr 7fr;gap:64px">
+<div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px;pointer-events:none"></div>
+<div style="position:relative;display:flex;flex-direction:column;gap:24px">
+<div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Sizes</div>
+<div style="display:flex;align-items:flex-end;gap:32px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><dc-import name="Sticker" kind="disco-violet" size="76" hint-size="76px,76px"></dc-import><div style="font:700 12px/1 'Courier Prime',monospace;color:#3D4A66">S · 64–88</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><dc-import name="Sticker" kind="disco-violet" size="124" hint-size="124px,124px"></dc-import><div style="font:700 12px/1 'Courier Prime',monospace;color:#3D4A66">M · 96–140</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><dc-import name="Sticker" kind="disco-violet" size="200" hint-size="200px,200px"></dc-import><div style="font:700 12px/1 'Courier Prime',monospace;color:#3D4A66">L · 160–220 · cover + desk</div></div>
+</div>
+<div style="font:400 15px/1.55 'DM Sans',sans-serif;color:#3D4A66;text-wrap:pretty">S / M / L are presets. She can set any size from 40 to 320: drag the corner handle or use the slider in the right-click menu.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:24px">
+<div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Placement</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;font:400 17px/1.55 'DM Sans',sans-serif;color:#130F1F">
+<div>6–12 stickers and paper pieces per page, plus extras on the desk.</div>
+<div>Margins, corners and the gaps between photos. Clusters at the edges.</div>
+<div>Never over text, buttons or faces. The centre of every page stays readable.</div>
+<div>Rotation −8° to +8°, never the same angle twice in a cluster.</div>
+<div>Stickers never get pins; sticking them down just flattens them.</div>
+<div>She can resize any cover sticker (S / M / L or drag the corner), see Components.</div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const R = [-6, 4, -3, 7, -2, 5, -7, 3, -4, 6, -1, 2];
+    let ri = 0;
+    const it = (k, label, size, cell) => ({ k, label, size, cell: cell || 132, boxH: 144, rot: R[ri++ % R.length] });
+    const groups = [
+      { code: 'G1', name: 'Your stickers', note: 'The provided set, background removed and kept exactly as drawn, each with a clean white die-cut edge. More are coming: new ones join this sheet as they arrive.', items: [
+        it('disco-violet', 'disco · violet stars', 132), it('check-star', 'checkered star', 128), it('jelly-star', 'jelly star', 120), it('jelly-star-mini', 'jelly star · mini', 84), it('sparkle', 'chrome sparkle', 130), it('paint-star', 'painted star', 104),
+        it('clef', 'glitter clef', 132), it('cd', 'pixel CD', 112), it('headphone-cat', 'headphone cat', 132), it('jellyfish', 'jellyfish', 132), it('bow', 'satin bow', 140), it('tulips', 'tulips', 136), it('lily', 'crochet lily', 136),
+        it('lavender', 'lavender', 132), it('camera', 'camera', 140), it('books', 'book stack', 136), it('iced-coffee', 'iced coffee', 136), it('bunny', 'bunny', 132), it('raindrop', 'raindrop', 120),
+        it('dancers', 'the two of them', 150, 160), it('jellyfish-blue', 'crochet jellyfish', 132), it('shell-turtle', 'shell turtle', 128), it('patch-red', 'word patch · red', 150, 160), it('patch-baddie', 'baddie patch', 150, 160), it('camera-cat', 'camera cat', 120), it('dnd', 'do not disturb', 160, 170), it('piano', 'piano', 130), it('vinyl-purple', 'purple vinyl', 124), it('cookie-bear', 'cookie bear', 116),
+        it('star-glitter-edge', 'glitter star', 104), it('star-origami', 'origami star', 100), it('star-balloon', 'balloon star', 92), it('star-embroidered', 'embroidered star', 92), it('star-felt', 'felt star', 92), it('star-glass', 'glass star', 72)] },
+      { code: 'G2', name: 'Kept from v1', note: 'The only original carried over.', items: [it('eight-ball', '8-ball', 116)] },
+      { code: 'G3', name: 'Words', note: 'Three only: a ribbon, a ticket, a rosette.', items: [it('happy-birthday', 'happy birthday · ribbon', 220, 230), it('core-memory', 'core memory', 196, 206), it('iconic', 'iconic · holo rosette', 132)] },
+      { code: 'G4', name: 'Clear vinyl', note: 'Frosted clear, printed in navy ink; the page shows through.', items: [it('date-stamp', 'date stamp', 140)] },
+      { code: 'G5', name: 'Washi', note: 'Paper, not vinyl: no white edge, a flatter shadow, about 85% opaque with torn ends.', items: [
+        it('washi-stripes', 'washi · stripes', 190, 196), it('washi-gingham', 'washi · lilac gingham', 190, 196), it('washi-stars', 'washi · navy stars', 190, 196), it('washi-lavender', 'washi · lavender', 190, 196), it('washi-dusty', 'washi · dusty blue', 190, 196), it('postage-stamp', 'postage stamp', 116)] }
+    ];
+    const total = groups.reduce((a, g) => a + g.items.length, 0);
+    groups.forEach(g => g.n = String(g.items.length).padStart(2, '0'));
+    const wide = new Set(['happy-birthday', 'birthday-girl', 'core-memory', 'main-character', 'made-with-love', 'neha', 'lace', 'moon-phases', 'washi-stripes', 'washi-gingham', 'washi-stars', 'washi-lavender', 'washi-dusty', 'ticket-stub', 'label-tag', 'torn-lined', 'camera', 'bow', 'books']);
+    const all = groups.flatMap(g => g.items).map(s => ({ ...s, small: wide.has(s.k) ? 130 : 84 }));
+    return { groups, all, total, countLine: `${groups.map(g => g.code + ' ' + g.items.length).join(' · ')}` };
+  }
+}
+</script>
+</body>
+</html>

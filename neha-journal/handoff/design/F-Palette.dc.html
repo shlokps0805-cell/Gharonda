@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33}a{color:#204670}a:hover{color:#5E3695}</style></helmet>
+<div data-screen-label="00-System/Palette-options-v2" style="position:relative;width:1440px;background:#FBF9F5;border-radius:4px;overflow:hidden">
+<div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px;pointer-events:none"></div>
+<div style="position:relative;padding:96px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid #CED9E4;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">00 · SYSTEM · PALETTE-OPTIONS-V2</div><div style="font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F">Three moods, one journal</div></div>
+<div style="font:600 32px/1 'Caveat',cursive;color:#5E3695;transform:rotate(-2deg)">same page, three skies.</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,384px);gap:48px">
+<sc-for list="{{ opts }}" as="p" hint-placeholder-count="3">
+<div id="{{ p.id }}" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;gap:12px">
+<div style="font:700 12px/1 'Courier Prime',monospace;color:#FFFFFF;background:#204670;border-radius:4px;padding:5px 8px">{{ p.id }}</div>
+<div style="font:400 26px/1 'Libre Caslon Text',serif;color:#130F1F">{{ p.name }}</div>
+<sc-if value="{{ p.rec }}" hint-placeholder-val="{{ false }}"><div style="margin-left:auto;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF;background:#5E3695;border-radius:999px;padding:7px 12px">RECOMMENDED</div></sc-if>
+</div>
+<div style="position:relative;width:384px;height:480px;border-radius:4px;overflow:hidden;background:{{ p.desk }}">
+<div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px;opacity:.7"></div>
+<div style="position:absolute;inset:0;background:{{ p.veil }}"></div>
+<div style="position:absolute;left:40px;top:44px"><dc-import name="SpiralJournal" w="292" h="390" paper="{{ p.paper }}" coil="silver" loops="{{ 11 }}" hint-size="304px,402px"></dc-import></div>
+<div style="position:absolute;left:338px;top:84px;display:flex;flex-direction:column;gap:3px"><sc-for list="{{ p.tabs }}" as="t" hint-placeholder-count="5"><div style="width:22px;height:44px;border-radius:0 8px 8px 0;background:{{ t }};box-shadow:1px 1px 2px rgba(19,15,31,.3)"></div></sc-for></div>
+<div style="position:absolute;left:86px;top:70px;font:700 9px/1 'Courier Prime',monospace;letter-spacing:.16em;color:{{ p.label }}">NEHA · THE BIRTHDAY JOURNAL</div>
+<div style="position:absolute;left:84px;top:86px;font:400 31px/1 'Libre Caslon Text',serif;color:{{ p.head }}">then, now, <span style="font-style:italic;text-decoration:underline;text-decoration-color:{{ p.ul }};text-decoration-thickness:2px;text-underline-offset:5px">always</span></div>
+<div style="position:absolute;left:96px;top:144px"><dc-import name="PhotoFrame" type="polaroid" ratio="4:5" size="124" rotate="-4" caption="goa, 2019" show-caption="{{ false }}" tone="{{ p.tone }}" label="photo" hint-size="150px,220px"></dc-import></div>
+<div style="position:absolute;left:182px;top:126px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div>
+<div style="position:absolute;left:238px;top:170px;width:84px;font:600 22px/1.05 'Caveat',cursive;color:{{ p.hand }};transform:rotate(3deg)">us, before we knew.</div>
+<div style="position:absolute;left:230px;top:236px"><dc-import name="Sticker" kind="{{ p.s1 }}" size="78" rotate="6" hint-size="78px,78px"></dc-import></div>
+<div style="position:absolute;left:84px;top:338px"><dc-import name="Sticker" kind="{{ p.s2 }}" size="56" rotate="-5" hint-size="56px,56px"></dc-import></div>
+<div style="position:absolute;left:156px;top:364px;height:36px;padding:0 18px;border-radius:999px;background:{{ p.btn }};display:flex;align-items:center;font:700 10px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF;white-space:nowrap">OPEN YOUR JOURNAL</div>
+</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<sc-for list="{{ p.chips }}" as="c" hint-placeholder-count="5"><div style="display:flex;align-items:center;gap:6px;font:400 11px/1 'Courier Prime',monospace;color:#3D4A66"><div style="width:14px;height:14px;border-radius:3px;background:{{ c.h }};box-shadow:inset 0 0 0 1px rgba(19,15,31,.12)"></div>{{ c.n }}</div></sc-for>
+</div>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:10px 16px;align-items:center;padding-top:12px;border-top:1px solid #CED9E4">
+<sc-for list="{{ p.scores }}" as="sc" hint-placeholder-count="4">
+<div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#130F1F">{{ sc.l }}</div>
+<div style="display:flex;gap:5px;align-items:center"><sc-for list="{{ sc.d }}" as="d" hint-placeholder-count="5"><div style="width:9px;height:9px;border-radius:50%;background:{{ d }}"></div></sc-for><span style="font:400 13px/1.3 'DM Sans',sans-serif;color:#3D4A66;margin-left:8px">{{ sc.note }}</span></div>
+</sc-for>
+</div>
+<div style="font:400 17px/1.55 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ p.verdict }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const dots = n => [1, 2, 3, 4, 5].map(i => i <= n ? '#204670' : '#DCE3EC');
+    const opts = [
+      { id: '2a', name: 'Blue hour', rec: true, desk: 'url(assets/bg/gingham.jpeg) center/cover', veil: 'rgba(251,249,245,.12)', paper: 'white', label: '#204670', head: '#130F1F', ul: '#BA2F1F', hand: '#204670', btn: '#204670', tone: 0, s1: 'disco-violet', s2: 'check-star', tabs: ['#204670', '#ACBFD3', '#C4A8E6', '#DEC0C4', '#5E3695'],
+        chips: [{ n: 'navy', h: '#204670' }, { n: 'powder', h: '#CED9E4' }, { n: 'paper', h: '#FBF9F5' }, { n: 'soft purple', h: '#C4A8E6' }, { n: 'cherry', h: '#BA2F1F' }],
+        scores: [{ l: 'JOURNAL', d: dots(5), note: 'reads as a real desk, daylight' }, { l: 'STICKERS', d: dots(4), note: 'navy + silver + violet all pop' }, { l: 'READING', d: dots(5), note: 'ink on paper 17.9:1' }, { l: 'HER REFS', d: dots(5), note: 'is your background' }],
+        verdict: 'Recommended. Your gingham carries the blue and the cherry, the journal stays white and calm, and lavender clips tie in the purple stickers.' },
+      { id: '2b', name: 'Midnight ink', rec: false, desk: 'radial-gradient(circle at 80% 10%,rgba(94,54,149,.55),rgba(94,54,149,0) 55%),linear-gradient(160deg,#141E33,#130F1F)', veil: 'transparent', paper: 'white', label: '#5E3695', head: '#130F1F', ul: '#A57BD5', hand: '#320F6F', btn: '#5E3695', tone: 1, s1: 'disco-violet', s2: 'clef', tabs: ['#130F1F', '#5E3695', '#C4A8E6', '#204670', '#ACBFD3'],
+        chips: [{ n: 'midnight', h: '#141E33' }, { n: 'ink', h: '#130F1F' }, { n: 'paper', h: '#FBF9F5' }, { n: 'violet', h: '#5E3695' }, { n: 'lavender', h: '#A57BD5' }],
+        scores: [{ l: 'JOURNAL', d: dots(4), note: 'moody, a night-time journal' }, { l: 'STICKERS', d: dots(5), note: 'white edges glow on dark' }, { l: 'READING', d: dots(5), note: 'white on midnight 16.6:1' }, { l: 'HER REFS', d: dots(4), note: 'violet disco + black sheet' }],
+        verdict: 'Beautiful at night, heavy all day. Use it as the desk for the Darkroom and Playlist only, so those two feel like a different hour.' },
+      { id: '2c', name: 'Lavender haze', rec: false, desk: 'linear-gradient(160deg,#DCCBF3,#ECE8F2 55%,#CED9E4)', veil: 'transparent', paper: 'lavender', label: '#4A3560', head: '#320F6F', ul: '#CA9AA1', hand: '#4A3560', btn: '#4A3560', tone: 1, s1: 'jelly-star', s2: 'bow', tabs: ['#4A3560', '#C4A8E6', '#DEC0C4', '#B2B2E5', '#DCCBF3'],
+        chips: [{ n: 'lilac', h: '#DCCBF3' }, { n: 'plum', h: '#4A3560' }, { n: 'deep violet', h: '#320F6F' }, { n: 'satin rose', h: '#CA9AA1' }, { n: 'mist', h: '#ECE8F2' }],
+        scores: [{ l: 'JOURNAL', d: dots(4), note: 'soft, dreamy' }, { l: 'STICKERS', d: dots(2), note: 'pastel stickers vanish on lilac' }, { l: 'READING', d: dots(5), note: 'deep violet on lilac 12.2:1' }, { l: 'HER REFS', d: dots(3), note: 'drops the blue + cherry' }],
+        verdict: 'Pretty, but the jelly stars, bow and tulips lose their edges on lilac. Keep lilac as a page tint and envelope colour, not the desk.' }
+    ];
+    return { opts };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>*,*::before,*::after{box-sizing:border-box}</style></helmet>
+<div style="display:inline-flex;flex-wrap:wrap;align-items:center;row-gap:{{ rowGap }}px;column-gap:{{ wordGap }}px;padding:{{ padV }}px 4px">
+<sc-for list="{{ words }}" as="w" hint-placeholder-count="2">
+<div style="display:inline-flex;align-items:center;gap:{{ w.gap }}px">
+<sc-for list="{{ w.letters }}" as="l" hint-placeholder-count="4">
+<span style="display:inline-block;filter:drop-shadow(0 1px 1.5px rgba(19,15,31,.35));transform:rotate({{ l.rot }}deg) translateY({{ l.dy }}px)"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:{{ l.minW }}px;background:{{ l.bg }};color:{{ l.fg }};font-family:{{ l.ff }};font-weight:{{ l.fw }};font-style:{{ l.fs }};font-size:{{ l.size }}px;line-height:1;padding:{{ l.pad }};clip-path:{{ l.clip }}">{{ l.ch }}</span></span>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:640,&quot;height&quot;:140},&quot;text&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;The Darkroom&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;size&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:64,&quot;min&quot;:16,&quot;max&quot;:160,&quot;tsType&quot;:&quot;number&quot;},&quot;cherry&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const text = this.props.text ?? 'The Darkroom';
+    const size = this.props.size ?? 64;
+    const override = (this.props.cherry ?? '').toString().split(',').map(s => s.trim()).filter(s => s !== '').map(Number);
+    const S = [
+      { bg: '#DCCBF3', fg: '#320F6F', ff: "'Libre Caslon Text', serif", fw: 700, fs: 'normal', k: 1.0, up: true },
+      { bg: '#FBF9F5', fg: '#130F1F', ff: "'Libre Caslon Text', serif", fw: 600, fs: 'italic', k: 1.02, up: false },
+      { bg: '#CED9E4', fg: '#130F1F', ff: "'DM Sans', sans-serif", fw: 800, fs: 'normal', k: .9, up: true },
+      { bg: '#FFFFFF', fg: '#130F1F', ff: "'Courier Prime', monospace", fw: 500, fs: 'normal', k: .88, up: true },
+      { bg: '#204670', fg: '#FBF9F5', ff: "'Libre Caslon Text', serif", fw: 900, fs: 'normal', k: 1.04, up: false },
+      { bg: '#FBF9F5', fg: '#130F1F', ff: "'Libre Caslon Text', serif", fw: 500, fs: 'italic', k: 1.08, up: false },
+      { bg: '#C4A8E6', fg: '#320F6F', ff: "'DM Sans', sans-serif", fw: 500, fs: 'normal', k: .94, up: true }
+    ];
+    const CH = { bg: '#130F1F', fg: '#FFFFFF', ff: "'DM Sans', sans-serif", fw: 800, fs: 'normal', k: 1.0, up: true };
+    const CH2 = { bg: '#5E3695', fg: '#FFFFFF', ff: "'DM Sans', sans-serif", fw: 800, fs: 'normal', k: 1.0, up: true };
+    const ROT = [-4, 3, -2, 5, -3, 2, -5, 4, -1];
+    const DY = [0, -3, 2, -2, 3, -1];
+    const CLIP = ['polygon(2% 4%, 96% 0%, 100% 92%, 4% 100%)', 'polygon(0 2%, 100% 6%, 97% 100%, 3% 95%)', 'polygon(0 6%, 22% 0, 48% 4%, 76% 0, 100% 5%, 97% 100%, 70% 96%, 40% 100%, 12% 95%, 3% 100%)', 'polygon(4% 0, 100% 3%, 96% 97%, 0 100%)', 'polygon(0 0, 92% 3%, 100% 100%, 6% 96%)'];
+    let g = 0;
+    const words = text.split(' ').filter(Boolean).map((word, wi) => {
+      const ci = override[wi] ?? Math.floor(word.length / 2);
+      const letters = [...word].map((c, i) => {
+        const st = i === ci ? (wi === 0 ? CH : CH2) : S[(g * 3 + wi * 2) % 7];
+        const n = g++;
+        const fz = Math.round(size * st.k);
+        return {
+          ch: st.up ? c.toUpperCase() : c, bg: st.bg, fg: st.fg, ff: st.ff, fw: st.fw, fs: st.fs, size: fz,
+          rot: ROT[n % ROT.length], dy: DY[n % DY.length] * size / 64,
+          pad: `${Math.round(size * .14)}px ${Math.round(size * .14)}px ${Math.round(size * .12)}px`,
+          minW: Math.round(size * .78), clip: CLIP[n % CLIP.length]
+        };
+      });
+      return { letters, gap: Math.max(1, Math.round(size * .03)) };
+    });
+    return { words, wordGap: Math.round(size * .32), rowGap: Math.round(size * .14), padV: Math.round(size * .1) };
+  }
+}
+</script>
+</body>
+</html>

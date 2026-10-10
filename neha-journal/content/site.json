@@ -1,0 +1,33 @@
+{
+  "name": "Neha",
+  "birthday": "2026-10-11",
+  "coverLine": "NEHA · THE BIRTHDAY JOURNAL · 11.10.2026",
+  "dateLine": "11.10.2026",
+  "fromLine": "",
+  "envelopeFont": "Great Vibes",
+  "coverPhoto": "",
+  "coverNote": "this whole journal is about you.",
+  "contentsWelcome": "SAMPLE · neha, we made you a book. it has everyone in it: the photos you hate, the songs you love, the jokes nobody else gets. take your time. we’ll wait.",
+  "contentsSignoff": "— all of us",
+  "contentsPhotoCaption": "all of us, somehow on time",
+  "groupPhoto": "",
+  "groupName": "all twelve of us",
+  "mixtapePhotos": [],
+  "city": "MUMBAI",
+  "spotifyPlaylistUrl": "",
+  "nicknames": [],
+  "easterEggs": {
+    "nameClicks": {
+      "on": true,
+      "note": "SAMPLE secret note"
+    },
+    "nicknameRain": {
+      "on": true
+    },
+    "secretKeys": {
+      "on": false,
+      "sequence": "",
+      "message": ""
+    }
+  }
+}

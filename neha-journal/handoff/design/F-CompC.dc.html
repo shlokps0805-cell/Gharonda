@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33}a{color:#204670}a:hover{color:#5E3695}</style></helmet>
+<div data-screen-label="00-System/Components-v2 · C" style="position:relative;width:1440px;background:#FBF9F5;border-radius:4px;overflow:hidden">
+<div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px;pointer-events:none"></div>
+<div style="position:relative;padding:96px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid #CED9E4;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">00 · SYSTEM · COMPONENTS-V2 · C</div><div style="font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F">Stickers she can play with</div></div>
+<div style="font:600 32px/1 'Caveat',cursive;color:#5E3695;transform:rotate(-2deg)">drag, right-click, resize. it's live.</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Playground</div><div style="display:flex;gap:24px;align-items:baseline"><span style="font:400 13px/1 'Courier Prime',monospace;color:#3D4A66">drag to move · right-click for the menu · drag the corner or use the slider to resize</span><span style="font:500 16px/1 'DM Sans',sans-serif;color:#204670;text-decoration:underline;text-decoration-color:#C4A8E6;text-decoration-thickness:2px;text-underline-offset:5px;cursor:pointer" onClick="{{ reset }}" style-hover="color:#5E3695">reset stickers</span></div></div>
+<div ref="{{ area }}" onContextMenu="{{ noCtx }}" onPointerDown="{{ bgDown }}" style="position:relative;height:520px;border-radius:6px;overflow:hidden;background:url(assets/bg/gingham.jpeg) center/cover;touch-action:none;user-select:none">
+<div style="position:absolute;inset:0;background:rgba(251,249,245,.16)"></div>
+<sc-for list="{{ items }}" as="s" hint-placeholder-count="5">
+<div onPointerDown="{{ s.down }}" onContextMenu="{{ s.ctx }}" style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px;z-index:{{ s.z }};cursor:grab;transition:{{ s.tr }};transform:{{ s.tf }};opacity:{{ s.op }};transform-origin:20% 20%">
+<dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.rot }}" lifted="{{ s.lift }}" pinned="{{ s.pin }}" movable="{{ false }}" hint-size="120px,120px"></dc-import>
+<sc-if value="{{ s.sel }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:-8px;border:1.5px dashed #A57BD5;border-radius:10px;pointer-events:none"></div>
+<div onPointerDown="{{ s.rz }}" style="position:absolute;right:-14px;bottom:-14px;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#FFFFFF 0 10%,#C4A8E6 45%,#9277BF);box-shadow:0 1px 3px rgba(19,15,31,.4);cursor:nwse-resize"></div>
+</sc-if>
+</div>
+</sc-for>
+<sc-if value="{{ menu.open }}" hint-placeholder-val="{{ false }}">
+<div onPointerDown="{{ stop }}" style="position:absolute;left:{{ menu.x }}px;top:{{ menu.y }}px;z-index:999;width:212px;padding:8px 0;background:#FFFFFF;border-radius:8px;box-shadow:0 1px 2px rgba(19,15,31,.25),0 10px 24px rgba(19,15,31,.22);display:flex;flex-direction:column">
+<sc-for list="{{ menu.rows }}" as="r" hint-placeholder-count="5"><div onClick="{{ r.go }}" style="padding:9px 16px;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.06em;color:{{ r.c }};cursor:pointer" style-hover="text-decoration:underline;text-decoration-color:#C4A8E6;text-decoration-thickness:2px;text-underline-offset:5px">{{ r.l }}</div></sc-for>
+<div style="padding:8px 16px 6px;border-top:1px solid #ECE8F2;margin-top:4px;display:flex;align-items:center;gap:8px"><span style="font:700 12px/1 'Courier Prime',monospace;color:#3D4A66">SIZE</span><sc-for list="{{ menu.sizes }}" as="z" hint-placeholder-count="3"><div onClick="{{ z.go }}" style="width:32px;height:28px;border-radius:999px;border:1.5px solid #204670;background:{{ z.bg }};color:{{ z.fg }};display:flex;align-items:center;justify-content:center;font:700 12px/1 'Courier Prime',monospace;cursor:pointer">{{ z.l }}</div></sc-for></div>
+<div style="padding:4px 16px 10px;display:flex;align-items:center;gap:10px"><span style="font:700 12px/1 'Courier Prime',monospace;color:#3D4A66">ANY</span><input type="range" min="40" max="320" value="{{ menu.size }}" onChange="{{ menu.slide }}" style="flex:1;min-width:0;accent-color:#5E3695"><span style="font:700 12px/1 'Courier Prime',monospace;color:#130F1F;min-width:28px;text-align:right">{{ menu.size }}</span></div>
+</div>
+</sc-if>
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:{{ toastX }}px;top:{{ toastY }}px;z-index:998;width:250px;filter:drop-shadow(0 1px 2px rgba(19,15,31,.3)) drop-shadow(0 8px 14px rgba(19,15,31,.18));transform:rotate(2deg);pointer-events:none"><div style="padding:24px 16px 14px;background:#FBF9F5;clip-path:polygon(0 6%,8% 2%,15% 7%,24% 1%,33% 5%,41% 0,52% 6%,61% 2%,70% 7%,79% 1%,88% 5%,100% 2%,100% 100%,0 100%);font:600 22px/1.05 'Caveat',cursive;color:#204670">psst, right-click a sticker to stick it down, copy, resize or remove it (two-finger click on a Mac trackpad)</div></div>
+</sc-if>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:4fr 8fr;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Menu</div>
+<div style="display:flex;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px"><div style="width:188px;padding:8px 0;background:#FFFFFF;border-radius:8px;box-shadow:0 1px 2px rgba(19,15,31,.25),0 10px 24px rgba(19,15,31,.18)"><sc-for list="{{ menuStatic }}" as="r" hint-placeholder-count="5"><div style="padding:9px 16px;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.06em;color:{{ r.c }}">{{ r.l }}</div></sc-for></div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">default</div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="width:188px;padding:8px 0;background:#FFFFFF;border-radius:8px;box-shadow:0 1px 2px rgba(19,15,31,.25),0 10px 24px rgba(19,15,31,.18)"><sc-for list="{{ menuHover }}" as="r" hint-placeholder-count="5"><div style="padding:9px 16px;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.06em;color:{{ r.c }};text-decoration:{{ r.u }};text-decoration-color:#C4A8E6;text-decoration-thickness:2px;text-underline-offset:5px">{{ r.l }}</div></sc-for></div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">"duplicate" hovered</div></div>
+</div>
+<div style="font:400 14px/1.55 'DM Sans',sans-serif;color:#3D4A66;text-wrap:pretty">White paper card, Courier Prime, soft-purple underline on the hovered row. Pops in beside the cursor: scale .9 → 1 + fade, 120ms spring. Esc or a click outside closes it.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Keyframes</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">stick 160ms press · duplicate 260ms bounce · delete 400ms peel</div></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+<sc-for list="{{ keys }}" as="k" hint-placeholder-count="8">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="position:relative;height:150px;border-radius:6px;background:#E6EDF4;overflow:hidden">
+<div style="position:absolute;left:{{ k.x }}px;top:{{ k.y }}px;transform:{{ k.tf }};opacity:{{ k.op }};transform-origin:15% 15%"><dc-import name="Sticker" kind="disco-violet" size="{{ k.s }}" rotate="{{ k.r }}" pinned="{{ k.pin }}" hint-size="90px,90px"></dc-import></div>
+<sc-if value="{{ k.dup }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:{{ k.dx }}px;top:{{ k.dy }}px;transform:scale({{ k.ds }})"><dc-import name="Sticker" kind="disco-violet" size="{{ k.s }}" rotate="{{ 4 }}" hint-size="90px,90px"></dc-import></div></sc-if>
+<sc-if value="{{ k.drop }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:96px;top:{{ k.py }}px"><dc-import name="Fastener" kind="pin-side" hint-size="28px,40px"></dc-import></div></sc-if>
+<sc-if value="{{ k.curl }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:{{ k.x }}px;top:{{ k.y }}px;transform:rotate(8deg) scaleX(-1) rotate(180deg);transform-origin:31% 31%;clip-path:polygon(0 0,58% 0,0 58%);filter:brightness(0) invert(1) drop-shadow(-2px -3px 3px rgba(19,15,31,.35))"><dc-import name="Sticker" kind="disco-violet" size="{{ k.s }}" movable="{{ false }}" hint-size="90px,90px"></dc-import></div></sc-if>
+</div>
+<div style="font:700 11px/1.3 'Courier Prime',monospace;letter-spacing:.06em;color:#130F1F">{{ k.n }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:7fr 5fr;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Mini mixtape player</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">280 × 80 · bottom-left · click play</div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<sc-for list="{{ players }}" as="p" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:8px"><div style="height:170px;display:flex;align-items:flex-end;padding:20px;border-radius:6px;background:url(assets/bg/gingham.jpeg) center/cover"><dc-import name="MiniPlayer" state="{{ p.s }}" title="{{ p.t }}" hint-size="280px,80px"></dc-import></div><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#130F1F">{{ p.n }}</div><div style="font:400 13px/1.45 'DM Sans',sans-serif;color:#3D4A66">{{ p.u }}</div></div>
+</sc-for>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Cursor · music notes</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">desktop only</div></div>
+<div ref="{{ trail }}" style="position:relative;height:368px;border-radius:6px;overflow:hidden;background:linear-gradient(160deg,#141E33,#3A1C2E);cursor:none">
+<div style="position:absolute;left:24px;top:22px;font:600 28px/1 'Caveat',cursive;color:#FFFFFF">move your mouse in here ♪</div>
+<div style="position:absolute;left:24px;bottom:22px;display:inline-flex;align-items:center;height:44px;padding:0 22px;border-radius:999px;background:#5E3695;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF" data-hot="1">HOVER ME</div>
+<div style="position:absolute;left:{{ cx }}px;top:{{ cy }}px;pointer-events:none;z-index:40">
+<sc-if value="{{ hot }}" hint-placeholder-val="{{ false }}"><div style="transform:translate(-50%,-50%)"><dc-import name="Sticker" kind="jelly-star-mini" size="34" rotate="-8" hint-size="34px,34px"></dc-import></div></sc-if>
+<sc-if value="{{ notHot }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;border:1.5px solid #C4A8E6"></div><div style="position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:#FFFFFF"></div></sc-if>
+</div>
+</div>
+<div style="font:400 14px/1.55 'DM Sans',sans-serif;color:#3D4A66;text-wrap:pretty">White dot with a lilac ring. Every 34px of movement a note (♪ ♫ ♩ ♬) floats up 46px, turns and fades in 900ms, in violet, lavender, navy or lilac. Over anything clickable the cursor becomes a tiny jelly star. Reduced motion: no trail.</div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  area = React.createRef(); trail = React.createRef();
+  static START = [
+    { id: 1, k: 'disco-violet', x: 60, y: 300, size: 150, rot: -6 }, { id: 2, k: 'jelly-star', x: 260, y: 330, size: 120, rot: 8 }, { id: 3, k: 'happy-birthday', x: 420, y: 400, size: 220, rot: -3 },
+    { id: 4, k: 'bunny', x: 700, y: 300, size: 150, rot: 4 }, { id: 5, k: 'eight-ball', x: 880, y: 360, size: 100, rot: -8 }, { id: 6, k: 'tulips', x: 1020, y: 260, size: 170, rot: 6 }, { id: 7, k: 'iconic', x: 560, y: 120, size: 120, rot: 10 }
+  ];
+  state = { items: Component.START.map(s => ({ ...s, z: s.id, pin: 'none' })), sel: null, menu: null, drag: null, toast: false, toasted: false, cx: -50, cy: -50, hot: false, nextId: 100, zTop: 50 };
+  pt(e, el) { const r = el.getBoundingClientRect(), k = r.width / el.offsetWidth; return [(e.clientX - r.left) / k, (e.clientY - r.top) / k]; }
+  componentDidMount() {
+    this._move = e => {
+      const d = this.state.drag; if (!d || !this.area.current) return;
+      const [x, y] = this.pt(e, this.area.current);
+      this.setState(s => ({ items: s.items.map(it => it.id !== d.id ? it : d.mode === 'move' ? { ...it, x: d.ox + x - d.sx, y: d.oy + y - d.sy } : { ...it, size: Math.max(40, Math.min(320, Math.round(d.os + Math.max(x - d.sx, y - d.sy)))) }) }));
+    };
+    this._up = () => { const d = this.state.drag; if (!d) return; this.setState(s => ({ drag: null, toast: d.mode === 'move' && !s.toasted ? true : s.toast, toasted: s.toasted || d.mode === 'move' })); if (d.mode === 'move' && !this.state.toasted) setTimeout(() => this.setState({ toast: false }), 5000); };
+    this._key = e => { if (e.key === 'Escape') this.setState({ menu: null }); };
+    window.addEventListener('pointermove', this._move); window.addEventListener('pointerup', this._up); window.addEventListener('keydown', this._key);
+    const t = this.trail.current;
+    if (t) {
+      let last = null; const G = ['♪', '♫', '♩', '♬'], C = ['#C4A8E6', '#A57BD5', '#DCCBF3', '#ACBFD3', '#FFFFFF'];
+      this._tm = e => {
+        const [x, y] = this.pt(e, t);
+        const hot = !!(e.target.closest && e.target.closest('[data-hot]'));
+        this.setState({ cx: x, cy: y, hot });
+        if (last && Math.hypot(x - last[0], y - last[1]) < 34) return; last = [x, y];
+        const n = document.createElement('span'); n.textContent = G[Math.floor(Math.random() * 4)];
+        n.style.cssText = `position:absolute;left:${x + 10}px;top:${y - 8}px;font:700 ${18 + Math.round(Math.random() * 10)}px/1 'DM Sans',sans-serif;color:${C[Math.floor(Math.random() * C.length)]};pointer-events:none;z-index:30`;
+        t.appendChild(n);
+        const dx = (Math.random() - .5) * 30, rot = (Math.random() - .5) * 40;
+        const a = n.animate([{ transform: 'translate(0,0) scale(.6)', opacity: 0 }, { transform: `translate(${dx * .3}px,-10px) scale(1) rotate(${rot * .3}deg)`, opacity: 1, offset: .2 }, { transform: `translate(${dx}px,-46px) scale(.9) rotate(${rot}deg)`, opacity: 0 }], { duration: 900, easing: 'cubic-bezier(0.25,1,0.5,1)' });
+        a.onfinish = () => n.remove();
+      };
+      t.addEventListener('mousemove', this._tm);
+      t.addEventListener('mouseleave', () => this.setState({ cx: -50, cy: -50 }));
+    }
+  }
+  componentWillUnmount() { window.removeEventListener('pointermove', this._move); window.removeEventListener('pointerup', this._up); window.removeEventListener('keydown', this._key); }
+  act(id, what, arg) {
+    this.setState(s => {
+      const it = s.items.find(i => i.id === id); if (!it) return { menu: null };
+      if (what === 'pin') return { menu: null, items: s.items.map(i => i.id === id ? { ...i, pin: 'pin' } : i) };
+      if (what === 'unpin') return { menu: null, items: s.items.map(i => i.id === id ? { ...i, pin: 'none' } : i) };
+      if (what === 'front') return { menu: null, zTop: s.zTop + 1, items: s.items.map(i => i.id === id ? { ...i, z: s.zTop + 1 } : i) };
+      if (what === 'dup') return { menu: null, nextId: s.nextId + 1, zTop: s.zTop + 1, sel: s.nextId, items: [...s.items, { ...it, id: s.nextId, x: it.x + 24, y: it.y + 24, z: s.zTop + 1, pin: 'none', pop: true }] };
+      if (what === 'size') return { menu: null, items: s.items.map(i => i.id === id ? { ...i, size: arg } : i) };
+      if (what === 'del') { setTimeout(() => this.setState(t => ({ items: t.items.filter(i => i.id !== id) })), 420); return { menu: null, sel: null, items: s.items.map(i => i.id === id ? { ...i, dying: true } : i) }; }
+      return { menu: null };
+    });
+  }
+  renderVals() {
+    const S = this.state;
+    const items = S.items.map(it => ({
+      ...it, sel: S.sel === it.id, lift: S.drag && S.drag.id === it.id && S.drag.mode === 'move',
+      tf: it.dying ? 'perspective(500px) rotate3d(1,-1,0,62deg) translate(18px,-22px) scale(.82)' : 'none', op: it.dying ? 0 : 1,
+      tr: it.dying ? 'transform 400ms cubic-bezier(0.25,1,0.5,1),opacity 400ms ease-out' : 'none',
+      down: e => { if (e.button !== 0) return; e.stopPropagation(); if (it.pin === 'pin') { this.setState({ sel: it.id, menu: null }); return; } const [x, y] = this.pt(e, this.area.current); this.setState(s => ({ sel: it.id, menu: null, zTop: s.zTop + 1, items: s.items.map(i => i.id === it.id ? { ...i, z: s.zTop + 1 } : i), drag: { id: it.id, mode: 'move', sx: x, sy: y, ox: it.x, oy: it.y } })); },
+      rz: e => { e.stopPropagation(); const [x, y] = this.pt(e, this.area.current); this.setState({ drag: { id: it.id, mode: 'size', sx: x, sy: y, os: it.size } }); },
+      ctx: e => { e.preventDefault(); e.stopPropagation(); const [x, y] = this.pt(e, this.area.current); this.setState({ sel: it.id, menu: { id: it.id, x: Math.min(x + 8, 1248 - 220), y: Math.min(y + 8, 520 - 344) } }); }
+    }));
+    const m = S.menu, mi = m && S.items.find(i => i.id === m.id);
+    const row = (l, w, dis, arg) => ({ l, c: dis ? 'rgba(19,15,31,.35)' : '#130F1F', go: dis ? () => {} : () => this.act(m.id, w, arg) });
+    const menu = m && mi ? { open: true, x: m.x, y: m.y, size: mi.size, slide: e => { const v = +e.target.value; this.setState(s => ({ items: s.items.map(i => i.id === m.id ? { ...i, size: v } : i) })); }, rows: [row('Stick here', 'pin', mi.pin === 'pin'), row('Unstick', 'unpin', mi.pin !== 'pin'), row('Duplicate', 'dup'), row('Bring to front', 'front'), { l: 'Delete', c: '#A63A48', go: () => this.act(m.id, 'del') }],
+      sizes: [['S', 76], ['M', 124], ['L', 200]].map(([l, v]) => ({ l, bg: Math.abs(mi.size - v) < 20 ? '#204670' : '#FFFFFF', fg: Math.abs(mi.size - v) < 20 ? '#FFFFFF' : '#204670', go: () => this.act(m.id, 'size', v) })) } : { open: false, rows: [], sizes: [], size: 0, slide: () => {} };
+    const ms = ['Stick here', 'Unstick', 'Duplicate', 'Bring to front', 'Delete'];
+    const tsel = S.items.find(i => i.id === S.sel) || S.items[0] || { x: 0, y: 0, size: 100 };
+    const K = (n, o) => ({ n, x: 70, y: 30, s: 90, r: -4, tf: 'none', op: 1, pin: 'none', dup: false, drop: false, curl: false, ...o });
+    return {
+      area: this.area, trail: this.trail, items, menu,
+      noCtx: e => e.preventDefault(), bgDown: () => this.setState({ sel: null, menu: null }), stop: e => e.stopPropagation(),
+      reset: () => this.setState({ items: Component.START.map(s => ({ ...s, z: s.id, pin: 'none' })), sel: null, menu: null }),
+      toast: S.toast, toastX: Math.min(tsel.x + tsel.size + 10, 980), toastY: Math.max(10, tsel.y - 40),
+      menuStatic: ms.map((l, i) => ({ l, c: i === 1 ? 'rgba(19,15,31,.35)' : i === 4 ? '#A63A48' : '#130F1F' })),
+      menuHover: ms.map((l, i) => ({ l, c: i === 1 ? 'rgba(19,15,31,.35)' : i === 4 ? '#A63A48' : '#130F1F', u: i === 2 ? 'underline' : 'none' })),
+      keys: [K('STICK · PRESS', { tf: 'scale(.94)' }), K('STUCK · FLAT', { pin: 'pin' }), K('DUPLICATE · START', { dup: true, dx: 70, dy: 30, ds: .4 }), K('DUPLICATE · END', { x: 40, y: 20, dup: true, dx: 70, dy: 46, ds: 1 }),
+        K('DELETE · START'), K('PEEL · CURLS ALONG ITS EDGE', { curl: true, tf: 'rotate(8deg)', clipA: true }), K('PEEL · LIFTS AWAY', { tf: 'perspective(500px) rotate3d(1,-1,0,62deg) translate(18px,-22px) scale(.82)', op: .2 }), K('RESIZE · HANDLE', { s: 110, x: 60, y: 18 })],
+      players: [{ s: 'paused', n: 'PAUSED', t: 'Song title · Artist', u: 'reels still' }, { s: 'playing', n: 'PLAYING', t: 'A very long song title that truncates · Artist', u: 'reels turn 2.4s/rev' }, { s: 'press', n: 'PRESS PLAY', t: 'Song title · Artist', u: 'autoplay blocked: lilac ring + note' }, { s: 'muted', n: 'SOUND OFF', t: 'Song title · Artist', u: 'title dims, keeps playing' }],
+      cx: S.cx, cy: S.cy, hot: S.hot, notHot: !S.hot
+    };
+  }
+}
+</script>
+</body>
+</html>

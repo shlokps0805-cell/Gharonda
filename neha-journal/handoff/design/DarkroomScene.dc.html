@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>*,*::before,*::after{box-sizing:border-box}</style></helmet>
+<div data-screen-label="{{ label }}" style="position:relative;width:1440px;height:{{ frameH }}px;overflow:hidden;background:linear-gradient(180deg,#0B0910 0%,#1E0E14 45%,#4A141C 78%,#6E1A24 100%)">
+<div style="position:absolute;left:0;top:{{ shift }}px;width:1440px;height:{{ H }}px">
+<div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px"></div>
+<div style="position:absolute;left:94px;top:34px;width:590px;height:{{ pageH }}px;border-radius:8px 2px 2px 8px;background:#0E0B16"></div>
+<div style="position:absolute;left:88px;top:28px;width:590px;height:{{ pageH }}px;border-radius:8px 2px 2px 8px;background:#1C1828;box-shadow:0 2px 3px rgba(0,0,0,.4),0 18px 40px rgba(0,0,0,.4);overflow:hidden"><div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px"></div><div style="position:absolute;top:0;bottom:0;right:0;width:60px;background:linear-gradient(270deg,rgba(0,0,0,.35),rgba(0,0,0,0))"></div></div>
+<div style="position:absolute;left:678px;top:28px"><dc-import name="SpiralJournal" w="590" h="{{ pageH }}" paper="dark" coil="silver" hole-color="#0E0B16" loops="{{ loops }}" hint-size="602px,900px"></dc-import></div>
+<div style="position:absolute;left:420px;top:-120px;width:600px;height:420px;border-radius:50%;background:radial-gradient(ellipse,rgba(166,58,72,.32),rgba(166,58,72,0) 70%)"></div>
+
+<div style="position:absolute;left:150px;top:64px"><dc-import name="RansomWord" text="the darkroom" size="54" hint-size="560px,80px"></dc-import></div>
+<div style="position:absolute;left:160px;top:160px;font:600 30px/1 'Caveat',cursive;color:#DCCBF3">developed with love</div>
+<div style="position:absolute;left:120px;top:218px;width:1130px;height:2px;background:#5C6B85;transform:rotate(-.6deg)"></div>
+<sc-for list="{{ strips }}" as="s" hint-placeholder-count="4"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px;transform:rotate({{ s.r }}deg);transform-origin:50% 0">
+<div style="position:absolute;left:50%;top:-14px;margin-left:-8px"><dc-import name="Fastener" kind="clothespin" hint-size="16px,50px"></dc-import></div>
+<div style="width:120px;padding:10px 14px;background:#0A0812;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 10px rgba(0,0,0,.5);background-image:repeating-linear-gradient(180deg,transparent 0 6px,#C9C3D2 6px 11px),repeating-linear-gradient(180deg,transparent 0 6px,#C9C3D2 6px 11px);background-size:6px 100%,6px 100%;background-position:3px 0,111px 0;background-repeat:repeat-y">
+<sc-for list="{{ s.f }}" as="f" hint-placeholder-count="3"><div style="height:68px;background:repeating-linear-gradient(135deg,#3A3046 0 8px,#33293F 8px 16px)"></div></sc-for>
+</div></div></sc-for>
+<div style="position:absolute;left:150px;top:400px;display:flex;flex-wrap:wrap;gap:8px;width:1080px"><sc-for list="{{ index }}" as="i" hint-placeholder-count="8"><div style="padding:8px 12px;background:#FFFFFF;border-radius:2px;transform:rotate({{ i.r }}deg);box-shadow:0 1px 2px rgba(0,0,0,.4);font:700 11px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#204670;white-space:nowrap;cursor:pointer">{{ i.n }}</div></sc-for></div>
+
+<sc-for list="{{ sections }}" as="sec" hint-placeholder-count="8">
+<div style="position:absolute;left:140px;top:{{ sec.y }}px;width:1110px;height:{{ sec.h }}px">
+<div style="position:absolute;left:10px;top:0;display:flex;align-items:baseline;gap:14px"><span style="font:600 38px/1 'Caveat',cursive;color:#FFFFFF;white-space:nowrap">{{ sec.label }}</span><span style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#ACBFD3;white-space:nowrap">{{ sec.code }}</span></div>
+<sc-if value="{{ sec.panel }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:0;top:60px;width:1110px;height:{{ sec.ph }}px;border-radius:6px;background:{{ sec.pbg }};box-shadow:{{ sec.psh }}"></div></sc-if>
+<sc-for list="{{ sec.items }}" as="p" hint-placeholder-count="6">
+<div onPointerDown="{{ p.grab }}" style="position:absolute;left:{{ p.x }}px;top:{{ p.y }}px;z-index:{{ p.z }};cursor:{{ p.cur }};touch-action:none">
+<dc-import name="PhotoFrame" type="{{ p.t }}" ratio="{{ p.r }}" size="{{ p.s }}" rotate="{{ p.rot }}" tone="{{ p.tone }}" caption="{{ p.cap }}" by="{{ p.by }}" show-caption="{{ p.sc }}" on-dark="{{ true }}" label="{{ p.lab }}" hint-size="260px,320px"></dc-import>
+<sc-if value="{{ p.dev }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:{{ p.dl }}px;top:{{ p.dt }}px;width:{{ p.dw }}px;height:{{ p.dh }}px;background:radial-gradient(circle at 50% 45%,rgba(60,42,52,{{ p.da }}),rgba(28,20,30,{{ p.db }}));backdrop-filter:blur({{ p.blur }}px);transform:rotate({{ p.rot }}deg)"></div></sc-if>
+<sc-if value="{{ p.flash }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:12px;top:12px;width:{{ p.dw }}px;height:{{ p.dh }}px;background:radial-gradient(circle at 48% 40%,rgba(255,255,255,.55),rgba(255,255,255,0) 55%);transform:rotate({{ p.rot }}deg);pointer-events:none"><div style="position:absolute;right:12px;bottom:10px;font:700 15px/1 'Courier Prime',monospace;color:#E86A5A;text-shadow:0 0 4px rgba(232,106,90,.6)">'26 10 11</div></div></sc-if>
+<sc-if value="{{ p.bubble }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:70px;top:150px;max-width:180px;padding:10px 14px;border-radius:18px 18px 18px 4px;background:#5E3695;font:400 15px/1.3 'DM Sans',sans-serif;color:#FFFFFF;box-shadow:0 2px 8px rgba(0,0,0,.35)">SAMPLE · ok but my hair tho</div></sc-if>
+</div>
+</sc-for>
+<sc-for list="{{ sec.words }}" as="w" hint-placeholder-count="0"><div style="position:absolute;left:{{ w.x }}px;top:{{ w.y }}px;z-index:20"><dc-import name="RansomWord" text="{{ w.t }}" size="34" hint-size="200px,56px"></dc-import></div></sc-for>
+<sc-if value="{{ sec.contact }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:60px;top:90px;width:980px;padding:28px;background:#0A0812;border-radius:3px;display:grid;grid-template-columns:repeat(8,1fr);gap:14px 10px;box-shadow:0 6px 18px rgba(0,0,0,.5)">
+<sc-for list="{{ contactCells }}" as="c" hint-placeholder-count="32"><div style="display:flex;flex-direction:column;gap:4px"><div style="aspect-ratio:3/2;background:repeating-linear-gradient(135deg,{{ c.a }} 0 6px,{{ c.b }} 6px 12px)"></div><span style="font:700 8px/1 'Courier Prime',monospace;color:#E86A5A">{{ c.n }}</span></div></sc-for>
+</div>
+<div style="position:absolute;left:520px;top:180px;width:160px;height:160px;border-radius:50%;border:4px solid #D9BE6E;box-shadow:0 0 0 2px rgba(0,0,0,.4),0 10px 24px rgba(0,0,0,.5);overflow:hidden;background:#0A0812;z-index:30"><div style="position:absolute;left:12px;top:30px;width:136px;height:91px;background:repeating-linear-gradient(135deg,#6A5E7A 0 12px,#5E536E 12px 24px)"></div><div style="position:absolute;left:14px;bottom:20px;font:700 14px/1 'Courier Prime',monospace;color:#E86A5A">14A</div></div>
+<div style="position:absolute;left:688px;top:190px;font:700 11px/1.3 'Courier Prime',monospace;color:#FFFFFF;background:rgba(94,54,149,.85);padding:5px 8px;border-radius:3px;z-index:31">LOUPE · 160PX · 2× · follows cursor</div>
+</sc-if>
+<sc-for list="{{ sec.stick }}" as="s" hint-placeholder-count="2"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px;z-index:25"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.r }}" pinned="pin" hint-size="80px,80px"></dc-import></div></sc-for>
+</div>
+</sc-for>
+<div style="position:absolute;left:1120px;top:{{ backY }}px;display:flex;flex-direction:column;align-items:center;gap:6px"><dc-import name="Sticker" kind="camera" size="110" rotate="-6" pinned="pin" hint-size="110px,74px"></dc-import><span style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF">BACK TO TOP ↑</span></div>
+</div>
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:24px;top:{{ playerY }}px"><dc-import name="MiniPlayer" state="playing" note-color="#FFFFFF" hint-size="280px,80px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;window&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;full&quot;,&quot;options&quot;:[&quot;full&quot;,&quot;contact&quot;,&quot;polaroid&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { dev: {} };
+  shake(key) { return e => { e.preventDefault(); let lx = e.clientX, ly = e.clientY, acc = 0; const mv = ev => { acc += Math.hypot(ev.clientX - lx, ev.clientY - ly); lx = ev.clientX; ly = ev.clientY; this.setState(s => ({ dev: { ...s.dev, [key]: Math.min(1, (s.dev[key] || 0) + acc / 2400) } })); acc = 0; }; const up = () => { window.removeEventListener('pointermove', mv); window.removeEventListener('pointerup', up); }; window.addEventListener('pointermove', mv); window.addEventListener('pointerup', up); }; }
+  renderVals() {
+    const win = this.props.window ?? 'full';
+    const caps = ['SAMPLE · the good angle', 'SAMPLE · 2am, again', 'SAMPLE · the bus window', 'SAMPLE · mid-sentence', 'SAMPLE · blurry but iconic', 'SAMPLE · golden hour'];
+    const P = (t, r, s, x, y, rot, i, ex) => ({ grab: undefined, cur: ex && ex.grab ? 'grab' : 'default', blur: 0, t, r, s, x, y, rot, z: i + 1, tone: i % 3, cap: caps[i % 6], by: 'taken by Friend ' + (i * 3 % 12 + 1), sc: false, lab: `photo · ${r} · small`, ...(ex || {}) });
+    const sec = (key, label, h, items, ex) => ({ key, label, h, items, words: [], stick: [], panel: false, contact: false, ...ex });
+    const S = [];
+    S.push(sec('film', 'on film', 640, [0, 1, 2, 3, 4, 5].map(i => P('film', '3:2', 300, [0, 370, 740, 185, 555, 925 - 80][i], i < 3 ? 70 : 330, [-1, 1, -2, 2, -1, 1][i], i)), { stick: [{ k: 'vinyl-purple', x: 990, y: 520, size: 100, r: 6 }] }));
+    S.push(sec('booth', 'photobooth chaos', 820, [0, 1, 2, 3].map(i => P('booth', '1:1', 170, [40, 300, 560, 820][i], [80, 40, 100, 60][i], [-2, 3, -1, 2][i], i)), { stick: [{ k: 'star-glitter-edge', x: 1020, y: 0, size: 80, r: 8 }] }));
+    S.push(sec('polaroid', 'give it a shake', 760, [0, 1, 2, 3, 4, 5].map(i => { const da = [.95, .8, .55, .3, .1, 0][i]; const key = 'pol' + i, dv = this.state.dev[key] || 0, da2 = Math.max(0, da * (1 - dv)); return P('polaroid', '1:1', 260, [0, 370, 740, 185, 555, 925 - 60][i], i < 3 ? 70 : 380, [-4, 3, -2, 5, -3, 2][i], i, { dev: da2 > 0, dl: 14, dt: 14, dw: 260, dh: 260, da: da2, db: Math.min(1, da2 + .1), blur: Math.round(da2 * 6), grab: this.shake(key), sc: false }); }), { stick: [{ k: 'sparkle', x: 1010, y: 360, size: 80, r: -6 }] }));
+    S.push(sec('flash', 'flash on', 700, [0, 1, 2, 3, 4, 5].map(i => P('taped', '4:5', 250, [0, 370, 740, 185, 555, 925 - 60][i], i < 3 ? 70 : 340, [-3, 2, -4, 3, -2, 4][i], i, { flash: true, dw: 250, dh: 312 })), { stick: [{ k: 'dnd', x: 900, y: 0, size: 170, r: 3 }] }));
+    S.push(sec('contact', 'the outtakes', 560, [], { contact: true, stick: [{ k: 'eight-ball', x: 1030, y: 400, size: 70, r: -8 }] }));
+    S.push(sec('slides', 'slideshow', 720, [0, 1, 2, 3, 4, 5].map(i => P('slide', '1:1', 240, [40, 380, 720, 210, 550, 890 - 40][i], i < 3 ? 100 : 380, [-2, 1, 3, -3, 2, -1][i], i)), { panel: false, ph: 620, pbg: 'radial-gradient(ellipse at 50% 40%,#F6F8FC,#DDE5F0 70%,#C9D4E4)', psh: '0 0 40px rgba(206,217,228,.35),inset 0 0 0 1px rgba(255,255,255,.6)', stick: [{ k: 'star-balloon', x: 1020, y: 0, size: 80, r: 6 }] }));
+    S.push(sec('cutouts', 'cover girl material', 720, [0, 1, 2, 3, 4].map(i => P('torn', '4:5', 250, [0, 300, 620, 160, 820][i], [80, 120, 70, 400, 380][i], [-4, 3, -2, 4, -3][i], i)), { words: [{ t: 'cover', x: 470, y: 470 }, { t: 'girl', x: 520, y: 540 }, { t: 'material', x: 430, y: 610 }], stick: [{ k: 'iconic', x: 990, y: 40, size: 100, r: 8 }] }));
+    let y = 500; const codes = ['ON FILM', 'PHOTOBOOTH', 'DISSOLVING POLAROIDS', 'DISPOSABLE', 'CONTACT SHEET', 'SLIDE FILM', 'CUT-OUTS'];
+    S.forEach((s, i) => { s.y = y; s.code = `0${i + 1} · ${codes[i]}`; y += s.h + 100; });
+    const H = y + 160, pageH = H - 56;
+    const shifts = { full: 0, contact: -S[4].y + 140, polaroid: -S[2].y + 120 };
+    const shift = shifts[win] ?? 0, frameH = win === 'full' ? H : 900;
+    const cc = Array.from({ length: 32 }, (_, i) => ({ n: (i + 1) + 'A', a: i % 3 ? '#4A3F58' : '#57496A', b: i % 3 ? '#423850' : '#4E4160' }));
+    return {
+      label: win === 'full' ? '04-Darkroom/Full' : win === 'contact' ? '04-Darkroom/Contact-loupe' : '04-Darkroom/Polaroids-develop',
+      H, pageH, loops: Math.round(pageH / 40), shift, frameH, playerY: win === 'full' ? 796 : 796,
+      strips: [{ x: 210, y: 226, r: -3, f: [1, 2, 3] }, { x: 470, y: 222, r: 2, f: [1, 2] }, { x: 780, y: 220, r: -2, f: [1, 2, 3] }, { x: 1040, y: 218, r: 3, f: [1, 2] }],
+      index: codes.map((n, i) => ({ n, r: [-2, 1, -1, 2, -2, 1, 2, -1][i] })),
+      sections: S, contactCells: cc, backY: H - 200,
+      tabs: ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'].map(l => ({ l, s: l === 'Darkroom' ? 'active' : 'default' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

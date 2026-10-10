@@ -1,0 +1,65 @@
+import React from 'react';
+import { DC, css } from './dc.js';
+
+
+export default class DividerTab extends DC {
+  state = { h: false };
+  static COL = { cover: ['#ECE3F8', '#DCCBF3', '#130F1F'], timeline: ['#DCCBF3', '#CDB8EC', '#130F1F'], darkroom: ['#C9B2EA', '#B99DE3', '#130F1F'], wishes: ['#B092DD', '#9F7DD3', '#130F1F'], playlist: ['#8A63BC', '#7853AE', '#FFFFFF'], jokes: ['#6A43A0', '#5A3590', '#FFFFFF'], games: ['#4A2880', '#3B1F6B', '#FFFFFF'] };
+  static IC = { cover: ['check-star', 18, 17], darkroom: ['camera', 20, 13], playlist: ['cd', 18, 18], jokes: null };
+  renderVals() {
+    const label = this.props.label ?? 'Cover';
+    const key = (this.props.section ?? label).toLowerCase();
+    const st = this.props.state ?? 'default';
+    const active = st === 'active', hover = !active && (st === 'hover' || this.state.h);
+    const c = DividerTab.COL[key] || DividerTab.COL.cover;
+    const vis = active ? 58 : hover ? 46 : 40;
+    const imgMap = { cover: ['check-star', 18, 17], darkroom: ['camera', 20, 13], playlist: ['cd', 18, 18], jokes: ['eight-ball-mini', 0, 0] };
+    const im = imgMap[key];
+    const isImg = !!im && key !== 'jokes';
+    return {
+      label, active, vis, x: vis - 64 + 8, bg: this.props.color ?? (active ? c[1] : c[0]), fg: this.props.textColor ?? c[2],
+      img: isImg || key === 'jokes', src: key === 'jokes' ? '/media/stickers/eight-ball-tab.webp' : isImg ? `/media/stickers/${im[0]}.webp` : '', iw: key === 'jokes' ? 20 : im ? im[1] : 0, ih: key === 'jokes' ? 20 : im ? im[2] : 0,
+      ic: { clock: key === 'timeline', envelope: key === 'wishes', dice: key === 'games' },
+      clipR: 18,
+      enter: () => this.setState({ h: true }), leave: () => this.setState({ h: false }), onClick: this.props.onClick
+    };
+  }
+  template(v) {
+    return (
+      <button type="button" className="nh-btn" aria-label={v.label} aria-current={v.active ? 'page' : undefined} style={css("position:relative;flex:none;width:72px;height:104px;overflow:hidden;cursor:pointer")} onMouseEnter={v.enter} onMouseLeave={v.leave} onFocus={v.enter} onBlur={v.leave} onClick={v.onClick}>
+        <div style={css(`position:absolute;top:4px;left:${v.x}px;width:64px;height:96px;border-radius:0 14px 14px 0;background:${v.bg};box-shadow:1px 1px 0 rgba(255,255,255,.25) inset,2px 2px 3px rgba(19,15,31,.28),4px 6px 12px rgba(19,15,31,.16);transition:left 200ms cubic-bezier(0.34,1.56,0.64,1),background 150ms ease-out`)}>
+          <div style={css("position:absolute;inset:0;border-radius:0 14px 14px 0;background:url(/media/textures/grain.png) 0 0/128px 128px;opacity:.6")} />
+          <div style={css(`position:absolute;right:0;top:0;bottom:0;width:${v.vis}px;display:flex;flex-direction:column;align-items:center;padding:10px 3px 0 0;gap:7px`)}>
+            <div style={css("position:relative;width:26px;height:26px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 2px rgba(19,15,31,.3);display:flex;align-items:center;justify-content:center")}>
+              {v.img ? (<>
+                <img src={v.src} alt="" style={css(`width:${v.iw}px;height:${v.ih}px;display:block`)} />
+              </>) : null}
+              {v.ic.clock ? (<>
+                <div style={css("position:relative;width:16px;height:16px;border-radius:50%;border:2px solid #204670")}>
+                  <div style={css("position:absolute;left:5px;top:2px;width:2px;height:5px;background:#204670;border-radius:1px")} />
+                  <div style={css("position:absolute;left:5px;top:5px;width:4px;height:2px;background:#204670;border-radius:1px")} />
+                </div>
+              </>) : null}
+              {v.ic.envelope ? (<>
+                <div style={css("position:relative;width:17px;height:12px;border-radius:2px;background:#DCCBF3;border:1.5px solid #5E3695;overflow:hidden")}>
+                  <div style={css("position:absolute;left:1px;top:-6px;width:12px;height:12px;border-right:1.5px solid #5E3695;border-bottom:1.5px solid #5E3695;transform:rotate(45deg)")} />
+                </div>
+              </>) : null}
+              {v.ic.dice ? (<>
+                <div style={css("width:16px;height:16px;border-radius:4px;background:radial-gradient(circle 1.8px at 28% 28%,#FFF 96%,transparent),radial-gradient(circle 1.8px at 50% 50%,#FFF 96%,transparent),radial-gradient(circle 1.8px at 72% 72%,#FFF 96%,transparent),#5E3695;transform:rotate(-10deg)")} />
+              </>) : null}
+            </div>
+            <div style={css(`writing-mode:vertical-rl;text-align:center;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;text-transform:uppercase;color:${v.fg};white-space:nowrap`)}>
+              {v.label}
+            </div>
+          </div>
+          {v.active ? (<>
+            <div style={css(`position:absolute;right:${v.clipR}px;top:-6px;width:22px;height:16px;border-radius:3px 3px 5px 5px;background:linear-gradient(180deg,#FBEFC4,#E2C46E 35%,#C29A3C 70%,#8A6A1E);box-shadow:0 1px 2px rgba(19,15,31,.35)`)}>
+              <div style={css("position:absolute;left:4px;top:-7px;width:14px;height:9px;border:1.5px solid #C9A54A;border-bottom:none;border-radius:4px 4px 0 0")} />
+            </div>
+          </>) : null}
+        </div>
+      </button>
+    );
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "tabs": ["Cover", "Timeline", "Darkroom", "Wishes", "Playlist", "Jokes", "Games"],
+  "opening": { "tapTheSeal": "tap the seal", "forName": "For Neha", "by": "by" },
+  "cover": { "open": "OPEN THE JOURNAL →", "reset": "RESET STICKERS", "contents": "contents", "backPages": "THE BACK PAGES →" },
+  "contents": [
+    { "label": "then, now, always", "page": "02", "sticker": "paint-star", "to": "timeline" },
+    { "label": "rare footage", "page": "03", "sticker": "camera", "to": "darkroom" },
+    { "label": "letters from her people", "page": "04", "sticker": "star-felt", "to": "wishes" },
+    { "label": "songs that sound like neha", "page": "05", "sticker": "cd", "to": "playlist" },
+    { "label": "the joke archive", "page": "06", "sticker": "eight-ball", "to": "jokes" },
+    { "label": "can you solve her?", "page": "07", "sticker": "check-star", "to": "games" }
+  ],
+  "stickerMenu": { "stick": "Stick here", "fall": "Let it fall", "duplicate": "Duplicate", "front": "Bring to front", "peel": "Peel off (delete)", "size": "SIZE", "angle": "ANGLE", "hint": "psst, right-click a sticker to stick it, resize it, copy it or remove it (two-finger click on a Mac trackpad)", "turnTitle": "drag to rotate · or two-finger rotate / shift + scroll" },
+  "player": { "tapToStart": "tap to start the music", "unavailable": "music unavailable", "noSongs": "songs coming soon", "pickedBy": "picked by" },
+  "timeline": { "kicker": "02 · TIMELINE", "title": "then, now,", "titleItalic": "always", "pick": "pick a year", "back": "← BACK TO THE TIMELINE", "orEsc": "or Esc", "takenBy": "TAKEN BY", "more": "more from this era", "videoSoon": "video coming soon", "empty": "the timeline fills up soon" },
+  "darkroom": { "title": "the darkroom", "sub": "developed with love", "backToTop": "BACK TO TOP ↑", "codes": ["ON FILM", "PHOTOBOOTH", "DISSOLVING POLAROIDS", "DISPOSABLE", "CONTACT SHEET", "SLIDE FILM", "CUT-OUTS"], "shakeHint": "grab one and shake it", "coverWords": ["cover", "girl", "material"], "empty": "the photos are still developing" },
+  "wishes": { "kicker": "04 · WISHES", "title": "letters from her people", "sub": "one from each of us. open them all.", "opened": "OPENED", "of": "OF", "back": "← BACK TO ALL LETTERS", "orEsc": "or Esc", "masthead": "THE NEHA TIMES", "letter": "LETTER", "price": "PRICE: ONE HUG", "words": "WORDS", "signoff": "all my love,", "youre": "you’re", "toMe": "to me", "soon": "letter coming soon", "videoLetter": "VIDEO LETTER", "end": "that’s everyone. we love you.", "more": "more letters →", "prev": "previous letter", "next": "next letter", "videoSoon": "video coming soon" },
+  "playlist": { "kicker": "05 · PLAYLIST", "title": "songs that sound like neha", "sub": "made by her people, side A and side B", "sideA": "side A", "sideB": "side B", "save": "SAVE TO YOUR SPOTIFY", "nowOn": "NOW ON SPOTIFY", "pickedBy": "PICKED BY", "forName": "for neha", "spine": "NEHA · THE BIRTHDAY MIX · 2026", "artTitle": "songs that sound like", "artName": "neha", "vol": "vol. 1", "date": "11.10.26", "from": "for neha, from her people", "nickname": "‹nickname›!!", "sides": "SIDE A / SIDE B", "unavailable": "the player is resting. the songs are still here.", "empty": "the mixtape is being recorded" },
+  "jokes": { "title": "the joke archive", "count": "JOKES, ALL CANON", "all": "ALL", "byPerson": "BY PERSON ▾", "submittedBy": "SUBMITTED BY", "origin": "THE ORIGIN STORY", "backPages": "THE BACK PAGES →", "empty": "the jokes are being written down" },
+  "back": { "kicker": "THE BACK PAGES", "signedBy": "signed by", "cardTitle": "NEHA’S JOURNAL · LIBRARY CARD", "dateDue": "DATE DUE", "issuedTo": "ISSUED TO", "cardLines": [["11.10.26", "neha"], ["due back:", "never"]], "returnTo": "please return to", "allOfUs": "all of us", "replay": "replay the opening", "cardHint": "tap the card" },
+  "games": {
+    "back": "← BACK TO THE GAMES",
+    "spreadTitle": "can you solve her?", "spreadSub": "four games, all about her",
+    "cards": [
+      { "id": "connections", "name": "connections, the neha edition", "line": "sixteen things only we would know", "sticker": "check-star" },
+      { "id": "wordle", "name": "wordle, the neha edition", "line": "five letters, six guesses", "sticker": "headphone-cat" },
+      { "id": "cryptic", "name": "daily cryptic", "line": "one clue, every day of her year", "sticker": "eight-ball" },
+      { "id": "world", "name": "Neha’s World", "line": "run, jump, collect her favourite things", "sticker": "camera-cat" }
+    ],
+    "connections": { "title": "connections, the neha edition", "sub": "make four groups of four", "intro": "create four groups of four.", "mistakes": "mistakes remaining:", "shuffle": "Shuffle", "deselect": "Deselect all", "submit": "Submit", "oneAway": "one away…", "already": "already guessed", "solved": "solved with {n} mistakes. of course you did.", "solvedOne": "solved with 1 mistake. of course you did.", "solvedZero": "solved with no mistakes. of course you did.", "lost": "next time. here’s how it went:", "older": "older puzzle", "newer": "newer puzzle" },
+    "wordle": { "title": "wordle, the neha edition", "sub": "guess the word about her", "notInList": "not in word list", "tooShort": "not enough letters", "won": "you got it in {n}", "wonLine": "of course you did.", "lost": "the word was {word}", "lostLine": "so close. tomorrow’s yours.", "copy": "Copy result", "copied": "Copied!" },
+    "cryptic": { "title": "daily cryptic", "sub": "one clue a day", "today": "TODAY", "clueNo": "CLUE NO.", "check": "CHECK", "reveal": "REVEAL", "hintTitles": ["THE DEFINITION IS UNDERLINED", "THE TRICK", "A LETTER"], "hint": "HINT", "tapToUnfold": "TAP TO UNFOLD", "folded": "FOLDED", "definition": "DEFINITION", "wordplay": "WORDPLAY", "how": "HOW IT WORKS", "streak": "STREAK:", "last14": "LAST 14 DAYS", "legend": ["● solved", "◎ today", "○ missed", "○ future"], "solved": "solved!", "revealed": "revealed", "none": "the first clue arrives soon" },
+    "world": { "title": "Neha’s World", "sub": "collect her favourite things", "soon": "the game arrives here soon", "loading": "LOADING NEHA’S WORLD", "best": "BEST", "expand": "⤢ EXPAND", "shrink": "✕ CLOSE", "resume": "the music paused while you played. resume it?", "resumeYes": "RESUME MUSIC", "keys": [["← →", "MOVE"], ["SPACE", "JUMP"], ["P", "PAUSE"]] }
+  },
+  "phone": { "note": "this journal is made for a laptop screen. open it on your laptop for the full experience.", "anyway": "open it here anyway" },
+  "eggs": { "fromGroup": "a message from all of us" }
+}

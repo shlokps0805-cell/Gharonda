@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33;-webkit-font-smoothing:antialiased}a{color:#DCCBF3;text-decoration-color:#A57BD5;text-underline-offset:4px}a:hover{color:#FFFFFF}</style></helmet>
+<section style="padding:96px;display:flex;flex-direction:column;gap:96px;background:#141E33;min-width:1984px">
+<div style="display:flex;flex-direction:column;gap:16px;width:1840px">
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.18em;color:#C4A8E6">NEHA · THE BIRTHDAY JOURNAL · PHASE 7A</div>
+<div style="font:400 88px/1 'Libre Caslon Text',serif;color:#FFFFFF;white-space:nowrap">Jokes <span style="font-style:italic">and the back pages</span></div>
+<div style="display:flex;gap:16px;padding-top:8px"><sc-for list="{{ audit }}" as="a" hint-placeholder-count="3"><div style="flex:1;padding:16px 20px;background:#FBF9F5;border-radius:4px;display:flex;flex-direction:column;gap:6px"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div></div></sc-for></div>
+</div>
+<sc-for list="{{ frames }}" as="f" hint-placeholder-count="5">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">{{ f.name }}</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">{{ f.sub }}</span></div>
+<div style="display:flex;gap:40px;align-items:flex-start"><dc-import name="JokesScene" state="{{ f.st }}" hint-size="1440px,900px"></dc-import>
+<div style="width:360px;display:flex;flex-direction:column;gap:12px;padding:24px;background:#FBF9F5;border-radius:4px"><div style="font:400 26px/1.15 'Libre Caslon Text',serif;color:#130F1F">{{ f.title }}</div><sc-for list="{{ f.notes }}" as="a" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid #E3E8EF"><div style="font:700 11px/1.3 'Courier Prime',monospace;letter-spacing:.06em;color:#204670">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div><div style="font:400 12px/1.4 'Courier Prime',monospace;color:#3D4A66">{{ a.m }}</div></div></sc-for></div></div>
+</div>
+</sc-for>
+<div style="display:grid;grid-template-columns:1fr;gap:16px;width:1840px">
+<div style="padding:24px;background:#FBF9F5;border-radius:4px;display:flex;flex-direction:column;gap:12px"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">EASTER EGGS</div><sc-for list="{{ eggs }}" as="e" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid #E3E8EF"><div style="font:700 12px/1.3 'Courier Prime',monospace;letter-spacing:.06em;color:#204670">{{ e.t }}</div><div style="font:400 15px/1.5 'DM Sans',sans-serif;color:#130F1F">{{ e.d }}</div></div></sc-for></div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const N = (t, d, m) => ({ t, d, m: m || '' });
+    return {
+      audit: [
+        { t: 'AUDIT · LAYER 1 SPEC 5/5', d: 'Ransom header, “37 JOKES, ALL CANON”, filter chips, felt board with notes of varied size joined by red thread pin to pin, hover, flipped note with the origin story; easter eggs; back pages with library card and signed-by list.' },
+        { t: 'AUDIT · LAYER 2 CRAFT 4/5 · FOUND → FIXED', d: 'A sticker sat on the ransom title → moved to the margin. Light friend colours were unreadable as signatures on white → signatures use a 45% deeper shade, with a true-colour dot beside each. Pins gold, only on paper notes. No favourites section.' },
+        { t: 'AUDIT · LAYER 3 COHESION 4/5', d: 'Lavender felt board still reads as a journal page (same spiral and tabs). The back pages close the book with navy, matching the cover. Render: 5 frames, 0 missing.' }
+      ],
+      frames: [
+        { st: 'board', name: '07-Jokes/Board', sub: 'one note hovered', title: 'the joke archive', notes: [N('BOARD', 'Both pages become soft lavender felt. Notes and index cards sized by joke length, each held by a gold pin, body sans and Kalam alternating.'), N('RED THREAD', 'A red thread runs pin to pin across the whole board, sagging a little between notes, like a detective wall.', 'draws in 900ms after the notes land'), N('HOVER', 'Note lifts with a larger shadow; the thread stays on its pins.', '200ms spring')] },
+        { st: 'flipped', name: '07-Jokes/Note-flipped', sub: 'the umbrella joke, turned over', title: 'The origin story', notes: [N('FLIP', 'Click a note: it turns over to its lore on lilac paper, “THE ORIGIN STORY” in Courier, the story in Caveat.', 'rotateY 180°, 400ms cubic-bezier(0.65,0,0.35,1)')] },
+        { st: 'back', name: '09-Back/Library-card', sub: 'after the card is clicked', title: 'The back pages', notes: [N('SIGNED BY', 'Every friend’s name in their colour and handwriting font, like a yearbook.'), N('LIBRARY CARD', 'Clicking the card types “due back: never” line by line.', '40ms per character, Courier'), N('PHOTO', 'The whole group in gold photo corners; final stickers.')] }
+      ],
+      spots: ['behind the corner of the cover photo', 'tucked into the spiral binding', 'behind a year button on the timeline', 'pinned on the Pinboard era page', 'in the Darkroom’s hanging film strip', 'behind one of the wish envelopes', 'inside the cassette case on the Playlist', 'on a corner of the joke board', 'under a sticker on the games spread', 'in the library-card pocket in the back pages'].map((t, i) => ({ n: String(i + 1).padStart(2, '0'), t })),
+      eggs: [{ t: 'HER NAME × 5', d: 'Click “Neha” on the cover five times: the Pinyon letters lift off, float (1.2s) and settle back, revealing a small handwritten secret note.' }, { t: 'LIBRARY CARD', d: 'In the back pages the card types “due back: never” line by line.' }, { t: 'A NICKNAME, ANYWHERE', d: 'Typing a nickname anywhere starts a 2s rain of approved stickers that fade on landing.' }, { t: 'SECRET KEYS', d: 'A key combination (set by the team) opens a message from the whole group. Annotation only.' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

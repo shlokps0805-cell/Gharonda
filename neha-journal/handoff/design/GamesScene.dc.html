@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>*,*::before,*::after{box-sizing:border-box}</style></helmet>
+<div data-screen-label="{{ label }}" style="position:relative;width:1440px;height:900px;overflow:hidden;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse 62% 64% at 50% 48%,rgba(251,249,245,.3) 0%,rgba(251,249,245,.14) 60%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px"></div>
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="{{ paper }}" coil="silver" hint-size="1192px,768px"></dc-import></div>
+<sc-for list="{{ stick }}" as="s" hint-placeholder-count="6"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.r }}" pinned="pin" hint-size="80px,80px"></dc-import></div></sc-for>
+<sc-if value="{{ back }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;left:150px;top:52px;display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:0 10px 10px 0;background:#ECE3F8;border-left:4px solid #5E3695;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#320F6F;white-space:nowrap;box-shadow:0 1px 2px rgba(19,15,31,.2)">← BACK TO THE GAMES</div></sc-if>
+<div style="position:absolute;left:{{ hx }}px;top:{{ hy }}px;display:flex;flex-direction:column;align-items:{{ halign }};gap:6px;width:{{ hw }}px"><div style="font:400 40px/1.05 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">{{ title }}</div><div style="font:600 26px/1 'Caveat',cursive;color:#5E3695;white-space:nowrap">{{ sub }}</div></div>
+
+<sc-if value="{{ spread }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:130px;top:216px;display:flex;gap:30px">
+<sc-for list="{{ cards }}" as="c" hint-placeholder-count="4">
+<div style="position:relative;width:250px;height:420px;padding:28px 22px 22px;background:#FFFFFF;border-radius:4px;box-shadow:0 1px 2px rgba(19,15,31,.22),0 10px 22px rgba(19,15,31,.12);transform:rotate({{ c.r }}deg);display:flex;flex-direction:column;gap:12px">
+<sc-if value="{{ c.clip }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;left:50%;top:-20px;margin-left:-20px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div></sc-if>
+<sc-if value="{{ c.tape }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:70px;top:-12px;width:110px;height:26px;transform:rotate(-4deg);opacity:.86;background:repeating-linear-gradient(90deg,#F7F1E6 0 5px,#ACBFD3 5px 8px);clip-path:polygon(0 10%,3% 0,97% 0,100% 12%,97% 32%,100% 54%,97% 76%,100% 92%,97% 100%,3% 100%,0 88%,3% 68%,0 48%,3% 28%)"></div></sc-if>
+<div style="font:400 24px/1.15 'Libre Caslon Text',serif;color:#130F1F">{{ c.n }}</div>
+<div style="font:600 22px/1.1 'Caveat',cursive;color:#5E3695">{{ c.d }}</div>
+<div style="margin-top:auto;height:170px;border-radius:4px;background:#F4F2F7;display:flex;align-items:center;justify-content:center;overflow:hidden">
+<sc-if value="{{ c.isC }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(4,36px);gap:4px"><sc-for list="{{ miniC }}" as="m" hint-placeholder-count="16"><div style="height:22px;border-radius:3px;background:{{ m }}"></div></sc-for></div></sc-if>
+<sc-if value="{{ c.isW }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(5,26px);gap:4px"><sc-for list="{{ miniW }}" as="m" hint-placeholder-count="15"><div style="height:26px;background:{{ m.bg }};border:1.5px solid {{ m.bd }}"></div></sc-for></div></sc-if>
+<sc-if value="{{ c.isK }}" hint-placeholder-val="{{ false }}"><div style="width:170px;padding:14px;background:#FFFFFF;box-shadow:0 1px 3px rgba(19,15,31,.2);display:flex;flex-direction:column;gap:10px"><div style="font:italic 400 14px/1.3 'Libre Caslon Text',serif;color:#130F1F">Drink hidden in beach air (4)</div><div style="display:flex;gap:4px"><sc-for list="{{ miniK }}" as="m" hint-placeholder-count="4"><div style="width:22px;height:22px;border:1.5px solid #130F1F"></div></sc-for></div></div></sc-if>
+<sc-if value="{{ c.isN }}" hint-placeholder-val="{{ false }}"><div style="width:190px;height:120px;border-radius:10px;background:#204670;padding:8px"><div style="width:100%;height:100%;border-radius:4px;background:linear-gradient(180deg,#2A3F66,#4A3560 70%,#5E3695);position:relative"><div style="position:absolute;left:0;right:0;bottom:0;height:16px;background:repeating-linear-gradient(90deg,#CED9E4 0 8px,#ACBFD3 8px 16px)"></div><div style="position:absolute;left:24px;bottom:16px;width:12px;height:20px;border-radius:5px 5px 2px 2px;background:#FBF9F5"></div></div></div></sc-if>
+</div>
+<div style="position:absolute;right:-20px;bottom:-22px"><dc-import name="Sticker" kind="{{ c.k }}" size="70" rotate="{{ c.sr }}" pinned="pin" hint-size="70px,70px"></dc-import></div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ conn }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:408px;top:186px;width:624px;text-align:center;font:400 16px/1 'DM Sans',sans-serif;color:#130F1F">create four groups of four.</div>
+<div style="position:absolute;left:408px;top:212px;width:624px;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ bars }}" as="b" hint-placeholder-count="0"><div style="height:80px;border-radius:8px;background:{{ b.c }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><div style="font:700 17px/1 'DM Sans',sans-serif;color:#000000;letter-spacing:.02em">{{ b.n }}</div><div style="font:400 16px/1 'DM Sans',sans-serif;color:#000000">{{ b.w }}</div></div></sc-for>
+<div style="display:grid;grid-template-columns:repeat(4,150px);gap:8px"><sc-for list="{{ tiles }}" as="t" hint-placeholder-count="16"><div style="height:80px;border-radius:8px;background:{{ t.bg }};display:flex;align-items:center;justify-content:center;font:700 17px/1 'DM Sans',sans-serif;letter-spacing:.02em;color:{{ t.fg }};transform:{{ t.tf }}">{{ t.w }}</div></sc-for></div>
+</div>
+<div style="position:absolute;left:408px;top:{{ belowY }}px;width:624px;display:flex;flex-direction:column;align-items:center;gap:14px">
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;top:-{{ toastUp }}px;padding:10px 16px;border-radius:6px;background:#000000;font:700 15px/1 'DM Sans',sans-serif;color:#FFFFFF">{{ toast }}</div></sc-if>
+<sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;align-items:center;gap:10px"><span style="font:400 15px/1 'DM Sans',sans-serif;color:#000000">mistakes remaining:</span><sc-for list="{{ dots }}" as="d" hint-placeholder-count="4"><div style="width:14px;height:14px;border-radius:50%;background:{{ d }}"></div></sc-for></div>
+<div style="display:flex;gap:10px"><div style="height:46px;padding:0 22px;border-radius:999px;border:1.5px solid #000000;display:flex;align-items:center;font:600 15px/1 'DM Sans',sans-serif;color:#000000;background:#FFFFFF">Shuffle</div><div style="height:46px;padding:0 22px;border-radius:999px;border:1.5px solid #000000;display:flex;align-items:center;font:600 15px/1 'DM Sans',sans-serif;color:#000000;background:#FFFFFF">Deselect all</div><div style="height:46px;padding:0 24px;border-radius:999px;background:{{ subBg }};border:1.5px solid {{ subBd }};display:flex;align-items:center;font:600 15px/1 'DM Sans',sans-serif;color:{{ subFg }}">Submit</div></div>
+</sc-if>
+<sc-if value="{{ done }}" hint-placeholder-val="{{ false }}"><div style="font:600 30px/1 'Caveat',cursive;color:#5E3695">solved with 2 mistakes. of course you did.</div></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ wordle }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:{{ gridX }}px;top:180px;display:grid;grid-template-columns:repeat(5,58px);gap:6px">
+<sc-for list="{{ cells }}" as="c" hint-placeholder-count="30"><div style="height:58px;background:{{ c.bg }};border:2px solid {{ c.bd }};display:flex;align-items:center;justify-content:center;font:700 30px/1 'DM Sans',sans-serif;color:{{ c.fg }};transform:{{ c.tf }}">{{ c.ch }}</div></sc-for>
+</div>
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:0;right:0;top:140px;display:flex;justify-content:center;padding-left:{{ toastPad }}px"><div style="padding:10px 16px;border-radius:6px;background:#000000;font:700 15px/1 'DM Sans',sans-serif;color:#FFFFFF">{{ toast }}</div></div></sc-if>
+<div style="position:absolute;left:{{ kbX }}px;top:580px;display:flex;flex-direction:column;gap:7px;align-items:center;width:470px"><sc-for list="{{ kb }}" as="row" hint-placeholder-count="3"><div style="display:flex;gap:5px"><sc-for list="{{ row }}" as="k" hint-placeholder-count="10"><div style="width:{{ k.w }}px;height:52px;border-radius:4px;background:{{ k.bg }};display:flex;align-items:center;justify-content:center;font:700 {{ k.fs }}px/1 'DM Sans',sans-serif;color:{{ k.fg }}">{{ k.k }}</div></sc-for></div></sc-for></div>
+<sc-if value="{{ share }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:880px;top:270px;width:300px;padding:22px;background:#FFFFFF;border-radius:6px;box-shadow:0 2px 6px rgba(19,15,31,.2),0 12px 24px rgba(19,15,31,.14);display:flex;flex-direction:column;gap:12px"><div style="font:400 26px/1.1 'Libre Caslon Text',serif;color:#130F1F">{{ shareT }}</div><div style="display:flex;flex-direction:column;gap:3px"><sc-for list="{{ shareRows }}" as="r" hint-placeholder-count="4"><div style="display:flex;gap:3px"><sc-for list="{{ r }}" as="q" hint-placeholder-count="5"><div style="width:20px;height:20px;border-radius:2px;background:{{ q }}"></div></sc-for></div></sc-for></div><div style="font:600 22px/1.1 'Caveat',cursive;color:#5E3695">{{ shareN }}</div><div style="align-self:flex-start;height:40px;padding:0 18px;border-radius:999px;background:#6AAA64;display:flex;align-items:center;font:700 14px/1 'DM Sans',sans-serif;color:#FFFFFF">Copy result</div></div></sc-if>
+<div style="position:absolute;left:160px;top:270px;width:220px;padding:20px 18px 16px;background:#FFFFFF;transform:rotate(-2deg);box-shadow:0 1px 2px rgba(19,15,31,.22),0 6px 12px rgba(19,15,31,.12);font:400 21px/1.3 'Kalam',cursive;color:#204670">SAMPLE · hint: something she can’t start a morning without<div style="position:absolute;right:20px;top:-14px"><dc-import name="Fastener" kind="paperclip" rotate="{{ 8 }}" hint-size="16px,48px"></dc-import></div></div>
+</sc-if>
+
+<sc-if value="{{ cry }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:160px;top:200px;width:620px;transform:rotate(-1deg);padding:42px 40px 30px;background:#FFFFFF;box-shadow:0 1px 2px rgba(19,15,31,.25),0 10px 20px rgba(19,15,31,.12);display:flex;flex-direction:column;gap:20px">
+<div style="position:absolute;left:50%;top:-22px;margin-left:-20px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div>
+<div style="display:flex;justify-content:space-between"><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">TODAY · 11.10.2026</span><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#3D4A66">CLUE NO. 284</span></div>
+<div style="font:400 36px/1.25 'Libre Caslon Text',serif;color:#130F1F"><span style="text-decoration:{{ defU }};text-decoration-color:#5E3695;text-decoration-thickness:3px;text-underline-offset:6px">Drink</span> hidden in <span style="background:{{ hl }}">bea<b style="font-weight:400;background:{{ hl2 }}">ch ai</b>r</span> <span style="color:#5E3695">(4)</span></div>
+<div style="display:flex;gap:8px;transform:{{ shake }}"><sc-for list="{{ cboxes }}" as="b" hint-placeholder-count="4"><div style="width:66px;height:66px;border-radius:4px;background:{{ b.bg }};border:1.5px solid {{ b.bd }};box-shadow:{{ b.sh }};display:flex;align-items:center;justify-content:center;font:700 32px/1 'DM Sans',sans-serif;color:#130F1F">{{ b.ch }}</div></sc-for></div>
+<sc-if value="{{ cryBtns }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:12px"><div style="height:44px;padding:0 24px;border-radius:999px;background:#204670;display:flex;align-items:center;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF">CHECK</div><div style="height:44px;padding:0 22px;border-radius:999px;border:1.5px solid #204670;display:flex;align-items:center;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670">REVEAL</div></div></sc-if>
+<sc-if value="{{ explain }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:auto 1fr;gap:8px 16px;padding:18px;border-radius:4px;background:#ECE8F2"><span style="font:700 11px/1.5 'Courier Prime',monospace;letter-spacing:.1em;color:#5E3695">DEFINITION</span><span style="font:400 17px/1.4 'DM Sans',sans-serif;color:#130F1F">drink</span><span style="font:700 11px/1.5 'Courier Prime',monospace;letter-spacing:.1em;color:#5E3695">WORDPLAY</span><span style="font:400 17px/1.4 'DM Sans',sans-serif;color:#130F1F">hidden word: bea<b>CH AI</b>r</span><span style="font:700 11px/1.5 'Courier Prime',monospace;letter-spacing:.1em;color:#5E3695">HOW IT WORKS</span><span style="font:400 17px/1.4 'DM Sans',sans-serif;color:#130F1F">“hidden in” tells you the answer is sitting inside the next words.</span></div></sc-if>
+</div>
+<div style="position:absolute;left:160px;top:{{ stripY }}px;width:620px;display:flex;gap:6px">
+<sc-for list="{{ folds }}" as="h" hint-placeholder-count="3"><div style="flex:1;height:{{ h.h }}px;padding:12px 14px;background:{{ h.bg }};border-radius:2px;box-shadow:0 1px 2px rgba(19,15,31,.18);transform:{{ h.tf }};display:flex;flex-direction:column;gap:6px;overflow:hidden"><span style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#4A3560">{{ h.t }}</span><span style="font:400 18px/1.25 'Kalam',cursive;color:#204670">{{ h.d }}</span></div></sc-for>
+</div>
+<div style="position:absolute;left:840px;top:220px;width:360px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#204670">STREAK: {{ streakN }}</span><span style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">LAST 14 DAYS</span></div>
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px"><sc-for list="{{ streak }}" as="d" hint-placeholder-count="14"><div style="display:flex;flex-direction:column;align-items:center;gap:4px;opacity:{{ d.o }}"><div style="width:34px;height:34px;border-radius:50%;background:{{ d.bg }};border:2px solid {{ d.bd }}"></div><span style="font:700 10px/1 'Courier Prime',monospace;color:#3D4A66">{{ d.l }}</span></div></sc-for></div>
+<div style="display:flex;gap:14px;font:400 12px/1.4 'Courier Prime',monospace;color:#3D4A66"><span>● solved</span><span>◎ today</span><span>○ missed</span><span style="opacity:.5">○ future</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ world }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:156px;top:146px;width:1000px;height:584px;border-radius:22px;background:linear-gradient(180deg,#2A5687,#204670 50%,#17355A);box-shadow:inset 0 2px 0 rgba(255,255,255,.18),0 2px 3px rgba(19,15,31,.3),0 14px 28px rgba(19,15,31,.25);transform:rotate(-.6deg)">
+<div style="position:absolute;left:20px;top:22px;width:960px;height:540px;border-radius:8px;overflow:hidden;background:#141E33;box-shadow:inset 0 0 0 3px #0E1626">
+<sc-if value="{{ wEmpty }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px"><dc-import name="Sticker" kind="camera-cat" size="120" rotate="-6" pinned="pin" hint-size="104px,120px"></dc-import><div style="font:600 34px/1 'Caveat',cursive;color:#FFFFFF">the game arrives here soon</div></div></sc-if>
+<sc-if value="{{ wLoad }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px"><div style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#FFFFFF">LOADING NEHA’S WORLD</div><div style="width:360px;height:12px;border-radius:6px;background:rgba(255,255,255,.18)"><div style="width:62%;height:100%;border-radius:6px;background:#C4A8E6"></div></div></div></sc-if>
+<sc-if value="{{ wPlay }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#2A3F66 0%,#4A3560 70%,#5E3695 100%)"><div style="position:absolute;left:0;right:0;bottom:0;height:90px;background:repeating-linear-gradient(90deg,#CED9E4 0 30px,#ACBFD3 30px 60px);box-shadow:inset 0 4px 0 #FBF9F5"></div><div style="position:absolute;left:320px;top:300px;width:200px;height:24px;background:repeating-linear-gradient(90deg,#DCCBF3 0 24px,#C4A8E6 24px 48px)"></div><div style="position:absolute;left:620px;top:220px;width:160px;height:24px;background:repeating-linear-gradient(90deg,#DCCBF3 0 24px,#C4A8E6 24px 48px)"></div><div style="position:absolute;left:140px;top:356px;width:54px;height:94px;border-radius:24px 24px 8px 8px;background:#FBF9F5;box-shadow:0 0 0 2px #130F1F"></div><div style="position:absolute;left:24px;top:20px;font:700 16px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#FFFFFF">♥ ♥ ♥ · SCORE 001 240 · ITEMS 3 / 12</div></div></sc-if>
+<sc-if value="{{ wPause }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#2A3F66,#4A3560 70%,#5E3695)"></div><div style="position:absolute;inset:0;background:rgba(20,30,51,.72);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px"><div style="font:italic 400 48px/1 'Libre Caslon Text',serif;color:#FFFFFF">paused</div><div style="height:44px;padding:0 22px;border-radius:999px;background:#FFFFFF;display:flex;align-items:center;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670">RESUME · P</div></div></sc-if>
+</div>
+<div style="position:absolute;left:120px;top:-18px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div><div style="position:absolute;right:120px;top:-18px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div>
+</div>
+<div style="position:absolute;left:960px;top:62px;display:flex;align-items:center;gap:12px"><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#204670;white-space:nowrap">BEST · 004 210</span><div style="height:40px;padding:0 16px;border-radius:999px;border:1.5px solid #204670;display:flex;align-items:center;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;white-space:nowrap">⤢ EXPAND</div></div>
+<div style="position:absolute;left:330px;top:742px;display:flex;align-items:center;gap:24px">
+<div style="display:flex;align-items:center;gap:8px;padding:8px 14px;background:#FFFFFF;border-radius:6px;box-shadow:0 1px 2px rgba(19,15,31,.2)"><sc-for list="{{ keys }}" as="k" hint-placeholder-count="4"><div style="display:flex;align-items:center;gap:6px"><div style="min-width:32px;height:30px;padding:0 8px;border-radius:6px;background:#FBF9F5;box-shadow:inset 0 -3px 0 #CED9E4,0 0 0 1.5px #204670;display:flex;align-items:center;justify-content:center;font:700 12px/1 'DM Sans',sans-serif;color:#130F1F">{{ k.k }}</div><span style="font:700 10px/1 'Courier Prime',monospace;color:#3D4A66;white-space:nowrap">{{ k.l }}</span></div></sc-for></div>
+<div style="display:flex;align-items:center;gap:12px"><sc-for list="{{ items }}" as="p" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:6px"><div style="width:30px;height:30px;border:1.5px dashed #5E3695;border-radius:6px;background:rgba(255,255,255,.7)"></div><span style="font:600 20px/1 'Caveat',cursive;color:#204670;white-space:nowrap">{{ p }}</span></div></sc-for></div>
+</div>
+</sc-if>
+
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="{{ mp }}" hint-size="280px,80px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;state&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;spread&quot;,&quot;options&quot;:[&quot;spread&quot;,&quot;conn-default&quot;,&quot;conn-selected&quot;,&quot;conn-wrong&quot;,&quot;conn-one&quot;,&quot;conn-solved&quot;,&quot;wordle-empty&quot;,&quot;wordle-mid&quot;,&quot;wordle-typing&quot;,&quot;wordle-notword&quot;,&quot;wordle-solved&quot;,&quot;wordle-lost&quot;,&quot;cry-unsolved&quot;,&quot;cry-hint1&quot;,&quot;cry-allhints&quot;,&quot;cry-wrong&quot;,&quot;cry-solved&quot;,&quot;world-empty&quot;,&quot;world-loading&quot;,&quot;world-playing&quot;,&quot;world-paused&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.props.state ?? 'spread', g = st.split('-')[0];
+    const Y = '#F9DF6D', Gn = '#A0C35A', B = '#B0C4EF', Pu = '#BA81C5', GR = '#EFEFE6', DK = '#5A594E';
+    const W = ['DISCO', 'VINYL', 'RAIN', 'CHAIR', 'BIRDS', 'PLATE', 'TRUMPET', 'PEN', 'BLORP', 'ZEST', 'FLIM', 'OOF', 'CHAI', 'FRIES', 'MANGO', 'NACHOS'];
+    const groups = [{ c: Y, n: 'SAMPLE · THINGS SHE ORDERS TWICE', w: 'CHAI, FRIES, MANGO, NACHOS', set: ['CHAI', 'FRIES', 'MANGO', 'NACHOS'] }, { c: Gn, n: 'SAMPLE · HER ALARM TONES', w: 'DISCO, RAIN, BIRDS, TRUMPET', set: ['DISCO', 'RAIN', 'BIRDS', 'TRUMPET'] }, { c: B, n: 'SAMPLE · SPUN AT 2AM', w: 'VINYL, CHAIR, PLATE, PEN', set: ['VINYL', 'CHAIR', 'PLATE', 'PEN'] }, { c: Pu, n: 'SAMPLE · WORDS SHE MADE UP', w: 'BLORP, ZEST, FLIM, OOF', set: ['BLORP', 'ZEST', 'FLIM', 'OOF'] }];
+    const nSolved = { 'conn-one': 1, 'conn-solved': 4 }[st] || 0;
+    const solvedW = new Set(groups.slice(0, nSolved).flatMap(x => x.set));
+    const sel = new Set(st === 'conn-selected' || st === 'conn-wrong' ? ['DISCO', 'RAIN', 'BIRDS', 'VINYL'] : st === 'conn-one' ? ['DISCO', 'RAIN', 'BIRDS'] : []);
+    const tiles = W.filter(w => !solvedW.has(w)).map(w => ({ w, bg: sel.has(w) ? DK : GR, fg: sel.has(w) ? '#FFFFFF' : '#000000', tf: st === 'conn-wrong' && sel.has(w) ? 'translateX(-6px)' : 'none' }));
+    const rowsLeft = Math.ceil(tiles.length / 4), connH = nSolved * 88 + rowsLeft * 88;
+    const mistakes = st === 'conn-wrong' ? 3 : st === 'conn-one' ? 3 : 4;
+    const Gw = '#6AAA64', Yw = '#C9B458', Xw = '#787C7E';
+    const R = (s, c) => [...s].map((ch, i) => [ch, c[i]]);
+    const G5 = 'GGGGG';
+    const rowsDef = { 'wordle-empty': [], 'wordle-mid': [R('SOLAR', 'XYXYX'), R('MAGIC', 'GGYXX')], 'wordle-typing': [R('SOLAR', 'XYXYX'), R('MAGIC', 'GGYXX'), R('MAN', 'TTT')], 'wordle-notword': [R('SOLAR', 'XYXYX'), R('MAGIC', 'GGYXX'), R('MANGQ', 'TTTTT')], 'wordle-solved': [R('SOLAR', 'XYXYX'), R('MAGIC', 'GGYXX'), R('MANOR', 'GGGYX'), R('MANGO', G5)], 'wordle-lost': [R('SOLAR', 'XYXYX'), R('MAGIC', 'GGYXX'), R('MANOR', 'GGGYX'), R('MAMBO', 'GGXXG'), R('MANIA', 'GGGXX'), R('MACRO', 'GGXXG')] }[st] || [];
+    const colr = { G: Gw, Y: Yw, X: Xw };
+    const cells = [];
+    for (let r = 0; r < 6; r++) for (let i = 0; i < 5; i++) { const c = (rowsDef[r] || [])[i]; const t = c && c[1] === 'T', col = c && colr[c[1]]; cells.push({ ch: c ? c[0] : '', bg: col || '#FFFFFF', bd: col || (t ? '#878A8C' : '#D3D6DA'), fg: col ? '#FFFFFF' : '#000000', tf: (st === 'wordle-notword' && r === 2) ? 'translateX(-6px)' : (st === 'wordle-solved' && r === 3 && i % 2 === 0) ? 'translateY(-8px)' : 'none' }); }
+    const ks = {}; rowsDef.forEach(row => row.forEach(([ch, c]) => { if (!colr[c]) return; const cur = ks[ch]; if (cur === 'G' || (cur === 'Y' && c === 'X')) return; ks[ch] = c; }));
+    const kb = ['QWERTYUIOP', 'ASDFGHJKL', '↵ZXCVBNM⌫'].map(r => [...r].map(k => { const big = k === '↵' || k === '⌫', c = colr[ks[k]]; return { k: k === '↵' ? 'ENTER' : k, w: big ? 66 : 40, fs: big ? 12 : 17, bg: c || '#D3D6DA', fg: c ? '#FFFFFF' : '#000000' }; }));
+    const shareRows = rowsDef.map(r => r.map(([, c]) => colr[c] || '#D3D6DA'));
+    const hints = { 'cry-unsolved': 0, 'cry-hint1': 1, 'cry-allhints': 3, 'cry-wrong': 1, 'cry-solved': 3 }[st] ?? 0;
+    const HD = [['THE DEFINITION IS UNDERLINED', 'look at the first word.'], ['THE TRICK', 'hidden word: the answer is inside the clue.'], ['A LETTER', 'the third letter is A.']];
+    const folds = HD.map(([t, d], i) => i < hints ? { t: `HINT ${i + 1} · ${t}`, d, bg: '#FFFFFF', h: 96, tf: 'none' } : { t: i === hints ? `HINT ${i + 1} · TAP TO UNFOLD` : `HINT ${i + 1} · FOLDED`, d: '', bg: i === hints ? '#ECE8F2' : '#F4F2F7', h: 44, tf: i % 2 ? 'skewY(-1deg)' : 'skewY(1deg)' });
+    const solved = st === 'cry-solved';
+    const cch = solved ? ['C', 'H', 'A', 'I'] : st === 'cry-wrong' ? ['C', 'O', 'L', 'A'] : hints >= 3 ? ['', '', 'A', ''] : ['', '', '', ''];
+    const cboxes = cch.map((ch, i) => ({ ch, bg: solved ? '#ECE3F8' : '#FFFFFF', bd: st === 'cry-wrong' ? '#A63A48' : '#130F1F', sh: !solved && i === 0 ? 'inset 0 0 0 3px #204670' : 'none' }));
+    const streak = Array.from({ length: 14 }, (_, i) => { const s = i === 9 ? 'today' : i > 9 ? 'future' : (i === 2 || i === 4) ? 'miss' : 'ok'; const done = s === 'today' && solved; return { l: ['M', 'T', 'W', 'T', 'F', 'S', 'S'][i % 7], bg: s === 'ok' || done ? '#C4A8E6' : '#FFFFFF', bd: s === 'today' ? '#204670' : s === 'ok' || done ? '#A57BD5' : '#C9C3D2', o: s === 'future' ? .4 : 1 }; });
+    const T = ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'];
+    const titles = { spread: ['can you solve her?', 'four games, all about her'], conn: ['connections, the neha edition', 'make four groups of four'], wordle: ['wordle, the neha edition', 'guess the word about her'], cry: ['daily cryptic', 'one clue a day · TODAY 11.10.2026'], world: ['Neha’s World', 'collect her favourite things'] }[g];
+    const L = { spread: '08-Games/Spread', 'conn-default': '08-Games/Connections', 'conn-selected': '08-Games/Connections-selected', 'conn-wrong': '08-Games/Connections-wrong', 'conn-one': '08-Games/Connections-one-solved', 'conn-solved': '08-Games/Connections-solved', 'wordle-empty': '08-Games/Wordle-empty', 'wordle-mid': '08-Games/Wordle-mid', 'wordle-typing': '08-Games/Wordle-typing', 'wordle-notword': '08-Games/Wordle-not-in-list', 'wordle-solved': '08-Games/Wordle-solved', 'wordle-lost': '08-Games/Wordle-not-solved', 'cry-unsolved': '08-Games/Cryptic', 'cry-hint1': '08-Games/Cryptic-hint-1', 'cry-allhints': '08-Games/Cryptic-hints', 'cry-wrong': '08-Games/Cryptic-wrong', 'cry-solved': '08-Games/Cryptic-solved', 'world-empty': '08-Games/Worlds-empty', 'world-loading': '08-Games/Worlds-loading', 'world-playing': '08-Games/Worlds-playing', 'world-paused': '08-Games/Worlds-paused' };
+    const STK = { spread: [{ k: 'vinyl-purple', x: 1140, y: 70, size: 96, r: 8 }, { k: 'star-felt', x: 120, y: 670, size: 70, r: -8 }, { k: 'books', x: 560, y: 660, size: 110, r: 4 }, { k: 'cookie-bear', x: 960, y: 664, size: 100, r: -6 }, { k: 'star-glass', x: 760, y: 70, size: 56, r: 0 }, { k: 'lily', x: 1170, y: 600, size: 110, r: 6 }],
+      conn: [{ k: 'check-star', x: 1100, y: 160, size: 90, r: 8 }, { k: 'tulips', x: 160, y: 560, size: 130, r: -6 }, { k: 'cd', x: 1110, y: 560, size: 90, r: 6 }, { k: 'star-origami', x: 200, y: 300, size: 70, r: -8 }, { k: 'jellyfish-blue', x: 1150, y: 330, size: 140, r: 4 }],
+      wordle: [{ k: 'iced-coffee', x: 1180, y: 470, size: 130, r: 6 }, { k: 'headphone-cat', x: 1120, y: 120, size: 100, r: -6 }, { k: 'star-balloon', x: 200, y: 560, size: 80, r: 8 }, { k: 'paint-star', x: 300, y: 700, size: 60, r: -6 }, { k: 'eight-ball', x: 1000, y: 590, size: 64, r: 10 }],
+      cry: [{ k: 'eight-ball', x: 1150, y: 600, size: 90, r: -8 }, { k: 'iconic', x: 1080, y: 110, size: 96, r: 10 }, { k: 'star-embroidered', x: 840, y: 520, size: 70, r: 6 }, { k: 'bunny', x: 1050, y: 470, size: 100, r: -4 }, { k: 'raindrop', x: 1190, y: 420, size: 64, r: 8 }],
+      world: [{ k: 'star-felt', x: 1170, y: 680, size: 70, r: 8 }, { k: 'camera', x: 130, y: 700, size: 110, r: -6 }, { k: 'cd', x: 1060, y: 740, size: 70, r: 6 }] }[g];
+    const isW = g === 'wordle';
+    return {
+      label: L[st], paper: g === 'cry' ? 'lined' : 'grid', stick: STK, back: g !== 'spread',
+      title: titles[0], sub: titles[1], hx: g === 'spread' ? 160 : 400, hy: g === 'spread' ? 70 : g === 'world' ? 48 : 92, hw: g === 'spread' ? 600 : 640, halign: 'flex-start',
+      spread: g === 'spread', conn: g === 'conn', wordle: isW, cry: g === 'cry', world: g === 'world',
+      cards: [{ n: 'connections, the neha edition', d: 'sixteen things only we would know', isC: true, k: 'check-star', sr: 8, r: -1.5, clip: true }, { n: 'wordle, the neha edition', d: 'five letters, six guesses', isW: true, k: 'headphone-cat', sr: -6, r: 1.2, clip: false, tape: true }, { n: 'daily cryptic', d: 'one clue, every day of her year', isK: true, k: 'eight-ball', sr: 8, r: -1, clip: true }, { n: 'Neha’s World', d: 'run, jump, collect her favourite things', isN: true, k: 'camera-cat', sr: -4, r: 1.6, clip: false, tape: true }],
+      miniC: [Y, Y, Y, Y, GR, GR, GR, GR, GR, DK, GR, GR, DK, GR, DK, DK], miniW: [...'XYXYXGGYXXGGGGG'].map(c => ({ bg: colr[c], bd: colr[c] })), miniK: [1, 2, 3, 4],
+      bars: groups.slice(0, nSolved), tiles, belowY: 212 + connH + 10, dots: [0, 1, 2, 3].map(i => i < mistakes ? DK : GR), notDone: nSolved < 4, done: nSolved === 4,
+      toast: st === 'conn-wrong' ? 'one away…' : st === 'wordle-notword' ? 'not in word list' : '', toastUp: 64, toastPad: 0,
+      subBg: sel.size === 4 ? '#000000' : '#FFFFFF', subFg: sel.size === 4 ? '#FFFFFF' : '#8A8A8A', subBd: sel.size === 4 ? '#000000' : '#8A8A8A',
+      cells, kb, gridX: 560, kbX: 485, share: st === 'wordle-solved' || st === 'wordle-lost', shareT: st === 'wordle-solved' ? 'you got it in 4' : 'the word was MANGO', shareN: st === 'wordle-solved' ? 'of course you did.' : 'so close. tomorrow’s yours.', shareRows,
+      defU: hints >= 1 ? 'underline' : 'none', hl: hints >= 2 ? 'rgba(196,168,230,.25)' : 'transparent', hl2: solved ? 'rgba(196,168,230,.7)' : 'transparent', shake: st === 'cry-wrong' ? 'translateX(-6px)' : 'none', cboxes, cryBtns: !solved, explain: solved,
+      folds, stripY: solved ? 640 : 520, streak, streakN: solved ? 6 : 5,
+      wEmpty: st === 'world-empty', wLoad: st === 'world-loading', wPlay: st === 'world-playing', wPause: st === 'world-paused',
+      keys: [{ k: '← →', l: 'MOVE' }, { k: 'SPACE', l: 'JUMP' }, { k: 'P', l: 'PAUSE' }], items: ['item 1: double jump', 'item 2: speed boost', 'item 3: extra life'],
+      tabs: T.map(l => ({ l, s: l === 'Games' ? 'active' : 'default' })), mp: g === 'world' ? 'muted' : 'playing'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>*,*::before,*::after{box-sizing:border-box}</style></helmet>
+<div ref="{{ root }}" data-screen-label="{{ label }}" style="position:relative;width:1440px;height:900px;overflow:hidden;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse 62% 64% at 50% 48%,rgba(251,249,245,.42) 0%,rgba(251,249,245,.22) 55%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px"></div>
+
+<sc-for list="{{ desk }}" as="s" hint-placeholder-count="13"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.r }}" pinned="pin" hint-size="100px,100px"></dc-import></div></sc-for>
+
+<sc-if value="{{ showEnv }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:{{ envX }}px;top:{{ envY }}px;width:560px;height:360px;transform:{{ envTf }};transform-origin:0 0;opacity:{{ envOp }}">
+<dc-import name="Envelope" state="{{ envState }}" label="For Neha" stamp="{{ true }}" hint-size="560px,360px"></dc-import>
+<sc-if value="{{ envStickers }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:-22px;top:-22px"><dc-import name="Sticker" kind="star-felt" size="54" rotate="12" pinned="pin" hint-size="54px,54px"></dc-import></div>
+<div style="position:absolute;left:-20px;bottom:-16px"><dc-import name="Sticker" kind="star-embroidered" size="52" rotate="-10" pinned="pin" hint-size="52px,52px"></dc-import></div>
+<div style="position:absolute;right:-24px;bottom:-12px"><dc-import name="Sticker" kind="date-stamp" size="92" rotate="6" pinned="pin" hint-size="92px,64px"></dc-import></div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ tapNote }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:836px;top:330px;display:flex;flex-direction:column;align-items:flex-start;pointer-events:none">
+<div style="font:600 30px/1 'Caveat',cursive;color:#204670;background:rgba(255,255,255,.9);padding:4px 12px;border-radius:4px;transform:rotate(-3deg);white-space:nowrap">tap the seal</div>
+<div style="position:relative;width:70px;height:110px;margin-left:-4px;transform:scaleX(-1)"><div style="position:absolute;left:0;top:6px;width:60px;height:96px;border-left:2.5px solid #204670;border-bottom:2.5px solid #204670;border-bottom-left-radius:60px"></div><div style="position:absolute;left:52px;top:94px;width:14px;height:14px;border-top:2.5px solid #204670;border-right:2.5px solid #204670;transform:rotate(45deg)"></div></div>
+</div>
+</sc-if>
+<sc-if value="{{ seal }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:670px;top:640px;opacity:.55;transform:translateY(18px)"><dc-import name="WaxSeal" state="cracked" size="100" hint-size="100px,100px"></dc-import></div>
+</sc-if>
+<sc-if value="{{ skip }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;right:96px;top:40px;display:flex;align-items:center;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;background:rgba(255,255,255,.9);padding:10px 16px;border-radius:999px;cursor:pointer;white-space:nowrap">SKIP TO THE JOURNAL →</div>
+</sc-if>
+
+<sc-if value="{{ big }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:394px;top:30px;width:652px;height:832px">
+<dc-import name="SpiralJournal" w="640" h="820" paper="cover-brown" coil="silver" hint-size="652px,832px"></dc-import>
+<div style="position:absolute;left:60px;top:84px;width:560px;height:650px;border:1px solid rgba(216,184,94,.55);border-radius:4px"></div>
+<div style="position:absolute;left:66px;top:90px;width:548px;height:638px;border:1px solid rgba(216,184,94,.3);border-radius:3px"></div>
+<div style="position:absolute;left:30px;width:620px;top:200px;display:flex;flex-direction:column;align-items:center">
+<sc-for list="{{ hbLetters }}" as="row" hint-placeholder-count="2"><div style="display:flex;align-items:baseline;justify-content:center;width:100%"><sc-for list="{{ row.ls }}" as="l" hint-placeholder-count="6"><span style="font:400 {{ row.fs }}px/1.25 'Pinyon Script',cursive;color:#E9CF85;text-shadow:0 1px 0 #B08A2E,0 0 10px rgba(246,227,161,.35);opacity:{{ l.o }};white-space:pre">{{ l.c }}</span></sc-for></div></sc-for>
+<div style="font:600 30px/1.1 'Caveat',cursive;color:#DCCBF3;padding-top:20px;white-space:nowrap">this whole journal is about you.</div>
+<div style="font:700 18px/1 'Courier Prime',monospace;letter-spacing:.32em;padding:22px 0 0 .32em;color:#E9CF85">11.10.2026</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ cover }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="cover-brown" coil="silver" ribbon="{{ true }}" hint-size="1192px,824px"></dc-import></div>
+<div style="position:absolute;left:88px;top:28px;width:1180px;height:756px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:.22"><div style="font:400 72px/1.25 'Pinyon Script',cursive;color:#F6E3A1;white-space:nowrap">Happy Birthday,</div><div style="font:400 140px/1.2 'Pinyon Script',cursive;color:#F6E3A1">Neha</div></div>
+<div style="position:absolute;left:180px;top:72px;opacity:.75"><dc-import name="PhotoFrame" type="corners" ratio="4:5" size="500" rotate="2" show-caption="{{ false }}" label="photo · neha · 4:5 · hero" hint-size="512px,637px"></dc-import></div>
+<div style="position:absolute;left:770px;top:210px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;opacity:.75"><div style="font:400 150px/1.2 'Pinyon Script',cursive;color:#FFFFFF">Neha</div><div style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.18em;color:#DCCBF3;white-space:nowrap">NEHA · THE BIRTHDAY JOURNAL · 11.10.2026</div></div>
+<div style="position:absolute;left:770px;top:660px;display:flex;align-items:center;gap:14px"><div style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;background:#FFFFFF;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;white-space:nowrap;box-shadow:0 2px 6px rgba(19,15,31,.3)">OPEN YOUR JOURNAL</div><span style="font:400 12px/1 'Courier Prime',monospace;color:#DCCBF3;white-space:nowrap">opens itself in 4s</span></div>
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7"><div style="transform:translateX({{ t.x }}px);opacity:{{ t.o }}"><dc-import name="DividerTab" label="{{ t.l }}" hint-size="72px,104px"></dc-import></div></sc-for></div>
+<div style="position:absolute;left:24px;top:796px;transform:translateX(-150px);opacity:.8"><dc-import name="MiniPlayer" state="playing" hint-size="280px,80px"></dc-import></div>
+</sc-if>
+
+<sc-for list="{{ bits }}" as="b" hint-placeholder-count="0"><div style="position:absolute;left:{{ b.x }}px;top:{{ b.y }}px;width:{{ b.w }}px;height:{{ b.h }}px;background:{{ b.c }};border-radius:{{ b.br }};clip-path:{{ b.clip }};transform:rotate({{ b.r }}deg);opacity:{{ b.o }};box-shadow:{{ b.sh }}"></div></sc-for>
+<sc-for list="{{ air }}" as="s" hint-placeholder-count="0"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.r }}" hint-size="80px,80px"></dc-import></div></sc-for>
+<sc-if value="{{ physics }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;pointer-events:none"><dc-import name="StickerPhysics" floors="{{ floors }}" hint-size="1440px,900px"></dc-import></div></sc-if>
+
+<sc-if value="{{ cursor }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:{{ curX }}px;top:{{ curY }}px;pointer-events:none"><div style="position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;border:1.5px solid #FFFFFF;box-shadow:0 0 0 1px rgba(32,70,112,.25)"></div><div style="position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:#A57BD5"></div>
+<span style="position:absolute;left:-40px;top:6px;font:700 22px/1 'DM Sans',sans-serif;color:#5E3695;opacity:.85;transform:rotate(-12deg)">♪</span><span style="position:absolute;left:-70px;top:22px;font:700 20px/1 'DM Sans',sans-serif;color:#A57BD5;opacity:.55;transform:rotate(10deg)">♫</span><span style="position:absolute;left:-96px;top:30px;font:700 16px/1 'DM Sans',sans-serif;color:#204670;opacity:.3">♩</span>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;step&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;envelope&quot;,&quot;options&quot;:[&quot;envelope&quot;,&quot;rises&quot;,&quot;birthday&quot;,&quot;confetti&quot;,&quot;settles&quot;,&quot;returning&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  root = React.createRef();
+  componentDidMount() {
+    const el = this.root.current; if (!el) return;
+    let last = null; const G = ['♪', '♫', '♩', '♬'], C = ['#5E3695', '#A57BD5', '#204670', '#C4A8E6', '#FFFFFF'];
+    this._mm = e => {
+      const r = el.getBoundingClientRect(), k = r.width / el.offsetWidth; const x = (e.clientX - r.left) / k, y = (e.clientY - r.top) / k;
+      if (last && Math.hypot(x - last[0], y - last[1]) < 34) return; last = [x, y];
+      const n = document.createElement('span'); n.textContent = G[Math.floor(Math.random() * 4)];
+      n.style.cssText = `position:absolute;left:${x + 8}px;top:${y - 6}px;font:700 ${18 + Math.round(Math.random() * 10)}px/1 'DM Sans',sans-serif;color:${C[Math.floor(Math.random() * C.length)]};pointer-events:none;z-index:99999;text-shadow:0 0 1px #fff,0 1px 2px rgba(19,15,31,.25)`;
+      el.appendChild(n); const dx = (Math.random() - .5) * 30, rot = (Math.random() - .5) * 40;
+      n.animate([{ transform: 'translate(0,0) scale(.6)', opacity: 0 }, { transform: `translate(${dx * .3}px,-10px) scale(1) rotate(${rot * .3}deg)`, opacity: 1, offset: .2 }, { transform: `translate(${dx}px,-46px) scale(.9) rotate(${rot}deg)`, opacity: 0 }], { duration: 900, easing: 'cubic-bezier(0.25,1,0.5,1)' }).onfinish = () => n.remove();
+    };
+    el.addEventListener('mousemove', this._mm);
+  }
+  componentWillUnmount() { this.root.current && this.root.current.removeEventListener('mousemove', this._mm); }
+  renderVals() {
+    const step = this.props.step ?? 'envelope';
+    const R = n => { let s = n * 9301 + 49297; return () => ((s = (s * 9301 + 49297) % 233280) / 233280); };
+    const deskBase = [
+      { k: 'tulips', x: 60, y: 30, size: 170, r: -6 }, { k: 'star-origami', x: 330, y: 50, size: 96, r: 10 }, { k: 'piano', x: 560, y: 14, size: 156, r: -4 }, { k: 'star-balloon', x: 900, y: 56, size: 90, r: 8 }, { k: 'vinyl-purple', x: 1150, y: 30, size: 180, r: 8 },
+      { k: 'jellyfish-blue', x: 110, y: 250, size: 220, r: 6 }, { k: 'camera-cat', x: 1170, y: 300, size: 170, r: -5 }, { k: 'shell-turtle', x: 60, y: 560, size: 160, r: -8 }, { k: 'cookie-bear', x: 1200, y: 560, size: 140, r: 6 },
+      { k: 'bow', x: 380, y: 722, size: 180, r: -4 }, { k: 'dnd', x: 640, y: 764, size: 220, r: 2 }, { k: 'patch-baddie', x: 980, y: 740, size: 170, r: -5 }, { k: 'star-glass', x: 1250, y: 790, size: 72, r: 0 }
+    ];
+    const envSteps = ['envelope', 'returning', 'rises'];
+    const isEnv = envSteps.includes(step);
+    const big = step === 'birthday' || step === 'confetti';
+    const air = [], bits = [];
+    const AIR = ['star-balloon', 'jelly-star', 'check-star', 'star-felt', 'cookie-bear', 'iconic', 'happy-birthday', 'camera-cat', 'sparkle', 'star-origami', 'core-memory', 'star-glitter-edge', 'cd', 'paint-star', 'star-embroidered', 'lily', 'eight-ball'];
+    if (big) {
+      const rnd = R(7), COL = ['#FFFFFF', '#CED9E4', '#C4A8E6', '#5E3695', '#DEC0C4'], n = step === 'birthday' ? 120 : 40;
+      for (let i = 0; i < n; i++) {
+        const side = i % 2, a = (18 + rnd() * 62) * Math.PI / 180, r = 120 + rnd() * 820;
+        let x = side ? 1440 - Math.cos(a) * r : Math.cos(a) * r, y = 900 - Math.sin(a) * r;
+        if (step === 'confetti') y = Math.min(880, y + 160 + rnd() * 120);
+        const t = i % 9, c = COL[i % 5], shape = t < 4 ? 'rect' : t < 7 ? 'circle' : t < 8 ? 'star' : 'heart';
+        bits.push({ x: Math.round(x), y: Math.round(y), w: shape === 'rect' ? 7 : shape === 'circle' ? 9 : 13, h: shape === 'rect' ? 14 : shape === 'circle' ? 9 : 12, c, br: shape === 'circle' ? '50%' : '1px',
+          clip: shape === 'star' ? 'polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)' : shape === 'heart' ? 'polygon(50% 100%,8% 58%,4% 30%,16% 10%,34% 6%,50% 22%,66% 6%,84% 10%,96% 30%,92% 58%)' : 'none',
+          r: Math.round(rnd() * 360), o: step === 'birthday' ? .95 : .35, sh: c === '#FFFFFF' ? '0 0 0 .5px rgba(32,70,112,.25)' : 'none' });
+      }
+      if (step === 'birthday') { const ar = R(3); AIR.forEach((k, i) => { const size = k === 'happy-birthday' ? 170 : k === 'core-memory' ? 150 : 64 + Math.round(ar() * 34); const side = i % 2, a = (25 + ar() * 50) * Math.PI / 180, r = 250 + ar() * 520;
+        let ax = Math.round(side ? 1440 - Math.cos(a) * r - size : Math.cos(a) * r), ay = Math.round(900 - Math.sin(a) * r - size / 2); if (ax + size > 420 && ax < 1040 && ay < 700) ax = side ? 1060 + (i % 3) * 40 : 320 - size - (i % 3) * 30; air.push({ k, size, r: Math.round(ar() * 40 - 20), x: ax, y: ay }); }); }
+    }
+    const word = (w, fs, lit) => ({ fs, ls: [...w].map((c, i) => ({ c, o: i < lit ? 1 : .12 })) });
+        const T = ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'];
+    const labels = { envelope: '01-Opening/1-Envelope', rises: '01-Opening/2-Journal-rises', birthday: '01-Opening/3-Birthday', confetti: '01-Opening/4-Confetti-to-stickers', settles: '01-Opening/5-Journal-settles', returning: '01-Opening/Returning' };
+    const rises = step === 'rises', bd = step === 'birthday';
+    return {
+      root: this.root, label: labels[step] || step,
+      desk: isEnv ? deskBase : [],
+      showEnv: isEnv || bd, envX: rises ? 398 : 328, envY: bd ? 740 : rises ? 380 : 190,
+      envTf: `scale(${rises ? 1.15 : 1.4})`, envOp: bd ? .85 : 1,
+      envState: rises ? 'letter' : 'pulse', envStickers: !bd,
+      tapNote: step === 'envelope', seal: rises, skip: step === 'returning',
+      big, hbLetters: bd ? [word('Happy Birthday,', 74, 11), word('Neha', 150, 2)] : [word('Happy Birthday,', 74, 99), word('Neha', 150, 99)],
+      cover: step === 'settles', tabs: T.map((l, i) => ({ l, x: i < 4 ? 0 : i === 4 ? 24 : i === 5 ? 48 : 72, o: i < 4 ? 1 : i === 4 ? .7 : i === 5 ? .35 : 0 })),
+      bits, air, physics: step === 'confetti' || step === 'settles', floors: step === 'settles' ? 'cover' : 'full',
+      cursor: step === 'envelope', curX: 740, curY: 500
+    };
+  }
+}
+</script>
+</body>
+</html>

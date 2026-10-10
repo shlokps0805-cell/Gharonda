@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>*,*::before,*::after{box-sizing:border-box}@keyframes nh-seal-pulse{0%{transform:scale(.92);opacity:.95}100%{transform:scale(1.28);opacity:0}}</style></helmet>
+<div style="position:relative;flex:none;width:{{ size }}px;height:{{ size }}px" onClick="{{ onClick }}">
+<div style="position:absolute;left:0;top:0;width:100px;height:100px;transform-origin:0 0;transform:scale({{ s }})">
+<sc-if value="{{ pulse }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:-6px;border-radius:50%;border:2px solid #C4A8E6;animation:nh-seal-pulse 1600ms cubic-bezier(0.25,1,0.5,1) infinite"></div>
+<div style="position:absolute;inset:-12px;border-radius:50%;border:1.5px solid rgba(196,168,230,.5)"></div>
+</sc-if>
+<sc-if value="{{ whole }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;inset:0;filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))">
+<div style="position:absolute;left:2px;top:34px;width:26px;height:26px;border-radius:50%;background:{{ base }}"></div>
+<div style="position:absolute;left:62px;top:2px;width:24px;height:24px;border-radius:50%;background:{{ base }}"></div>
+<div style="position:absolute;left:74px;top:60px;width:24px;height:24px;border-radius:50%;background:{{ dark }}"></div>
+<div style="position:absolute;left:24px;top:76px;width:22px;height:22px;border-radius:50%;background:{{ dark }}"></div>
+<div style="position:absolute;left:8px;top:8px;width:22px;height:22px;border-radius:50%;background:{{ base }}"></div>
+<div style="position:absolute;left:78px;top:30px;width:18px;height:18px;border-radius:50%;background:{{ base }}"></div>
+<div style="position:absolute;left:8px;top:8px;width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 36% 30%,{{ light }} 0,{{ base }} 42%,{{ dark }} 100%)"></div>
+<div style="position:absolute;left:22px;top:22px;width:56px;height:56px;border-radius:50%;background:{{ base }};box-shadow:inset 0 3px 5px {{ dark }},inset 0 -2px 2px rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font:400 39px/1 'Libre Caslon Text',serif;color:{{ dark }};text-shadow:0 1px 0 rgba(255,255,255,.3),0 -1px 0 rgba(0,0,0,.25)">N</div>
+</div>
+</sc-if>
+<sc-if value="{{ cracked }}" hint-placeholder-val="{{ false }}">
+<sc-for list="{{ halves }}" as="hv" hint-placeholder-count="2">
+<div style="position:absolute;inset:0;clip-path:{{ hv.clip }};transform:{{ hv.tf }};filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))">
+<div style="position:absolute;left:2px;top:34px;width:26px;height:26px;border-radius:50%;background:{{ base }}"></div>
+<div style="position:absolute;left:62px;top:2px;width:24px;height:24px;border-radius:50%;background:{{ base }}"></div>
+<div style="position:absolute;left:74px;top:60px;width:24px;height:24px;border-radius:50%;background:{{ dark }}"></div>
+<div style="position:absolute;left:24px;top:76px;width:22px;height:22px;border-radius:50%;background:{{ dark }}"></div>
+<div style="position:absolute;left:8px;top:8px;width:22px;height:22px;border-radius:50%;background:{{ base }}"></div>
+<div style="position:absolute;left:78px;top:30px;width:18px;height:18px;border-radius:50%;background:{{ base }}"></div>
+<div style="position:absolute;left:8px;top:8px;width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 36% 30%,{{ light }} 0,{{ base }} 42%,{{ dark }} 100%)"></div>
+<div style="position:absolute;left:22px;top:22px;width:56px;height:56px;border-radius:50%;background:{{ base }};box-shadow:inset 0 3px 5px {{ dark }},inset 0 -2px 2px rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font:400 39px/1 'Libre Caslon Text',serif;color:{{ dark }};text-shadow:0 1px 0 rgba(255,255,255,.3),0 -1px 0 rgba(0,0,0,.25)">N</div>
+</div>
+</sc-for>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:160,&quot;height&quot;:160},&quot;size&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:96,&quot;min&quot;:24,&quot;max&quot;:200,&quot;tsType&quot;:&quot;number&quot;},&quot;state&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;intact&quot;,&quot;options&quot;:[&quot;intact&quot;,&quot;pulse&quot;,&quot;cracked&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;color&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#7A1F2B&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;onClick&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;() =&gt; void&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const size = this.props.size ?? 96;
+    const st = this.props.state ?? 'intact';
+    const base = this.props.color ?? '#9E2A2B';
+    const isCherry = base.toUpperCase() === '#9E2A2B';
+    const dark = isCherry ? '#4E1019' : `color-mix(in oklch, ${base} 62%, #000)`;
+    const light = `color-mix(in oklch, ${base} 70%, #fff)`;
+    return {
+      size, s: size / 100, base, dark, light,
+      pulse: st === 'pulse', whole: st !== 'cracked', cracked: st === 'cracked',
+      halves: [
+        { clip: 'polygon(0 0, 52% 0, 46% 30%, 56% 52%, 44% 74%, 50% 100%, 0 100%)', tf: 'translate(-7px,3px) rotate(-7deg)' },
+        { clip: 'polygon(52% 0, 100% 0, 100% 100%, 50% 100%, 44% 74%, 56% 52%, 46% 30%)', tf: 'translate(7px,5px) rotate(6deg)' }
+      ],
+      onClick: this.props.onClick
+    };
+  }
+}
+</script>
+</body>
+</html>

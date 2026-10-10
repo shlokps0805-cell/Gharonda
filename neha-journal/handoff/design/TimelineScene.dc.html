@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>*,*::before,*::after{box-sizing:border-box}.nh-es::-webkit-scrollbar{display:none}</style></helmet>
+<div ref="{{ root }}" data-screen-label="{{ label }}" style="position:relative;width:1440px;height:900px;overflow:hidden;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse 62% 64% at 50% 48%,rgba(251,249,245,.3) 0%,rgba(251,249,245,.14) 60%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px"></div>
+<div style="position:absolute;left:94px;top:34px;width:590px;height:756px;border-radius:8px 2px 2px 8px;background:#ECE8E1"></div>
+<div style="position:absolute;left:88px;top:28px;width:590px;height:756px;border-radius:8px 2px 2px 8px;background-color:#FFFFFF;background-image:repeating-linear-gradient(0deg,transparent 0 23px,rgba(142,167,201,.3) 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,rgba(142,167,201,.3) 23px 24px);box-shadow:0 2px 3px rgba(19,15,31,.22),0 18px 40px rgba(19,15,31,.24)"><div style="position:absolute;top:0;bottom:0;right:0;width:60px;background:linear-gradient(270deg,rgba(19,15,31,.1),rgba(19,15,31,0))"></div></div>
+<div style="position:absolute;left:678px;top:28px"><dc-import name="SpiralJournal" w="590" h="756" paper="grid" coil="silver" hint-size="602px,768px"></dc-import></div>
+
+<div style="position:absolute;left:140px;top:62px;display:flex;flex-direction:column;gap:8px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">02 · TIMELINE</div><div style="font:400 48px/1.05 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">then, now, <span style="font-style:italic">always</span></div><div style="font:600 28px/1 'Caveat',cursive;color:#5E3695">pick a year</div></div>
+<div style="position:absolute;left:140px;top:206px;display:flex;gap:8px"><sc-for list="{{ years }}" as="y" hint-placeholder-count="5"><div style="width:98px;padding:9px 8px 8px;background:{{ y.bg }};border-radius:3px;box-shadow:0 1px 2px rgba(19,15,31,.22);transform:translateY({{ y.ty }}px) rotate({{ y.r }}deg);display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><span style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:{{ y.fg }}">{{ y.y }}</span><span style="font:400 15px/1.1 'Kalam',cursive;color:{{ y.fg2 }};text-align:center;white-space:nowrap;text-decoration:{{ y.u }};text-decoration-color:#A57BD5;text-decoration-thickness:2px;text-underline-offset:4px">{{ y.n }}</span></div></sc-for></div>
+<svg width="1440" height="900" style="position:absolute;left:0;top:0;pointer-events:none"><path d="M200 470 C 300 600, 420 640, 520 590 S 760 520, 840 560 S 1000 300, 1120 290 S 1180 560, 1080 640" fill="none" stroke="#6E7F9C" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"></path></svg>
+<sc-for list="{{ clusters }}" as="c" hint-placeholder-count="5">
+<div style="position:absolute;left:{{ c.x }}px;top:{{ c.y }}px;width:264px;height:300px;cursor:zoom-in;transform:translateY({{ c.ty }}px)">
+<div style="position:absolute;left:18px;top:12px;width:240px;height:240px;background:#FFFFFF;transform:rotate(-7deg);box-shadow:0 1px 2px rgba(19,15,31,.2)"></div>
+<div style="position:absolute;left:4px;top:4px;width:240px;height:240px;background:#FFFFFF;transform:rotate(5deg);box-shadow:0 1px 2px rgba(19,15,31,.2)"></div>
+<div style="position:absolute;left:6px;top:0"><dc-import name="PhotoFrame" type="{{ c.t }}" ratio="1:1" size="240" rotate="{{ c.r }}" tone="{{ c.tone }}" show-caption="{{ false }}" label="{{ c.lab }}" hint-size="260px,260px"></dc-import></div>
+<div style="position:absolute;left:0;top:262px;display:flex;align-items:baseline;gap:8px"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF;background:#204670;padding:4px 7px;border-radius:2px">{{ c.year }}</span><span style="font:400 20px/1 'Kalam',cursive;color:#204670;white-space:nowrap">{{ c.n }}</span></div>
+</div>
+</sc-for>
+<sc-for list="{{ pageS }}" as="s" hint-placeholder-count="8"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.r }}" pinned="pin" hint-size="80px,80px"></dc-import></div></sc-for>
+
+<sc-if value="{{ era }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:88px;top:28px;width:1180px;height:756px;background:rgba(236,232,242,.55)"></div>
+<div style="position:absolute;left:150px;top:44px;width:1100px;height:740px;transform:rotate(-.5deg);filter:drop-shadow(0 4px 6px rgba(19,15,31,.28)) drop-shadow(0 24px 40px rgba(19,15,31,.26))">
+<div style="position:absolute;inset:0;border-radius:2px 6px 6px 2px;background:{{ eraBg }};overflow:hidden">
+<div style="position:absolute;inset:0;background:url({{ eraTex }}) 0 0/{{ eraTexS }};opacity:{{ eraTexO }}"></div>
+<div style="position:absolute;left:10px;top:30px;bottom:30px;display:flex;flex-direction:column;justify-content:space-between"><sc-for list="{{ holes }}" as="h" hint-placeholder-count="16"><div style="width:11px;height:11px;border-radius:50%;background:#1E2B45;box-shadow:inset 0 1.5px 2px rgba(0,0,0,.5)"></div></sc-for></div>
+<div style="position:absolute;left:44px;top:22px;display:flex;align-items:center;gap:12px"><div style="display:inline-flex;align-items:center;height:40px;padding:0 18px;border-radius:999px;border:1.5px solid #204670;background:#FFFFFF;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;white-space:nowrap">← BACK TO THE TIMELINE</div><span style="font:400 12px/1 'Courier Prime',monospace;color:{{ eraInk2 }}">or Esc</span></div>
+<div style="position:absolute;left:44px;top:80px;display:flex;align-items:baseline;gap:18px;white-space:nowrap"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.16em;color:{{ eraInk2 }}">{{ eraYear }}</span><span style="font:400 44px/1.1 'Libre Caslon Text',serif;color:{{ eraInk }}">{{ eraName }}</span><span style="font:600 26px/1 'Caveat',cursive;color:{{ eraInk2 }}">{{ eraLine }}</span></div>
+<div class="nh-es" style="position:absolute;left:30px;right:20px;top:136px;bottom:66px;overflow-y:auto;scrollbar-width:none">
+<div style="position:relative;height:{{ contentH }}px">
+<sc-for list="{{ strings }}" as="l" hint-placeholder-count="0"><div style="position:absolute;left:{{ l.x }}px;top:{{ l.y }}px;width:{{ l.w }}px;height:1.5px;background:#CA9AA1;transform-origin:0 50%;transform:rotate({{ l.a }}deg)"></div></sc-for>
+<sc-for list="{{ items }}" as="p" hint-placeholder-count="10">
+<div style="position:absolute;left:{{ p.x }}px;top:{{ p.y }}px;z-index:{{ p.z }};transform:scale({{ p.sc }});transform-origin:50% 30%;opacity:{{ p.op }}">
+<sc-if value="{{ p.photo }}" hint-placeholder-val="{{ true }}"><dc-import name="PhotoFrame" type="{{ p.t }}" ratio="{{ p.r }}" size="{{ p.s }}" rotate="{{ p.rot }}" tone="{{ p.tone }}" caption="{{ p.cap }}" by="{{ p.by }}" show-caption="{{ p.sc2 }}" on-dark="{{ p.dark }}" label="{{ p.lab }}" hint-size="300px,360px"></dc-import></sc-if>
+<sc-if value="{{ p.note }}" hint-placeholder-val="{{ false }}"><div style="width:{{ p.nw }}px;padding:22px 18px 16px;background:#FFFFFF;transform:rotate({{ p.rot }}deg);box-shadow:0 1px 2px rgba(19,15,31,.22),0 6px 12px rgba(19,15,31,.12);font:400 22px/1.3 'Kalam',cursive;color:#204670">{{ p.text }}</div></sc-if>
+<sc-if value="{{ p.video }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:50%;top:42%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 2px 10px rgba(19,15,31,.25);display:flex;align-items:center;justify-content:center"><div style="width:20px;height:24px;margin-left:5px;background:#204670;clip-path:polygon(0 0,100% 50%,0 100%)"></div></div></sc-if>
+<sc-if value="{{ p.pin }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:50%;top:-6px;margin-left:-10px"><dc-import name="Fastener" kind="pin" size="18" hint-size="22px,23px"></dc-import></div></sc-if>
+<sc-if value="{{ p.clip }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:50%;top:-22px;margin-left:-20px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div></sc-if>
+<sc-if value="{{ p.hov }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:10px;right:10px;bottom:-34px;display:flex;flex-direction:column;align-items:center;gap:3px"><span style="font:400 20px/1 'Kalam',cursive;color:#204670;background:#FFFFFF;padding:3px 8px;border-radius:3px;white-space:nowrap">{{ p.cap }}</span><span style="font:700 10px/1 'Courier Prime',monospace;color:#3D4A66;background:#FFFFFF;padding:2px 6px;border-radius:2px;white-space:nowrap">TAKEN BY FRIEND {{ p.fr }}</span></div></sc-if>
+</div>
+</sc-for>
+<sc-for list="{{ eraS }}" as="s" hint-placeholder-count="6"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px;z-index:30"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.r }}" pinned="pin" hint-size="80px,80px"></dc-import></div></sc-for>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:66px;height:60px;background:linear-gradient(180deg,rgba(255,255,255,0),{{ fadeTo }});pointer-events:none"></div>
+<div style="position:absolute;left:44px;right:24px;bottom:14px;height:44px;display:flex;align-items:center;justify-content:center;gap:8px"><sc-for list="{{ switcher }}" as="w" hint-placeholder-count="5"><div style="height:36px;padding:0 14px;border-radius:999px;border:1.5px solid #204670;background:{{ w.bg }};display:flex;align-items:center;gap:8px;cursor:pointer"><span style="font:700 12px/1 'Courier Prime',monospace;color:{{ w.fg }}">{{ w.y }}</span><span style="font:400 16px/1 'Kalam',cursive;color:{{ w.fg }};white-space:nowrap">{{ w.n }}</span></div></sc-for></div>
+</div>
+</div>
+</sc-if>
+
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="playing" hint-size="280px,80px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;view&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;page&quot;,&quot;options&quot;:[&quot;page&quot;,&quot;page-hover&quot;,&quot;era&quot;,&quot;enlarged&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;layout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;scrapbook&quot;,&quot;options&quot;:[&quot;scrapbook&quot;,&quot;polaroid&quot;,&quot;feature&quot;,&quot;booth&quot;,&quot;pinboard&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;count&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:10,&quot;min&quot;:8,&quot;max&quot;:10,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  root = React.createRef();
+  componentDidMount() {
+    const el = this.root.current; if (!el) return; let last = null; const G = ['♪', '♫', '♩', '♬'], C = ['#5E3695', '#A57BD5', '#204670', '#C4A8E6', '#FFFFFF'];
+    this._mm = e => { const r = el.getBoundingClientRect(), k = r.width / el.offsetWidth, x = (e.clientX - r.left) / k, y = (e.clientY - r.top) / k; if (last && Math.hypot(x - last[0], y - last[1]) < 34) return; last = [x, y];
+      const n = document.createElement('span'); n.textContent = G[Math.floor(Math.random() * 4)]; n.style.cssText = `position:absolute;left:${x + 8}px;top:${y - 6}px;font:700 ${18 + Math.round(Math.random() * 10)}px/1 'DM Sans',sans-serif;color:${C[Math.floor(Math.random() * 5)]};pointer-events:none;z-index:99999;text-shadow:0 0 1px #fff`; el.appendChild(n);
+      const dx = (Math.random() - .5) * 30; n.animate([{ transform: 'translate(0,0) scale(.6)', opacity: 0 }, { transform: `translate(${dx * .3}px,-10px) scale(1)`, opacity: 1, offset: .2 }, { transform: `translate(${dx}px,-46px) scale(.9)`, opacity: 0 }], { duration: 900, easing: 'cubic-bezier(0.25,1,0.5,1)' }).onfinish = () => n.remove(); };
+    el.addEventListener('mousemove', this._mm);
+  }
+  componentWillUnmount() { this.root.current && this.root.current.removeEventListener('mousemove', this._mm); }
+  static ERAS = [['2014', 'the beginning'], ['2016', 'the middle-school years'], ['2019', 'the trip'], ['2025', 'last year'], ['2026', 'now']];
+  static CAPS = ['first day, wrong classroom', 'the canteen table', 'sports day, last place', 'matching keychains', 'the bus stop', 'class photo, she blinked', 'farewell, crying', 'rooftop, 11pm', 'chai, 2am', 'her, mid-laugh', 'beach, again', 'the haircut'];
+  fw(t, s) { return t === 'polaroid' ? s + 2 * Math.max(10, Math.round(s * .05)) : t === 'slide' ? s + 2 * Math.round(s * .12) : t === 'film' ? s + 28 : t === 'corners' ? s + 12 : t === 'torn' ? s + 16 : s + 20; }
+  fh(t, s, r) { const [a, b] = r.split(':').map(Number), ph = Math.round(s * b / a); return t === 'polaroid' ? ph + Math.max(10, Math.round(s * .05)) + Math.min(84, Math.max(52, Math.round(s * .17))) + 28 : t === 'slide' ? ph + Math.round(s * .34) + 60 : t === 'film' ? ph + 52 + 60 : t === 'booth' ? ph * 4 + 24 + 42 + 60 : ph + 26 + 60; }
+  layout(kind, count) {
+    const it = [], pal = n => ({ tone: n % 3, cap: Component.CAPS[n % 12], by: 'taken by Friend ' + ((n * 5) % 12 + 1), fr: (n * 5) % 12 + 1 });
+    const P = (t, r, s, rot, x, y, ex) => { const n = it.length; it.push({ photo: true, t, r, s, rot, x, y, z: n + 1, sc2: true, ...pal(n), lab: `photo · ${r} · ${s >= 600 ? 'hero' : s >= 360 ? 'medium' : 'small'}`, ...(ex || {}) }); };
+    const Nt = (text, x, y, rot, w) => it.push({ note: true, text, x, y, rot, nw: w || 240, z: 40 });
+    if (kind === 'scrapbook') {
+      P('taped', '3:2', 620, -2, 0, 10); P('torn', '4:5', 300, 3, 700, 0); P('clipped', '1:1', 260, -3, 40, 520, { clip: true }); P('taped', '3:4', 260, 4, 360, 500);
+      P('torn', '1:1', 250, -4, 680, 430, { video: true }); P('polaroid', '4:5', 260, 2, 0, 900); P('taped', '3:2', 380, -3, 320, 860); P('clipped', '1:1', 250, 3, 760, 800, { clip: true });
+      if (count > 8) { P('torn', '3:4', 250, -2, 60, 1300); P('taped', '1:1', 260, 4, 700, 1240); }
+      Nt('SAMPLE · the bell rang and nobody moved.', 420, 1330, -3, 230); Nt('→ this is where it started', 720, 1180, 3, 230);
+    } else if (kind === 'polaroid') {
+      const S = [[0, 0, -6], [330, 30, 5], [660, 0, -3], [40, 400, 4], [360, 430, -7], [690, 390, 6], [10, 800, -4], [340, 820, 3], [680, 790, -5], [360, 1190, 4]];
+      S.slice(0, count).forEach(([x, y, r], i) => P('polaroid', i % 4 === 1 ? '4:5' : '1:1', 280, r, x, y, { clip: i % 3 === 0, sc2: false }));
+    } else if (kind === 'feature') {
+      P('corners', '4:5', 500, -1, 0, 0, { sc2: true });
+      it.push({ note: true, quote: true, text: '', x: 560, y: 0, rot: 0, nw: 460, z: 40 });
+      const G = [[560, 180], [820, 180], [560, 520], [820, 520], [0, 720], [280, 760], [560, 860], [820, 860], [280, 1100]];
+      G.slice(0, count - 1).forEach(([x, y], i) => P('corners', '1:1', 240, i % 2 ? 1 : -1, x, y, { sc2: false }));
+    } else if (kind === 'booth') {
+      P('booth', '1:1', 170, -2, 0, 40, { clip: true, sc2: false }); P('booth', '1:1', 170, 3, 230, 0, { clip: true, sc2: false }); P('booth', '1:1', 170, -1, 460, 80, { clip: true, sc2: false });
+      P('polaroid', '4:5', 260, 4, 700, 20); P('taped', '1:1', 250, -3, 710, 470);
+      if (count > 8) { P('polaroid', '1:1', 240, 3, 120, 880); P('taped', '3:2', 360, -2, 450, 900); }
+    } else {
+      const S = [[0, 10, '3:2', 380, -3], [440, 40, '1:1', 260, 4], [740, 0, '4:5', 260, -2], [60, 420, '1:1', 250, 3], [380, 440, '3:4', 260, -4], [720, 420, '1:1', 250, 2], [0, 820, '4:5', 260, 4], [330, 860, '3:2', 360, -2], [760, 820, '1:1', 250, 3], [400, 1220, '1:1', 250, -3]];
+      S.slice(0, count).forEach(([x, y, r, s, rot]) => P('clipped', r, s, rot, x, y, { pin: true, sc2: false, dark: false }));
+      Nt('SAMPLE · the night the car broke down', 780, 1240, 2, 220);
+    }
+    return it;
+  }
+  renderVals() {
+    const view = this.props.view ?? 'page', kind = this.props.layout ?? 'scrapbook', count = Number(this.props.count ?? 10);
+    const E = Component.ERAS, ei = { scrapbook: 0, polaroid: 1, feature: 2, booth: 3, pinboard: 4 }[kind] ?? 0, isEra = view === 'era' || view === 'enlarged';
+    const T = ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'];
+    const hov = view === 'page-hover';
+    let items = [], strings = [], contentH = 1400;
+    if (isEra) {
+      items = this.layout(kind, count).map((p, i) => ({ ...p, sc: view === 'enlarged' && i === 1 ? 1.5 : 1, op: view === 'enlarged' && i !== 1 ? .55 : 1, z: view === 'enlarged' && i === 1 ? 90 : p.z, hov: !isEra ? false : (view === 'era' && i === 2 && p.photo), quote: p.quote || false, sc2: p.sc2 && !(view === 'era' && i === 2) }));
+      items.forEach(p => { if (p.quote) { p.text = 'SAMPLE · “we were loud in every library in the city.”'; } });
+      contentH = Math.max(...items.map(p => p.y + (p.photo ? this.fh(p.t, p.s, p.r) : 160))) + 40;
+      if (kind === 'pinboard') { const pts = items.filter(p => p.pin).map(p => [p.x + this.fw(p.t, p.s) / 2, p.y + 4]); for (let i = 1; i < pts.length; i++) { const [a, b] = pts[i - 1], [c, d] = pts[i]; strings.push({ x: a, y: b, w: Math.hypot(c - a, d - b), a: Math.atan2(d - b, c - a) * 180 / Math.PI }); } }
+    }
+    const bgs = { scrapbook: ['#FFFFFF', 'assets/tex/grain.png', '128px 128px', 1, '#130F1F', '#5E3695', '#FFFFFF'], polaroid: ['#ECE8F2', 'assets/tex/grain.png', '128px 128px', 1, '#130F1F', '#5E3695', '#ECE8F2'], feature: ['#FFFFFF', 'assets/tex/grain.png', '128px 128px', 1, '#130F1F', '#204670', '#FFFFFF'], booth: ['#E6EDF4', 'assets/tex/grain.png', '128px 128px', 1, '#130F1F', '#204670', '#E6EDF4'], pinboard: ['#9FB3CB', 'assets/tex/film-grain.png', '200px 200px', 1, '#130F1F', '#320F6F', '#9FB3CB'] };
+    const b = bgs[kind];
+    const ES = { scrapbook: [{ k: 'lily', x: 960, y: 520, size: 130, r: 8 }, { k: 'washi-gingham', x: 300, y: 0, size: 150, r: -6 }, { k: 'star-felt', x: 980, y: 1140, size: 70, r: 10 }, { k: 'bunny', x: 600, y: 1300, size: 110, r: -6 }, { k: 'paint-star', x: 640, y: 380, size: 70, r: 6 }, { k: 'tulips', x: 20, y: 1240, size: 120, r: -4 }],
+      polaroid: [{ k: 'star-balloon', x: 990, y: 300, size: 80, r: 6 }, { k: 'camera-cat', x: 980, y: 700, size: 110, r: -5 }, { k: 'bow', x: 20, y: 1180, size: 140, r: 6 }, { k: 'jelly-star', x: 700, y: 1220, size: 90, r: -8 }, { k: 'iced-coffee', x: 990, y: 1040, size: 120, r: 6 }, { k: 'star-glass', x: 300, y: 380, size: 54, r: 0 }],
+      feature: [{ k: 'core-memory', x: 0, y: 1120, size: 180, r: -4 }, { k: 'star-origami', x: 1000, y: 160, size: 70, r: 10 }, { k: 'books', x: 980, y: 1060, size: 120, r: 4 }, { k: 'jellyfish-blue', x: 280, y: 690, size: 90, r: -6 }, { k: 'sparkle', x: 520, y: 140, size: 60, r: 6 }, { k: 'star-felt', x: 1000, y: 820, size: 66, r: -8 }],
+      booth: [{ k: 'dnd', x: 0, y: 760, size: 200, r: -4 }, { k: 'star-embroidered', x: 650, y: 0, size: 64, r: 8 }, { k: 'cd', x: 980, y: 420, size: 90, r: 6 }, { k: 'cookie-bear', x: 980, y: 860, size: 100, r: -6 }, { k: 'check-star', x: 700, y: 880, size: 76, r: 4 }, { k: 'piano', x: 200, y: 1200, size: 120, r: 3 }],
+      pinboard: [{ k: 'shell-turtle', x: 980, y: 360, size: 110, r: -6 }, { k: 'patch-baddie', x: 20, y: 1220, size: 160, r: 4 }, { k: 'vinyl-purple', x: 990, y: 720, size: 110, r: 8 }, { k: 'star-glitter-edge', x: 300, y: 360, size: 70, r: -8 }, { k: 'clef', x: 980, y: 1100, size: 100, r: 6 }, { k: 'dancers', x: 600, y: 1240, size: 150, r: -3 }] };
+    const clusters = [[150, 300, 'corners'], [400, 440, 'clipped'], [710, 380, 'corners'], [960, 90, 'clipped'], [980, 450, 'corners']].map(([x, y, t], i) => ({ x, y, t, r: [-3, 2, -2, 3, -1][i], tone: i % 3, year: E[i][0], n: E[i][1], lab: `photo · ${E[i][1]} · 1:1 · small`, ty: hov && i === 1 ? -4 : 0 }));
+    return {
+      root: this.root, label: isEra ? `03-Timeline/Era-${{ scrapbook: 'Scrapbook', polaroid: 'Polaroid', feature: 'Feature', booth: 'Photobooth', pinboard: 'Pinboard' }[kind]}-${count}${view === 'enlarged' ? '-enlarged' : ''}` : '03-Timeline/Page',
+      years: E.map(([y, n], i) => ({ y, n: n.replace('the middle-school years', 'middle school'), bg: isEra && i === ei ? '#204670' : '#FFFFFF', fg: isEra && i === ei ? '#FFFFFF' : '#204670', fg2: isEra && i === ei ? '#DCCBF3' : '#5E3695', ty: hov && i === 1 ? -2 : 0, r: [-2, 1, -1, 2, -1][i], u: hov && i === 1 ? 'underline' : 'none' })),
+      clusters, pageS: [{ k: 'lavender', x: 560, y: 40, size: 120, r: 8 }, { k: 'star-felt', x: 120, y: 690, size: 72, r: -8 }, { k: 'bunny', x: 300, y: 610, size: 90, r: 4 }, { k: 'paint-star', x: 600, y: 300, size: 64, r: 10 }, { k: 'star-origami', x: 720, y: 60, size: 80, r: -6 }, { k: 'vinyl-purple', x: 1160, y: 680, size: 100, r: 6 }, { k: 'jelly-star', x: 1180, y: 380, size: 70, r: -6 }, { k: 'shell-turtle', x: 740, y: 680, size: 90, r: -4 }],
+      era: isEra, eraBg: b[0], eraTex: b[1], eraTexS: b[2], eraTexO: b[3], eraInk: b[4], eraInk2: b[5], fadeTo: b[6], holes: Array.from({ length: 16 }, (_, i) => i),
+      eraYear: E[ei][0], eraName: E[ei][1], eraLine: ['SAMPLE · school corridors and the wrong classroom', 'SAMPLE · braces, gel pens, big plans', 'SAMPLE · one bus, six of us, zero plans', 'SAMPLE · the year everything changed', 'SAMPLE · her, mid-laugh, as usual'][ei],
+      items, strings, contentH, eraS: isEra ? ES[kind] : [],
+      switcher: E.map(([y, n], i) => ({ y, n: n.replace('the middle-school years', 'middle school'), bg: i === ei ? '#204670' : '#FFFFFF', fg: i === ei ? '#FFFFFF' : '#204670' })),
+      tabs: T.map(l => ({ l, s: l === 'Timeline' ? 'active' : 'default' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

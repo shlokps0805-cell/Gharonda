@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33}a{color:#204670}a:hover{color:#5E3695}</style></helmet>
+<div data-screen-label="00-System/Components-v2 · D" style="position:relative;width:1440px;background:#FBF9F5;border-radius:4px;overflow:hidden">
+<div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px;pointer-events:none"></div>
+<div style="position:relative;padding:96px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid #CED9E4;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">00 · SYSTEM · COMPONENTS-V2 · D</div><div style="font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F">Envelopes, timeline eras, games</div></div>
+<div style="font:600 32px/1 'Caveat',cursive;color:#5E3695;transform:rotate(-2deg)">the rest of the desk drawer.</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Opening envelope · 560 × 360</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">shown at 40% · flow unchanged from the original brief</div></div>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+<sc-for list="{{ env }}" as="e" hint-placeholder-count="5">
+<div style="display:flex;flex-direction:column;gap:8px"><div style="height:250px;border-radius:6px;background:url(assets/bg/gingham.jpeg) center/cover;display:flex;align-items:flex-end;justify-content:center;padding-bottom:24px;overflow:hidden"><div style="zoom:.4"><dc-import name="Envelope" state="{{ e.s }}" hint-size="560px,360px"></dc-import></div></div><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#130F1F">{{ e.n }}</div><div style="font:400 13px/1.45 'DM Sans',sans-serif;color:#3D4A66">{{ e.u }}</div></div>
+</sc-for>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Wishes page · envelopes inside the journal</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">1440 × 900 · shown at 87% · 12 letters, one per friend</div></div>
+<div style="position:relative;width:1248px;height:780px;border-radius:6px;overflow:hidden">
+<div style="position:absolute;left:0;top:0;width:1440px;height:900px;zoom:.8667;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(251,249,245,.14) 40%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="lined" coil="silver" hint-size="1192px,768px"></dc-import></div>
+<div style="position:absolute;left:160px;top:56px;display:flex;flex-direction:column;gap:10px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">04 · WISHES · 12 LETTERS</div><div style="font:400 48px/1.05 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">letters from her people</div><div style="font:600 30px/1 'Caveat',cursive;color:#5E3695">open any. they're all for you.</div></div>
+<div style="position:absolute;left:1060px;top:44px"><dc-import name="Sticker" kind="bow" size="140" rotate="8" hint-size="140px,84px"></dc-import></div>
+<sc-for list="{{ wishEnv }}" as="e" hint-placeholder-count="12"><div style="position:absolute;left:{{ e.x }}px;top:{{ e.y }}px;transform:rotate({{ e.r }}deg);transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1);cursor:pointer" style-hover="transform:translateY(-4px) rotate(0deg)"><dc-import name="Envelope" size="small" state="{{ e.s }}" color="{{ e.c }}" label="{{ e.who }}" hint-size="200px,130px"></dc-import></div></sc-for>
+<div style="position:absolute;left:116px;top:640px"><dc-import name="Sticker" kind="lily" size="130" rotate="-8" hint-size="80px,130px"></dc-import></div>
+<div style="position:absolute;left:1160px;top:690px"><dc-import name="Sticker" kind="sparkle" size="80" rotate="6" hint-size="66px,80px"></dc-import></div>
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabsW }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="playing" hint-size="280px,80px"></dc-import></div>
+</div>
+</div>
+<div style="font:400 15px/1.55 'DM Sans',sans-serif;color:#3D4A66;text-wrap:pretty;max-width:900px">Envelopes sit on the lined page in a loose 4 × 3 grid, each tilted a little. Opened ones keep their flap up and broken seal. Colours and names will come from your file; these are placeholders.</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-top:8px"><div style="display:flex;align-items:center;gap:16px;padding:16px;border-radius:6px;background:#E6EDF4"><dc-import name="WaxSeal" state="intact" size="72" hint-size="72px,72px"></dc-import><div style="font:700 11px/1.4 'Courier Prime',monospace;color:#130F1F">SEAL · INTACT</div></div><div style="display:flex;align-items:center;gap:16px;padding:16px;border-radius:6px;background:#E6EDF4"><dc-import name="WaxSeal" state="pulse" size="72" hint-size="72px,72px"></dc-import><div style="font:700 11px/1.4 'Courier Prime',monospace;color:#130F1F">SEAL · PULSE</div></div><div style="display:flex;align-items:center;gap:16px;padding:16px;border-radius:6px;background:#E6EDF4"><dc-import name="WaxSeal" state="cracked" size="72" hint-size="72px,72px"></dc-import><div style="font:700 11px/1.4 'Courier Prime',monospace;color:#130F1F">SEAL · CRACKED</div></div><div style="display:flex;align-items:center;gap:16px;padding:16px;border-radius:6px;background:#E6EDF4"><dc-import name="WaxSeal" state="intact" size="72" color="#4A3560" hint-size="72px,72px"></dc-import><div style="font:700 11px/1.4 'Courier Prime',monospace;color:#130F1F">SEAL · FRIEND COLOUR</div></div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Era spread · the timeline, opened up</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">replaces the lightbox · a pull-out page with no divider tab</div></div>
+<div style="position:relative;width:1248px;height:780px;border-radius:6px;overflow:hidden">
+<div style="position:absolute;left:0;top:0;width:1440px;height:900px;zoom:.8667;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(251,249,245,.14) 40%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="grid" coil="silver" hint-size="1192px,768px"></dc-import></div>
+<div style="position:absolute;left:160px;top:52px;display:flex;align-items:center;gap:14px"><div style="display:inline-flex;align-items:center;height:44px;padding:0 22px;border-radius:999px;border:1.5px solid #204670;color:#204670;background:#FFFFFF;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;white-space:nowrap;cursor:pointer">← BACK TO THE TIMELINE</div><span style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">or Esc</span></div>
+<div style="position:absolute;right:196px;top:60px;display:flex;gap:6px"><sc-for list="{{ eraNav }}" as="c" hint-placeholder-count="5"><div style="height:28px;padding:0 10px;border-radius:999px;border:1.5px solid #204670;background:{{ c.bg }};display:flex;align-items:center;font:700 12px/1 'Courier Prime',monospace;color:{{ c.fg }}">{{ c.y }}</div></sc-for></div>
+<div style="position:absolute;left:160px;top:124px;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#5E3695;white-space:nowrap">ERA 02 OF 05 · 2017 – 2019 · 24 PHOTOS</div>
+<div style="position:absolute;left:160px;top:146px;display:flex;align-items:baseline;gap:20px"><div style="font:400 48px/1 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">college, finally</div><div style="font:600 28px/1 'Caveat',cursive;color:#204670;white-space:nowrap">chai at 2am and one very long graduation</div></div>
+<sc-for list="{{ eraA }}" as="p" hint-placeholder-count="4"><div style="position:absolute;left:{{ p.x }}px;top:{{ p.y }}px"><dc-import name="PhotoFrame" type="{{ p.t }}" ratio="{{ p.r }}" size="{{ p.s }}" rotate="{{ p.rot }}" tone="{{ p.tone }}" caption="{{ p.cap }}" by="{{ p.by }}" show-caption="{{ p.sc }}" hint-size="240px,300px"></dc-import></div></sc-for>
+<div style="position:absolute;left:470px;top:220px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div>
+<div style="position:absolute;left:1150px;top:470px"><dc-import name="Sticker" kind="iced-coffee" size="110" rotate="8" hint-size="63px,110px"></dc-import></div>
+<div style="position:absolute;left:148px;top:700px;width:1110px;height:84px;background:linear-gradient(180deg,rgba(255,255,255,0),#FFFFFF 80%)"></div>
+<div style="position:absolute;left:0;right:0;top:752px;text-align:center;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#3D4A66">SHOWING 10 OF 24 · SCROLL FOR MORE · ← → NEXT ERA</div>
+
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="playing" hint-size="280px,80px"></dc-import></div>
+</div>
+</div>
+<div style="font:400 15px/1.55 'DM Sans',sans-serif;color:#3D4A66;text-wrap:pretty;max-width:900px">Tapping an era chip or any photo on the Timeline opens this spread: the journal turns to a pull-out page with no divider tab, filled with that era only. Hero, medium and small photos in mixed frames; clicking one enlarges it in place. Prev / next era at the bottom; Esc returns to the Timeline where she left it.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Connections + Wordle · inside the page</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">original game colours · stickers around the edges</div></div>
+<div style="position:relative;width:1248px;height:780px;border-radius:6px;overflow:hidden">
+<div style="position:absolute;left:0;top:0;width:1440px;height:900px;zoom:.8667;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(251,249,245,.14) 40%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="grid" coil="silver" hint-size="1192px,768px"></dc-import></div>
+<div style="position:absolute;left:160px;top:52px;display:flex;flex-direction:column;gap:8px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">07 · GAMES</div><div style="font:400 37px/1 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">Connections</div><div style="font:600 26px/1 'Caveat',cursive;color:#5E3695">make four groups of four</div></div>
+<div style="position:absolute;left:170px;top:196px;width:504px;height:72px;border-radius:8px;background:#F9DF6D;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><div style="font:700 16px/1 'DM Sans',sans-serif;letter-spacing:.04em;color:#000000">THINGS SHE ORDERS TWICE</div><div style="font:400 16px/1 'DM Sans',sans-serif;color:#000000">CHAI, FRIES, MANGO, NACHOS</div></div>
+<div style="position:absolute;left:170px;top:276px;display:grid;grid-template-columns:repeat(4,120px);gap:8px"><sc-for list="{{ conn }}" as="c" hint-placeholder-count="12"><div style="height:72px;border-radius:8px;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font:700 16px/1 'DM Sans',sans-serif;letter-spacing:.02em;color:{{ c.fg }};transform:{{ c.tf }}">{{ c.w }}</div></sc-for></div>
+<div style="position:absolute;left:170px;top:530px;width:504px;display:flex;align-items:center;justify-content:center;gap:10px"><span style="font:400 15px/1 'DM Sans',sans-serif;color:#000000">Mistakes remaining:</span><div style="width:14px;height:14px;border-radius:50%;background:#5A594E"></div><div style="width:14px;height:14px;border-radius:50%;background:#5A594E"></div><div style="width:14px;height:14px;border-radius:50%;background:#5A594E"></div><div style="width:14px;height:14px;border-radius:50%;background:#EFEFE6"></div></div>
+<div style="position:absolute;left:170px;top:566px;width:504px;display:flex;justify-content:center;gap:10px"><div style="height:44px;padding:0 20px;border-radius:999px;border:1.5px solid #000000;display:flex;align-items:center;font:600 15px/1 'DM Sans',sans-serif;color:#000000;background:#FFFFFF">Shuffle</div><div style="height:44px;padding:0 20px;border-radius:999px;border:1.5px solid #000000;display:flex;align-items:center;font:600 15px/1 'DM Sans',sans-serif;color:#000000;background:#FFFFFF">Deselect all</div><div style="height:44px;padding:0 22px;border-radius:999px;background:#000000;display:flex;align-items:center;font:600 15px/1 'DM Sans',sans-serif;color:#FFFFFF">Submit</div></div>
+<div style="position:absolute;left:170px;top:636px;display:flex;gap:14px"><sc-for list="{{ connKey }}" as="k" hint-placeholder-count="4"><div style="display:flex;align-items:center;gap:6px"><div style="width:18px;height:18px;border-radius:4px;background:{{ k.c }}"></div><span style="font:700 11px/1 'Courier Prime',monospace;color:#3D4A66">{{ k.l }}</span></div></sc-for></div>
+<div style="position:absolute;left:740px;top:96px;width:1px;height:640px;background:repeating-linear-gradient(180deg,#ACBFD3 0 6px,transparent 6px 12px)"></div>
+<div style="position:absolute;left:800px;top:88px;display:flex;flex-direction:column;gap:8px"><div style="font:400 37px/1 'Libre Caslon Text',serif;color:#130F1F">Wordle</div><div style="font:600 26px/1 'Caveat',cursive;color:#5E3695">guess her word in six</div></div>
+<div style="position:absolute;left:840px;top:196px;display:grid;grid-template-columns:repeat(5,54px);gap:5px"><sc-for list="{{ wordle }}" as="c" hint-placeholder-count="30"><div style="height:54px;background:{{ c.bg }};border:2px solid {{ c.bd }};display:flex;align-items:center;justify-content:center;font:700 28px/1 'DM Sans',sans-serif;color:{{ c.fg }}">{{ c.ch }}</div></sc-for></div>
+<div style="position:absolute;left:772px;top:572px;display:flex;flex-direction:column;gap:7px;align-items:center;width:420px"><sc-for list="{{ kb }}" as="row" hint-placeholder-count="3"><div style="display:flex;gap:5px"><sc-for list="{{ row }}" as="k" hint-placeholder-count="10"><div style="width:{{ k.w }}px;height:48px;border-radius:4px;background:{{ k.bg }};display:flex;align-items:center;justify-content:center;font:700 {{ k.fs }}px/1 'DM Sans',sans-serif;color:{{ k.fg }}">{{ k.k }}</div></sc-for></div></sc-for></div>
+<div style="position:absolute;left:600px;top:64px"><dc-import name="Sticker" kind="check-star" size="96" rotate="8" hint-size="96px,92px"></dc-import></div>
+<div style="position:absolute;left:1150px;top:96px"><dc-import name="Sticker" kind="headphone-cat" size="104" rotate="-6" hint-size="104px,91px"></dc-import></div>
+<div style="position:absolute;left:112px;top:660px"><dc-import name="Sticker" kind="tulips" size="120" rotate="-6" hint-size="70px,120px"></dc-import></div>
+<div style="position:absolute;left:1176px;top:420px"><dc-import name="Sticker" kind="eight-ball" size="64" rotate="10" hint-size="64px,64px"></dc-import></div>
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabsG }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="playing" hint-size="280px,80px"></dc-import></div>
+</div>
+</div>
+<div style="font:400 15px/1.55 'DM Sans',sans-serif;color:#3D4A66;text-wrap:pretty;max-width:900px">Connections keeps its four group colours (yellow, green, blue, purple) and grey tiles; Wordle keeps green / yellow / grey. Everything around them is the journal: grid paper, stickers in the margins, the divider tabs. On the real site each game gets its own page; they share one here to compare.</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Daily cryptic</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">one clue a day · hints unfold one at a time · SAMPLE clue</div></div>
+<div style="position:relative;width:1248px;height:780px;border-radius:6px;overflow:hidden">
+<div style="position:absolute;left:0;top:0;width:1440px;height:900px;zoom:.8667;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(251,249,245,.14) 40%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="lined" coil="silver" hint-size="1192px,768px"></dc-import></div>
+<div style="position:absolute;left:160px;top:52px;display:flex;flex-direction:column;gap:8px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">07 · GAMES · DAILY CRYPTIC</div><div style="font:400 41px/1 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">one clue a day</div><div style="font:600 26px/1 'Caveat',cursive;color:#5E3695">day 284 of her year</div></div>
+<div style="position:absolute;left:160px;top:212px;width:600px;filter:drop-shadow(0 1px 2px rgba(19,15,31,.25)) drop-shadow(0 10px 20px rgba(19,15,31,.12));transform:rotate(-1deg)"><div style="padding:40px 40px 36px;background:#FFFFFF;clip-path:polygon(0 3%,6% 1%,13% 3.5%,21% .5%,30% 3%,38% 0,47% 3%,56% 1%,65% 3.5%,74% .5%,83% 3%,91% 1%,100% 2.5%,100% 100%,0 100%);display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;justify-content:space-between"><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">TODAY · 11.10.2026</span><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#3D4A66">CLUE NO. 284</span></div>
+<div style="font:italic 400 29px/1.25 'Libre Caslon Text',serif;color:#130F1F;text-wrap:balance">SAMPLE · Drink hidden in beach air <span style="font-style:normal;color:#5E3695">(4)</span></div>
+<div style="display:flex;gap:8px"><sc-for list="{{ cryCells }}" as="c" hint-placeholder-count="4"><div style="width:64px;height:64px;border-radius:4px;background:#FFFFFF;border:1.5px solid #130F1F;box-shadow:{{ c.sh }};display:flex;align-items:center;justify-content:center;font:700 30px/1 'DM Sans',sans-serif;color:#130F1F">{{ c.ch }}</div></sc-for></div>
+<div style="display:flex;align-items:center;gap:12px"><div style="display:inline-flex;align-items:center;height:44px;padding:0 22px;border-radius:999px;background:#204670;color:#FFFFFF;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;white-space:nowrap;cursor:pointer">CHECK</div><div style="display:inline-flex;align-items:center;height:44px;padding:0 22px;border-radius:999px;border:1.5px solid #204670;color:#204670;background:#FFFFFF;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;white-space:nowrap;cursor:pointer">REVEAL A LETTER</div><span style="font:500 15px/1 'DM Sans',sans-serif;color:#204670;text-decoration:underline;text-decoration-color:#C4A8E6;text-decoration-thickness:2px;text-underline-offset:5px;white-space:nowrap">give up and see why</span></div>
+</div></div>
+<div style="position:absolute;left:820px;top:200px;display:flex;flex-direction:column;gap:14px;width:380px">
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#204670">HINTS · 1 OF 3 OPEN</div>
+<div style="position:relative;padding:18px 18px 16px 22px;background:#FFFFFF;transform:rotate(1deg);box-shadow:0 1px 2px rgba(19,15,31,.22),0 6px 12px rgba(19,15,31,.1);font:400 22px/1.3 'Kalam',cursive;color:#204670">the definition is at one end: <b style="font-weight:700">drink</b><div style="position:absolute;right:16px;top:-14px"><dc-import name="Fastener" kind="paperclip" rotate="{{ 8 }}" hint-size="16px,48px"></dc-import></div></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:#ECE8F2;border-radius:3px;transform:rotate(-1deg);box-shadow:0 1px 2px rgba(19,15,31,.18);cursor:pointer"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#4A3560">HINT 2 · FOLDED</span><span style="font:600 22px/1 'Caveat',cursive;color:#5E3695">tap to unfold</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:#F4F2F7;border-radius:3px;border:1.5px dashed #C4A8E6"><span style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#3D4A66">HINT 3 · AFTER HINT 2</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#3D4A66">locked</span></div>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:14px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#204670">STREAK · 6 DAYS</span><span style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">last 14 days</span></div>
+<div style="display:flex;gap:6px"><sc-for list="{{ streak }}" as="d" hint-placeholder-count="14"><div style="width:22px;height:22px;border-radius:50%;background:{{ d.bg }};border:1.5px solid {{ d.bd }};display:flex;align-items:center;justify-content:center;font:700 11px/1 'DM Sans',sans-serif;color:#FFFFFF">{{ d.t }}</div></sc-for></div>
+</div>
+</div>
+<div style="position:absolute;left:160px;top:620px;display:flex;align-items:center;gap:18px;padding:16px 22px;background:#E6EDF4;border-radius:6px;transform:rotate(.5deg)"><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#204670">ONCE SOLVED</span><span style="font:400 17px/1.4 'DM Sans',sans-serif;color:#130F1F">it's hidden in bea<b>CH AI</b>r · solved in 2:14 · come back tomorrow</span></div>
+<div style="position:absolute;left:1120px;top:620px"><dc-import name="Sticker" kind="eight-ball" size="90" rotate="-8" hint-size="90px,90px"></dc-import></div>
+<div style="position:absolute;left:700px;top:150px"><dc-import name="Sticker" kind="iconic" size="96" rotate="10" hint-size="96px,96px"></dc-import></div>
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabsG }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="playing" hint-size="280px,80px"></dc-import></div>
+</div>
+</div>
+<div style="font:400 15px/1.55 'DM Sans',sans-serif;color:#3D4A66;text-wrap:pretty;max-width:900px">Cells take typing directly; Enter checks. A wrong answer shakes the cells (300ms) and keeps them filled. Hints unfold like folded notes, each one only after the last. Solving stamps the card and fills today’s streak dot.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Game cards · four on a spread</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">280 × 340 · two per page · hover lifts −4px</div></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:36px 32px;border-radius:6px;background:#FBF9F5;background-image:repeating-linear-gradient(0deg,transparent 0 23px,rgba(142,167,201,.3) 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,rgba(142,167,201,.3) 23px 24px);box-shadow:inset 0 0 0 1px #E3E8EF">
+<sc-for list="{{ games }}" as="g" hint-placeholder-count="4">
+<div style="position:relative;height:340px;padding:26px 24px;border-radius:8px;background:#FFFFFF;box-shadow:0 1px 2px rgba(19,15,31,.2),0 8px 18px rgba(19,15,31,.1);transform:rotate({{ g.r }}deg);display:flex;flex-direction:column;gap:12px;cursor:pointer;transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1)" style-hover="transform:translateY(-4px) rotate(0deg)">
+<div style="position:absolute;left:50%;top:-20px;margin-left:-20px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div>
+<div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">GAME {{ g.no }}</div>
+<div style="font:400 29px/1.05 'Libre Caslon Text',serif;color:#130F1F">{{ g.n }}</div>
+<div style="font:600 24px/1.1 'Caveat',cursive;color:#204670">{{ g.d }}</div>
+<div style="display:flex;align-items:center;gap:6px;margin-top:auto"><span style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#3D4A66;margin-right:4px">DIFFICULTY</span><sc-for list="{{ g.dots }}" as="d" hint-placeholder-count="3"><div style="width:10px;height:10px;border-radius:50%;background:{{ d }}"></div></sc-for></div>
+<div style="position:absolute;right:14px;bottom:52px"><dc-import name="Sticker" kind="{{ g.k }}" size="74" rotate="{{ g.sr }}" hint-size="74px,74px"></dc-import></div>
+<div style="height:40px;border:1.5px dashed {{ g.stB }};border-radius:4px;display:flex;align-items:center;justify-content:center;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.16em;color:{{ g.stC }};transform:rotate({{ g.stR }}deg)">{{ g.st }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Platformer page · Neha's World</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">1440 × 900 · screen slot 960 × 540 · the game is built elsewhere and dropped in</div></div>
+<div style="position:relative;width:1248px;height:780px;border-radius:6px;overflow:hidden">
+<div style="position:absolute;left:0;top:0;width:1440px;height:900px;zoom:.8667;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(251,249,245,.14) 40%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="grid" coil="silver" hint-size="1192px,768px"></dc-import></div>
+<div style="position:absolute;left:160px;top:46px;display:flex;align-items:baseline;gap:20px"><div style="font:400 41px/1 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">Neha's World</div><div style="font:600 30px/1 'Caveat',cursive;color:#5E3695;white-space:nowrap">collect her favourite things</div></div>
+<div style="position:absolute;left:958px;top:52px;display:flex;align-items:center;gap:14px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#204670;white-space:nowrap">BEST · 004 210</div><div style="display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:999px;border:1.5px solid #204670;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;white-space:nowrap">⤢ EXPAND</div></div>
+<div style="position:absolute;left:156px;top:112px;width:1000px;height:584px;border-radius:22px;background:linear-gradient(180deg,#2A5687,#204670 50%,#17355A);box-shadow:inset 0 2px 0 rgba(255,255,255,.18),0 2px 3px rgba(19,15,31,.3),0 14px 28px rgba(19,15,31,.25);transform:rotate(-.6deg)">
+<div style="position:absolute;left:20px;top:22px;width:960px;height:540px;border-radius:8px;overflow:hidden;background:#141E33;box-shadow:inset 0 0 0 3px #0E1626">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,#2A3F66 0%,#4A3560 70%,#5E3695 100%)"></div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:90px;background:repeating-linear-gradient(90deg,#CED9E4 0 30px,#ACBFD3 30px 60px);box-shadow:inset 0 4px 0 #FBF9F5"></div>
+<div style="position:absolute;left:320px;top:300px;width:200px;height:24px;background:repeating-linear-gradient(90deg,#DCCBF3 0 24px,#C4A8E6 24px 48px);box-shadow:inset 0 3px 0 #FFFFFF"></div>
+<div style="position:absolute;left:620px;top:220px;width:160px;height:24px;background:repeating-linear-gradient(90deg,#DCCBF3 0 24px,#C4A8E6 24px 48px);box-shadow:inset 0 3px 0 #FFFFFF"></div>
+<div style="position:absolute;left:390px;top:248px"><dc-import name="Sticker" kind="object-1" size="52" hint-size="52px,52px"></dc-import></div>
+<div style="position:absolute;left:676px;top:168px"><dc-import name="Sticker" kind="object-2" size="48" hint-size="48px,48px"></dc-import></div>
+<div style="position:absolute;left:140px;top:356px;width:54px;height:94px;border-radius:24px 24px 8px 8px;background:repeating-linear-gradient(135deg,#FBF9F5 0 6px,#ECE8F2 6px 12px);box-shadow:0 0 0 2px #130F1F;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;font:700 9px/1 'Courier Prime',monospace;color:#130F1F">NEHA</div>
+<div style="position:absolute;left:24px;top:20px;display:flex;gap:18px;font:700 16px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#FFFFFF"><span>♥ ♥ ♥</span><span>SCORE 001 240</span><span>OBJECTS 3 / 12</span></div>
+<div style="position:absolute;right:16px;top:16px;font:400 12px/1.3 'Courier Prime',monospace;color:#CED9E4;background:rgba(20,30,51,.6);padding:4px 8px">game slot · 960 × 540 · playing</div>
+</div>
+<div style="position:absolute;right:32px;top:-6px;display:flex;gap:10px"><div style="width:36px;height:10px;border-radius:5px 5px 0 0;background:#C4A8E6"></div><div style="width:36px;height:10px;border-radius:5px 5px 0 0;background:#C4A8E6"></div></div>
+</div>
+<div style="position:absolute;left:640px;top:96px;width:120px;height:28px;transform:rotate(-5deg);opacity:.86;background:repeating-linear-gradient(90deg,#F7F1E6 0 5px,#ACBFD3 5px 8px);clip-path:polygon(0 10%,3% 0,97% 0,100% 12%,97% 32%,100% 54%,97% 76%,100% 92%,97% 100%,3% 100%,0 88%,3% 68%,0 48%,3% 28%)"></div>
+<div style="position:absolute;left:160px;top:712px;display:flex;align-items:center;gap:36px">
+<div style="display:flex;align-items:center;gap:8px;padding:10px 16px;background:#FFFFFF;border-radius:6px;box-shadow:0 1px 2px rgba(19,15,31,.2)">
+<sc-for list="{{ keys }}" as="k" hint-placeholder-count="5"><div style="display:flex;align-items:center;gap:6px"><div style="min-width:34px;height:32px;padding:0 8px;border-radius:6px;background:#FBF9F5;box-shadow:inset 0 -3px 0 #CED9E4,0 0 0 1.5px #204670;display:flex;align-items:center;justify-content:center;font:700 13px/1 'DM Sans',sans-serif;color:#130F1F">{{ k.k }}</div><span style="font:700 11px/1 'Courier Prime',monospace;color:#3D4A66;white-space:nowrap">{{ k.l }}</span></div></sc-for>
+</div>
+<div style="display:flex;align-items:center;gap:16px"><sc-for list="{{ powers }}" as="p" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:6px"><dc-import name="Sticker" kind="{{ p.k }}" size="40" hint-size="40px,40px"></dc-import><span style="font:600 22px/1 'Caveat',cursive;color:#204670;white-space:nowrap">{{ p.l }}</span></div></sc-for></div>
+</div>
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="muted" hint-size="280px,80px"></dc-import></div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<sc-for list="{{ pstates }}" as="s" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="position:relative;height:166px;border-radius:6px;overflow:hidden;background:{{ s.bg }};box-shadow:inset 0 0 0 6px #204670">
+<sc-if value="{{ s.empty }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px"><dc-import name="Sticker" kind="headphone-cat" size="64" rotate="-6" hint-size="64px,56px"></dc-import><div style="font:600 24px/1 'Caveat',cursive;color:#FFFFFF">the game arrives here soon</div></div></sc-if>
+<sc-if value="{{ s.loading }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#FFFFFF">LOADING NEHA'S WORLD</div><div style="width:200px;height:10px;border-radius:5px;background:rgba(255,255,255,.2)"><div style="width:62%;height:100%;border-radius:5px;background:#C4A8E6"></div></div></div></sc-if>
+<sc-if value="{{ s.playing }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:6px;background:linear-gradient(180deg,#2A3F66,#4A3560 70%,#5E3695)"><div style="position:absolute;left:0;right:0;bottom:0;height:28px;background:repeating-linear-gradient(90deg,#CED9E4 0 10px,#ACBFD3 10px 20px)"></div><div style="position:absolute;left:40px;bottom:28px;width:18px;height:30px;border-radius:8px 8px 3px 3px;background:#FBF9F5"></div><div style="position:absolute;left:10px;top:8px;font:700 10px/1 'Courier Prime',monospace;color:#FFFFFF">♥ ♥ ♥ · 001 240</div></div></sc-if>
+<sc-if value="{{ s.paused }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:6px;background:linear-gradient(180deg,#2A3F66,#4A3560 70%,#5E3695)"></div><div style="position:absolute;inset:6px;background:rgba(20,30,51,.72);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px"><div style="font:400 31px/1 'Libre Caslon Text',serif;font-style:italic;color:#FFFFFF">paused</div><div style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:999px;background:#FFFFFF;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670">RESUME · P</div></div></sc-if>
+</div>
+<div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#130F1F">{{ s.n }}</div><div style="font:400 13px/1.45 'DM Sans',sans-serif;color:#3D4A66">{{ s.u }}</div>
+</div>
+</sc-for>
+</div>
+<div style="font:400 13px/1.5 'Courier Prime',monospace;color:#3D4A66">original art only: the avatar, platforms and power-ups here are placeholders in the journal palette. No characters, logos or names from existing games.</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const dots = n => [1, 2, 3].map(i => i <= n ? '#5E3695' : '#DCCBF3');
+    const T = ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'];
+    const FR = [['Friend 1', '#7A1F2B', 'open'], ['Friend 2', '#C4A8E6', 'open'], ['Friend 3', '#3D5A8A', 'closed'], ['Friend 4', '#DEC0C4', 'closed'], ['Friend 5', '#4A3560', 'closed'], ['Friend 6', '#B2B2E5', 'closed'], ['Friend 7', '#141E33', 'closed'], ['Friend 8', '#CED9E4', 'closed'], ['Friend 9', '#A63A48', 'closed'], ['Friend 10', '#DCCBF3', 'closed'], ['Friend 11', '#5C6B85', 'closed'], ['Friend 12', '#ACBFD3', 'closed']];
+    const RR = [-3, 2, -1, 3, 2, -2, 1, -3, -1, 3, -2, 2];
+    const wishEnv = FR.map(([who, c, s], i) => ({ who, c, s, x: 210 + (i % 4) * 250, y: 270 + Math.floor(i / 4) * 170, r: RR[i] }));
+    const caps = ['chai, 2am', 'fest night', 'the hostel balcony', 'project due tomorrow', 'goa, the first time', 'library naps', 'graduation, finally', 'the haircut regret', 'canteen queue', 'last exam'];
+    const L = [{ x: 160, y: 236, t: 'polaroid', r: '3:2', s: 300, rot: -2, sc: true }, { x: 540, y: 222, t: 'corners', r: '4:5', s: 180, rot: 2, sc: true }, { x: 770, y: 236, t: 'taped', r: '1:1', s: 190, rot: -3, sc: true }, { x: 1010, y: 230, t: 'film', r: '3:2', s: 210, rot: 2, sc: true },
+      { x: 180, y: 580, t: 'polaroid', r: '1:1', s: 120, rot: 3, sc: false }, { x: 360, y: 590, t: 'slide', r: '1:1', s: 110, rot: -2, sc: false }, { x: 540, y: 580, t: 'torn', r: '4:5', s: 104, rot: 4, sc: false }, { x: 700, y: 580, t: 'polaroid', r: '1:1', s: 100, rot: -3, sc: false }, { x: 850, y: 590, t: 'clipped', r: '1:1', s: 120, rot: 2, sc: false }, { x: 1020, y: 600, t: 'corners', r: '1:1', s: 110, rot: -2, sc: false }];
+    const eraA = L.map((p, i) => ({ ...p, tone: i % 3, cap: caps[i], by: 'taken by Friend ' + (i + 2) }));
+    const eraNav = ['2014', '2017', '2020', '2022', '2025'].map((y, i) => ({ y, bg: i === 1 ? '#204670' : '#FFFFFF', fg: i === 1 ? '#FFFFFF' : '#204670' }));
+    const CW = ['DISCO', 'VINYL', 'RAIN', 'CHAIR', 'BIRDS', 'PLATE', 'TRUMPET', 'PEN', 'BLORP', 'ZEST', 'FLIM', 'OOF'];
+    const SEL = new Set(['DISCO', 'RAIN', 'BIRDS', 'TRUMPET']);
+    const conn = CW.map(w => ({ w, bg: SEL.has(w) ? '#5A594E' : '#EFEFE6', fg: SEL.has(w) ? '#FFFFFF' : '#000000', tf: SEL.has(w) ? 'scale(.97)' : 'none' }));
+    const connKey = [['#F9DF6D', 'EASIEST'], ['#A0C35A', ''], ['#B0C4EF', ''], ['#BA81C5', 'HARDEST']].map(([c, l]) => ({ c, l }));
+    const G = '#6AAA64', Y = '#C9B458', X = '#787C7E';
+    const rows = [[['S', X], ['O', Y], ['L', X], ['A', Y], ['R', X]], [['M', G], ['A', G], ['G', Y], ['I', X], ['C', X]], [['M', 'T'], ['A', 'T'], ['N', 'T']], [], [], []];
+    const wordle = []; rows.forEach(r => { for (let i = 0; i < 5; i++) { const c = r[i] || ['', '']; const typed = c[1] === 'T'; const colored = !!c[1] && !typed; wordle.push({ ch: c[0], bg: colored ? c[1] : '#FFFFFF', bd: colored ? c[1] : typed ? '#878A8C' : '#D3D6DA', fg: colored ? '#FFFFFF' : '#000000' }); } });
+    const ks = { S: X, L: X, R: X, I: X, C: X, O: Y, G: Y, A: G, M: G };
+    const kb = ['QWERTYUIOP', 'ASDFGHJKL', '↵ZXCVBNM⌫'].map(r => [...r].map(k => { const big = k === '↵' || k === '⌫'; const c = ks[k]; return { k: k === '↵' ? 'ENTER' : k, w: big ? 58 : 36, fs: big ? 12 : 16, bg: c || '#D3D6DA', fg: c ? '#FFFFFF' : '#000000' }; }));
+    const cryCells = ['C', 'H', '', ''].map((ch, i) => ({ ch, sh: i === 2 ? 'inset 0 0 0 3px #204670' : 'none' }));
+    const streak = Array.from({ length: 14 }, (_, i) => { const st = i === 13 ? 'today' : (i === 2 || i === 5) ? 'miss' : 'ok'; return { t: st === 'ok' ? '✓' : '', bg: st === 'ok' ? '#5E3695' : '#FFFFFF', bd: st === 'today' ? '#204670' : st === 'miss' ? '#C4A8E6' : '#5E3695' }; });
+    return {
+      wishEnv, eraA, eraNav, conn, connKey, wordle, kb, cryCells, streak,
+      tabsW: T.map(l => ({ l, s: l === 'Wishes' ? 'active' : 'default' })), tabsG: T.map(l => ({ l, s: l === 'Games' ? 'active' : 'default' })),
+      games: [
+        { no: '01', n: 'Connections', d: 'sixteen things only we would know', dots: dots(2), k: 'check-star', sr: 6, r: -1.5, st: 'SOLVED', stB: '#204670', stC: '#204670', stR: -4 },
+        { no: '02', n: 'Wordle', d: 'five letters, six guesses, one of her words', dots: dots(2), k: 'books', sr: -6, r: 1.2, st: 'STAMP GOES HERE', stB: '#ACBFD3', stC: '#96A4BA', stR: 0 },
+        { no: '03', n: 'Daily cryptic', d: 'one clue, every day of her year', dots: dots(3), k: 'eight-ball', sr: 8, r: -1, st: 'STAMP GOES HERE', stB: '#ACBFD3', stC: '#96A4BA', stR: 0 },
+        { no: '04', n: "Neha's World", d: 'run, jump, collect her favourite things', dots: dots(1), k: 'headphone-cat', sr: -4, r: 1.6, st: 'HIGH SCORE · 004 210', stB: '#5E3695', stC: '#5E3695', stR: 3 }
+      ],
+      keys: [{ k: '←', l: '' }, { k: '→', l: 'MOVE' }, { k: 'SPACE', l: 'JUMP' }, { k: 'P', l: 'PAUSE' }],
+      powers: [{ k: 'object-1', l: 'her object 1: double jump' }, { k: 'object-2', l: 'her object 2: speed' }, { k: 'object-3', l: 'her object 3: extra life' }],
+      tabs: ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'].map(l => ({ l, s: l === 'Games' ? 'active' : 'default' })),
+      pstates: [
+        { n: 'EMPTY', u: 'before the game is added: a doodle and a promise', bg: '#141E33', empty: true },
+        { n: 'LOADING', u: 'soft-purple bar, no spinner', bg: '#141E33', loading: true },
+        { n: 'PLAYING', u: 'the screen only; frame, legend and keys stay around it', bg: '#141E33', playing: true },
+        { n: 'PAUSED', u: 'midnight veil, italic "paused", resume button', bg: '#141E33', paused: true }
+      ],
+      env: [{ s: 'closed', n: 'CLOSED', u: 'floats ±6px, 4s loop' }, { s: 'pulse', n: 'NAME CORRECT', u: 'lilac ring pulses, seal unlocks' }, { s: 'cracked', n: 'SEAL CRACKED', u: 'halves split + fall, 400ms' }, { s: 'open', n: 'FLAP OPEN', u: 'rotateX 180°, 500ms spring' }, { s: 'letter', n: 'JOURNAL RISES', u: 'grows out and becomes the cover' }],
+      small: [{ c: '#141E33', who: 'Friend 1', n: 'MIDNIGHT', s: 'closed', tf: 'none' }, { c: '#C4A8E6', who: 'Friend 2', n: 'LAVENDER · HOVER', s: 'closed', tf: 'translateY(-4px) rotate(2deg)' }, { c: '#3D5A8A', who: 'Friend 3', n: 'DENIM', s: 'closed', tf: 'none' }, { c: '#DEC0C4', who: 'Friend 4', n: 'DUSTY ROSE · OPENED', s: 'open', tf: 'none' },
+        { c: '#7A1F2B', who: 'Friend 5', n: 'WINE', s: 'closed', tf: 'none' }, { c: '#B2B2E5', who: 'Friend 6', n: 'PERIWINKLE', s: 'closed', tf: 'none' }, { c: '#4A3560', who: 'Friend 7', n: 'PLUM · OPENING', s: 'cracked', tf: 'none' }, { c: '#CED9E4', who: 'Friend 8', n: 'MIST', s: 'closed', tf: 'none' }],
+      bars: [{ bg: '#CED9E4', fg: '#130F1F', n: 'SAMPLE · Things she orders twice', w: 'CHAI, FRIES, MANGO, NACHOS' }, { bg: '#DCCBF3', fg: '#130F1F', n: 'SAMPLE · Her alarm tones', w: 'DISCO, RAIN, BIRDS, TRUMPET' }, { bg: '#DEC0C4', fg: '#130F1F', n: 'SAMPLE · Spun at 2am', w: 'VINYL, CHAIR, PLATE, PEN' }, { bg: '#204670', fg: '#FFFFFF', n: 'SAMPLE · Words she made up', w: 'BLORP, ZEST, FLIM, OOF' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

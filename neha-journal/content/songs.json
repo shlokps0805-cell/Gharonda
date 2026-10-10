@@ -1,0 +1,137 @@
+[
+  {
+    "id": "song-1",
+    "title": "Song title 01",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-1",
+    "reason": "SAMPLE · the song from the goa bus, every single time",
+    "side": "A"
+  },
+  {
+    "id": "song-2",
+    "title": "Song title 02",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-8",
+    "reason": "SAMPLE · she sang this wrong for a year",
+    "side": "A"
+  },
+  {
+    "id": "song-3",
+    "title": "Song title 03",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-3",
+    "reason": "SAMPLE · our 2am kitchen anthem",
+    "side": "A"
+  },
+  {
+    "id": "song-4",
+    "title": "Song title 04",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-10",
+    "reason": "SAMPLE · first song at her first party",
+    "side": "A"
+  },
+  {
+    "id": "song-5",
+    "title": "Song title 05",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-5",
+    "reason": "SAMPLE · the one she skips but secretly loves",
+    "side": "A"
+  },
+  {
+    "id": "song-6",
+    "title": "Song title 06",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-12",
+    "reason": "SAMPLE · road trip, windows down",
+    "side": "A"
+  },
+  {
+    "id": "song-7",
+    "title": "Song title 07",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-7",
+    "reason": "SAMPLE · the exam week soundtrack",
+    "side": "A"
+  },
+  {
+    "id": "song-8",
+    "title": "Song title 08",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-2",
+    "reason": "SAMPLE · it played when we met",
+    "side": "A"
+  },
+  {
+    "id": "song-9",
+    "title": "Song title 09",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-9",
+    "reason": "SAMPLE · the song from the goa bus, every single time",
+    "side": "B"
+  },
+  {
+    "id": "song-10",
+    "title": "Song title 10",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-4",
+    "reason": "SAMPLE · she sang this wrong for a year",
+    "side": "B"
+  },
+  {
+    "id": "song-11",
+    "title": "Song title 11",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-11",
+    "reason": "SAMPLE · our 2am kitchen anthem",
+    "side": "B"
+  },
+  {
+    "id": "song-12",
+    "title": "Song title 12",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-6",
+    "reason": "SAMPLE · first song at her first party",
+    "side": "B"
+  },
+  {
+    "id": "song-13",
+    "title": "Song title 13",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-1",
+    "reason": "SAMPLE · the one she skips but secretly loves",
+    "side": "B"
+  },
+  {
+    "id": "song-14",
+    "title": "Song title 14",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-8",
+    "reason": "SAMPLE · road trip, windows down",
+    "side": "B"
+  },
+  {
+    "id": "song-15",
+    "title": "Song title 15",
+    "artist": "Artist",
+    "spotify": "",
+    "pickedBy": "friend-3",
+    "reason": "SAMPLE · the exam week soundtrack",
+    "side": "B"
+  }
+]

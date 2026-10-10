@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>*,*::before,*::after{box-sizing:border-box}.nh-ws::-webkit-scrollbar{width:6px}.nh-ws::-webkit-scrollbar-thumb{background:#ACBFD3;border-radius:3px}</style></helmet>
+<div data-screen-label="{{ label }}" style="position:relative;width:1440px;height:900px;overflow:hidden;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse 62% 64% at 50% 48%,rgba(251,249,245,.3) 0%,rgba(251,249,245,.14) 60%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px"></div>
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="{{ paper }}" tint="{{ tint }}" coil="silver" hole-color="{{ holeC }}" leak="{{ leak }}" hint-size="1192px,768px"></dc-import></div>
+
+<sc-if value="{{ grid }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:160px;top:56px;display:flex;flex-direction:column;gap:8px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">04 · WISHES</div><div style="font:400 48px/1.05 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">letters from her people</div><div style="font:600 28px/1 'Caveat',cursive;color:#5E3695">{{ sub }}</div></div>
+<div style="position:absolute;left:720px;top:74px;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#FFFFFF;background:#204670;padding:7px 12px;border-radius:2px">{{ counter }}</div>
+<div style="position:absolute;left:964px;top:40px"><dc-import name="PhotoFrame" type="polaroid" ratio="3:2" size="240" rotate="3" show-caption="{{ false }}" caption="all twelve of us" label="photo · the group · 3:2" hint-size="266px,236px"></dc-import></div>
+<div style="position:absolute;left:1066px;top:24px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div>
+<sc-for list="{{ env }}" as="e" hint-placeholder-count="12"><div style="position:absolute;left:{{ e.x }}px;top:{{ e.y }}px;transform:translateY({{ e.ty }}px) rotate({{ e.r }}deg);opacity:{{ e.o }}"><dc-import name="Envelope" size="small" state="{{ e.s }}" color="{{ e.c }}" label="{{ e.who }}" hint-size="200px,130px"></dc-import></div></sc-for>
+<sc-for list="{{ gridS }}" as="s" hint-placeholder-count="5"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.r }}" pinned="pin" hint-size="80px,80px"></dc-import></div></sc-for>
+<sc-if value="{{ end }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:88px;top:28px;width:1180px;height:756px;background:rgba(255,255,255,.72);display:flex;align-items:center;justify-content:center"><div style="display:flex;flex-direction:column;align-items:center;gap:18px;transform:rotate(-2deg)"><div style="font:600 72px/1.1 'Caveat',cursive;color:#204670;white-space:nowrap">that’s everyone. we love you.</div><div style="font:400 26px/1 'Kalam',cursive;color:#5E3695">— all twelve of us</div></div></div></sc-if>
+</sc-if>
+
+<sc-if value="{{ wish }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:150px;top:52px;display:flex;align-items:center;gap:12px"><div style="display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;border:1.5px solid {{ ink }};font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:{{ ink }};white-space:nowrap">← BACK TO ALL LETTERS</div><span style="font:400 12px/1 'Courier Prime',monospace;color:{{ ink }}">or Esc</span></div>
+<div style="position:absolute;left:150px;top:690px;width:200px;font:600 34px/1.1 'Caveat',cursive;color:{{ ink }};transform:rotate(-3deg)">you’re {{ colourName }} to me</div>
+<div style="position:absolute;left:1040px;top:722px;display:flex;align-items:center;gap:14px"><div style="width:44px;height:44px;border-radius:50%;border:1.5px solid {{ ink }};display:flex;align-items:center;justify-content:center;font:700 18px/1 'DM Sans',sans-serif;color:{{ ink }}">←</div><div style="font:700 13px/1 'Courier Prime',monospace;letter-spacing:.12em;color:{{ ink }};white-space:nowrap">{{ counter }}</div><div style="width:44px;height:44px;border-radius:50%;background:{{ ink }};display:flex;align-items:center;justify-content:center;font:700 18px/1 'DM Sans',sans-serif;color:{{ inkOn }}">→</div></div>
+<sc-for list="{{ wishS }}" as="s" hint-placeholder-count="5"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.r }}" pinned="pin" hint-size="80px,80px"></dc-import></div></sc-for>
+<sc-if value="{{ paperWish }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:356px;top:44px;width:860px;height:672px;transform:rotate(-1deg);filter:drop-shadow(0 1px 2px rgba(19,15,31,.3)) drop-shadow(0 12px 24px rgba(19,15,31,.2))">
+<div style="position:relative;width:100%;height:100%;background:url(assets/tex/newsprint.png) 0 0/256px 256px,#EEEAE0;clip-path:polygon(0 1%,6% 0,14% .6%,22% 0,31% .8%,40% 0,49% .7%,58% 0,67% .9%,76% 0,85% .6%,93% 0,100% .8%,99.4% 12%,100% 25%,99.5% 38%,100% 52%,99.4% 66%,100% 80%,99.5% 93%,100% 100%,92% 99.3%,83% 100%,74% 99.4%,65% 100%,56% 99.3%,47% 100%,38% 99.4%,29% 100%,20% 99.3%,11% 100%,3% 99.4%,0 100%,.5% 88%,0 74%,.6% 60%,0 46%,.5% 32%,0 18%);display:flex;flex-direction:column;padding:32px 44px 0">
+<div style="display:flex;justify-content:space-between;align-items:center;border-bottom:3px double #130F1F;padding-bottom:10px"><span style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#130F1F">LETTER {{ no }} OF 12</span><span style="font:400 28px/1 'Libre Caslon Text',serif;letter-spacing:.08em;color:#130F1F">THE NEHA TIMES</span><span style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#130F1F">PRICE: ONE HUG</span></div>
+<div style="padding:16px 0 12px;border-bottom:1px solid #130F1F;display:flex;flex-direction:column;gap:8px"><div style="font:400 42px/1.05 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap">A note from {{ who }}</div><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#3D4A66">MUMBAI · 11.10.2026 · {{ words }} WORDS</div></div>
+<div class="nh-ws" style="flex:1;min-height:0;overflow-y:auto;padding:18px 10px 48px 0;columns:2;column-gap:36px">
+<div style="break-inside:avoid;margin-bottom:14px"><div style="height:250px;background:repeating-linear-gradient(135deg,#ACBFD3 0 12px,#B9CADB 12px 24px);display:flex;align-items:flex-end;padding:10px;filter:grayscale(.3)"><span style="font:400 12px/1.3 'Courier Prime',monospace;color:#204670;background:rgba(255,255,255,.75);padding:3px 6px">photo · {{ who }} + neha · 3:2 · 372</span></div><div style="font:italic 400 15px/1.35 'Libre Caslon Text',serif;color:#3D4A66;padding-top:6px">Pictured: the authors, moments before the pigeon incident.</div></div>
+<sc-for list="{{ paras }}" as="t" hint-placeholder-count="8"><p style="margin:0 0 14px;font:400 18px/1.6 'DM Sans',sans-serif;color:#130F1F;text-align:justify;hyphens:auto;-webkit-hyphens:auto">{{ t }}</p></sc-for>
+<div style="font:400 34px/1.1 '{{ hand }}',cursive;color:#5E3695;padding-top:4px;break-inside:avoid">all my love, {{ who }}</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(180deg,rgba(238,234,224,0),#EEEAE0 80%);pointer-events:none"></div>
+</div>
+</div>
+<div style="position:absolute;left:740px;top:22px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div>
+<div style="position:absolute;left:330px;top:640px;width:120px;height:28px;transform:rotate(-38deg);opacity:.88;background:repeating-linear-gradient(90deg,rgba(165,123,213,.5) 0 8px,transparent 8px 16px),repeating-linear-gradient(0deg,rgba(165,123,213,.5) 0 8px,transparent 8px 16px),#F3EEFA;clip-path:polygon(0 10%,3% 0,97% 0,100% 12%,97% 32%,100% 54%,97% 76%,100% 92%,97% 100%,3% 100%,0 88%,3% 68%,0 48%,3% 28%)"></div>
+</sc-if>
+<sc-if value="{{ video }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:370px;top:96px;display:flex;flex-direction:column;gap:6px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:{{ ink }}">VIDEO LETTER · {{ no }} OF 12 · 02:14</div><div style="font:400 44px/1 'Libre Caslon Text',serif;color:{{ ink }}">A note from {{ who }}</div></div>
+<div style="position:absolute;left:356px;top:186px;padding:14px;background:#FFFFFF;transform:rotate(-1deg);box-shadow:0 2px 3px rgba(19,15,31,.3),0 14px 28px rgba(19,15,31,.28)">
+<div style="position:relative;width:760px;height:428px;background:repeating-linear-gradient(135deg,#2E3B5E 0 14px,#34436A 14px 28px)">
+<div style="position:absolute;left:14px;top:14px;font:400 12px/1.3 'Courier Prime',monospace;color:#CED9E4">video · 16:9 · 760 × 428</div>
+<div style="position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center"><div style="width:26px;height:30px;margin-left:6px;background:#204670;clip-path:polygon(0 0,100% 50%,0 100%)"></div></div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:52px;background:linear-gradient(180deg,rgba(19,15,31,0),rgba(19,15,31,.7));display:flex;align-items:center;gap:14px;padding:0 16px"><div style="width:0;height:0;border-left:12px solid #FFFFFF;border-top:7px solid transparent;border-bottom:7px solid transparent"></div><div style="position:relative;flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.35)"><div style="position:absolute;left:0;top:0;bottom:0;width:32%;border-radius:2px;background:#C4A8E6"></div></div><div style="font:700 12px/1 'Courier Prime',monospace;color:#FFFFFF">0:43 / 2:14</div><div style="font:700 12px/1 'Courier Prime',monospace;color:#FFFFFF;border:1px solid rgba(255,255,255,.7);border-radius:3px;padding:2px 4px">CC</div></div>
+</div>
+<div style="position:absolute;left:50%;top:-24px;margin-left:-20px"><dc-import name="Fastener" kind="binder" hint-size="40px,38px"></dc-import></div>
+</div>
+<div style="position:absolute;left:380px;top:654px;width:640px;font:400 28px/1.25 'Kalam',cursive;color:{{ ink }}">recorded on the balcony, 11pm. the plants say hi too.</div>
+</sc-if>
+</sc-if>
+
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="playing" hint-size="280px,80px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;state&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;grid&quot;,&quot;options&quot;:[&quot;grid&quot;,&quot;hover&quot;,&quot;light&quot;,&quot;dark&quot;,&quot;video&quot;,&quot;end&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  static P = [
+    "SAMPLE LETTER · Neha, I have started this letter four times. The first version was a list, the second was a poem that did not rhyme, and the third was mostly exclamation marks. So this one is just me talking to you the way I do at one in the morning, when we have both said we are going to sleep and neither of us has.",
+    "I keep coming back to the first week we met. You walked into the wrong classroom with total confidence, sat down, took notes for twenty minutes, and only then asked me which subject this was. I laughed so hard the teacher moved me to the front row. You followed me there, said it was solidarity, and somehow we were friends by lunch.",
+    "Since then you have been the person who makes ordinary days feel like they are worth writing down. You turn a trip to the grocery store into a quest. You name every plant on the balcony and remember which one is sulking. You know everybody's chai order, the exact song that fixes a bad mood, and the one shop in the whole city that still sells the pens I like. You never make a big deal of it. You just show up with the pen.",
+    "I want you to know how much of my life has your handwriting in it. The notes you leave in my bag before exams. The playlist you made the summer everything went wrong, which I still play when I need to feel brave. The voice messages that start with a sigh and end eleven minutes later with a story about a pigeon. I have kept almost all of them. Do not ask me how many. It is a lot.",
+    "You are also the bravest person I know, and I am not sure you realise it. You moved cities without knowing a single person, and within a month you had a favourite bakery, a running club and a neighbour who brings you mangoes. You say you were scared the whole time. Maybe. But you did it anyway, and you did it with a playlist and a plan and a very good pair of shoes.",
+    "Remember the monsoon trip when the bus broke down and we waited six hours at a roadside dhaba? Everyone else was furious. You befriended the cook, learned his recipe for the best dal any of us had ever eaten, and organised a card tournament with three strangers and a dog. When the replacement bus finally arrived, half of us did not want to leave. That is what you do. You find the good part, and then you make it bigger.",
+    "This year I hope you get the things you keep quietly wishing for. I hope the new job keeps surprising you in the good way. I hope you finally finish that book on your bedside table, the one with the bus ticket still marking chapter three. I hope you laugh until you snort at least once a week. I hope you let people look after you the way you look after everyone else, because you deserve exactly that much care, and more.",
+    "Mostly I hope you read this and feel how loved you are. Not in a polite birthday-card way. In the real, slightly embarrassing, I would carry your suitcase up four floors way. You are my favourite person to sit in silence with and my favourite person to be loud with, and I cannot imagine any version of my life that does not have you in it. Happy birthday, my dear, loud, wonderful friend. Eat the whole cake. Call me after.",
+    "P.S. I am putting this in writing so you cannot deny it later: you still owe me one plate of pani puri from the bet about the train, and I fully intend to collect it on your next birthday too."
+  ];
+  renderVals() {
+    const st = this.props.state ?? 'grid';
+    const FR = [['Friend 1', '#7A1F2B', 'Wine'], ['Friend 2', '#C4A8E6', 'Lavender'], ['Friend 3', '#3D5A8A', 'Denim'], ['Friend 4', '#DEC0C4', 'Dusty rose'], ['Friend 5', '#4A3560', 'Plum'], ['Friend 6', '#B2B2E5', 'Periwinkle'], ['Friend 7', '#141E33', 'Midnight'], ['Friend 8', '#CED9E4', 'Mist'], ['Friend 9', '#A63A48', 'Rosewood'], ['Friend 10', '#DCCBF3', 'Lilac'], ['Friend 11', '#5C6B85', 'Slate'], ['Friend 12', '#ACBFD3', 'Dusty blue']];
+    const RR = [-2, 1.5, -1, 2, 1, -2, 1.5, -1.5, -1, 2, -1.5, 1];
+    const opened = new Set(st === 'end' ? FR.map((_, i) => i) : [0, 1, 2]);
+    const env = FR.map(([who, c], i) => ({ who, c, s: opened.has(i) ? 'open' : 'closed', x: 210 + (i % 4) * 250, y: 300 + Math.floor(i / 4) * 160, r: RR[i], ty: st === 'hover' && i === 5 ? -4 : 0, o: 1 }));
+    const wi = st === 'dark' ? 4 : st === 'video' ? 2 : 1, F = FR[wi], darkC = ['#7A1F2B', '#3D5A8A', '#4A3560', '#141E33', '#A63A48', '#5C6B85'].includes(F[1]);
+    const P = Component.P;
+    const isWish = st === 'light' || st === 'dark' || st === 'video';
+    const T = ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'];
+    const L = { grid: '05-Wishes/Grid', hover: '05-Wishes/Grid-hover', light: '05-Wishes/Wish-light', dark: '05-Wishes/Wish-dark', video: '05-Wishes/Wish-video', end: '05-Wishes/End' };
+    return {
+      label: L[st], grid: !isWish, wish: isWish, paperWish: st !== 'video', video: st === 'video', end: st === 'end',
+      paper: isWish ? 'tint' : 'lined', tint: isWish ? (darkC ? F[1] : 'color-mix(in oklch, ' + F[1] + ' 30%, #FFFFFF)') : '#FFFFFF', holeC: darkC && isWish ? '#0E1626' : '#2A2235', leak: isWish && !darkC,
+      sub: 'one from each of us. open them all.', counter: isWish ? `${wi + 1} OF 12` : (st === 'end' ? '12 OF 12 OPENED' : '3 OF 12 OPENED'),
+      env, gridS: [{ k: 'lily', x: 108, y: 640, size: 120, r: -8 }, { k: 'bow', x: 590, y: 160, size: 120, r: 6 }, { k: 'star-felt', x: 1170, y: 280, size: 64, r: 10 }, { k: 'jelly-star', x: 1170, y: 640, size: 80, r: -6 }, { k: 'postage-stamp', x: 128, y: 300, size: 74, r: -6 }],
+      who: F[0], no: String(wi + 1).padStart(2, '0'), colourName: F[2].toLowerCase(), ink: darkC ? '#FFFFFF' : '#320F6F', inkOn: darkC ? F[1] : '#FFFFFF', hand: wi % 2 ? 'Kalam' : 'Caveat',
+      paras: P, words: P.join(' ').split(/\s+/).length,
+      wishS: [{ k: 'jellyfish', x: 1150, y: 120, size: 110, r: 8 }, { k: 'fav-heart', x: 170, y: 420, size: 90, r: 6 }, { k: 'paint-star', x: 1170, y: 560, size: 70, r: -10 }, { k: 'bow', x: 160, y: 200, size: 130, r: -8 }].map(s => s.k === 'fav-heart' ? { ...s, k: 'star-glass' } : s),
+      tabs: T.map(l => ({ l, s: l === 'Wishes' ? 'active' : 'default' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

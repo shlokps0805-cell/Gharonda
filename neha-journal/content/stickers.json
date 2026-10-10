@@ -1,0 +1,1263 @@
+{
+  "sheet": [
+    {
+      "id": "disco-violet",
+      "label": "disco · violet stars",
+      "file": "stickers/disco-violet.webp",
+      "group": 1,
+      "w": 532,
+      "h": 589
+    },
+    {
+      "id": "check-star",
+      "label": "checkered star",
+      "file": "stickers/check-star.webp",
+      "group": 1,
+      "w": 600,
+      "h": 577
+    },
+    {
+      "id": "jelly-star",
+      "label": "jelly star",
+      "file": "stickers/jelly-star.webp",
+      "group": 1,
+      "w": 526,
+      "h": 518
+    },
+    {
+      "id": "jelly-star-mini",
+      "label": "jelly star · mini",
+      "file": "stickers/jelly-star-mini.webp",
+      "group": 1,
+      "w": 254,
+      "h": 247
+    },
+    {
+      "id": "sparkle",
+      "label": "chrome sparkle",
+      "file": "stickers/sparkle.webp",
+      "group": 1,
+      "w": 424,
+      "h": 513
+    },
+    {
+      "id": "paint-star",
+      "label": "painted star",
+      "file": "stickers/paint-star.webp",
+      "group": 1,
+      "w": 202,
+      "h": 212
+    },
+    {
+      "id": "clef",
+      "label": "glitter clef",
+      "file": "stickers/clef.webp",
+      "group": 1,
+      "w": 424,
+      "h": 616
+    },
+    {
+      "id": "cd",
+      "label": "pixel CD",
+      "file": "stickers/cd.webp",
+      "group": 1,
+      "w": 301,
+      "h": 299
+    },
+    {
+      "id": "headphone-cat",
+      "label": "headphone cat",
+      "file": "stickers/headphone-cat.webp",
+      "group": 1,
+      "w": 556,
+      "h": 486
+    },
+    {
+      "id": "jellyfish",
+      "label": "jellyfish",
+      "file": "stickers/jellyfish.webp",
+      "group": 1,
+      "w": 458,
+      "h": 516
+    },
+    {
+      "id": "bow",
+      "label": "satin bow",
+      "file": "stickers/bow.webp",
+      "group": 1,
+      "w": 616,
+      "h": 368
+    },
+    {
+      "id": "tulips",
+      "label": "tulips",
+      "file": "stickers/tulips.webp",
+      "group": 1,
+      "w": 359,
+      "h": 616
+    },
+    {
+      "id": "lily",
+      "label": "crochet lily",
+      "file": "stickers/lily.webp",
+      "group": 1,
+      "w": 376,
+      "h": 612
+    },
+    {
+      "id": "lavender",
+      "label": "lavender",
+      "file": "stickers/lavender.webp",
+      "group": 1,
+      "w": 572,
+      "h": 560
+    },
+    {
+      "id": "camera",
+      "label": "camera",
+      "file": "stickers/camera.webp",
+      "group": 1,
+      "w": 616,
+      "h": 412
+    },
+    {
+      "id": "books",
+      "label": "book stack",
+      "file": "stickers/books.webp",
+      "group": 1,
+      "w": 612,
+      "h": 481
+    },
+    {
+      "id": "iced-coffee",
+      "label": "iced coffee",
+      "file": "stickers/iced-coffee.webp",
+      "group": 1,
+      "w": 327,
+      "h": 572
+    },
+    {
+      "id": "bunny",
+      "label": "bunny",
+      "file": "stickers/bunny.webp",
+      "group": 1,
+      "w": 453,
+      "h": 616
+    },
+    {
+      "id": "raindrop",
+      "label": "raindrop",
+      "file": "stickers/raindrop.webp",
+      "group": 1,
+      "w": 484,
+      "h": 542
+    },
+    {
+      "id": "dancers",
+      "label": "the two of them",
+      "file": "stickers/dancers.webp",
+      "group": 1,
+      "w": 497,
+      "h": 395
+    },
+    {
+      "id": "jellyfish-blue",
+      "label": "crochet jellyfish",
+      "file": "stickers/jellyfish-blue.webp",
+      "group": 1,
+      "w": 425,
+      "h": 773
+    },
+    {
+      "id": "shell-turtle",
+      "label": "shell turtle",
+      "file": "stickers/shell-turtle.webp",
+      "group": 1,
+      "w": 503,
+      "h": 508
+    },
+    {
+      "id": "patch-red",
+      "label": "word patch · red",
+      "file": "stickers/patch-red.webp",
+      "group": 1,
+      "w": 527,
+      "h": 304
+    },
+    {
+      "id": "patch-baddie",
+      "label": "baddie patch",
+      "file": "stickers/patch-baddie.webp",
+      "group": 1,
+      "w": 508,
+      "h": 290
+    },
+    {
+      "id": "camera-cat",
+      "label": "camera cat",
+      "file": "stickers/camera-cat.webp",
+      "group": 1,
+      "w": 335,
+      "h": 384
+    },
+    {
+      "id": "dnd",
+      "label": "do not disturb",
+      "file": "stickers/dnd.webp",
+      "group": 1,
+      "w": 527,
+      "h": 247
+    },
+    {
+      "id": "piano",
+      "label": "piano",
+      "file": "stickers/piano.webp",
+      "group": 1,
+      "w": 489,
+      "h": 476
+    },
+    {
+      "id": "vinyl-purple",
+      "label": "purple vinyl",
+      "file": "stickers/vinyl-purple.webp",
+      "group": 1,
+      "w": 539,
+      "h": 526
+    },
+    {
+      "id": "cookie-bear",
+      "label": "cookie bear",
+      "file": "stickers/cookie-bear.webp",
+      "group": 1,
+      "w": 417,
+      "h": 384
+    },
+    {
+      "id": "star-glitter-edge",
+      "label": "glitter star",
+      "file": "stickers/star-glitter-edge.webp",
+      "group": 1,
+      "w": 214,
+      "h": 215
+    },
+    {
+      "id": "star-origami",
+      "label": "origami star",
+      "file": "stickers/star-origami.webp",
+      "group": 1,
+      "w": 206,
+      "h": 204
+    },
+    {
+      "id": "star-balloon",
+      "label": "balloon star",
+      "file": "stickers/star-balloon.webp",
+      "group": 1,
+      "w": 146,
+      "h": 152
+    },
+    {
+      "id": "star-embroidered",
+      "label": "embroidered star",
+      "file": "stickers/star-embroidered.webp",
+      "group": 1,
+      "w": 147,
+      "h": 153
+    },
+    {
+      "id": "star-felt",
+      "label": "felt star",
+      "file": "stickers/star-felt.webp",
+      "group": 1,
+      "w": 151,
+      "h": 153
+    },
+    {
+      "id": "star-glass",
+      "label": "glass star",
+      "file": "stickers/star-glass.webp",
+      "group": 1,
+      "w": 84,
+      "h": 84
+    },
+    {
+      "id": "eight-ball",
+      "label": "8-ball",
+      "drawn": true,
+      "group": 2
+    },
+    {
+      "id": "happy-birthday",
+      "label": "happy birthday · ribbon",
+      "drawn": true,
+      "group": 3
+    },
+    {
+      "id": "core-memory",
+      "label": "core memory",
+      "drawn": true,
+      "group": 3
+    },
+    {
+      "id": "iconic",
+      "label": "iconic · holo rosette",
+      "drawn": true,
+      "group": 3
+    },
+    {
+      "id": "date-stamp",
+      "label": "date stamp",
+      "drawn": true,
+      "group": 4
+    },
+    {
+      "id": "washi-stripes",
+      "label": "washi · stripes",
+      "drawn": true,
+      "group": 5
+    },
+    {
+      "id": "washi-gingham",
+      "label": "washi · lilac gingham",
+      "drawn": true,
+      "group": 5
+    },
+    {
+      "id": "washi-stars",
+      "label": "washi · navy stars",
+      "drawn": true,
+      "group": 5
+    },
+    {
+      "id": "washi-lavender",
+      "label": "washi · lavender",
+      "drawn": true,
+      "group": 5
+    },
+    {
+      "id": "washi-dusty",
+      "label": "washi · dusty blue",
+      "drawn": true,
+      "group": 5
+    },
+    {
+      "id": "postage-stamp",
+      "label": "postage stamp",
+      "drawn": true,
+      "group": 5
+    }
+  ],
+  "pages": {
+    "_note": "x/y are the top-left corner on the 1440 × 900 page (inside the scrolling page for era pages; relative to the section for the darkroom). Sizes in px, angle in degrees. Pages with physics drop every sheet sticker except the paper pieces (group 5).",
+    "cover": {
+      "physics": true,
+      "use": "all",
+      "scale": 0.72,
+      "floors": "cover",
+      "fixed": [
+        {
+          "sticker": "happy-birthday",
+          "x": 744,
+          "y": 520,
+          "size": 230,
+          "angle": -4
+        },
+        {
+          "sticker": "core-memory",
+          "x": 1010,
+          "y": 610,
+          "size": 190,
+          "angle": 5
+        },
+        {
+          "sticker": "iconic",
+          "x": 1118,
+          "y": 420,
+          "size": 112,
+          "angle": 8
+        },
+        {
+          "sticker": "date-stamp",
+          "x": 560,
+          "y": 36,
+          "size": 104,
+          "angle": -6
+        },
+        {
+          "sticker": "check-star",
+          "x": 1160,
+          "y": 60,
+          "size": 84,
+          "angle": 10
+        },
+        {
+          "sticker": "star-glass",
+          "x": 700,
+          "y": 330,
+          "size": 54,
+          "angle": 0
+        },
+        {
+          "sticker": "postage-stamp",
+          "x": 600,
+          "y": 640,
+          "size": 92,
+          "angle": 6
+        }
+      ]
+    },
+    "opening": {
+      "fixed": [
+        {
+          "sticker": "tulips",
+          "x": 60,
+          "y": 30,
+          "size": 170,
+          "angle": -6
+        },
+        {
+          "sticker": "star-origami",
+          "x": 330,
+          "y": 50,
+          "size": 96,
+          "angle": 10
+        },
+        {
+          "sticker": "piano",
+          "x": 560,
+          "y": 14,
+          "size": 156,
+          "angle": -4
+        },
+        {
+          "sticker": "star-balloon",
+          "x": 900,
+          "y": 56,
+          "size": 90,
+          "angle": 8
+        },
+        {
+          "sticker": "vinyl-purple",
+          "x": 1150,
+          "y": 30,
+          "size": 180,
+          "angle": 8
+        },
+        {
+          "sticker": "jellyfish-blue",
+          "x": 110,
+          "y": 250,
+          "size": 220,
+          "angle": 6
+        },
+        {
+          "sticker": "camera-cat",
+          "x": 1170,
+          "y": 300,
+          "size": 170,
+          "angle": -5
+        },
+        {
+          "sticker": "shell-turtle",
+          "x": 60,
+          "y": 560,
+          "size": 160,
+          "angle": -8
+        },
+        {
+          "sticker": "cookie-bear",
+          "x": 1200,
+          "y": 560,
+          "size": 140,
+          "angle": 6
+        },
+        {
+          "sticker": "bow",
+          "x": 380,
+          "y": 722,
+          "size": 180,
+          "angle": -4
+        },
+        {
+          "sticker": "dnd",
+          "x": 640,
+          "y": 764,
+          "size": 220,
+          "angle": 2
+        },
+        {
+          "sticker": "patch-baddie",
+          "x": 980,
+          "y": 740,
+          "size": 170,
+          "angle": -5
+        },
+        {
+          "sticker": "star-glass",
+          "x": 1250,
+          "y": 790,
+          "size": 72,
+          "angle": 0
+        }
+      ]
+    },
+    "contents": {
+      "fixed": [
+        {
+          "sticker": "bow",
+          "x": 470,
+          "y": 36,
+          "size": 140,
+          "angle": 8
+        },
+        {
+          "sticker": "jelly-star",
+          "x": 140,
+          "y": 690,
+          "size": 80,
+          "angle": -8
+        },
+        {
+          "sticker": "lily",
+          "x": 590,
+          "y": 150,
+          "size": 120,
+          "angle": 6
+        },
+        {
+          "sticker": "star-glitter-edge",
+          "x": 1120,
+          "y": 640,
+          "size": 80,
+          "angle": 10
+        }
+      ]
+    },
+    "timeline": {
+      "fixed": [
+        {
+          "sticker": "lavender",
+          "x": 560,
+          "y": 40,
+          "size": 120,
+          "angle": 8
+        },
+        {
+          "sticker": "star-felt",
+          "x": 120,
+          "y": 690,
+          "size": 72,
+          "angle": -8
+        },
+        {
+          "sticker": "bunny",
+          "x": 300,
+          "y": 610,
+          "size": 90,
+          "angle": 4
+        },
+        {
+          "sticker": "paint-star",
+          "x": 600,
+          "y": 300,
+          "size": 64,
+          "angle": 10
+        },
+        {
+          "sticker": "star-origami",
+          "x": 720,
+          "y": 60,
+          "size": 80,
+          "angle": -6
+        },
+        {
+          "sticker": "vinyl-purple",
+          "x": 1160,
+          "y": 680,
+          "size": 100,
+          "angle": 6
+        },
+        {
+          "sticker": "jelly-star",
+          "x": 1180,
+          "y": 380,
+          "size": 70,
+          "angle": -6
+        },
+        {
+          "sticker": "shell-turtle",
+          "x": 740,
+          "y": 680,
+          "size": 90,
+          "angle": -4
+        }
+      ]
+    },
+    "era-scrapbook": {
+      "fixed": [
+        {
+          "sticker": "lily",
+          "x": 960,
+          "y": 520,
+          "size": 130,
+          "angle": 8
+        },
+        {
+          "sticker": "washi-gingham",
+          "x": 300,
+          "y": 0,
+          "size": 150,
+          "angle": -6
+        },
+        {
+          "sticker": "star-felt",
+          "x": 980,
+          "y": 1140,
+          "size": 70,
+          "angle": 10
+        },
+        {
+          "sticker": "bunny",
+          "x": 600,
+          "y": 1300,
+          "size": 110,
+          "angle": -6
+        },
+        {
+          "sticker": "paint-star",
+          "x": 640,
+          "y": 380,
+          "size": 70,
+          "angle": 6
+        },
+        {
+          "sticker": "tulips",
+          "x": 20,
+          "y": 1240,
+          "size": 120,
+          "angle": -4
+        }
+      ]
+    },
+    "era-polaroid-scatter": {
+      "fixed": [
+        {
+          "sticker": "star-balloon",
+          "x": 990,
+          "y": 300,
+          "size": 80,
+          "angle": 6
+        },
+        {
+          "sticker": "camera-cat",
+          "x": 980,
+          "y": 700,
+          "size": 110,
+          "angle": -5
+        },
+        {
+          "sticker": "bow",
+          "x": 20,
+          "y": 1180,
+          "size": 140,
+          "angle": 6
+        },
+        {
+          "sticker": "jelly-star",
+          "x": 700,
+          "y": 1220,
+          "size": 90,
+          "angle": -8
+        },
+        {
+          "sticker": "iced-coffee",
+          "x": 990,
+          "y": 1040,
+          "size": 120,
+          "angle": 6
+        },
+        {
+          "sticker": "star-glass",
+          "x": 300,
+          "y": 380,
+          "size": 54,
+          "angle": 0
+        }
+      ]
+    },
+    "era-feature-grid": {
+      "fixed": [
+        {
+          "sticker": "core-memory",
+          "x": 0,
+          "y": 1120,
+          "size": 180,
+          "angle": -4
+        },
+        {
+          "sticker": "star-origami",
+          "x": 1000,
+          "y": 160,
+          "size": 70,
+          "angle": 10
+        },
+        {
+          "sticker": "books",
+          "x": 980,
+          "y": 1060,
+          "size": 120,
+          "angle": 4
+        },
+        {
+          "sticker": "jellyfish-blue",
+          "x": 280,
+          "y": 690,
+          "size": 90,
+          "angle": -6
+        },
+        {
+          "sticker": "sparkle",
+          "x": 520,
+          "y": 140,
+          "size": 60,
+          "angle": 6
+        },
+        {
+          "sticker": "star-felt",
+          "x": 1000,
+          "y": 820,
+          "size": 66,
+          "angle": -8
+        }
+      ]
+    },
+    "era-photobooth-wall": {
+      "fixed": [
+        {
+          "sticker": "dnd",
+          "x": 0,
+          "y": 760,
+          "size": 200,
+          "angle": -4
+        },
+        {
+          "sticker": "star-embroidered",
+          "x": 650,
+          "y": 0,
+          "size": 64,
+          "angle": 8
+        },
+        {
+          "sticker": "cd",
+          "x": 980,
+          "y": 420,
+          "size": 90,
+          "angle": 6
+        },
+        {
+          "sticker": "cookie-bear",
+          "x": 980,
+          "y": 860,
+          "size": 100,
+          "angle": -6
+        },
+        {
+          "sticker": "check-star",
+          "x": 700,
+          "y": 880,
+          "size": 76,
+          "angle": 4
+        },
+        {
+          "sticker": "piano",
+          "x": 200,
+          "y": 1200,
+          "size": 120,
+          "angle": 3
+        }
+      ]
+    },
+    "era-pinboard": {
+      "fixed": [
+        {
+          "sticker": "shell-turtle",
+          "x": 980,
+          "y": 360,
+          "size": 110,
+          "angle": -6
+        },
+        {
+          "sticker": "patch-baddie",
+          "x": 20,
+          "y": 1220,
+          "size": 160,
+          "angle": 4
+        },
+        {
+          "sticker": "vinyl-purple",
+          "x": 990,
+          "y": 720,
+          "size": 110,
+          "angle": 8
+        },
+        {
+          "sticker": "star-glitter-edge",
+          "x": 300,
+          "y": 360,
+          "size": 70,
+          "angle": -8
+        },
+        {
+          "sticker": "clef",
+          "x": 980,
+          "y": 1100,
+          "size": 100,
+          "angle": 6
+        },
+        {
+          "sticker": "dancers",
+          "x": 600,
+          "y": 1240,
+          "size": 150,
+          "angle": -3
+        }
+      ]
+    },
+    "darkroom": {
+      "fixed": [
+        {
+          "section": "on-film",
+          "sticker": "vinyl-purple",
+          "x": 990,
+          "y": 520,
+          "size": 100,
+          "angle": 6
+        },
+        {
+          "section": "photobooth-chaos",
+          "sticker": "star-glitter-edge",
+          "x": 1020,
+          "y": 0,
+          "size": 80,
+          "angle": 8
+        },
+        {
+          "section": "give-it-a-shake",
+          "sticker": "sparkle",
+          "x": 1010,
+          "y": 360,
+          "size": 80,
+          "angle": -6
+        },
+        {
+          "section": "flash-on",
+          "sticker": "dnd",
+          "x": 900,
+          "y": 0,
+          "size": 170,
+          "angle": 3
+        },
+        {
+          "section": "the-outtakes",
+          "sticker": "eight-ball",
+          "x": 1030,
+          "y": 400,
+          "size": 70,
+          "angle": -8
+        },
+        {
+          "section": "slideshow",
+          "sticker": "star-balloon",
+          "x": 1020,
+          "y": 0,
+          "size": 80,
+          "angle": 6
+        },
+        {
+          "section": "cover-girl-material",
+          "sticker": "iconic",
+          "x": 990,
+          "y": 40,
+          "size": 100,
+          "angle": 8
+        }
+      ]
+    },
+    "wishes": {
+      "fixed": [
+        {
+          "sticker": "lily",
+          "x": 108,
+          "y": 640,
+          "size": 120,
+          "angle": -8
+        },
+        {
+          "sticker": "bow",
+          "x": 590,
+          "y": 160,
+          "size": 120,
+          "angle": 6
+        },
+        {
+          "sticker": "star-felt",
+          "x": 1170,
+          "y": 280,
+          "size": 64,
+          "angle": 10
+        },
+        {
+          "sticker": "jelly-star",
+          "x": 1170,
+          "y": 640,
+          "size": 80,
+          "angle": -6
+        },
+        {
+          "sticker": "postage-stamp",
+          "x": 128,
+          "y": 300,
+          "size": 74,
+          "angle": -6
+        }
+      ]
+    },
+    "wish": {
+      "fixed": [
+        {
+          "sticker": "jellyfish",
+          "x": 1150,
+          "y": 120,
+          "size": 110,
+          "angle": 8
+        },
+        {
+          "sticker": "star-glass",
+          "x": 170,
+          "y": 420,
+          "size": 90,
+          "angle": 6
+        },
+        {
+          "sticker": "paint-star",
+          "x": 1170,
+          "y": 560,
+          "size": 70,
+          "angle": -10
+        },
+        {
+          "sticker": "bow",
+          "x": 160,
+          "y": 200,
+          "size": 130,
+          "angle": -8
+        }
+      ]
+    },
+    "playlist": {
+      "fixed": [
+        {
+          "sticker": "cd",
+          "x": 560,
+          "y": 196,
+          "size": 80,
+          "angle": 8
+        },
+        {
+          "sticker": "piano",
+          "x": 590,
+          "y": 530,
+          "size": 84,
+          "angle": -4
+        },
+        {
+          "sticker": "star-felt",
+          "x": 610,
+          "y": 420,
+          "size": 54,
+          "angle": -8
+        },
+        {
+          "sticker": "clef",
+          "x": 1196,
+          "y": 650,
+          "size": 80,
+          "angle": 6
+        },
+        {
+          "sticker": "sparkle",
+          "x": 1192,
+          "y": 60,
+          "size": 70,
+          "angle": -6
+        }
+      ]
+    },
+    "jokes": {
+      "fixed": [
+        {
+          "sticker": "eight-ball",
+          "x": 1160,
+          "y": 60,
+          "size": 80,
+          "angle": 8
+        },
+        {
+          "sticker": "patch-baddie",
+          "x": 930,
+          "y": 650,
+          "size": 170,
+          "angle": -4
+        },
+        {
+          "sticker": "star-glitter-edge",
+          "x": 1186,
+          "y": 214,
+          "size": 60,
+          "angle": -8
+        },
+        {
+          "sticker": "dnd",
+          "x": 1060,
+          "y": 330,
+          "size": 150,
+          "angle": 6
+        },
+        {
+          "sticker": "bunny",
+          "x": 860,
+          "y": 610,
+          "size": 90,
+          "angle": 4
+        },
+        {
+          "sticker": "patch-red",
+          "x": 120,
+          "y": 690,
+          "size": 130,
+          "angle": -6
+        }
+      ]
+    },
+    "back": {
+      "fixed": [
+        {
+          "sticker": "lily",
+          "x": 560,
+          "y": 620,
+          "size": 130,
+          "angle": 6
+        },
+        {
+          "sticker": "star-felt",
+          "x": 590,
+          "y": 90,
+          "size": 60,
+          "angle": 10
+        },
+        {
+          "sticker": "core-memory",
+          "x": 880,
+          "y": 640,
+          "size": 170,
+          "angle": -4
+        },
+        {
+          "sticker": "jelly-star",
+          "x": 1150,
+          "y": 60,
+          "size": 80,
+          "angle": 8
+        }
+      ]
+    },
+    "games": {
+      "fixed": [
+        {
+          "sticker": "vinyl-purple",
+          "x": 1140,
+          "y": 70,
+          "size": 96,
+          "angle": 8
+        },
+        {
+          "sticker": "star-felt",
+          "x": 120,
+          "y": 670,
+          "size": 70,
+          "angle": -8
+        },
+        {
+          "sticker": "books",
+          "x": 560,
+          "y": 660,
+          "size": 110,
+          "angle": 4
+        },
+        {
+          "sticker": "cookie-bear",
+          "x": 960,
+          "y": 664,
+          "size": 100,
+          "angle": -6
+        },
+        {
+          "sticker": "star-glass",
+          "x": 760,
+          "y": 70,
+          "size": 56,
+          "angle": 0
+        },
+        {
+          "sticker": "lily",
+          "x": 1170,
+          "y": 600,
+          "size": 110,
+          "angle": 6
+        }
+      ]
+    },
+    "games-connections": {
+      "fixed": [
+        {
+          "sticker": "check-star",
+          "x": 1100,
+          "y": 160,
+          "size": 90,
+          "angle": 8
+        },
+        {
+          "sticker": "tulips",
+          "x": 160,
+          "y": 560,
+          "size": 130,
+          "angle": -6
+        },
+        {
+          "sticker": "cd",
+          "x": 1110,
+          "y": 560,
+          "size": 90,
+          "angle": 6
+        },
+        {
+          "sticker": "star-origami",
+          "x": 200,
+          "y": 300,
+          "size": 70,
+          "angle": -8
+        },
+        {
+          "sticker": "jellyfish-blue",
+          "x": 1150,
+          "y": 330,
+          "size": 140,
+          "angle": 4
+        }
+      ]
+    },
+    "games-wordle": {
+      "fixed": [
+        {
+          "sticker": "iced-coffee",
+          "x": 1180,
+          "y": 470,
+          "size": 130,
+          "angle": 6
+        },
+        {
+          "sticker": "headphone-cat",
+          "x": 1120,
+          "y": 120,
+          "size": 100,
+          "angle": -6
+        },
+        {
+          "sticker": "star-balloon",
+          "x": 200,
+          "y": 560,
+          "size": 80,
+          "angle": 8
+        },
+        {
+          "sticker": "paint-star",
+          "x": 300,
+          "y": 700,
+          "size": 60,
+          "angle": -6
+        },
+        {
+          "sticker": "eight-ball",
+          "x": 1000,
+          "y": 590,
+          "size": 64,
+          "angle": 10
+        }
+      ]
+    },
+    "games-cryptic": {
+      "fixed": [
+        {
+          "sticker": "eight-ball",
+          "x": 1150,
+          "y": 600,
+          "size": 90,
+          "angle": -8
+        },
+        {
+          "sticker": "iconic",
+          "x": 1080,
+          "y": 110,
+          "size": 96,
+          "angle": 10
+        },
+        {
+          "sticker": "star-embroidered",
+          "x": 840,
+          "y": 520,
+          "size": 70,
+          "angle": 6
+        },
+        {
+          "sticker": "bunny",
+          "x": 1050,
+          "y": 470,
+          "size": 100,
+          "angle": -4
+        },
+        {
+          "sticker": "raindrop",
+          "x": 1190,
+          "y": 420,
+          "size": 64,
+          "angle": 8
+        }
+      ]
+    },
+    "games-world": {
+      "fixed": [
+        {
+          "sticker": "star-felt",
+          "x": 1170,
+          "y": 680,
+          "size": 70,
+          "angle": 8
+        },
+        {
+          "sticker": "camera",
+          "x": 130,
+          "y": 700,
+          "size": 110,
+          "angle": -6
+        },
+        {
+          "sticker": "cd",
+          "x": 1060,
+          "y": 740,
+          "size": 70,
+          "angle": 6
+        }
+      ]
+    }
+  }
+}

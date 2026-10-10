@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33;-webkit-font-smoothing:antialiased}a{color:#DCCBF3;text-decoration-color:#A57BD5;text-underline-offset:4px}a:hover{color:#FFFFFF}</style></helmet>
+<section style="padding:96px;display:flex;flex-direction:column;gap:96px;background:#141E33;min-width:1984px">
+<div style="display:flex;flex-direction:column;gap:16px;width:1840px">
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.18em;color:#C4A8E6">NEHA · THE BIRTHDAY JOURNAL · PHASE 2</div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between"><div style="font:400 88px/1 'Libre Caslon Text',serif;color:#FFFFFF;white-space:nowrap">The opening, <span style="font-style:italic">the first minute</span></div><div style="font:600 30px/1.2 'Caveat',cursive;color:#DCCBF3;max-width:520px;text-align:right">envelope → seal → a little brown journal → happy birthday → the desk.</div></div>
+<div style="display:flex;flex-wrap:wrap;gap:22px;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.06em;padding-top:8px"><sc-for list="{{ nav }}" as="n" hint-placeholder-count="9"><a href="#{{ n.id }}">{{ n.t }}</a></sc-for></div>
+</div>
+
+<sc-for list="{{ main1 }}" as="f" hint-placeholder-count="5">
+<div id="{{ f.id }}" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">{{ f.name }}</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">{{ f.sub }}</span></div>
+<div style="display:flex;gap:40px;align-items:flex-start">
+<dc-import name="OpeningScene" step="{{ f.step }}" hint-size="1440px,900px"></dc-import>
+<div style="width:360px;display:flex;flex-direction:column;gap:14px;padding:24px;background:#FBF9F5;border-radius:4px">
+<div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">STEP {{ f.no }} · WHAT MOVES</div>
+<div style="font:400 26px/1.15 'Libre Caslon Text',serif;color:#130F1F">{{ f.title }}</div>
+<sc-for list="{{ f.notes }}" as="a" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid #E3E8EF"><div style="font:700 11px/1.3 'Courier Prime',monospace;letter-spacing:.06em;color:#204670">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div><div style="font:400 12px/1.4 'Courier Prime',monospace;color:#3D4A66">{{ a.m }}</div></div></sc-for>
+</div>
+</div>
+</div>
+</sc-for>
+
+<div id="reduced" style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;gap:16px"><span style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">01-Opening/Reduced-motion</span><span style="font:400 13px/1 'Courier Prime',monospace;color:#ACBFD3">steps 2 – 5 for prefers-reduced-motion · 200ms fades only</span></div>
+<div style="display:flex;gap:16px;width:1840px">
+<sc-for list="{{ reduced }}" as="r" hint-placeholder-count="4">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;padding:14px;background:#FBF9F5;border-radius:4px">
+<div style="height:120px;border-radius:3px;background:url(assets/bg/gingham.jpeg) center/cover;display:flex;align-items:center;justify-content:center"><div style="padding:10px 16px;background:rgba(255,255,255,.9);border-radius:3px;display:flex;align-items:center;gap:10px"><span style="font:700 12px/1 'Courier Prime',monospace;color:#3D4A66">frame {{ r.from }}</span><span style="font:700 14px/1 'DM Sans',sans-serif;color:#5E3695">→ 200ms fade →</span><span style="font:700 12px/1 'Courier Prime',monospace;color:#3D4A66">frame {{ r.to }}</span></div></div>
+<div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#5E3695">{{ r.n }}</div>
+<div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ r.u }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const N = (t, d, m) => ({ t, d, m });
+    const main = [
+      { id: 'env', step: 'envelope', no: '1', name: '01-Opening/1-Envelope', sub: 'the first thing she sees', title: 'One envelope on the desk', notes: [
+        N('IDLE FLOAT', 'Envelope bobs 6px up and down.', '4000ms loop · ease-in-out'),
+        N('CURSOR LIGHT', 'A soft white highlight (420px radial, 32%) follows the cursor across the paper with an 80ms lerp.', 'pointermove · requestAnimationFrame'),
+        N('DESK STICKERS', 'Seven stickers fade + settle in around the desk edges, three are stuck flat on the envelope corners.', '350ms each · 70ms stagger · cubic-bezier(0.34,1.56,0.64,1)'),
+        N('TAP THE SEAL', 'No name gate: the seal already pulses (lilac ring) and “tap the seal” with a drawn arrow points to it.', 'pulse .92 → 1.28 · 1600ms loop · arrow draws 400ms'),
+        N('FRONT', '“For Neha” in Great Vibes, squished to 84% height (options: Alex Brush, Parisienne, Mrs Saint Delafield — the envelope’s nameFont tweak), “by ____” in Kalam (the group name goes on the line). Cream envelope at 1.4× (784 × 504) so it leads the desk; wine seal stamped N; postage stamp top-right.', 'cursor: lavender dot + white ring · music-note trail (♪ ♫ ♩ ♬) every 34px, floats up 46px, fades 900ms')] },
+      { id: 'rises', step: 'rises', no: '2', name: '01-Opening/2-Journal-rises', sub: 'breaking the seal · the music starts on this click', title: 'A small brown journal rises', notes: [
+        N('SEAL', 'Presses in (scale .94), cracks into two halves; halves drop 26px, turn ±7° and fade.', '80ms press · 400ms ease-out'),
+        N('FLAP', 'Folds open in 3D around its top edge.', 'rotateX 0 → 180° · 500ms · cubic-bezier(0.34,1.56,0.64,1)'),
+        N('JOURNAL', 'The brown journal (224 × 302, silver spiral, gold photo corner peeking from a page) rises out of the pocket, turning −4° as it lifts.', 'translateY 0 → −252px · 700ms spring · starts 150ms after the flap'),
+        N('MUSIC', 'The seal click is the user gesture that unlocks audio: track 1 fades in over 1.5s.', 'if blocked → mini player shows “tap to start the music”')] },
+      { id: 'birthday', step: 'birthday', no: '3', name: '01-Opening/3-Birthday', sub: 'the happy birthday moment · mid-shimmer', title: 'Happy Birthday, Neha', notes: [
+        N('GROW', 'The brown journal grows to 640 × 820 at screen centre; the envelope slides down out of view.', 'scale + translate · 800ms · cubic-bezier(0.34,1.56,0.64,1) · envelope 500ms ease-in'),
+        N('GOLD FOIL', 'Letters shimmer in one by one (shown mid-way), then a slow foil glint sweeps across.', '40ms per letter · glint 1200ms'),
+        N('CONFETTI', '120 paper bits from both lower corners: rectangles, circles, tiny stars, a few hearts in white, powder blue, lavender, violet, dusty rose. 17 approved stickers mixed in.', 'burst 900ms · gravity · bits flutter (rotateX) as they fall'),
+        N('NOT USED', 'No rainbow, no balloons or cake clip art.', '')] },
+      { id: 'confetti', step: 'confetti', no: '4', name: '01-Opening/4-Confetti-to-stickers', sub: 'two seconds later', title: 'Confetti becomes stickers', notes: [
+        N('PAPER BITS', 'Flutter down and fade out.', '≈2000ms · opacity 1 → 0 · ease-out'),
+        N('STICKERS · LIVE', 'All 40 approved stickers fall with real physics when this frame scrolls into view: they overlap, bounce and come to rest without jitter (they sleep once still). Drag one anywhere and it stays where you drop it. Right-click: Stick here, Let it fall, Duplicate, Bring to front, size S/M/L or 40–320, angle −180° to 180°, Peel off.', 'gravity 2400px/s² · restitution .35 · sleep after 0.25s still · Esc closes the menu'),
+        N('LETTERING', 'Fully shimmered in and at rest.', '')] },
+      { id: 'settles', step: 'settles', no: '5', name: '01-Opening/5-Journal-settles', sub: 'mid-transition · becomes the Phase 3 cover', title: 'The journal settles on the desk', notes: [
+        N('JOURNAL', 'Moves to its resting place and grows to full size (1180 × 756), becoming the cover.', '900ms · cubic-bezier(0.65,0,0.35,1)'),
+        N('CROSSFADE', 'Birthday lettering fades out as the cover design (hero photo + her name) fades in — shown at ~70%.', '600ms overlap'),
+        N('TABS + PLAYER', 'Divider tabs slide out one after another; the mini player slides up into the bottom-left.', 'tabs 60ms stagger · 400ms spring · player slides in from the left edge, translateX −304 → 0, 450ms spring'),
+        N('BUTTON + STICKERS', '“open your journal” sits on the cover, clear of the pile; auto-continues after 4s. The physics stickers keep falling here too (live) and rest on the desk below the journal, never in the player zone.', 'fade-up 8px · 250ms')] }
+    ];
+    const reduced = [
+      { step: 'rises', from: '1', to: '2', n: '2 · SEAL + JOURNAL', u: 'Seal swaps to cracked, flap shown open and the brown journal appears in place: one 200ms crossfade.' },
+      { step: 'birthday', from: '2', to: '3', n: '3 · BIRTHDAY', u: 'Full-size journal and lettering fade in together (200ms). No confetti burst, no shimmer.' },
+      { step: 'confetti', from: '3', to: '4', n: '4 · STICKERS', u: 'Stickers appear already resting along the bottom (200ms fade), no falling.' },
+      { step: 'settles', from: '4', to: '5', n: '5 · DESK', u: 'Cover, tabs and player fade in together (200ms). Button appears; no auto-advance.' }
+    ];
+    return { main1: main.slice(0, 1), main2: main.slice(1), reduced, nav: [{ id: 'env', t: '1-Envelope' }, { id: 'rises', t: '2-Journal-rises' }, { id: 'birthday', t: '3-Birthday' }, { id: 'confetti', t: '4-Confetti' }, { id: 'settles', t: '5-Settles' }, { id: 'reduced', t: 'Reduced-motion' }] };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+/* Locked colour tokens (build brief 2.1). Never change these values. */
+:root {
+  --ink: #130F1F;
+  --paper: #FFFFFF;
+  --cream: #F7F1E6;
+  --powder: #CED9E4;
+  --dusty-blue: #ACBFD3;
+  --navy: #204670;
+  --lilac: #DCCBF3;
+  --soft-purple: #C4A8E6;
+  --lavender: #A57BD5;
+  --violet: #5E3695;
+  --deep-violet: #320F6F;
+  --dusty-rose: #DEC0C4;
+  --cherry: #BA2F1F;          /* small pops only, under 10% of a screen */
+  --wax-red: #9E2A2B;         /* every wax seal on the site */
+  --text-secondary: #3D4A66;
+  --envelope-cream: #F4EDE0;  /* the opening envelope */
+  --leather: #6B4A33;         /* the journal cover */
+  /* divider tabs, light (top) to dark (bottom) */
+  --tab-1: #ECE3F8; --tab-2: #DCCBF3; --tab-3: #C9B2EA; --tab-4: #B092DD;
+  --tab-5: #8A63BC; --tab-6: #6A43A0; --tab-7: #4A2880;
+
+  /* extra tokens from the Phase 1 v2 design (00-System/Tokens-v2) */
+  --soft-black: #1C1828;
+  --midnight: #141E33;
+  --paper-warm: #FBF9F5;
+  --mist-white: #ECE8F2;
+  --slate: #96A4BA;
+  --satin-rose: #CA9AA1;
+  --wine: #7A1F2B;
+
+  --sh-sticker: 0 2px 4px rgba(19,15,31,.30);
+  --sh-paper: 0 1px 2px rgba(19,15,31,.25), 0 8px 18px rgba(19,15,31,.18);
+  --sh-hover: 0 5px 7px rgba(19,15,31,.34);
+  --sh-drag: 0 12px 14px rgba(19,15,31,.40);
+
+  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+  --ease-out: cubic-bezier(0.25,1,0.5,1);
+  --ease-flip: cubic-bezier(0.65,0,0.35,1);
+}

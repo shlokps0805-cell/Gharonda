@@ -1,0 +1,18 @@
+[
+  {
+    "date": "2026-10-11",
+    "number": 284,
+    "clue": "Drink hidden in beach air (4)",
+    "answer": "CHAI",
+    "definition": "Drink",
+    "hints": [
+      "look at the first word.",
+      "hidden word: the answer is inside the clue.",
+      "the third letter is A."
+    ],
+    "wordplay": "hidden word: beaCH AIr",
+    "explanation": "“hidden in” tells you the answer is sitting inside the next words.",
+    "highlight": "beach air",
+    "hidden": "ch ai"
+  }
+]

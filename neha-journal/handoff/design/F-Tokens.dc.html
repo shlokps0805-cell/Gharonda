@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33}a{color:#204670}a:hover{color:#5E3695}</style></helmet>
+<div data-screen-label="00-System/Tokens-v2" style="position:relative;width:1440px;background:#FBF9F5;border-radius:4px;overflow:hidden">
+<div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px;pointer-events:none"></div>
+<div style="position:relative;padding:96px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid #CED9E4;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">00 · SYSTEM · TOKENS-V2</div><div style="font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F">The fine print</div></div>
+<div style="font:600 32px/1 'Caveat',cursive;color:#5E3695;transform:rotate(-2deg)">for the build. hover the motion rows.</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Colour</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">● sampled from your images · ○ derived</div></div>
+<div style="display:grid;grid-template-columns:repeat(10,1fr);gap:10px">
+<sc-for list="{{ colours }}" as="c" hint-placeholder-count="20"><div style="display:flex;flex-direction:column;gap:5px"><div style="height:48px;border-radius:5px;background:{{ c.h }};box-shadow:inset 0 0 0 1px rgba(19,15,31,.1)"></div><div style="font:700 11px/1.3 'Courier Prime',monospace;color:#130F1F">{{ c.m }} {{ c.t }}</div><div style="font:400 11px/1 'Courier Prime',monospace;color:#3D4A66">{{ c.h }}</div></div></sc-for>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:0">
+<div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F;padding-bottom:16px">Type</div>
+<div style="display:grid;grid-template-columns:150px 170px 110px 120px 80px 130px 1fr;border-top:1.5px solid #130F1F">
+<sc-for list="{{ th }}" as="h" hint-placeholder-count="7"><div style="padding:10px 0;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#3D4A66;border-bottom:1px solid #CED9E4">{{ h }}</div></sc-for>
+<sc-for list="{{ type }}" as="r" hint-placeholder-count="9"><sc-for list="{{ r }}" as="c" hint-placeholder-count="7"><div style="padding:10px 8px 10px 0;font:400 13px/1.4 'Courier Prime',monospace;color:#130F1F;border-bottom:1px solid #E3E8EF">{{ c }}</div></sc-for></sc-for>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Spacing</div>
+<sc-for list="{{ spacing }}" as="s" hint-placeholder-count="10"><div style="display:flex;align-items:center;gap:16px"><div style="width:60px;font:700 12px/1 'Courier Prime',monospace;color:#130F1F">sp-{{ s.v }}</div><div style="height:12px;width:{{ s.v }}px;background:#A57BD5;border-radius:2px"></div></div></sc-for>
+<div style="font:400 13px/1.5 'Courier Prime',monospace;color:#3D4A66;padding-top:6px">frame 1440 × 900 · journal 1180 × 756 at (88, 28) · tab zone x 1368–1440 · player zone (24, 796) 280 × 80 · at 1280 the journal scales to 0.89 · at 1920 it caps at 1.33 and the desk grows</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Shadows</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<sc-for list="{{ shadows }}" as="s" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:10px"><div style="height:84px;border-radius:6px;background:#E6EDF4;display:flex;align-items:center;justify-content:center"><div style="width:60px;height:44px;background:#FFFFFF;border-radius:3px;box-shadow:{{ s.v }};transform:{{ s.tf }}"></div></div><div style="font:700 11px/1.3 'Courier Prime',monospace;color:#130F1F">{{ s.t }}</div><div style="font:400 11px/1.4 'Courier Prime',monospace;color:#3D4A66">{{ s.d }}</div></div></sc-for>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Rotation + radii</div>
+<div style="font:400 13px/1.6 'Courier Prime',monospace;color:#130F1F">rot-paper −8° … +8° · stickers, photos, notes<br>rot-read −3° … +3° · anything she reads (wishes ≤ 2°)<br>neighbours never share an angle<br><br>r-3 prints · r-6 cards, menus · r-8 tiles · r-14 tabs · r-22 console · pill buttons</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F">Allowed gradients</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+<div style="height:64px;border-radius:6px;background:linear-gradient(160deg,#141E33,#3A1C2E)"></div><div style="height:64px;border-radius:6px;background:radial-gradient(circle at 90% 10%,rgba(196,168,230,.6),rgba(196,168,230,0) 60%),#FBF9F5;box-shadow:inset 0 0 0 1px #E3E8EF"></div><div style="height:64px;border-radius:6px;background:linear-gradient(125deg,#9FC3F0,#E4D2FF 22%,#B2B2E5 40%,#CFF1FF 58%,#D0B0F5 76%,#9FC3F0)"></div>
+<div style="font:400 11px/1.3 'Courier Prime',monospace;color:#3D4A66">night desk</div><div style="font:400 11px/1.3 'Courier Prime',monospace;color:#3D4A66">page light leak, one corner</div><div style="font:400 11px/1.3 'Courier Prime',monospace;color:#3D4A66">holo shimmer, stickers only</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:0">
+<div style="font:400 27px/1 'Libre Caslon Text',serif;color:#130F1F;padding-bottom:16px">Motion</div>
+<div style="display:grid;grid-template-columns:170px 1fr 140px 300px 170px;border-top:1.5px solid #130F1F">
+<sc-for list="{{ mh }}" as="h" hint-placeholder-count="5"><div style="padding:10px 0;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#3D4A66;border-bottom:1px solid #CED9E4">{{ h }}</div></sc-for>
+<sc-for list="{{ motion }}" as="m" hint-placeholder-count="12">
+<div style="padding:11px 0;font:700 13px/1.4 'Courier Prime',monospace;color:#130F1F;border-bottom:1px solid #E3E8EF">{{ m.t }}</div>
+<div style="padding:11px 0;font:400 14px/1.4 'DM Sans',sans-serif;color:#130F1F;border-bottom:1px solid #E3E8EF">{{ m.u }}</div>
+<div style="padding:11px 0;font:400 13px/1.4 'Courier Prime',monospace;color:#130F1F;border-bottom:1px solid #E3E8EF">{{ m.d }}</div>
+<div style="padding:11px 0;font:400 13px/1.4 'Courier Prime',monospace;color:#3D4A66;border-bottom:1px solid #E3E8EF">{{ m.e }}</div>
+<div style="padding:8px 0;border-bottom:1px solid #E3E8EF"><div style="position:relative;width:150px;height:26px;border-radius:13px;background:#E6EDF4"><div style="position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#A57BD5;transition:{{ m.tr }}" style-hover="transform:translateX(124px)"></div></div></div>
+</sc-for>
+</div>
+<div style="font:400 13px/1.5 'Courier Prime',monospace;color:#3D4A66;padding-top:14px">one main animation at a time · prefers-reduced-motion: entrances become a 200ms fade, no page flip (cross-fade), no confetti, no note trail, physics stickers placed at rest</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const C = [['ink', '#130F1F', 1], ['soft-black', '#1C1828', 0], ['midnight', '#141E33', 0], ['paper', '#FBF9F5', 0], ['cream', '#F7F1E6', 1], ['mist-white', '#ECE8F2', 0], ['powder', '#CED9E4', 1], ['dusty-blue', '#ACBFD3', 1], ['slate', '#96A4BA', 1], ['navy', '#204670', 1],
+      ['lilac', '#DCCBF3', 0], ['soft-purple', '#C4A8E6', 1], ['lavender', '#A57BD5', 1], ['violet', '#5E3695', 1], ['deep-violet', '#320F6F', 1], ['blush', '#DEC0C4', 1], ['satin-rose', '#CA9AA1', 1], ['cherry', '#BA2F1F', 1], ['wine', '#7A1F2B', 0], ['text-2', '#3D4A66', 0]];
+    const S = ['0 2px 4px rgba(19,15,31,.30)', '0 1px 2px rgba(19,15,31,.25), 0 8px 18px rgba(19,15,31,.18)', '0 5px 7px rgba(19,15,31,.34)', '0 12px 14px rgba(19,15,31,.40)'];
+    return {
+      colours: C.map(([t, h, s]) => ({ t, h, m: s ? '●' : '○' })),
+      th: ['TOKEN', 'FONT', 'SIZE', 'WEIGHT', 'LINE', 'TRACKING', 'USE'],
+      type: [['name', 'Pinyon Script', '160 (140–200)', '400', '0.9', '0', 'her name on the cover'], ['h1', 'Libre Caslon Text', '48', '400', '1.05', '0', 'page titles'], ['h2', 'Libre Caslon it.', '31', '400', '1.15', '0', 'contents entries, era titles'], ['h3', 'Libre Caslon Text', '20', '400', '1.25', '0', 'cards, headlines in lists'], ['body', 'DM Sans', '18', '400', '1.6', '0', 'wishes, descriptions'], ['label', 'Courier Prime', '12', '700', '1.3', '+0.12em caps', 'dates, tabs (11), buttons'], ['hand-a', 'Caveat', '24 / 32 / 40', '600', '1.1', '0', 'notes, captions · min 22'], ['hand-b', 'Kalam', '22 / 26 / 34', '400', '1.2', '0', 'a second friend'], ['ransom', 'mixed', 'per heading', 'mixed', '1', '—', 'the darkroom, joke archive']],
+      spacing: [4, 8, 12, 16, 24, 32, 48, 64, 96, 128].map(v => ({ v })),
+      shadows: [{ t: 'sh-sticker', d: '0 2 4 · 30%', v: S[0], tf: 'none' }, { t: 'sh-paper', d: '0 1 2 · 25% + 0 8 18 · 18%', v: S[1], tf: 'none' }, { t: 'sh-hover', d: '0 5 7 · 34% · lift 2', v: S[2], tf: 'translateY(-2px)' }, { t: 'sh-drag', d: '0 12 14 · 40% · lift 10', v: S[3], tf: 'translateY(-6px) scale(1.04)' }],
+      mh: ['TOKEN', 'USE', 'DURATION', 'EASING', 'HOVER TO FEEL'],
+      motion: [
+        { t: 'hover', u: 'stickers, tabs, buttons, frames', d: '150–200ms', e: 'cubic-bezier(0.34,1.56,0.64,1)', tr: 'transform 180ms cubic-bezier(0.34,1.56,0.64,1)' },
+        { t: 'gloss', u: 'sticker gloss sweep', d: '420ms', e: 'cubic-bezier(0.25,1,0.5,1)', tr: 'transform 420ms cubic-bezier(0.25,1,0.5,1)' },
+        { t: 'pop', u: 'menu, toast, cursor morph', d: '120ms', e: 'cubic-bezier(0.34,1.56,0.64,1)', tr: 'transform 120ms cubic-bezier(0.34,1.56,0.64,1)' },
+        { t: 'page-flip', u: 'spiral page turn', d: '450ms', e: 'cubic-bezier(0.65,0,0.35,1)', tr: 'transform 450ms cubic-bezier(0.65,0,0.35,1)' },
+        { t: 'enter', u: 'photos, notes, letters arriving', d: '350–450ms', e: 'cubic-bezier(0.34,1.56,0.64,1)', tr: 'transform 420ms cubic-bezier(0.34,1.56,0.64,1)' },
+        { t: 'exit', u: 'anything leaving (20% faster)', d: '280–360ms', e: 'cubic-bezier(0.25,1,0.5,1)', tr: 'transform 320ms cubic-bezier(0.25,1,0.5,1)' },
+        { t: 'peel', u: 'sticker delete', d: '400ms', e: 'cubic-bezier(0.25,1,0.5,1)', tr: 'transform 400ms cubic-bezier(0.25,1,0.5,1)' },
+        { t: 'resize', u: 'S / M / L snap from the menu', d: '220ms', e: 'cubic-bezier(0.34,1.56,0.64,1)', tr: 'transform 220ms cubic-bezier(0.34,1.56,0.64,1)' },
+        { t: 'reveal', u: 'seal crack, flap, birthday card', d: '600–900ms', e: 'cubic-bezier(0.34,1.56,0.64,1)', tr: 'transform 750ms cubic-bezier(0.34,1.56,0.64,1)' },
+        { t: 'note-trail', u: 'cursor music notes', d: '900ms · every 34px', e: 'cubic-bezier(0.25,1,0.5,1)', tr: 'transform 900ms cubic-bezier(0.25,1,0.5,1)' },
+        { t: 'stagger', u: 'letters 40 · tabs 60 · grids 60–80', d: '40–80ms', e: 'on top of enter', tr: 'transform 420ms cubic-bezier(0.34,1.56,0.64,1) 80ms' },
+        { t: 'reduced', u: 'prefers-reduced-motion', d: '200ms', e: 'opacity only', tr: 'opacity 200ms linear' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

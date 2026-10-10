@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33;-webkit-font-smoothing:antialiased}</style></helmet>
+<section style="padding:96px;display:flex;flex-direction:column;gap:64px;background:#141E33;min-width:1984px">
+<div style="display:flex;flex-direction:column;gap:16px;width:1840px">
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.18em;color:#C4A8E6">NEHA · THE BIRTHDAY JOURNAL · PHASE 5</div>
+<div style="font:400 88px/1 'Libre Caslon Text',serif;color:#FFFFFF;white-space:nowrap">The darkroom, <span style="font-style:italic">grouped by mood</span></div>
+<div style="display:flex;gap:16px"><sc-for list="{{ audit }}" as="a" hint-placeholder-count="3"><div style="flex:1;padding:16px 20px;background:#FBF9F5;border-radius:4px;display:flex;flex-direction:column;gap:6px"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div></div></sc-for></div>
+</div>
+<div style="display:flex;gap:40px;align-items:flex-start">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">04-Darkroom/Full <span style="font-weight:400;color:#ACBFD3">· the whole scroll, about 6 screens</span></div><dc-import name="DarkroomScene" window="full" hint-size="1440px,6400px"></dc-import></div>
+<div style="width:360px;display:flex;flex-direction:column;gap:12px;padding:24px;background:#FBF9F5;border-radius:4px;position:sticky;top:20px">
+<div style="font:400 26px/1.15 'Libre Caslon Text',serif;color:#130F1F">How it behaves</div>
+<sc-for list="{{ notes }}" as="a" hint-placeholder-count="10"><div style="display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid #E3E8EF"><div style="font:700 11px/1.3 'Courier Prime',monospace;letter-spacing:.06em;color:#204670">{{ a.t }}</div><div style="font:400 14px/1.5 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty">{{ a.d }}</div></div></sc-for>
+</div>
+</div>
+<div style="display:flex;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">04-Darkroom/Contact-loupe</div><dc-import name="DarkroomScene" window="contact" hint-size="1440px,900px"></dc-import></div>
+</div>
+<div style="display:flex;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:#FFFFFF">04-Darkroom/Polaroids-develop <span style="font-weight:400;color:#ACBFD3">· left to right: entering view → developed</span></div><dc-import name="DarkroomScene" window="polaroid" hint-size="1440px,900px"></dc-import></div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const N = (t, d) => ({ t, d });
+    return {
+      audit: [
+        { t: 'AUDIT · LAYER 1 SPEC 5/5', d: 'Black → red desk, dark page, ransom title (blues/purples/white, one black letter), wine safelight glow, film strips on gold clothespins, “developed with love”, 8-label style index, 8 sections with labels and stickers, back to top. Full frame + 2 close-ups.' },
+        { t: 'AUDIT · LAYER 2 CRAFT 4/5 · FOUND → FIXED', d: 'Phone selfies were too small for the 240 minimum → 240 × 427 phones, two staggered rows. Dissolving polaroids now show a visible develop ramp (95% → 0%). Glow kept at 32% so it stays subtle. Clusters cross the spiral on purpose, as a spread collage.' },
+        { t: 'AUDIT · LAYER 3 COHESION 4/5', d: 'Same spiral, tabs and player; only this page and the Playlist use the midnight → wine desk. Photo placeholders stay pale so frames read on the dark page. Render: 3 frames, ~50 photo slots, 0 missing.' }
+      ],
+      notes: [N('SCROLL', 'The spread scrolls about 7 screens; spiral, tabs and player stay fixed. Sections drift ±10% against the scroll (parallax, max 15%).'), N('INDEX', 'Paper labels jump to each section (smooth scroll 600ms).'), N('SELFIES', 'Soft white flash blink as each enters view (120ms). Hover: caption as a text-message bubble.'), N('ON FILM', 'Strips slide sideways with scroll (translateX tied to scroll, 40px range). Hover enlarges a frame 1.2×.'), N('PHOTOBOOTH', 'Strips print downward out of a slot (700ms ease-out).'), N('GIVE IT A SHAKE', 'Polaroids start dark and blurry. Grab one and shake it (drag back and forth): the more she shakes, the clearer it gets, like a real instant photo. Live in the frame.'), N('FLASH ON', 'Harsh flash look with a soft-red date stamp; a quick shutter blink (black 60ms) as each appears.'), N('THE OUTTAKES', 'Contact sheet on black; a 160px gold-rimmed loupe at 2× follows the cursor.'), N('SLIDESHOW', 'Slide mounts drop onto the dark page (350ms spring).'), N('COVER GIRL MATERIAL', 'Scissor-cut photos with cut-out words; pieces flutter in and settle.'), N('ANY PHOTO', 'Hover lifts and straightens; click enlarges in place 1.5×, click again or Esc. No lightbox.')]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Parisienne&family=Mrs+Saint+Delafield&display=swap"><style>*,*::before,*::after{box-sizing:border-box}</style></helmet>
+<div style="position:relative;flex:none;width:{{ w }}px;height:{{ h }}px">
+<div style="position:absolute;inset:0;filter:drop-shadow(0 2px 3px rgba(19,15,31,.3)) drop-shadow(0 12px 22px rgba(19,15,31,.22))">
+<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:0;bottom:100%;width:100%;height:58%;background:{{ shade }};clip-path:polygon(0 100%,100% 100%,50% 0);margin-bottom:-1px"></div>
+</sc-if>
+<div style="position:absolute;inset:0;background:{{ interior }};border-radius:4px"></div>
+<sc-if value="{{ letter }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:30%;width:40%;top:-72%;height:84%;transform:rotate(-4deg);transform-origin:50% 100%">
+<div style="position:absolute;left:4px;top:4px;right:-4px;bottom:-4px;border-radius:2px 6px 6px 2px;background:#ECE8E1"></div>
+<div style="position:absolute;inset:0;border-radius:2px 6px 6px 2px;background:url(assets/tex/leather-brown.png) 0 0/200px 200px,#6B4A33;box-shadow:0 2px 4px rgba(19,15,31,.3),inset 0 0 0 1px rgba(255,255,255,.12)">
+<div style="position:absolute;inset:12px 12px 12px 22px;border:1px solid rgba(216,184,94,.45);border-radius:3px"></div>
+<sc-if value="{{ hero }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding-left:10px"><div style="font:400 50px/1 'Pinyon Script',cursive;background:linear-gradient(100deg,#B08A2E,#F6E3A1 35%,#D8B85E 55%,#FBEFC4 70%,#B08A2E);-webkit-background-clip:text;background-clip:text;color:transparent">Neha</div><div style="font:700 8px/1 'Courier Prime',monospace;letter-spacing:.2em;color:#DCCBF3;white-space:nowrap">THE BIRTHDAY JOURNAL</div></div></sc-if>
+</div>
+<div style="position:absolute;right:-6px;top:22px;width:22px;height:22px;background:linear-gradient(135deg,#FBEFC4,#D8B85E 50%,#8A6A1E);clip-path:polygon(0 0,100% 0,100% 100%);filter:drop-shadow(1px 1px 1px rgba(19,15,31,.3))"></div>
+<div style="position:absolute;left:6px;top:6%;bottom:6%;display:flex;flex-direction:column;justify-content:space-between"><div style="width:16px;height:5px;margin-left:-11px;border-radius:3px;background:linear-gradient(180deg,#F4F5F8,#B4BAC6 35%,#7D8492 60%,#C9CED8)"></div><div style="width:16px;height:5px;margin-left:-11px;border-radius:3px;background:linear-gradient(180deg,#F4F5F8,#B4BAC6 35%,#7D8492 60%,#C9CED8)"></div><div style="width:16px;height:5px;margin-left:-11px;border-radius:3px;background:linear-gradient(180deg,#F4F5F8,#B4BAC6 35%,#7D8492 60%,#C9CED8)"></div><div style="width:16px;height:5px;margin-left:-11px;border-radius:3px;background:linear-gradient(180deg,#F4F5F8,#B4BAC6 35%,#7D8492 60%,#C9CED8)"></div><div style="width:16px;height:5px;margin-left:-11px;border-radius:3px;background:linear-gradient(180deg,#F4F5F8,#B4BAC6 35%,#7D8492 60%,#C9CED8)"></div><div style="width:16px;height:5px;margin-left:-11px;border-radius:3px;background:linear-gradient(180deg,#F4F5F8,#B4BAC6 35%,#7D8492 60%,#C9CED8)"></div><div style="width:16px;height:5px;margin-left:-11px;border-radius:3px;background:linear-gradient(180deg,#F4F5F8,#B4BAC6 35%,#7D8492 60%,#C9CED8)"></div></div>
+</div>
+</sc-if>
+<div style="position:absolute;inset:0;background:{{ shade }};clip-path:polygon(0 0,52% 54%,0 100%);border-radius:4px"></div>
+<div style="position:absolute;inset:0;background:{{ shade }};clip-path:polygon(100% 0,48% 54%,100% 100%);border-radius:4px"></div>
+<div style="position:absolute;inset:0;background:{{ edge }};clip-path:polygon(0 100%,50% 43.4%,100% 100%);border-radius:4px"></div>
+<div style="position:absolute;inset:0;background:{{ base }};clip-path:polygon(0 100%,50% 44.2%,100% 100%);border-radius:4px"></div>
+<sc-if value="{{ closed }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;inset:0;background:{{ edge }};clip-path:polygon(0 0,100% 0,50% 59%);border-radius:4px"></div>
+<div style="position:absolute;inset:0;background:{{ base }};clip-path:polygon(0 0,100% 0,50% 58%);border-radius:4px"></div>
+</sc-if>
+<div style="position:absolute;inset:0;border-radius:4px;pointer-events:none;opacity:.55;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http%3A//www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22%3E%3Cfilter id=%22p%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.9%22 numOctaves=%222%22 stitchTiles=%22stitch%22/%3E%3CfeColorMatrix values=%220 0 0 0 .07 0 0 0 0 .06 0 0 0 0 .08 0 0 0 .09 0%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23p)%22/%3E%3C/svg%3E')"></div>
+</div>
+<sc-if value="{{ edgeLine }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;border:1px solid rgba(255,255,255,.55);border-radius:4px;pointer-events:none"></div>
+</sc-if>
+<sc-if value="{{ showName }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:{{ nameX }};top:{{ nameY }};font:{{ nameW }} {{ nameSize }}px/1 {{ nameFF }};color:{{ ink }};transform:rotate(-3deg) scaleY({{ nameSq }});transform-origin:0 50%;white-space:nowrap">{{ name }}</div>
+<sc-if value="{{ showBy }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;left:{{ nameX }};top:{{ byY }};display:flex;align-items:baseline;gap:8px;transform:rotate(-3deg);white-space:nowrap"><span style="font:400 {{ bySize }}px/1 'Kalam',cursive;color:{{ ink }}">by</span><span style="min-width:{{ byW }}px;border-bottom:1.5px solid {{ ink }};font:400 {{ bySize }}px/1 'Kalam',cursive;color:{{ ink }};padding:0 4px 2px">{{ by }}</span></div></sc-if>
+</sc-if>
+<sc-if value="{{ stamp }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;right:6%;top:7%"><dc-import name="Sticker" kind="postage-stamp" size="{{ stampSize }}" rotate="{{ 5 }}" hint-size="70px,84px"></dc-import></div>
+</sc-if>
+<sc-if value="{{ closed }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:50%;top:58%;transform:translate(-50%,-50%)"><dc-import name="WaxSeal" size="{{ sealSize }}" state="{{ sealState }}" color="{{ sealColor }}" onClick="{{ onSeal }}" hint-size="90px,90px"></dc-import></div>
+</sc-if>
+<sc-if value="{{ openOnly }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:50%;top:-50%;transform:translate(-50%,-50%) scale(.8)"><dc-import name="WaxSeal" size="{{ sealSize }}" state="cracked" color="{{ sealColor }}" hint-size="90px,90px"></dc-import></div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;nameFont&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Great Vibes&quot;,&quot;options&quot;:[&quot;Great Vibes&quot;,&quot;Alex Brush&quot;,&quot;Parisienne&quot;,&quot;Mrs Saint Delafield&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;$preview&quot;:{&quot;width&quot;:640,&quot;height&quot;:620},&quot;size&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;hero&quot;,&quot;options&quot;:[&quot;hero&quot;,&quot;small&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;state&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;closed&quot;,&quot;options&quot;:[&quot;closed&quot;,&quot;pulse&quot;,&quot;cracked&quot;,&quot;open&quot;,&quot;letter&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;color&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#F4EDE0&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;name&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;For Neha&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;namePos&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;top&quot;,&quot;options&quot;:[&quot;top&quot;,&quot;bottom&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;stamp&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;edgeLine&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;sealColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#9E2A2B&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;onSeal&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;() =&gt; void&quot;}}">
+class Component extends DCLogic {
+  lum(hex) {
+    const m = /^#?([0-9a-f]{6})$/i.exec(hex || ''); if (!m) return 1;
+    const n = parseInt(m[1], 16); const c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); });
+    return .2126 * c[0] + .7152 * c[1] + .0722 * c[2];
+  }
+  renderVals() {
+    const hero = (this.props.size ?? 'hero') === 'hero';
+    const st = this.props.state ?? 'closed';
+    const base = this.props.color ?? '#F4EDE0';
+    const cream = base.toUpperCase() === '#F4EDE0';
+    const dark = this.lum(base) < .18;
+    const w = hero ? 560 : 200, h = hero ? 360 : 130;
+    const nameTop = this.props.namePos ? this.props.namePos === 'top' : hero;
+    return {
+      w, h, hero, base,
+      shade: cream ? '#E9DFCD' : `color-mix(in oklch, ${base} 88%, #130F1F)`,
+      edge: cream ? '#D8CAB2' : `color-mix(in oklch, ${base} 76%, #130F1F)`,
+      interior: cream ? '#C2B094' : `color-mix(in oklch, ${base} 62%, #130F1F)`,
+      ink: dark ? '#FFFFFF' : (cream ? '#204670' : '#320F6F'),
+      edgeLine: this.props.edgeLine ?? dark,
+      closed: st === 'closed' || st === 'cracked' || st === 'pulse',
+      open: st === 'open' || st === 'letter', letter: st === 'letter', openOnly: st === 'open',
+      sealState: st === 'cracked' ? 'cracked' : st === 'pulse' ? 'pulse' : 'intact',
+      sealSize: hero ? 92 : 36,
+      sealColor: this.props.sealColor ?? '#9E2A2B',
+      name: this.props.label ?? (hero ? 'For Neha' : 'Friend 1'),
+      showName: !(nameTop && (st === 'open' || st === 'letter')),
+      nameSize: hero ? (this.props.nameFont === 'Mrs Saint Delafield' ? 64 : 56) : 28, nameFF: hero ? `'${this.props.nameFont ?? 'Great Vibes'}',cursive` : "'Caveat',cursive", nameW: hero ? 400 : 600, nameSq: hero ? .84 : 1,
+      showBy: hero && (this.props.showBy ?? true), by: this.props.by ?? '', bySize: 26, byW: 150, byY: nameTop ? '23%' : '86%',
+      nameX: hero ? '7%' : '8%', nameY: nameTop ? (hero ? '9%' : '10%') : (hero ? '74%' : '68%'),
+      stamp: (this.props.stamp ?? false) && !(st === 'open' || st === 'letter'), stampSize: hero ? 84 : 34,
+      lineGap: hero ? 28 : 12, lineGap1: hero ? 29 : 13, lineTop: hero ? 56 : 14, letterPad: hero ? 24 : 8,
+      onSeal: this.props.onSeal
+    };
+  }
+}
+</script>
+</body>
+</html>

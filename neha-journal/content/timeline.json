@@ -1,0 +1,353 @@
+[
+  {
+    "id": "the-beginning",
+    "name": "the beginning",
+    "year": "2014",
+    "description": "SAMPLE · school corridors and the wrong classroom",
+    "layout": "scrapbook",
+    "order": 1,
+    "photos": [
+      {
+        "file": "",
+        "caption": "SAMPLE · first day, wrong classroom",
+        "takenBy": "friend-1",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the canteen table",
+        "takenBy": "friend-6",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · sports day, last place",
+        "takenBy": "friend-11",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · matching keychains",
+        "takenBy": "friend-4",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the bus stop",
+        "takenBy": "friend-9",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · class photo, she blinked",
+        "takenBy": "friend-2",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · farewell, crying",
+        "takenBy": "friend-7",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · rooftop, 11pm",
+        "takenBy": "friend-12",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · chai, 2am",
+        "takenBy": "friend-5",
+        "alt": ""
+      }
+    ],
+    "video": {
+      "file": "",
+      "poster": ""
+    },
+    "notes": [
+      "SAMPLE · the bell rang and nobody moved.",
+      "→ this is where it started"
+    ]
+  },
+  {
+    "id": "middle-school",
+    "name": "the middle-school years",
+    "shortName": "middle school",
+    "year": "2016",
+    "description": "SAMPLE · braces, gel pens, big plans",
+    "layout": "polaroid-scatter",
+    "order": 2,
+    "photos": [
+      {
+        "file": "",
+        "caption": "SAMPLE · her, mid-laugh",
+        "takenBy": "friend-10",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · beach, again",
+        "takenBy": "friend-3",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the haircut",
+        "takenBy": "friend-8",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · first day, wrong classroom",
+        "takenBy": "friend-1",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the canteen table",
+        "takenBy": "friend-6",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · sports day, last place",
+        "takenBy": "friend-11",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · matching keychains",
+        "takenBy": "friend-4",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the bus stop",
+        "takenBy": "friend-9",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · class photo, she blinked",
+        "takenBy": "friend-2",
+        "alt": ""
+      }
+    ],
+    "video": {
+      "file": "",
+      "poster": ""
+    }
+  },
+  {
+    "id": "the-trip",
+    "name": "the trip",
+    "year": "2019",
+    "description": "SAMPLE · one bus, six of us, zero plans",
+    "layout": "feature-grid",
+    "order": 3,
+    "photos": [
+      {
+        "file": "",
+        "caption": "SAMPLE · farewell, crying",
+        "takenBy": "friend-7",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · rooftop, 11pm",
+        "takenBy": "friend-12",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · chai, 2am",
+        "takenBy": "friend-5",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · her, mid-laugh",
+        "takenBy": "friend-10",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · beach, again",
+        "takenBy": "friend-3",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the haircut",
+        "takenBy": "friend-8",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · first day, wrong classroom",
+        "takenBy": "friend-1",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the canteen table",
+        "takenBy": "friend-6",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · sports day, last place",
+        "takenBy": "friend-11",
+        "alt": ""
+      }
+    ],
+    "video": {
+      "file": "",
+      "poster": ""
+    },
+    "notes": [
+      "SAMPLE · “we were loud in every library in the city.”"
+    ]
+  },
+  {
+    "id": "last-year",
+    "name": "last year",
+    "year": "2025",
+    "description": "SAMPLE · the year everything changed",
+    "layout": "photobooth-wall",
+    "order": 4,
+    "photos": [
+      {
+        "file": "",
+        "caption": "SAMPLE · matching keychains",
+        "takenBy": "friend-4",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the bus stop",
+        "takenBy": "friend-9",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · class photo, she blinked",
+        "takenBy": "friend-2",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · farewell, crying",
+        "takenBy": "friend-7",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · rooftop, 11pm",
+        "takenBy": "friend-12",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · chai, 2am",
+        "takenBy": "friend-5",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · her, mid-laugh",
+        "takenBy": "friend-10",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · beach, again",
+        "takenBy": "friend-3",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the haircut",
+        "takenBy": "friend-8",
+        "alt": ""
+      }
+    ],
+    "video": {
+      "file": "",
+      "poster": ""
+    }
+  },
+  {
+    "id": "now",
+    "name": "now",
+    "year": "2026",
+    "description": "SAMPLE · her, mid-laugh, as usual",
+    "layout": "pinboard",
+    "order": 5,
+    "photos": [
+      {
+        "file": "",
+        "caption": "SAMPLE · first day, wrong classroom",
+        "takenBy": "friend-1",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the canteen table",
+        "takenBy": "friend-6",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · sports day, last place",
+        "takenBy": "friend-11",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · matching keychains",
+        "takenBy": "friend-4",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · the bus stop",
+        "takenBy": "friend-9",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · class photo, she blinked",
+        "takenBy": "friend-2",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · farewell, crying",
+        "takenBy": "friend-7",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · rooftop, 11pm",
+        "takenBy": "friend-12",
+        "alt": ""
+      },
+      {
+        "file": "",
+        "caption": "SAMPLE · chai, 2am",
+        "takenBy": "friend-5",
+        "alt": ""
+      }
+    ],
+    "video": {
+      "file": "",
+      "poster": ""
+    },
+    "notes": [
+      "SAMPLE · the night the car broke down"
+    ]
+  }
+]

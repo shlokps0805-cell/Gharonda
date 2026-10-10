@@ -1,0 +1,11 @@
+/* Fonts are loaded from Google Fonts in index.html (display=swap, preconnect).
+   These variables are the only font names the site uses (build brief 2.3). */
+:root {
+  --font-name: 'Pinyon Script', cursive;
+  --font-head: 'Libre Caslon Text', serif;
+  --font-hand-a: 'Caveat', cursive;
+  --font-hand-b: 'Kalam', cursive;
+  --font-label: 'Courier Prime', monospace;
+  --font-body: 'DM Sans', sans-serif;
+  --font-envelope: 'Great Vibes', cursive;
+}

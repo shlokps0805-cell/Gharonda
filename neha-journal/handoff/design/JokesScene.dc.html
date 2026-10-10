@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>*,*::before,*::after{box-sizing:border-box}</style></helmet>
+<div data-screen-label="{{ label }}" style="position:relative;width:1440px;height:900px;overflow:hidden;background:url(assets/bg/gingham.jpeg) center/cover">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse 62% 64% at 50% 48%,rgba(251,249,245,.3) 0%,rgba(251,249,245,.14) 60%,rgba(32,70,112,.16) 100%)"></div>
+<div style="position:absolute;inset:0;background:url(assets/tex/film-grain.png) 0 0/200px 200px"></div>
+
+<sc-if value="{{ board }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="tint" tint="#B7A9D3" coil="silver" hole-color="#3B2266" hint-size="1192px,768px"></dc-import></div>
+<div style="position:absolute;left:120px;top:30px;width:1148px;height:752px;pointer-events:none;background:url(assets/tex/film-grain.png) 0 0/200px 200px;opacity:.9"></div>
+<div style="position:absolute;left:150px;top:46px"><dc-import name="RansomWord" text="the joke archive" size="44" hint-size="520px,70px"></dc-import></div>
+<div style="position:absolute;left:162px;top:128px;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#320F6F">37 JOKES, ALL CANON</div>
+<div style="position:absolute;left:760px;top:64px;display:flex;gap:8px"><sc-for list="{{ chips }}" as="c" hint-placeholder-count="3"><div style="height:36px;padding:0 14px;border-radius:6px 6px 2px 2px;background:{{ c.bg }};display:flex;align-items:center;gap:6px;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.1em;color:{{ c.fg }};box-shadow:0 1px 2px rgba(19,15,31,.25)">{{ c.l }}</div></sc-for></div>
+<sc-for list="{{ notes }}" as="n" hint-placeholder-count="10">
+<div style="position:absolute;left:{{ n.x }}px;top:{{ n.y }}px;width:{{ n.w }}px;transform:rotate({{ n.r }}deg) translateY({{ n.ty }}px);z-index:{{ n.z }}">
+<div style="position:relative;min-height:{{ n.h }}px;padding:24px 20px 16px;background:{{ n.bg }};border-radius:2px;box-shadow:{{ n.sh }};display:flex;flex-direction:column;gap:12px;background-image:{{ n.lines }}">
+<sc-if value="{{ n.front }}" hint-placeholder-val="{{ true }}"><div style="font:{{ n.f }};color:#130F1F">{{ n.t }}</div><div style="margin-top:auto;font:700 10px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#3D4A66">SUBMITTED BY FRIEND {{ n.fr }}</div></sc-if>
+<sc-if value="{{ n.back }}" hint-placeholder-val="{{ false }}"><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#4A3560">THE ORIGIN STORY</div><div style="font:600 26px/1.15 'Caveat',cursive;color:#320F6F">SAMPLE · goa, 2019. the waiter said it first and she has not stopped since.</div></sc-if>
+</div>
+</div>
+</sc-for>
+<svg width="1440" height="900" style="position:absolute;left:0;top:0;pointer-events:none;z-index:40"><sc-for list="{{ threads }}" as="t" hint-placeholder-count="0"><path d="{{ t.d }}" fill="none" stroke="#B3242C" stroke-width="1.6" stroke-linecap="round" opacity=".92"></path></sc-for></svg>
+<sc-for list="{{ pins }}" as="p" hint-placeholder-count="0"><div style="position:absolute;left:{{ p.x }}px;top:{{ p.y }}px;z-index:41"><dc-import name="Fastener" kind="pin" size="18" hint-size="22px,23px"></dc-import></div></sc-for>
+<sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:88px;top:180px;width:1180px;display:flex;flex-direction:column;align-items:center;gap:16px"><div style="font:400 64px/1 'DM Sans',sans-serif;color:#FFFFFF">♡</div><div style="font:600 40px/1 'Caveat',cursive;color:#FFFFFF;white-space:nowrap">tap the heart on a joke to keep it here</div></div></sc-if>
+</sc-if>
+
+<sc-if value="{{ hidden }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:88px;top:28px"><dc-import name="SpiralJournal" w="1180" h="756" paper="lined" coil="silver" hint-size="1192px,768px"></dc-import></div>
+<div style="position:absolute;left:96px;top:292px;transform:rotate(-8deg)"><div style="position:relative;width:48px;height:36px;background:#FFFFFF;border-radius:2px;box-shadow:0 1px 3px rgba(19,15,31,.35)"><div style="position:absolute;left:8px;right:8px;top:17px;height:1px;background:#E3E8EF"></div><div style="position:absolute;right:-8px;top:8px;width:12px;height:16px;border-radius:0 3px 3px 0;background:#C4A8E6"></div></div></div>
+<div style="position:absolute;left:150px;top:252px;font:700 11px/1.3 'Courier Prime',monospace;color:#FFFFFF;background:rgba(94,54,149,.9);padding:4px 8px;border-radius:3px">CLOSED · TUCKED INTO THE SPIRAL</div>
+<div style="position:absolute;left:0;top:0;width:1440px;height:900px;background:rgba(20,30,51,.35)"></div>
+<div style="position:absolute;left:540px;top:220px;width:380px;padding:30px 28px 24px;background:#FFFFFF;transform:rotate(-1.5deg);box-shadow:0 2px 4px rgba(19,15,31,.3),0 18px 36px rgba(19,15,31,.3);display:flex;flex-direction:column;gap:14px;background-image:linear-gradient(180deg,transparent 49.6%,rgba(142,167,201,.35) 49.6%,rgba(142,167,201,.35) 50.4%,transparent 50.4%),linear-gradient(90deg,transparent 49.7%,rgba(142,167,201,.25) 49.7%,rgba(142,167,201,.25) 50.3%,transparent 50.3%)">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#5E3695">TODAY’S JOKE</span><div style="width:32px;height:32px;border-radius:50%;border:1.5px solid #204670;display:flex;align-items:center;justify-content:center;font:400 20px/1 'DM Sans',sans-serif;color:#204670">×</div></div>
+<div style="font:400 20px/1.5 'DM Sans',sans-serif;color:#130F1F">SAMPLE · “it’s not a phase, it’s a lifestyle,” she said, about her fourth iced coffee.</div>
+<div style="font:700 10px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#3D4A66">SUBMITTED BY FRIEND 7</div>
+<div style="font:600 34px/1 'Caveat',cursive;color:#204670;transform:rotate(-3deg);align-self:flex-end">you found it</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ backp }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:94px;top:34px;width:590px;height:756px;border-radius:8px 2px 2px 8px;background:#ECE8E1"></div>
+<div style="position:absolute;left:88px;top:28px;width:590px;height:756px;border-radius:8px 2px 2px 8px;background:#FFFFFF;box-shadow:0 2px 3px rgba(19,15,31,.22),0 18px 40px rgba(19,15,31,.24);overflow:hidden"><div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px"></div></div>
+<div style="position:absolute;left:678px;top:28px"><dc-import name="SpiralJournal" w="590" h="756" paper="cover-navy" coil="silver" hint-size="602px,768px"></dc-import></div>
+<div style="position:absolute;left:150px;top:62px;display:flex;flex-direction:column;gap:6px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">THE BACK PAGES</div><div style="font:400 44px/1 'Libre Caslon Text',serif;color:#130F1F">signed by</div></div>
+<div style="position:absolute;left:150px;top:170px;width:470px;display:grid;grid-template-columns:1fr 1fr;gap:14px 24px"><sc-for list="{{ signed }}" as="s" hint-placeholder-count="12"><div style="display:flex;align-items:center;gap:8px;transform:rotate({{ s.r }}deg)"><span style="width:10px;height:10px;border-radius:50%;background:{{ s.c }};flex:none"></span><span style="font:{{ s.f }};color:{{ s.ink }};white-space:nowrap">{{ s.n }}</span></div></sc-for></div>
+<div style="position:absolute;left:180px;top:520px"><dc-import name="PhotoFrame" type="corners" ratio="3:2" size="360" rotate="-2" show-caption="{{ false }}" label="photo · all of us · 3:2 · medium" hint-size="372px,252px"></dc-import></div>
+<div style="position:absolute;left:770px;top:120px;width:380px;height:470px;transform:rotate(1deg)">
+<div style="position:absolute;left:38px;top:-70px;width:304px;height:400px;transform:rotate(-3deg);background:#FBF9F5;border:1px solid #DCCBF3;box-shadow:0 1px 2px rgba(19,15,31,.2);padding:18px 18px">
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#204670;text-align:center;padding-bottom:10px;border-bottom:1.5px solid #204670">NEHA’S JOURNAL · LIBRARY CARD</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #ACBFD3"><span style="font:700 10px/1 'Courier Prime',monospace;color:#3D4A66;padding:8px 0">DATE DUE</span><span style="font:700 10px/1 'Courier Prime',monospace;color:#3D4A66;padding:8px 0">ISSUED TO</span></div>
+<sc-for list="{{ card }}" as="c" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #DDE5F0;height:30px;align-items:center"><span style="font:400 15px/1 'Courier Prime',monospace;color:#130F1F;white-space:nowrap">{{ c.d }}</span><span style="font:400 15px/1 'Courier Prime',monospace;color:#130F1F;white-space:nowrap">{{ c.i }}</span></div></sc-for>
+</div>
+<div style="position:absolute;left:0;top:180px;width:380px;height:290px;background:url(assets/tex/kraft.png) 0 0/256px 256px;border-radius:2px 2px 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.35);clip-path:polygon(0 12%,40% 0,60% 0,100% 12%,100% 100%,0 100%)"><div style="position:absolute;left:0;right:0;top:110px;text-align:center;font:400 30px/1 'Libre Caslon Text',serif;color:#3D2A1E">please return to</div><div style="position:absolute;left:0;right:0;top:152px;text-align:center;font:400 54px/1.2 'Pinyon Script',cursive;color:#3D2A1E">all of us</div></div>
+</div>
+<sc-for list="{{ backS }}" as="s" hint-placeholder-count="4"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.r }}" pinned="pin" hint-size="80px,80px"></dc-import></div></sc-for>
+</sc-if>
+
+<sc-for list="{{ stick }}" as="s" hint-placeholder-count="0"><div style="position:absolute;left:{{ s.x }}px;top:{{ s.y }}px"><dc-import name="Sticker" kind="{{ s.k }}" size="{{ s.size }}" rotate="{{ s.r }}" pinned="pin" hint-size="80px,80px"></dc-import></div></sc-for>
+<div style="position:absolute;left:1268px;top:110px;display:flex;flex-direction:column"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7"><dc-import name="DividerTab" label="{{ t.l }}" state="{{ t.s }}" hint-size="72px,104px"></dc-import></sc-for></div>
+<div style="position:absolute;left:24px;top:796px"><dc-import name="MiniPlayer" state="playing" hint-size="280px,80px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;state&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;board&quot;,&quot;options&quot;:[&quot;board&quot;,&quot;flipped&quot;,&quot;hidden&quot;,&quot;back&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.props.state ?? 'board';
+    const J = ['SAMPLE · “five minutes”', 'SAMPLE · the pigeon knows what it did.', 'SAMPLE · she still thinks the moon follows her car on purpose', 'SAMPLE · “is it a phase if it’s been six years?”', 'SAMPLE · chai is a personality', 'SAMPLE · the great umbrella betrayal of 2021, never forget, never forgive', 'SAMPLE · “I’m not lost, I’m exploring”', 'SAMPLE · the sock', 'SAMPLE · her ringtone at the funeral. we don’t talk about it.', 'SAMPLE · “I could be a dolphin trainer”'];
+    const pos = [[150, 180, 230, -3], [410, 170, 200, 2], [640, 150, 270, -2], [950, 160, 250, 3], [140, 410, 220, 2], [390, 390, 300, -1], [720, 420, 210, 3], [960, 430, 240, -3], [210, 610, 290, 1], [560, 620, 260, -2]];
+    const fav = st === 'board' || st === 'flipped' ? new Set([2, 5]) : new Set();
+    const empty = false;
+    const notes = empty ? [] : J.map((t, i) => { const [x, y, w, r] = pos[i]; const flipped = st === 'flipped' && i === 5; return { x, y, w, r, t, fr: (i * 5) % 12 + 1, ty: st === 'board' && i === 6 ? -6 : 0, z: i === 6 && st === 'board' ? 20 : i + 1, h: t.length > 50 ? 150 : t.length > 30 ? 120 : 96,
+      f: i % 2 ? "400 22px/1.3 'Kalam',cursive" : "500 17px/1.45 'DM Sans',sans-serif", bg: flipped ? '#ECE3F8' : i % 3 === 2 ? '#FBF9F5' : '#FFFFFF', lines: i % 3 === 1 ? 'repeating-linear-gradient(180deg,transparent 0 27px,rgba(142,167,201,.35) 27px 28px)' : 'none',
+      sh: st === 'board' && i === 6 ? '0 4px 8px rgba(19,15,31,.3),0 18px 30px rgba(19,15,31,.25)' : '0 1px 2px rgba(19,15,31,.3),0 6px 12px rgba(19,15,31,.16)', front: !flipped, back: flipped, heart: fav.has(i) ? '♥' : '♡', hc: fav.has(i) ? '#A57BD5' : '#3D4A66', sparkle: fav.has(i) && i === 2, pin: i % 3 !== 1, tape: i % 3 === 1 }; });
+    const FR = [['Friend 1', '#7A1F2B'], ['Friend 2', '#C4A8E6'], ['Friend 3', '#3D5A8A'], ['Friend 4', '#DEC0C4'], ['Friend 5', '#4A3560'], ['Friend 6', '#B2B2E5'], ['Friend 7', '#141E33'], ['Friend 8', '#CED9E4'], ['Friend 9', '#A63A48'], ['Friend 10', '#DCCBF3'], ['Friend 11', '#5C6B85'], ['Friend 12', '#ACBFD3']];
+    const lightC = new Set(['#C4A8E6', '#DEC0C4', '#B2B2E5', '#CED9E4', '#DCCBF3', '#ACBFD3']);
+    const T = ['Cover', 'Timeline', 'Darkroom', 'Wishes', 'Playlist', 'Jokes', 'Games'];
+    const L = { board: '07-Jokes/Board', flipped: '07-Jokes/Note-flipped', back: '09-Back/Library-card' };
+    const printed = this.props.printed ?? (st === 'back');
+    const P = notes.map(n => { const a = n.r * Math.PI / 180; return [n.x + n.w / 2 + 2 * Math.sin(a) * 0, n.y + 4]; });
+    const order = [0, 1, 2, 3, 7, 6, 5, 4, 8, 9];
+    const threads = []; for (let k = 1; k < order.length; k++) { const p = P[order[k - 1]], q = P[order[k]]; if (!p || !q) continue; const mx = (p[0] + q[0]) / 2, my = Math.max(p[1], q[1]) + 26 + Math.abs(q[0] - p[0]) * .06; threads.push({ d: `M${p[0]} ${p[1]} Q${mx} ${my} ${q[0]} ${q[1]}` }); }
+    const pins = P.map(([x, y]) => ({ x: x - 10, y: y - 10 }));
+    return {
+      threads, pins,
+      label: L[st], board: st === 'board' || st === 'flipped' || st === 'favs', hidden: st === 'hidden', backp: st === 'back', notes, empty,
+      chips: [['ALL', true], ['BY PERSON ▾', false]].map(([l, a]) => ({ l, bg: a ? '#320F6F' : '#FFFFFF', fg: a ? '#FFFFFF' : '#320F6F' })),
+      stick: st === 'board' || st === 'flipped' || st === 'favs' ? [{ k: 'eight-ball', x: 1160, y: 60, size: 80, r: 8 }, { k: 'patch-baddie', x: 930, y: 650, size: 170, r: -4 }, { k: 'star-glitter-edge', x: 1186, y: 214, size: 60, r: -8 }, { k: 'dnd', x: 1060, y: 330, size: 150, r: 6 }, { k: 'bunny', x: 860, y: 610, size: 90, r: 4 }, { k: 'patch-red', x: 120, y: 690, size: 130, r: -6 }] : st === 'hidden' ? [{ k: 'iced-coffee', x: 960, y: 500, size: 130, r: 6 }] : [],
+      signed: FR.map(([n, c], i) => ({ n, c, ink: lightC.has(c) ? 'color-mix(in oklch, ' + c + ' 45%, #130F1F)' : c, f: i % 2 ? "400 26px/1.1 'Kalam',cursive" : "600 30px/1.1 'Caveat',cursive", r: [-2, 1, 2, -1, 1, -2, 2, -1, -1, 2, 1, -2][i] })),
+      card: printed ? [{ d: '11.10.26', i: 'neha' }, { d: 'due back:', i: 'never' }, { d: '', i: '' }] : [{ d: '', i: '' }, { d: '', i: '' }, { d: '', i: '' }],
+      backS: [{ k: 'lily', x: 560, y: 620, size: 130, r: 6 }, { k: 'star-felt', x: 590, y: 90, size: 60, r: 10 }, { k: 'core-memory', x: 880, y: 640, size: 170, r: -4 }, { k: 'jelly-star', x: 1150, y: 60, size: 80, r: 8 }],
+      tabs: T.map(l => ({ l, s: (l === 'Jokes' && st !== 'back') ? 'active' : 'default' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

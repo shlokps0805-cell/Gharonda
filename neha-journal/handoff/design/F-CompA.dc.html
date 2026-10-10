@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&family=Pinyon+Script&display=swap"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#141E33}a{color:#204670}a:hover{color:#5E3695}</style></helmet>
+<div data-screen-label="00-System/Components-v2 · A" style="position:relative;width:1440px;background:#FBF9F5;border-radius:4px;overflow:hidden">
+<div style="position:absolute;inset:0;background:url(assets/tex/grain.png) 0 0/128px 128px;pointer-events:none"></div>
+<div style="position:relative;padding:96px;display:flex;flex-direction:column;gap:72px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid #CED9E4;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#204670">00 · SYSTEM · COMPONENTS-V2 · A</div><div style="font:400 54px/1 'Libre Caslon Text',serif;color:#130F1F">Buttons, fasteners, frames</div></div>
+<div style="font:600 32px/1 'Caveat',cursive;color:#5E3695;transform:rotate(-2deg)">everything here is clickable or hoverable.</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Buttons</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">44 high · 0 24 padding · Courier Prime 700 12 caps +0.12em · pill</div></div>
+<div style="display:grid;grid-template-columns:220px repeat(3,1fr);gap:20px;align-items:center">
+<div></div><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#3D4A66">DEFAULT · HOVER ME</div><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#3D4A66">HOVER · 150MS</div><div style="font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#3D4A66">PRESSED · 80MS</div>
+<div style="font:400 13px/1.4 'Courier Prime',monospace;color:#130F1F">primary<br><span style="color:#3D4A66">navy · white 9.7:1</span></div>
+<div><div style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;background:#204670;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px rgba(19,15,31,.25);transition:transform 150ms cubic-bezier(0.34,1.56,0.64,1),background 150ms" style-hover="background:#16324F;transform:translateY(-1px)" style-active="transform:translateY(1px)">OPEN YOUR JOURNAL</div></div>
+<div><div style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;background:#16324F;transform:translateY(-1px);box-shadow:0 4px 10px rgba(19,15,31,.25);font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF;white-space:nowrap">OPEN YOUR JOURNAL</div></div>
+<div><div style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;background:#16324F;transform:translateY(1px);font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF;white-space:nowrap">OPEN YOUR JOURNAL</div></div>
+<div style="font:400 13px/1.4 'Courier Prime',monospace;color:#130F1F">primary · night<br><span style="color:#3D4A66">violet · white 8.6:1</span></div>
+<div><div style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;background:#5E3695;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px rgba(19,15,31,.25);transition:transform 150ms cubic-bezier(0.34,1.56,0.64,1),background 150ms" style-hover="background:#4A2880;transform:translateY(-1px)" style-active="transform:translateY(1px)">PLAY THE MIXTAPE</div></div>
+<div><div style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;background:#4A2880;transform:translateY(-1px);box-shadow:0 4px 10px rgba(19,15,31,.25);font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF;white-space:nowrap">PLAY THE MIXTAPE</div></div>
+<div><div style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;background:#4A2880;transform:translateY(1px);font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#FFFFFF;white-space:nowrap">PLAY THE MIXTAPE</div></div>
+<div style="font:400 13px/1.4 'Courier Prime',monospace;color:#130F1F">secondary<br><span style="color:#3D4A66">1.5px navy outline</span></div>
+<div><div style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;border:1.5px solid #204670;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;cursor:pointer;white-space:nowrap;transition:transform 150ms cubic-bezier(0.34,1.56,0.64,1),background 150ms" style-hover="background:#E6EDF4;transform:translateY(-1px)" style-active="transform:translateY(1px)">BACK TO ALL LETTERS</div></div>
+<div><div style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;border:1.5px solid #204670;background:#E6EDF4;transform:translateY(-1px);font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;white-space:nowrap">BACK TO ALL LETTERS</div></div>
+<div><div style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;border:1.5px solid #204670;background:#CED9E4;transform:translateY(1px);font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;white-space:nowrap">BACK TO ALL LETTERS</div></div>
+<div style="font:400 13px/1.4 'Courier Prime',monospace;color:#130F1F">text link<br><span style="color:#3D4A66">soft-purple underline</span></div>
+<div><span style="font:500 17px/1 'DM Sans',sans-serif;color:#204670;text-decoration:underline;text-decoration-color:#C4A8E6;text-decoration-thickness:2px;text-underline-offset:5px;cursor:pointer" style-hover="text-decoration-color:#5E3695;color:#5E3695">reset stickers</span></div>
+<div><span style="font:500 17px/1 'DM Sans',sans-serif;color:#5E3695;text-decoration:underline;text-decoration-color:#5E3695;text-decoration-thickness:2px;text-underline-offset:5px">reset stickers</span></div>
+<div><span style="font:500 17px/1 'DM Sans',sans-serif;color:#320F6F;text-decoration:underline;text-decoration-color:#CA9AA1;text-decoration-thickness:2px;text-underline-offset:5px">reset stickers</span></div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Fasteners · gold</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">brushed gold · warm highlight · soft contact shadow</div></div>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:16px">
+<sc-for list="{{ fasteners }}" as="f" hint-placeholder-count="6">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;height:220px;border-radius:6px;background:{{ f.bg }};overflow:hidden">
+<div style="position:absolute;left:{{ f.ix }}px;top:{{ f.iy }}px;width:{{ f.iw }}px;height:{{ f.ih }}px;background:{{ f.item }};box-shadow:0 1px 2px rgba(19,15,31,.22),0 6px 12px rgba(19,15,31,.12);transform:rotate({{ f.ir }}deg);border:{{ f.ib }}"></div>
+<div style="position:absolute;left:{{ f.fx }}px;top:{{ f.fy }}px"><dc-import name="Fastener" kind="{{ f.k }}" size="{{ 18 }}" rotate="{{ f.fr }}" hint-size="28px,40px"></dc-import></div>
+</div>
+<div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#130F1F">{{ f.n }}</div><div style="font:400 13px/1.45 'DM Sans',sans-serif;color:#3D4A66">{{ f.u }}</div>
+</div>
+</sc-for>
+</div>
+<div style="font:400 17px/1.55 'DM Sans',sans-serif;color:#130F1F;text-wrap:pretty"><b style="font-weight:600">Recommendation: both, with a rule.</b> Clips, clothespins and photo corners hold anything on a journal page. Pins hold paper and photos, mostly on boards (Jokes). Stickers never get pins: they just stick. That keeps pages neat and boards playful.</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 31px/1 'Libre Caslon Text',serif;color:#130F1F">Photo frames · 8 types × 4 ratios</div><div style="font:400 12px/1 'Courier Prime',monospace;color:#3D4A66">all at the minimum real size (short side 240) · shown at 50% · hover lifts −4px, straightens</div></div>
+<div style="display:grid;grid-template-columns:140px repeat(4,1fr);gap:24px 20px;align-items:start">
+<div></div><sc-for list="{{ ratios }}" as="r" hint-placeholder-count="4"><div style="font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#5E3695">{{ r.n }}</div></sc-for>
+<sc-for list="{{ frames }}" as="t" hint-placeholder-count="9">
+<div style="display:flex;flex-direction:column;gap:6px;padding-top:8px"><div style="font:400 20px/1 'Libre Caslon Text',serif;color:#130F1F">{{ t.n }}</div><div style="font:400 12px/1.4 'Courier Prime',monospace;color:#3D4A66">{{ t.u }}</div></div>
+<sc-for list="{{ t.cells }}" as="c" hint-placeholder-count="4">
+<div style="display:flex;justify-content:center;padding:12px 0;border-radius:6px;background:#F1EEF6"><div style="zoom:.5;padding:28px 10px 4px"><dc-import name="PhotoFrame" type="{{ c.t }}" ratio="{{ c.r }}" size="{{ c.s }}" rotate="{{ c.rot }}" tone="{{ c.tone }}" caption="{{ c.cap }}" by="taken by Friend 1" hint-size="300px,400px"></dc-import></div></div>
+</sc-for>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const ratios = [{ n: 'PORTRAIT 4:5', r: '4:5' }, { n: 'PORTRAIT 3:4', r: '3:4' }, { n: 'LANDSCAPE 3:2', r: '3:2' }, { n: 'SQUARE 1:1', r: '1:1' }];
+    const T = [['polaroid', 'Polaroid', 'caption inside'], ['booth', 'Photobooth', '4 frames · date foot'], ['film', '35mm film', 'sprockets + date stamp'], ['slide', 'Slide mount', 'rounded window'], ['taped', 'Taped print', 'two washi strips'], ['torn', 'Torn cut-out', 'ragged edge'], ['corners', 'Photo corners', 'new · 4 purple corners'], ['clipped', 'Clipped print', 'new · binder clip']];
+    const caps = { polaroid: 'goa, 2019', booth: 'photo booth, mall', film: 'rare footage', slide: 'beach, again', phone: 'selfie, obviously', taped: 'chai, 2am', torn: 'her, mid-laugh', corners: 'first day', clipped: 'graduation' };
+    const rots = [-2, 2, -1, 3];
+    const frames = T.map(([t, n, u], i) => ({ n, u, cells: ratios.map((r, j) => ({ t, r: r.r, s: r.r === '3:2' ? 360 : 240, rot: rots[(i + j) % 4], tone: (i + j) % 3, cap: caps[t] })) }));
+    const fasteners = [
+      { k: 'pin', n: 'PUSH PIN · TOP', u: 'boards, notes, photos', bg: '#CDB79A', item: '#FBF9F5', ix: 40, iy: 50, iw: 150, ih: 120, ir: -3, ib: 'none', fx: 105, fy: 46, fr: 0 },
+      { k: 'pin-side', n: 'PUSH PIN · SIDE', u: 'used in keyframes + the menu', bg: '#CDB79A', item: '#DCCBF3', ix: 40, iy: 70, iw: 150, ih: 110, ir: 2, ib: 'none', fx: 100, fy: 44, fr: -16 },
+      { k: 'binder', n: 'BINDER CLIP', u: 'photos on pages, contents photo', bg: '#E6EDF4', item: 'repeating-linear-gradient(135deg,#BCCDDE 0 10px,#C9D6E3 10px 20px)', ix: 40, iy: 52, iw: 150, ih: 140, ir: 2, ib: '8px solid #FFFFFF', fx: 96, fy: 32, fr: 0 },
+      { k: 'paperclip', n: 'PAPER CLIP', u: 'notes onto photos', bg: '#E6EDF4', item: '#FBF9F5', ix: 40, iy: 50, iw: 150, ih: 130, ir: -2, ib: 'none', fx: 150, fy: 30, fr: 8 },
+      { k: 'clothespin', n: 'MINI CLOTHESPIN', u: 'the Timeline string', bg: '#E6EDF4', item: 'repeating-linear-gradient(135deg,#CFC1E8 0 10px,#DAD0EE 10px 20px)', ix: 50, iy: 64, iw: 130, ih: 130, ir: 3, ib: '8px solid #FFFFFF', fx: 108, fy: 30, fr: 4 },
+      { k: 'corner', n: 'PHOTO CORNERS', u: 'pages, the frame type above', bg: '#E6EDF4', item: 'repeating-linear-gradient(135deg,#ACBFD3 0 10px,#B9CADB 10px 20px)', ix: 40, iy: 50, iw: 150, ih: 120, ir: 0, ib: '5px solid #FFFFFF', fx: 34, fy: 44, fr: 0 }
+    ];
+    return { ratios, frames, fasteners };
+  }
+}
+</script>
+</body>
+</html>
