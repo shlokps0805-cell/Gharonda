@@ -234,7 +234,7 @@ function Journal({ hostRef }) {
           data-spotify-host
           style={page === 'playlist' && !opening
             ? { position: 'absolute', left: 150, top: 640, width: 300, height: 80, zIndex: 50, borderRadius: 10, overflow: 'hidden' }
-            : { position: 'absolute', left: 20, top: 1000, width: 300, height: 80, opacity: 0, pointerEvents: 'none' }}
+            : { position: 'absolute', left: 20, top: 800, width: 300, height: 80, opacity: 0, pointerEvents: 'none', zIndex: -1 }}
         />
       </Stage>
       {customCursor ? <CursorTrail trail={!reduced && !(phone && phoneAnyway)} /> : null}
