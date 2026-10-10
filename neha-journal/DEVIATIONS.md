@@ -30,6 +30,7 @@ Every place the build intentionally differs from the design files or the final p
 - "Stick here" and "Let it fall" are always available in the menu (the design greyed out the one that did not apply, which looked broken).
 - On the Darkroom and Jokes pages the scrolling area spans the whole stage, so stickers can be dragged off the paper onto the journal's edges and the desk and stay visible.
 - The sticker pile keeps clear of the "reset stickers" button, as it does of the player.
+- A dragged sticker stays fully on the page (it stops at the edges), so it can never be lost above or beside the page.
 - The right-click menu is drawn above the whole page, closes on any click outside it, when another sticker's menu opens or on scroll, as well as with Esc (the design only closed it with Esc).
 - Loose stickers resting on one that is moved, peeled or resized fall back down instead of hanging in the air; loose pile stickers saved mid-fall settle again on the next visit.
 - **The pile has no bounce**: stickers land and stay, stacking into a few overlapping heaps under the journal instead of one long row.

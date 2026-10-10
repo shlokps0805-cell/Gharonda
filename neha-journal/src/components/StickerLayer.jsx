@@ -138,7 +138,10 @@ export default class StickerLayer extends React.Component {
       if (sv && exists(sv.k)) {
         // saved stickers come back exactly where they were, already at rest
         // loose pile stickers are allowed to settle again, so one saved mid-fall never hangs in the air
-        bodies.push(this.body({ ...d, x: sv.x, y: sv.y, size: sv.size, r: sv.r, stuck: !!sv.stuck, deleted: !!sv.deleted, z: sv.z || 1, sleep: !(d.pile && !sv.stuck) }));
+        const b = this.body({ ...d, x: sv.x, y: sv.y, size: sv.size, r: sv.r, stuck: !!sv.stuck, deleted: !!sv.deleted, z: sv.z || 1, sleep: !(d.pile && !sv.stuck) });
+        // one saved off the page before stickers were kept on it comes back into view
+        if (b.stuck && (b.x < 0 || b.y < 0 || b.x > this.W() || b.y > this.H())) this.keepIn(b);
+        bodies.push(b);
       } else {
         const b = this.body(d);
         if (b.pile) this.launch(b, i);
@@ -299,6 +302,13 @@ export default class StickerLayer extends React.Component {
 
   top() { return Math.max(1, ...this.b.map(b => b.z)) + 1; }
 
+  // a sticker always stays fully on the page, so it can never be lost past an edge
+  keepIn(b) {
+    const h = b.size / 2;
+    b.x = Math.min(Math.max(b.x, h), this.W() - h);
+    b.y = Math.min(Math.max(b.y, h), this.H() - h);
+  }
+
   down(e, b) {
     if (e.button !== 0) return;
     e.stopPropagation();
@@ -316,6 +326,7 @@ export default class StickerLayer extends React.Component {
       const [x, y] = this.pt(e);
       d.b.x = x - d.off[0];
       d.b.y = y - d.off[1];
+      this.keepIn(d.b);
       d.moved = true;
       const el = this.els[d.b.id];
       if (el) el.style.transform = this.transformOf(d.b);
