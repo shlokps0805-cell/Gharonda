@@ -173,7 +173,7 @@ export default class StickerLayer extends React.Component {
   // ---------- simulation (ported from StickerPhysics) ----------
 
   floor(x) {
-    if (this.props.physics && this.props.floors === 'cover') return x < 340 ? 784 : 900;
+    if (this.props.physics && this.props.floors === 'cover') return x < 340 ? 784 : x > 600 && x < 840 ? 872 : 900;
     return this.props.floorY ?? this.H();
   }
 

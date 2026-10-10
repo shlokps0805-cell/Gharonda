@@ -54,8 +54,8 @@ export default function Jokes({ content, go, reduced }) {
         <SpiralJournal w={1180} h={756} paper="tint" tint="#B7A9D3" coil="silver" holeColor="#3B2266" />
       </div>
       <div style={css('position:absolute;left:120px;top:30px;width:1148px;height:752px;pointer-events:none;background:url(/media/textures/film-grain.png) 0 0/200px 200px;opacity:.9')} />
-      <div className="nh-hide-scroll" style={css('position:absolute;left:120px;top:28px;width:1148px;height:756px;overflow-y:auto;overflow-x:hidden')}>
-        <div style={css(`position:relative;left:-120px;top:-28px;width:1440px;height:${H}px;margin-bottom:-28px`)}>
+      <div className="nh-hide-scroll" style={css('position:absolute;left:0;top:18px;width:1440px;height:788px;overflow-y:auto;overflow-x:hidden')}>
+        <div style={css(`position:relative;left:0;top:-18px;width:1440px;height:${H}px;margin-bottom:-18px`)}>
           <h1 style={css('position:absolute;left:150px;top:46px;margin:0')} aria-label={t.title}><RansomWord text={t.title} size={44} /></h1>
           <div style={css("position:absolute;left:162px;top:128px;font:700 13px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#320F6F")}>{jokes.length ? `${jokes.length} ${t.count}` : t.empty}</div>
           <div style={css('position:absolute;left:760px;top:64px;display:flex;gap:8px;z-index:50')}>

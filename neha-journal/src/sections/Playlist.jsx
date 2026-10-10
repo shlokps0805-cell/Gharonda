@@ -27,7 +27,6 @@ export default function Playlist({ content, reduced }) {
   const [hover, setHover] = useState(null);
   const playing = music.status === 'playing';
   const art = site.mixtapePhotos || [];
-  const nickname = site.nicknames[0] ? `${site.nicknames[0]}!!` : t.nickname;
   const unavailable = music.status === 'unavailable' || !music.hasSongs;
 
   // the cassette slides halfway out of its case when the page opens
@@ -54,7 +53,27 @@ export default function Playlist({ content, reduced }) {
 
       {/* the cassette and its clear case with art option A */}
       <div style={css('position:absolute;left:140px;top:182px;width:470px;height:430px')}>
-        <div style={css(`position:absolute;left:${out ? 214 : 30}px;top:150px;width:300px;height:190px;transition:left 600ms cubic-bezier(0.34,1.56,0.64,1)`)}>
+        <div style={css('position:absolute;left:0;top:0;width:330px;height:430px;border-radius:6px;background:linear-gradient(135deg,rgba(255,255,255,.4),rgba(255,255,255,.12) 40%,rgba(255,255,255,.28));box-shadow:0 0 0 2px rgba(255,255,255,.55),0 8px 22px rgba(0,0,0,.5);padding:14px 14px 14px 30px')}>
+          <div style={css('position:absolute;left:0;top:0;bottom:0;width:22px;border-radius:6px 0 0 6px;background:#204670;display:flex;align-items:center;justify-content:center')}>
+            <span style={css("writing-mode:vertical-rl;transform:rotate(180deg);font:700 9px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#FFFFFF;white-space:nowrap")}>{t.spine}</span>
+          </div>
+          <div style={css('position:relative;width:100%;height:100%;overflow:hidden;border-radius:2px;background:#F2EEF8')}>
+            <div style={css('position:absolute;inset:0;background:url(/media/textures/grain.png) 0 0/128px 128px;opacity:.9')} />
+            <div style={css('position:absolute;left:62px;top:84px;width:170px;height:212px;background:repeating-linear-gradient(135deg,#C9C6CF 0 10px,#BDB9C4 10px 20px);border:5px solid #FFFFFF;transform:rotate(-2deg);box-shadow:0 2px 6px rgba(19,15,31,.3);display:flex;align-items:flex-end;padding:6px;overflow:hidden')}>
+              {art[0] ? <Photo src={art[0]} alt={site.name} sizes="340px" style={{ filter: 'grayscale(1)' }} /> : <span style={css("font:400 10px/1.2 'Courier Prime',monospace;color:#3D4A66;background:rgba(255,255,255,.8);padding:2px 4px")}>portrait · b/w · 4:5</span>}
+            </div>
+            <ArtPhoto file={art[1]} stripes="repeating-linear-gradient(135deg,#ACBFD3 0 8px,#B9CADB 8px 16px)" style={css('left:10px;top:52px;width:84px;height:84px;transform:rotate(-8deg)')} />
+            <ArtPhoto file={art[2]} stripes="repeating-linear-gradient(135deg,#CFC1E8 0 8px,#DAD0EE 8px 16px)" style={css('left:206px;top:60px;width:78px;height:96px;transform:rotate(7deg)')} />
+            <div style={css("position:absolute;left:14px;top:12px;right:12px;font:400 22px/1.1 'Libre Caslon Text',serif;color:#130F1F")}>
+              {t.artTitle} <span style={css('background:linear-gradient(180deg,transparent 45%,rgba(196,168,230,.85) 45%,rgba(196,168,230,.85) 88%,transparent 88%);padding:0 2px')}>{t.artName}</span>
+            </div>
+            <div style={css('position:absolute;left:-30px;top:330px;transform:rotate(-24deg)')}><Sticker kind="happy-birthday" size={190} /></div>
+            <div style={css('position:absolute;left:220px;top:140px')}><Sticker kind="headphone-cat" size={70} rotate={8} /></div>
+            <div style={css("position:absolute;right:12px;bottom:40px;font:600 24px/1 'Caveat',cursive;color:#204670;transform:rotate(-4deg)")}>{t.vol}</div>
+            <div style={css("position:absolute;right:12px;bottom:14px;font:400 15px/1 'Kalam',cursive;color:#5E3695")}>{t.date}</div>
+          </div>
+        </div>
+        <div style={css(`position:absolute;left:${out ? 236 : 120}px;top:228px;width:300px;height:190px;transform:scale(.78) rotate(-5deg);transform-origin:0 0;transition:left 700ms cubic-bezier(0.34,1.56,0.64,1);z-index:2`)}>
           <div style={css('position:absolute;inset:0;border-radius:10px;background:#F4F2F7;box-shadow:0 4px 10px rgba(0,0,0,.45)')} />
           <div style={css('position:absolute;left:14px;top:14px;right:14px;height:86px;border-radius:4px;background:#FFFFFF;display:flex;align-items:center;gap:10px;padding:0 12px;background-image:repeating-linear-gradient(180deg,transparent 0 21px,rgba(142,167,201,.35) 21px 22px)')}>
             <div style={css("width:28px;height:28px;border-radius:50%;background:#204670;color:#FFFFFF;font:700 15px/28px 'DM Sans',sans-serif;text-align:center")}>A</div>
@@ -70,38 +89,6 @@ export default function Playlist({ content, reduced }) {
           </div>
           <div style={css('position:absolute;left:80px;bottom:0;width:140px;height:16px;background:#D6D2DE;clip-path:polygon(8% 0,92% 0,100% 100%,0 100%)')} />
         </div>
-        <div style={css('position:absolute;left:0;top:0;width:330px;height:430px;border-radius:6px;background:linear-gradient(135deg,rgba(255,255,255,.4),rgba(255,255,255,.12) 40%,rgba(255,255,255,.28));box-shadow:0 0 0 2px rgba(255,255,255,.55),0 8px 22px rgba(0,0,0,.5);padding:14px 14px 14px 30px')}>
-          <div style={css('position:absolute;left:0;top:0;bottom:0;width:22px;border-radius:6px 0 0 6px;background:#204670;display:flex;align-items:center;justify-content:center')}>
-            <span style={css("writing-mode:vertical-rl;transform:rotate(180deg);font:700 9px/1 'Courier Prime',monospace;letter-spacing:.16em;color:#FFFFFF;white-space:nowrap")}>{t.spine}</span>
-          </div>
-          <div style={css('position:relative;width:100%;height:100%;overflow:hidden;border-radius:2px;background:#F2EEF8')}>
-            <div style={css('position:absolute;inset:0;background:url(/media/textures/grain.png) 0 0/128px 128px;opacity:.9')} />
-            <div style={css('position:absolute;left:62px;top:84px;width:170px;height:212px;background:repeating-linear-gradient(135deg,#C9C6CF 0 10px,#BDB9C4 10px 20px);border:5px solid #FFFFFF;transform:rotate(-2deg);box-shadow:0 2px 6px rgba(19,15,31,.3);display:flex;align-items:flex-end;padding:6px;overflow:hidden')}>
-              {art[0] ? <Photo src={art[0]} alt={site.name} sizes="340px" style={{ filter: 'grayscale(1)' }} /> : <span style={css("font:400 10px/1.2 'Courier Prime',monospace;color:#3D4A66;background:rgba(255,255,255,.8);padding:2px 4px")}>portrait · b/w · 4:5</span>}
-            </div>
-            <ArtPhoto file={art[1]} stripes="repeating-linear-gradient(135deg,#ACBFD3 0 8px,#B9CADB 8px 16px)" style={css('left:10px;top:52px;width:84px;height:84px;transform:rotate(-8deg)')} />
-            <ArtPhoto file={art[2]} stripes="repeating-linear-gradient(135deg,#CFC1E8 0 8px,#DAD0EE 8px 16px)" style={css('left:206px;top:60px;width:78px;height:96px;transform:rotate(7deg)')} />
-            <ArtPhoto file={art[3]} stripes="repeating-linear-gradient(135deg,#CFC1E8 0 8px,#DAD0EE 8px 16px)" style={css('left:16px;top:250px;width:90px;height:72px;transform:rotate(5deg)')} />
-            <ArtPhoto file={art[4]} stripes="repeating-linear-gradient(135deg,#ACBFD3 0 8px,#B9CADB 8px 16px)" style={css('left:200px;top:240px;width:80px;height:80px;transform:rotate(-6deg)')} />
-            <div style={css("position:absolute;left:14px;top:12px;right:12px;font:400 22px/1.1 'Libre Caslon Text',serif;color:#130F1F")}>
-              {t.artTitle} <span style={css('background:linear-gradient(180deg,transparent 45%,rgba(196,168,230,.85) 45%,rgba(196,168,230,.85) 88%,transparent 88%);padding:0 2px')}>{t.artName}</span>
-            </div>
-            <div style={css('position:absolute;left:-30px;top:330px;transform:rotate(-24deg)')}><Sticker kind="happy-birthday" size={190} /></div>
-            <div style={css('position:absolute;left:220px;top:140px')}><Sticker kind="headphone-cat" size={70} rotate={8} /></div>
-            <div style={css('position:absolute;left:110px;top:300px')}><Sticker kind="vinyl-purple" size={64} rotate={-6} /></div>
-            <div style={css('position:absolute;left:4px;top:136px')}><Sticker kind="bow" size={70} rotate={-10} /></div>
-            <div style={css("position:absolute;right:12px;bottom:40px;font:600 24px/1 'Caveat',cursive;color:#204670;transform:rotate(-4deg)")}>{t.vol}</div>
-            <div style={css("position:absolute;right:12px;bottom:14px;font:400 15px/1 'Kalam',cursive;color:#5E3695")}>{t.date}</div>
-            <div style={css("position:absolute;left:150px;top:300px;font:400 14px/1.15 'Kalam',cursive;color:#5E3695;transform:rotate(3deg);width:120px")}>{t.from}</div>
-            <div style={css("position:absolute;right:18px;top:44px;font:600 18px/1 'Caveat',cursive;color:#A63A48;transform:rotate(12deg)")}>{nickname}</div>
-            <div style={css('position:absolute;left:120px;top:56px;width:34px;height:20px;transform:rotate(-12deg)')}>
-              <div style={css('position:absolute;left:0;top:0;width:17px;height:11px;background:#CA9AA1;border-radius:70% 40% 20% 50%;opacity:.85')} />
-              <div style={css('position:absolute;right:0;top:0;width:17px;height:11px;background:#CA9AA1;border-radius:40% 70% 50% 20%;opacity:.85')} />
-              <div style={css('position:absolute;left:2px;top:9px;width:30px;height:10px;background:#CA9AA1;border-radius:0 0 50% 50%;opacity:.85')} />
-            </div>
-            <div style={css("position:absolute;right:12px;bottom:70px;font:700 9px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#3D4A66")}>{t.sides}</div>
-          </div>
-        </div>
       </div>
 
       {/* the Spotify slot: the real embed sits on top of this card once it loads */}
@@ -110,7 +97,7 @@ export default function Playlist({ content, reduced }) {
           <div style={css('width:56px;height:56px;border-radius:4px;background:repeating-linear-gradient(135deg,#3A3046 0 6px,#33293F 6px 12px)')} />
           <div style={css('flex:1;display:flex;flex-direction:column;gap:6px;min-width:0')}>
             <span style={css("font:700 13px/1 'DM Sans',sans-serif;color:#FFFFFF")}>Spotify</span>
-            <span style={css("font:400 11px/1.3 'DM Sans',sans-serif;color:#B3B3B3")}>{unavailable ? t.unavailable : '…'}</span>
+            <span style={css("font:400 11px/1.3 'DM Sans',sans-serif;color:#B3B3B3")}>{!music.hasSongs ? t.empty : unavailable ? t.unavailable : t.slot}</span>
           </div>
           <div style={css("position:absolute;left:-10px;top:-16px;padding:4px 10px;background:#FFFFFF;transform:rotate(-3deg);font:700 10px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;box-shadow:0 1px 2px rgba(0,0,0,.3);z-index:60")}>{t.nowOn}</div>
         </div>

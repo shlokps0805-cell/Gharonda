@@ -7,6 +7,7 @@ import Fastener from '../design/Fastener.jsx';
 import Sticker from '../design/Sticker.jsx';
 import StickerLayer from '../components/StickerLayer.jsx';
 import { CONNECTION_COLOURS } from '../content/defaults.js';
+import PageError from '../components/PageError.jsx';
 
 const Connections = lazy(() => import('../games/Connections.jsx'));
 const Wordle = lazy(() => import('../games/Wordle.jsx'));
@@ -107,12 +108,14 @@ export default function Games({ content, parts, go, reduced }) {
             <h1 style={css("margin:0;font:400 40px/1.05 'Libre Caslon Text',serif;color:#130F1F;white-space:nowrap")}>{props.ui.title}</h1>
             <div style={css("font:600 26px/1 'Caveat',cursive;color:#5E3695;white-space:nowrap")}>{props.ui.sub}</div>
           </div>
+          <PageError resetKey={game}>
           <Suspense fallback={null}>
             {game === 'connections' && <Connections {...props} />}
             {game === 'wordle' && <Wordle {...props} />}
             {game === 'cryptic' && <Cryptic {...props} />}
             {game === 'world' && <NehasWorld {...props} />}
           </Suspense>
+          </PageError>
         </>
       ) : (
         <Spread content={content} go={go} reduced={reduced} />

@@ -151,8 +151,9 @@
     "from": "for neha, from her people",
     "nickname": "‹nickname›!!",
     "sides": "SIDE A / SIDE B",
-    "unavailable": "the player is resting. the songs are still here.",
-    "empty": "the mixtape is being recorded"
+    "unavailable": "the player is resting",
+    "empty": "the mixtape is being recorded",
+    "slot": "press play on any song"
   },
   "jokes": {
     "title": "the joke archive",
@@ -306,5 +307,6 @@
   },
   "eggs": {
     "fromGroup": "a message from all of us"
-  }
+  },
+  "pageError": "this page didn’t open properly. try it once more?"
 }

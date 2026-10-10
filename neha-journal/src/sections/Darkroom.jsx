@@ -93,8 +93,8 @@ export default function Darkroom({ content, reduced }) {
         <SpiralJournal w={590} h={756} paper="dark" coil="silver" holeColor="#0E0B16" />
       </div>
 
-      <div ref={scroller} className="nh-hide-scroll" style={css('position:absolute;left:88px;top:28px;width:1180px;height:756px;overflow-y:auto;overflow-x:hidden;border-radius:8px 3px 3px 8px')}>
-        <div style={css(`position:relative;left:-88px;top:-28px;width:1440px;height:${H}px;margin-bottom:-28px`)}>
+      <div ref={scroller} className="nh-hide-scroll" style={css('position:absolute;left:0;top:18px;width:1440px;height:788px;overflow-y:auto;overflow-x:hidden')}>
+        <div style={css(`position:relative;left:0;top:-18px;width:1440px;height:${H}px;margin-bottom:-18px`)}>
           <div style={css('position:absolute;left:420px;top:-120px;width:600px;height:420px;border-radius:50%;background:radial-gradient(ellipse,rgba(166,58,72,.32),rgba(166,58,72,0) 70%);pointer-events:none')} />
           <h1 style={css('position:absolute;left:150px;top:64px;margin:0')} aria-label={t.title}><RansomWord text={t.title} size={54} /></h1>
           <div style={css("position:absolute;left:160px;top:160px;font:600 30px/1 'Caveat',cursive;color:#DCCBF3")}>{sections.length ? t.sub : t.empty}</div>

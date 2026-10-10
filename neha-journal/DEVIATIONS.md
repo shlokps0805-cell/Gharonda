@@ -27,6 +27,9 @@ Every place the build intentionally differs from the design files or the final p
 - **Replay** drops a separate, unsaved pile during the replayed opening; afterwards the cover loads her saved stickers untouched.
 
 ## Stickers
+- "Stick here" and "Let it fall" are always available in the menu (the design greyed out the one that did not apply, which looked broken).
+- On the Darkroom and Jokes pages the scrolling area spans the whole stage, so stickers can be dragged off the paper onto the journal's edges and the desk and stay visible.
+- The sticker pile keeps clear of the "reset stickers" button, as it does of the player.
 - The right-click menu is drawn above the whole page, closes on any click outside it, when another sticker's menu opens or on scroll, as well as with Esc (the design only closed it with Esc).
 - Loose stickers resting on one that is moved, peeled or resized fall back down instead of hanging in the air; loose pile stickers saved mid-fall settle again on the next visit.
 - **Resize handle is at the sticker's top-right corner** (the design's lavender knob), because the turn handle already sits at the bottom-right.
@@ -35,6 +38,10 @@ Every place the build intentionally differs from the design files or the final p
 - The design's sticker drag on its own (`Sticker` movable) is not used; `StickerLayer` handles all dragging, so every sticker behaves the same.
 
 ## Sections
+- **Wish envelopes' seals are a deeper shade of each envelope's colour** (the students' request), instead of the locked wax red. The opening envelope's seal stays wax red.
+- More stickers on every page (3–4 extra per page, from the sticker sheet), at the students' request.
+- **Playlist:** the cassette insert was simplified (title, three photos, the ribbon, the headphone cat, the date) and the cassette now sits in front of its case, half out, so it is visible.
+- "Replay the opening" moved onto the back cover, under the library pocket, so the group photo never covers it.
 - **Timeline, photobooth wall:** each 4-frame strip uses four different photos, so with 9 photos the page shows two strips plus singles (the design showed three strips of placeholders).
 - **Timeline:** with more than five eras the clusters lay out in two smaller rows with a straight pencil line; with exactly five they use the design's spots and hand-drawn line.
 - **Timeline:** an optional `shortName` field gives the year buttons and switcher a shorter label ("middle school"), as in the design.

@@ -530,6 +530,34 @@
           "y": 640,
           "size": 80,
           "angle": 10
+        },
+        {
+          "sticker": "headphone-cat",
+          "x": 108,
+          "y": 36,
+          "size": 78,
+          "angle": -8
+        },
+        {
+          "sticker": "star-felt",
+          "x": 612,
+          "y": 712,
+          "size": 54,
+          "angle": 8
+        },
+        {
+          "sticker": "cd",
+          "x": 1186,
+          "y": 96,
+          "size": 64,
+          "angle": 10
+        },
+        {
+          "sticker": "raindrop",
+          "x": 600,
+          "y": 410,
+          "size": 56,
+          "angle": -6
         }
       ]
     },
@@ -590,6 +618,34 @@
           "y": 680,
           "size": 90,
           "angle": -4
+        },
+        {
+          "sticker": "iced-coffee",
+          "x": 820,
+          "y": 180,
+          "size": 88,
+          "angle": 6
+        },
+        {
+          "sticker": "camera-cat",
+          "x": 586,
+          "y": 560,
+          "size": 84,
+          "angle": -6
+        },
+        {
+          "sticker": "star-embroidered",
+          "x": 1220,
+          "y": 100,
+          "size": 56,
+          "angle": 8
+        },
+        {
+          "sticker": "clef",
+          "x": 96,
+          "y": 250,
+          "size": 70,
+          "angle": -8
         }
       ]
     },
@@ -636,6 +692,27 @@
           "y": 1240,
           "size": 120,
           "angle": -4
+        },
+        {
+          "sticker": "star-felt",
+          "x": 990,
+          "y": 40,
+          "size": 60,
+          "angle": 10
+        },
+        {
+          "sticker": "jelly-star-mini",
+          "x": 20,
+          "y": 620,
+          "size": 56,
+          "angle": -8
+        },
+        {
+          "sticker": "raindrop",
+          "x": 990,
+          "y": 600,
+          "size": 60,
+          "angle": 6
         }
       ]
     },
@@ -682,6 +759,27 @@
           "y": 380,
           "size": 54,
           "angle": 0
+        },
+        {
+          "sticker": "star-felt",
+          "x": 990,
+          "y": 40,
+          "size": 60,
+          "angle": 10
+        },
+        {
+          "sticker": "jelly-star-mini",
+          "x": 20,
+          "y": 620,
+          "size": 56,
+          "angle": -8
+        },
+        {
+          "sticker": "raindrop",
+          "x": 990,
+          "y": 600,
+          "size": 60,
+          "angle": 6
         }
       ]
     },
@@ -728,6 +826,27 @@
           "y": 820,
           "size": 66,
           "angle": -8
+        },
+        {
+          "sticker": "star-felt",
+          "x": 990,
+          "y": 40,
+          "size": 60,
+          "angle": 10
+        },
+        {
+          "sticker": "jelly-star-mini",
+          "x": 20,
+          "y": 620,
+          "size": 56,
+          "angle": -8
+        },
+        {
+          "sticker": "raindrop",
+          "x": 990,
+          "y": 600,
+          "size": 60,
+          "angle": 6
         }
       ]
     },
@@ -774,6 +893,27 @@
           "y": 1200,
           "size": 120,
           "angle": 3
+        },
+        {
+          "sticker": "star-felt",
+          "x": 990,
+          "y": 40,
+          "size": 60,
+          "angle": 10
+        },
+        {
+          "sticker": "jelly-star-mini",
+          "x": 20,
+          "y": 620,
+          "size": 56,
+          "angle": -8
+        },
+        {
+          "sticker": "raindrop",
+          "x": 990,
+          "y": 600,
+          "size": 60,
+          "angle": 6
         }
       ]
     },
@@ -820,6 +960,27 @@
           "y": 1240,
           "size": 150,
           "angle": -3
+        },
+        {
+          "sticker": "star-felt",
+          "x": 990,
+          "y": 40,
+          "size": 60,
+          "angle": 10
+        },
+        {
+          "sticker": "jelly-star-mini",
+          "x": 20,
+          "y": 620,
+          "size": 56,
+          "angle": -8
+        },
+        {
+          "sticker": "raindrop",
+          "x": 990,
+          "y": 600,
+          "size": 60,
+          "angle": 6
         }
       ]
     },
@@ -880,6 +1041,38 @@
           "y": 40,
           "size": 100,
           "angle": 8
+        },
+        {
+          "section": "on-film",
+          "sticker": "star-glitter-edge",
+          "x": -20,
+          "y": 560,
+          "size": 70,
+          "angle": -8
+        },
+        {
+          "section": "give-it-a-shake",
+          "sticker": "camera-cat",
+          "x": -10,
+          "y": 680,
+          "size": 90,
+          "angle": 6
+        },
+        {
+          "section": "slideshow",
+          "sticker": "jelly-star",
+          "x": 990,
+          "y": 620,
+          "size": 76,
+          "angle": -6
+        },
+        {
+          "section": "cover-girl-material",
+          "sticker": "bow",
+          "x": 40,
+          "y": 620,
+          "size": 120,
+          "angle": -6
         }
       ]
     },
@@ -919,6 +1112,34 @@
           "y": 300,
           "size": 74,
           "angle": -6
+        },
+        {
+          "sticker": "headphone-cat",
+          "x": 820,
+          "y": 150,
+          "size": 84,
+          "angle": -6
+        },
+        {
+          "sticker": "star-origami",
+          "x": 1185,
+          "y": 470,
+          "size": 60,
+          "angle": 8
+        },
+        {
+          "sticker": "camera",
+          "x": 600,
+          "y": 700,
+          "size": 96,
+          "angle": -4
+        },
+        {
+          "sticker": "jelly-star-mini",
+          "x": 700,
+          "y": 40,
+          "size": 52,
+          "angle": 10
         }
       ]
     },
@@ -950,6 +1171,27 @@
           "x": 160,
           "y": 200,
           "size": 130,
+          "angle": -8
+        },
+        {
+          "sticker": "lavender",
+          "x": 150,
+          "y": 560,
+          "size": 110,
+          "angle": -6
+        },
+        {
+          "sticker": "star-felt",
+          "x": 1180,
+          "y": 350,
+          "size": 58,
+          "angle": 10
+        },
+        {
+          "sticker": "cd",
+          "x": 180,
+          "y": 90,
+          "size": 70,
           "angle": -8
         }
       ]
@@ -990,6 +1232,27 @@
           "y": 60,
           "size": 70,
           "angle": -6
+        },
+        {
+          "sticker": "star-glass",
+          "x": 600,
+          "y": 640,
+          "size": 50,
+          "angle": 0
+        },
+        {
+          "sticker": "jelly-star",
+          "x": 1190,
+          "y": 330,
+          "size": 70,
+          "angle": 8
+        },
+        {
+          "sticker": "jelly-star-mini",
+          "x": 470,
+          "y": 716,
+          "size": 54,
+          "angle": -8
         }
       ]
     },
@@ -1036,6 +1299,34 @@
           "y": 690,
           "size": 130,
           "angle": -6
+        },
+        {
+          "sticker": "iced-coffee",
+          "x": 1176,
+          "y": 470,
+          "size": 100,
+          "angle": 6
+        },
+        {
+          "sticker": "star-origami",
+          "x": 640,
+          "y": 80,
+          "size": 60,
+          "angle": -8
+        },
+        {
+          "sticker": "cookie-bear",
+          "x": 100,
+          "y": 560,
+          "size": 96,
+          "angle": 4
+        },
+        {
+          "sticker": "sparkle",
+          "x": 700,
+          "y": 740,
+          "size": 60,
+          "angle": 10
         }
       ]
     },
@@ -1057,8 +1348,8 @@
         },
         {
           "sticker": "core-memory",
-          "x": 880,
-          "y": 640,
+          "x": 900,
+          "y": 690,
           "size": 170,
           "angle": -4
         },
@@ -1068,6 +1359,34 @@
           "y": 60,
           "size": 80,
           "angle": 8
+        },
+        {
+          "sticker": "bow",
+          "x": 548,
+          "y": 262,
+          "size": 96,
+          "angle": -8
+        },
+        {
+          "sticker": "star-glass",
+          "x": 600,
+          "y": 460,
+          "size": 52,
+          "angle": 0
+        },
+        {
+          "sticker": "tulips",
+          "x": 1180,
+          "y": 420,
+          "size": 100,
+          "angle": 6
+        },
+        {
+          "sticker": "paint-star",
+          "x": 1180,
+          "y": 700,
+          "size": 60,
+          "angle": -8
         }
       ]
     },
@@ -1114,6 +1433,34 @@
           "y": 600,
           "size": 110,
           "angle": 6
+        },
+        {
+          "sticker": "star-origami",
+          "x": 110,
+          "y": 160,
+          "size": 64,
+          "angle": -8
+        },
+        {
+          "sticker": "jellyfish",
+          "x": 830,
+          "y": 660,
+          "size": 100,
+          "angle": 6
+        },
+        {
+          "sticker": "sparkle",
+          "x": 380,
+          "y": 670,
+          "size": 60,
+          "angle": 8
+        },
+        {
+          "sticker": "headphone-cat",
+          "x": 1180,
+          "y": 280,
+          "size": 80,
+          "angle": -6
         }
       ]
     },
@@ -1153,6 +1500,27 @@
           "y": 330,
           "size": 140,
           "angle": 4
+        },
+        {
+          "sticker": "star-glass",
+          "x": 300,
+          "y": 180,
+          "size": 50,
+          "angle": 0
+        },
+        {
+          "sticker": "bow",
+          "x": 140,
+          "y": 700,
+          "size": 110,
+          "angle": -6
+        },
+        {
+          "sticker": "sparkle",
+          "x": 1180,
+          "y": 700,
+          "size": 60,
+          "angle": 8
         }
       ]
     },
@@ -1192,6 +1560,27 @@
           "y": 590,
           "size": 64,
           "angle": 10
+        },
+        {
+          "sticker": "star-felt",
+          "x": 1100,
+          "y": 260,
+          "size": 60,
+          "angle": 8
+        },
+        {
+          "sticker": "lily",
+          "x": 140,
+          "y": 420,
+          "size": 100,
+          "angle": -6
+        },
+        {
+          "sticker": "cd",
+          "x": 1180,
+          "y": 700,
+          "size": 70,
+          "angle": 6
         }
       ]
     },
@@ -1231,6 +1620,27 @@
           "y": 420,
           "size": 64,
           "angle": 8
+        },
+        {
+          "sticker": "star-glass",
+          "x": 830,
+          "y": 140,
+          "size": 50,
+          "angle": 0
+        },
+        {
+          "sticker": "tulips",
+          "x": 1180,
+          "y": 640,
+          "size": 100,
+          "angle": 6
+        },
+        {
+          "sticker": "jelly-star-mini",
+          "x": 780,
+          "y": 700,
+          "size": 56,
+          "angle": -8
         }
       ]
     },
@@ -1256,6 +1666,27 @@
           "y": 740,
           "size": 70,
           "angle": 6
+        },
+        {
+          "sticker": "star-balloon",
+          "x": 1180,
+          "y": 60,
+          "size": 70,
+          "angle": 8
+        },
+        {
+          "sticker": "jellyfish-blue",
+          "x": 1190,
+          "y": 300,
+          "size": 90,
+          "angle": -6
+        },
+        {
+          "sticker": "star-glass",
+          "x": 140,
+          "y": 100,
+          "size": 50,
+          "angle": 0
         }
       ]
     }

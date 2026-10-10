@@ -93,7 +93,7 @@ export default function Wishes({ content, parts, go, reduced }) {
             onMouseLeave={() => setHover(null)}
             style={css(`position:absolute;left:${p.x}px;top:${p.y}px;transform:translateY(${hov ? -4 : 0}px) rotate(${TILT[i % 12] + (hov ? (i % 2 ? 2 : -2) : 0)}deg) scale(${scale});transform-origin:0 0;transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1);cursor:pointer`)}
           >
-            <Envelope size="small" state={state} animate={state === 'open' && !!anim[w.id]} color={f.colour} label={f.name} handFont={f.font} />
+            <Envelope size="small" state={state} animate={state === 'open' && !!anim[w.id]} color={f.colour} sealColor={`color-mix(in oklch, ${f.colour} 70%, #130F1F)`} label={f.name} handFont={f.font} />
           </button>
         );
       })}

@@ -20,6 +20,7 @@ import EasterEggs from './components/EasterEggs.jsx';
 import JournalBoard from './components/JournalBoard.jsx';
 import PhoneNotice from './components/PhoneNotice.jsx';
 import DevPanel from './components/DevPanel.jsx';
+import PageError from './components/PageError.jsx';
 import Opening from './sections/Opening.jsx';
 import { CoverPage, ContentsSpread, ResetStickers } from './sections/Cover.jsx';
 
@@ -177,6 +178,7 @@ function Journal({ hostRef }) {
   } else {
     const props = { content, parts: route.parts, go, reduced };
     body = (
+      <PageError resetKey={route.section + '/' + route.parts.join('/')}>
       <Suspense fallback={null}>
         {section === 'timeline' && <Timeline {...props} />}
         {section === 'darkroom' && <Darkroom {...props} />}
@@ -187,6 +189,7 @@ function Journal({ hostRef }) {
         {section === 'games' && <Games {...props} />}
         {section === 'dev' && Gallery && <Gallery {...props} />}
       </Suspense>
+      </PageError>
     );
   }
 

@@ -26,8 +26,8 @@ export default function StickerMenu({ ui, x, y, size, angle, stuck, onAct }) {
       onContextMenu={e => e.preventDefault()}
       style={{ ...css('position:absolute;z-index:9999;width:236px;padding:8px 0;background:#FFFFFF;border-radius:8px;box-shadow:0 1px 2px rgba(19,15,31,.25),0 10px 24px rgba(19,15,31,.22);display:flex;flex-direction:column;pointer-events:auto;cursor:auto;animation:nh-pop 120ms cubic-bezier(0.34,1.56,0.64,1)'), left: x, top: y }}
     >
-      {row(ui.stick || 'Stick here', 'stick', stuck)}
-      {row(ui.fall || 'Let it fall', 'fall', !stuck)}
+      {row(ui.stick || 'Stick here', 'stick', false)}
+      {row(ui.fall || 'Let it fall', 'fall', false)}
       {row(ui.duplicate || 'Duplicate', 'dup')}
       {row(ui.front || 'Bring to front', 'front')}
       {row(ui.peel || 'Peel off (delete)', 'peel', false, '#A63A48')}

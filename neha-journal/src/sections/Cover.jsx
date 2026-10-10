@@ -132,7 +132,7 @@ export function ContentsSpread({ content, go, resetToken }) {
 export function ResetStickers({ label, onReset }) {
   return (
     <div style={css('position:absolute;left:0;right:0;top:878px;display:flex;justify-content:center;pointer-events:none;z-index:65')}>
-      <button type="button" className="nh-btn" onClick={onReset} style={css("font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#204670;background:rgba(255,255,255,.88);padding:4px 10px;border-radius:999px;pointer-events:auto;cursor:pointer")}>
+      <button type="button" className="nh-btn" onClick={onReset} style={css("font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#204670;background:#FFFFFF;padding:6px 12px;border-radius:999px;box-shadow:0 1px 3px rgba(19,15,31,.3);pointer-events:auto;cursor:pointer")}>
         {label}
       </button>
     </div>

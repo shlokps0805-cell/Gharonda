@@ -61,8 +61,8 @@ export default function BackPages({ content, onReplay, reduced }) {
       <div style={css('position:absolute;left:180px;top:520px')}>
         <PhotoFrame type="corners" ratio="3:2" size={360} rotate={-2} showCaption={false} src={site.groupPhoto} alt={site.groupName} label="photo · all of us · 3:2 · medium" />
       </div>
-      <button type="button" className="nh-btn" onClick={onReplay} style={css("position:absolute;left:150px;top:752px;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695;text-transform:uppercase;text-decoration:underline;text-decoration-color:#C4A8E6;text-decoration-thickness:2px;text-underline-offset:4px;cursor:pointer")}>
-        {t.replay}
+      <button type="button" className="nh-btn" onClick={onReplay} style={css("position:absolute;left:820px;top:640px;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#320F6F;padding:9px 14px;background:#ECE3F8;border-radius:999px;box-shadow:0 1px 3px rgba(0,0,0,.35);z-index:5;text-transform:uppercase;text-decoration:underline;text-decoration-color:#C4A8E6;text-decoration-thickness:2px;text-underline-offset:4px;cursor:pointer")}>
+        ↺ {t.replay}
       </button>
 
       {/* the library card in its kraft pocket */}
