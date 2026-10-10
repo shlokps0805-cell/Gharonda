@@ -97,11 +97,14 @@ A friend with no letter yet shows "letter coming soon", so nothing breaks.
 ```
 - `spotify`: in Spotify, click **⋯ > Share > Copy Song Link** and paste it here.
 - `side` is `A` or `B` (leave out to split the list in half). Songs with no Spotify link are listed but cannot play.
+- **Quickest way to add every link:** in the Spotify desktop app open the playlist, click one song, press Ctrl+A (Cmd+A on a Mac), then Ctrl+C. That copies every song's link, in order; paste them here (or send them to Claude).
+- While no song has a link, the player plays the whole playlist from `site.json` → `spotifyPlaylistUrl` instead (play and pause work; Spotify moves through the songs by itself, so next and previous do nothing).
 
 ## A joke · `content/jokes.json`
 ```json
 { "id": "joke-11", "text": "the joke", "submittedBy": "friend-5", "lore": "the origin story on the back" }
 ```
+Leave `lore` as `""` and the note stays face up (it only flips when there is an origin story).
 
 ## Stickers · `content/stickers.json`
 1. Save a transparent PNG or WebP (background already removed) in `public/media/stickers/`.
@@ -117,6 +120,7 @@ It then joins the sticker pile that falls on the cover. To place it on a page, a
   `level` 1–4 (yellow, green, blue, purple). Add a new puzzle at the end; the newest is shown first.
 - **Wordle** (`wordle.json`): add `{ "date": "2026-10-12", "word": "CHAIR" }` lines. The site uses
   today's word (India time) or the most recent past one. Words can be 4 to 7 letters. `hint` is the clipped note.
+  Add `"note": "bc u are built"` to a word to show an extra line once that word is solved or revealed.
 - **Daily cryptic** (`cryptic.json`): one clue per date:
   ```json
   { "date": "2026-10-12", "number": 285, "clue": "Drink hidden in beach air (4)", "answer": "CHAI",
@@ -125,8 +129,11 @@ It then joins the sticker pile that falls on the cover. To place it on a page, a
     "wordplay": "hidden word: beaCH AIr", "explanation": "“hidden in” tells you the answer is inside the next words." }
   ```
   `definition`, `highlight` and `hidden` must be copied exactly from the clue.
-- **Neha's World** (`neha-world.json`): when the game is ready, put its link in `embedUrl`
-  (an itch.io embed link, or `"/neha-world/index.html"` if you put a web-export folder in `public/neha-world/`).
+  Optional: `"par": 4`, a space in the answer for two words (`"BIO LAB"` shows a gap after the third box),
+  and hints with their own titles: `{ "title": "FODDER", "text": "..." }`, or `{ "title": "LETTERS", "letters": true }`
+  for a hint that shows one more letter of the answer each time it is tapped. Any number of hints is fine.
+- **Neha's World** (`neha-world.json`): `embedUrl` is the game's link. The current game is the single file
+  `public/games/nehas-world.html` (`"embedUrl": "games/nehas-world.html"`); to swap it, replace that file.
 
 ## All the little labels · `content/ui-text.json`
 Every button and heading label ("BACK TO ALL LETTERS", "tap the seal"…) lives here and can be reworded.

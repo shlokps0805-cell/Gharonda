@@ -1,5 +1,5 @@
 // Daily cryptic (design: GamesScene "cry-*"): today's clue (India time) with letter boxes,
-// Check and Reveal, three fold-out hints, an explanation once solved and a 14-day streak.
+// Check and Reveal, fold-out hints (three by default, or the clue's own list), an explanation once solved and a 14-day streak.
 // Past clues can be played from the streak row. Revealed days do not count for the streak.
 import React, { useEffect, useRef, useState } from 'react';
 import { css } from '../design/dc.js';
@@ -45,6 +45,8 @@ function Clue({ clue, clues, ui, reduced, today, results, setResults, onPick }) 
   const n = clue.answer.length;
   const [letters, setLetters] = useState(() => (results[clue.date] ? [...clue.answer] : Array(n).fill('')));
   const [hints, setHints] = useState(() => storage.get('cryptic.hints.' + clue.date, 0));
+  const [shown, setShown] = useState(() => storage.get('cryptic.letters.' + clue.date, 0)); // letters given by a letters hint
+  const [open, setOpen] = useState(-1); // which unfolded hint is being read
   const [wrong, setWrong] = useState(null); // indexes of wrong letters after Check
   const [shake, setShake] = useState(false);
   const boxes = useRef([]);
@@ -52,6 +54,21 @@ function Clue({ clue, clues, ui, reduced, today, results, setResults, onPick }) 
   const finished = !!status;
 
   useEffect(() => { storage.set('cryptic.hints.' + clue.date, hints); }, [hints, clue.date]);
+  useEffect(() => { storage.set('cryptic.letters.' + clue.date, shown); }, [shown, clue.date]);
+  const total = clue.hints.length;
+  const reading = open >= 0 && open < hints ? open : hints - 1;
+  // a letters hint fills the boxes from the left, one letter per tap
+  const giveLetter = () => {
+    const next = Math.min(n, shown + 1);
+    setShown(next);
+    setLetters(l => { const c = [...l]; for (let k = 0; k < next; k++) c[k] = clue.answer[k]; return c; });
+  };
+  const unfold = i => {
+    if (i < hints) { if (clue.hints[i].letters && i === reading && !finished && shown < n) giveLetter(); setOpen(i); return; }
+    setHints(h => Math.min(total, h + 1));
+    setOpen(i);
+    if (clue.hints[i].letters && !finished) giveLetter();
+  };
   useEffect(() => { if (!finished) boxes.current[0] && boxes.current[0].focus({ preventScroll: true }); }, [finished]);
 
   const finish = kind => {
@@ -78,7 +95,7 @@ function Clue({ clue, clues, ui, reduced, today, results, setResults, onPick }) 
     setShake(true);
     setTimeout(() => setShake(false), 320);
   };
-  const reveal = () => { setLetters([...clue.answer]); setHints(3); finish('revealed'); };
+  const reveal = () => { setLetters([...clue.answer]); setHints(total); finish('revealed'); };
 
   const days = streakDays(today, clues, results);
   const streak = currentStreak(today, results);
@@ -92,6 +109,7 @@ function Clue({ clue, clues, ui, reduced, today, results, setResults, onPick }) 
           <div style={css('position:absolute;left:50%;top:-22px;margin-left:-20px')}><Fastener kind="binder" /></div>
           <div style={css('display:flex;justify-content:space-between')}>
             <span style={css("font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#5E3695")}>{isToday ? `${ui.today} · ` : ''}{dotted(clue.date)}</span>
+            {clue.par ? <span style={css("font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#3D4A66")}>{ui.par} {clue.par}</span> : null}
             {clue.number ? <span style={css("font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#3D4A66")}>{ui.clueNo} {clue.number}</span> : null}
           </div>
           <div style={css("font:400 36px/1.25 'Libre Caslon Text',serif;color:#130F1F")}><ClueText clue={clue} hints={hints} solved={finished} /></div>
@@ -101,14 +119,14 @@ function Clue({ clue, clues, ui, reduced, today, results, setResults, onPick }) 
                 key={i}
                 ref={el => { boxes.current[i] = el; }}
                 value={ch}
-                disabled={finished}
+                disabled={finished || i < shown}
                 inputMode="text"
                 autoComplete="off"
                 aria-label={`letter ${i + 1} of ${n}`}
                 onChange={e => type(i, e.target.value)}
                 onKeyDown={e => key(i, e)}
                 onFocus={e => e.target.select()}
-                style={css(`width:${n > 8 ? 52 : 66}px;height:${n > 8 ? 52 : 66}px;border-radius:4px;background:${finished ? '#ECE3F8' : '#FFFFFF'};border:1.5px solid ${wrong && wrong.includes(i) ? '#A63A48' : '#130F1F'};text-align:center;font:700 32px/1 'DM Sans',sans-serif;color:#130F1F;text-transform:uppercase;padding:0;outline-offset:2px`)}
+                style={css(`width:${n > 8 ? 52 : 66}px;height:${n > 8 ? 52 : 66}px;border-radius:4px;margin-right:${clue.breaks.includes(i + 1) ? 18 : 0}px;background:${finished || i < shown ? '#ECE3F8' : '#FFFFFF'};border:1.5px solid ${wrong && wrong.includes(i) ? '#A63A48' : '#130F1F'};text-align:center;font:700 32px/1 'DM Sans',sans-serif;color:#130F1F;text-transform:uppercase;padding:0;outline-offset:2px`)}
               />
             ))}
           </div>
@@ -128,26 +146,38 @@ function Clue({ clue, clues, ui, reduced, today, results, setResults, onPick }) 
             </>
           )}
         </div>
-        {/* the folded hint strip: each click unfolds the next fold */}
-        <div style={css('display:flex;gap:6px')}>
-          {[0, 1, 2].map(i => {
-            const open = i < hints;
-            const next = i === hints && !finished;
-            return (
-              <button
-                key={i}
-                type="button"
-                className="nh-btn"
-                disabled={!next}
-                aria-expanded={open}
-                onClick={() => setHints(h => Math.min(3, h + 1))}
-                style={css(`flex:1;height:${open ? 96 : 44}px;padding:12px 14px;background:${open ? '#FFFFFF' : next ? '#ECE8F2' : '#F4F2F7'};border-radius:2px;box-shadow:0 1px 2px rgba(19,15,31,.18);transform:${open ? 'none' : i % 2 ? 'skewY(-1deg)' : 'skewY(1deg)'};display:flex;flex-direction:column;justify-content:flex-start;gap:6px;overflow:hidden;transition:height 300ms ease-out;cursor:${next ? 'pointer' : 'default'}`)}
-              >
-                <span style={css("font:700 11px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#4A3560")}>{ui.hint} {i + 1} · {open ? titles[i] : next ? ui.tapToUnfold : ui.folded}</span>
-                {open ? <span style={css("font:400 18px/1.25 'Kalam',cursive;color:#204670")}>{clue.hints[i]}</span> : null}
-              </button>
-            );
-          })}
+        {/* the folded hint strip: each click unfolds the next fold; an unfolded one can be read again */}
+        <div style={css('display:flex;flex-direction:column;gap:8px')}>
+          <div style={css('display:flex;gap:6px')}>
+            {clue.hints.map((h, i) => {
+              const isOpen = i < hints;
+              const next = i === hints && !finished;
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  className="nh-btn"
+                  disabled={!isOpen && !next}
+                  aria-expanded={isOpen && i === reading}
+                  onClick={() => unfold(i)}
+                  style={css(`flex:1;min-height:44px;padding:10px 12px;background:${isOpen && i === reading ? '#FFFFFF' : next ? '#ECE8F2' : isOpen ? '#FBF9F5' : '#F4F2F7'};border-radius:2px;box-shadow:0 1px 2px rgba(19,15,31,.18);transform:${isOpen ? 'none' : i % 2 ? 'skewY(-1deg)' : 'skewY(1deg)'};display:flex;align-items:center;cursor:${isOpen || next ? 'pointer' : 'default'}`)}
+                >
+                  <span style={css("font:700 11px/1.3 'Courier Prime',monospace;letter-spacing:.1em;color:#4A3560;text-align:left")}>{ui.hint} {i + 1} · {isOpen ? h.title || titles[i] || '' : next ? ui.tapToUnfold : ui.folded}</span>
+                </button>
+              );
+            })}
+          </div>
+          {reading >= 0 ? (
+            <div key={reading} style={{ ...css('padding:14px 18px;background:#FFFFFF;border-radius:2px;box-shadow:0 1px 2px rgba(19,15,31,.18);display:flex;flex-direction:column;gap:10px;transform-origin:50% 0'), animation: reduced ? 'none' : 'nh-unfold 300ms ease-out both' }}>
+              {clue.hints[reading].text ? <span style={css("font:400 16px/1.45 'DM Sans',sans-serif;color:#204670")}>{clue.hints[reading].text}</span> : null}
+              {clue.hints[reading].letters ? (
+                <div style={css('display:flex;align-items:center;gap:12px')}>
+                  <span style={css("font:700 13px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#204670")}>{shown} / {n}</span>
+                  {!finished && shown < n ? <button type="button" className="nh-btn" onClick={giveLetter} style={css("height:34px;padding:0 16px;border-radius:999px;border:1.5px solid #204670;display:flex;align-items:center;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;cursor:pointer")}>{ui.anotherLetter}</button> : null}
+                </div>
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </div>
 

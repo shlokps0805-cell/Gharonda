@@ -5,6 +5,7 @@
 // URL hash (or the Cover). The opening is a state, not a page: there is no #/opening.
 import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import content from './content/loadContent.js';
+import { playlistUri } from './content/validators.js';
 import * as storage from './lib/storage.js';
 import { navigate, useHashRoute } from './lib/hashRoute.js';
 import { usePrefersReducedMotion, isTouchDevice } from './lib/motion.js';
@@ -61,8 +62,12 @@ if (import.meta.env.DEV && new URLSearchParams(window.location.search).has('rese
 
 export default function App() {
   const hostRef = useRef(null);
+  const playlist = useMemo(() => {
+    const uri = playlistUri(content.site.spotifyPlaylistUrl);
+    return uri ? { id: 'playlist', title: content.ui.player.playlist, artist: '', uri } : null;
+  }, []);
   return (
-    <MusicProvider songs={content.songs} hostRef={hostRef}>
+    <MusicProvider songs={content.songs} playlist={playlist} hostRef={hostRef}>
       <Journal hostRef={hostRef} />
     </MusicProvider>
   );

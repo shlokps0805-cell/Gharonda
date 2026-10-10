@@ -49,6 +49,12 @@ Every place the build intentionally differs from the design files or the final p
 - **Darkroom is one wide dark page** with the spiral on the left (the design's two-page spread put coils behind the scrolling photos).
 - **Cover:** a second, smaller lilac note (`coverNote2`) under the ribbon; it hides when empty.
 - **Divider tab labels are 9.5 px** (design: 11 px) with a slightly smaller icon, so the longer words (TIMELINE, DARKROOM, PLAYLIST) fit inside the tab.
+- **Darkroom:** the section tabs show each section's own `label` (the friends' photo categories: hangouts, party, chill, festival, casual); the style code (ON FILM…) stays in the small heading.
+- **Daily cryptic:** a clue can have any number of hints with its own titles, including a LETTERS hint that shows one more letter per tap (the design had three fixed hints); a `par` and two-word gaps are shown. The open hint's text sits in one panel under the hint tabs so long hints fit.
+- **Wordle:** a word can carry a `note` shown when it is solved or revealed; the page subtitle is the friends' hint line.
+- **Jokes:** a joke with no origin story does not flip.
+- **Music:** while no song has its own Spotify link, the player plays the friends' Spotify playlist as one item (next and previous do nothing then).
+- **Neha's World:** the key hints under the console match the friends' game (move, run, jump, sound).
 - **Darkroom:** the film strips in the header show the first "on film" photos once real photos exist.
 - **Darkroom, give it a shake:** polaroids start at the design's develop ramp (95% → 0% darkness across the row) and develop over about 1,200 px of shaking (the design's code used 2,400 px; the brief says 1,200).
 - **Wishes:** the photo block in a letter only shows when the wish has a `photo` or `photoCaption`.

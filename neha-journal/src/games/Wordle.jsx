@@ -159,6 +159,7 @@ export default function Wordle({ content, ui, reduced }) {
             {scores.map((s, r) => <div key={r} style={css('display:flex;gap:3px')}>{s.map((c, i) => <div key={i} style={css(`width:20px;height:20px;border-radius:2px;background:${COLOUR[c]}`)} />)}</div>)}
           </div>
           <div style={css("font:600 22px/1.1 'Caveat',cursive;color:#5E3695")}>{won ? ui.wonLine : ui.lostLine}</div>
+          {entry.note ? <div style={css("font:600 26px/1.15 'Caveat',cursive;color:#320F6F")}>{entry.note}</div> : null}
           <button type="button" className="nh-btn" onClick={share} style={css(`align-self:flex-start;height:40px;padding:0 18px;border-radius:999px;background:${G};display:flex;align-items:center;font:700 14px/1 'DM Sans',sans-serif;color:#FFFFFF;cursor:pointer`)}>{copied ? ui.copied : ui.copy}</button>
         </div>
       ) : null}

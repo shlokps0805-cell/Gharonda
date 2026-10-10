@@ -1,44 +1,44 @@
 [
   {
-    "id": "puzzle-1",
+    "id": "puzzle-neha",
     "groups": [
       {
-        "name": "SAMPLE · THINGS SHE ORDERS TWICE",
+        "name": "YOU ARE STUPID",
         "words": [
-          "CHAI",
-          "FRIES",
-          "MANGO",
-          "NACHOS"
+          "MUPPET",
+          "DULL",
+          "THICK",
+          "OBTUSE"
         ],
         "level": 1
       },
       {
-        "name": "SAMPLE · HER ALARM TONES",
+        "name": "AIR __",
         "words": [
-          "DISCO",
-          "RAIN",
-          "BIRDS",
-          "TRUMPET"
+          "GUITAR",
+          "HOCKEY",
+          "TRAVEL",
+          "HEAD"
         ],
         "level": 2
       },
       {
-        "name": "SAMPLE · SPUN AT 2AM",
+        "name": "ADJECTIVES WHICH FIT YOU",
         "words": [
-          "VINYL",
-          "CHAIR",
-          "PLATE",
-          "PEN"
+          "ACE",
+          "COMPASSIONATE",
+          "AMIABLE",
+          "SOCIABLE"
         ],
         "level": 3
       },
       {
-        "name": "SAMPLE · WORDS SHE MADE UP",
+        "name": "PHRASES WITH THE NAME OF ARTISTS YOU LIKE",
         "words": [
-          "BLORP",
-          "ZEST",
-          "FLIM",
-          "OOF"
+          "BALD EAGLES",
+          "DUNG BEATLES",
+          "QUEEN OF HEARTS",
+          "SOMBER COAST"
         ],
         "level": 4
       }

@@ -75,6 +75,7 @@
     "tapToStart": "tap to start the music",
     "unavailable": "music unavailable",
     "noSongs": "songs coming soon",
+    "playlist": "songs that sound like neha",
     "pickedBy": "picked by"
   },
   "timeline": {
@@ -235,7 +236,7 @@
     },
     "wordle": {
       "title": "wordle, the neha edition",
-      "sub": "guess the word about her",
+      "sub": "Words that we tink suit you",
       "notInList": "not in word list",
       "tooShort": "not enough letters",
       "won": "you got it in {n}",
@@ -258,6 +259,8 @@
         "A LETTER"
       ],
       "hint": "HINT",
+      "par": "PAR",
+      "anotherLetter": "SHOW ANOTHER LETTER",
       "tapToUnfold": "TAP TO UNFOLD",
       "folded": "FOLDED",
       "definition": "DEFINITION",
@@ -291,12 +294,16 @@
           "MOVE"
         ],
         [
+          "SHIFT",
+          "RUN"
+        ],
+        [
           "SPACE",
           "JUMP"
         ],
         [
-          "P",
-          "PAUSE"
+          "H",
+          "SOUND"
         ]
       ]
     }

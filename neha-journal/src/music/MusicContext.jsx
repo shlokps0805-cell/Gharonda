@@ -17,8 +17,14 @@ function shuffledFrom(count, first) {
   return [first, ...rest];
 }
 
-export function MusicProvider({ songs, hostRef, children }) {
-  const playable = useMemo(() => songs.filter(s => s.uri), [songs]);
+export function MusicProvider({ songs, playlist, hostRef, children }) {
+  // songs with their own Spotify link; if none have one yet, the whole playlist plays as one item
+  // (Spotify then moves through it by itself, so next / previous have nothing to do)
+  const playable = useMemo(() => {
+    const withLinks = songs.filter(s => s.uri);
+    return withLinks.length || !playlist ? withLinks : [{ ...playlist, uri: playlist.uri, isPlaylist: true }];
+  }, [songs, playlist]);
+  const playlistMode = !!(playable[0] && playable[0].isPlaylist);
   // a new random song on every page load; nothing about playback is remembered
   const [order, setOrder] = useState(() => (playable.length ? shuffledFrom(playable.length, Math.floor(Math.random() * playable.length)) : []));
   const [pos, setPos] = useState(0);
@@ -32,7 +38,7 @@ export function MusicProvider({ songs, hostRef, children }) {
   const lastPos = useRef(0);
   const pausedForGame = useRef(false);
   const state = useRef({});
-  state.current = { order, pos, status };
+  state.current = { order, pos, status, playlistMode };
 
   const song = playable.length ? playable[order[pos]] : null;
 
@@ -86,7 +92,7 @@ export function MusicProvider({ songs, hostRef, children }) {
       // ending detection: within 600 ms of the end while moving -> next song, once per song
       const { position = 0, duration = 0 } = d;
       // some songs stop and jump back to the start instead of reporting the last moment
-      const stoppedAtEnd = d.isPaused === true && duration > 0 && lastPos.current >= duration - 1500 && position < 1000 && state.current.status === 'playing';
+      const stoppedAtEnd = !state.current.playlistMode && d.isPaused === true && duration > 0 && lastPos.current >= duration - 1500 && position < 1000 && state.current.status === 'playing';
       if (stoppedAtEnd && endGuard.current !== loadedUri.current) {
         endGuard.current = loadedUri.current;
         lastPos.current = 0;
@@ -94,6 +100,7 @@ export function MusicProvider({ songs, hostRef, children }) {
         if (n) playAt((state.current.pos + 1) % n);
         return;
       }
+      if (state.current.playlistMode) return;
       const moving = position > lastPos.current;
       lastPos.current = position;
       const id = loadedUri.current;
@@ -123,8 +130,8 @@ export function MusicProvider({ songs, hostRef, children }) {
     else playAt(state.current.pos);
   }, [pause, playAt]);
 
-  const next = useCallback(() => { const n = state.current.order.length; if (n) playAt((state.current.pos + 1) % n); }, [playAt]);
-  const prev = useCallback(() => { const n = state.current.order.length; if (n) playAt((state.current.pos - 1 + n) % n); }, [playAt]);
+  const next = useCallback(() => { if (state.current.playlistMode) return; const n = state.current.order.length; if (n) playAt((state.current.pos + 1) % n); }, [playAt]);
+  const prev = useCallback(() => { if (state.current.playlistMode) return; const n = state.current.order.length; if (n) playAt((state.current.pos - 1 + n) % n); }, [playAt]);
 
   // the embed has no volume control, so "sound off" pauses and "sound on" resumes
   const toggleMute = useCallback(() => {
@@ -148,7 +155,7 @@ export function MusicProvider({ songs, hostRef, children }) {
   }, [pause]);
 
   const value = {
-    status, muted, song, songs, playable, hasSongs: playable.length > 0,
+    status, muted, song, songs, playable, hasSongs: playable.length > 0, playlistMode,
     start, toggle, next, prev, toggleMute, playSong, pauseForGame, pause,
     // until the first click on a return visit, the player pulses "tap to start the music"
     askForTap: () => setStatus(s => (s === 'idle' ? 'press' : s)),

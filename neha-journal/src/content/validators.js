@@ -270,6 +270,12 @@ export function spotifyUri(s) {
   return m ? `spotify:${m[1]}:${m[2]}` : '';
 }
 
+// open.spotify.com/playlist/ID?si=.. -> spotify:playlist:ID (used when no song has its own link)
+export function playlistUri(s) {
+  const m = str(s).match(/(?:open\.spotify\.com\/(?:intl-[a-z]+\/)?playlist\/|spotify:playlist:)([A-Za-z0-9]+)/);
+  return m ? `spotify:playlist:${m[1]}` : '';
+}
+
 export function validateSongs(raw, warn, friends) {
   const friendsById = byId(friends);
   let items = list(raw).filter(s => {
@@ -337,7 +343,7 @@ export function validateWordle(raw, warn) {
     const ok = isObj(x) && /^[A-Za-z]{4,7}$/.test(str(x.word).trim());
     if (!ok) warn('wordle.json: an entry needs a word of 4 to 7 letters, skipped');
     return ok;
-  }).map(x => ({ ...x, date: str(x.date), word: str(x.word).trim().toUpperCase() }));
+  }).map(x => ({ ...x, date: str(x.date), word: str(x.word).trim().toUpperCase(), note: str(x.note) }));
   return { ...w, strictWordList: w.strictWordList !== false, hint: str(w.hint), words };
 }
 
@@ -350,10 +356,20 @@ export function validateCryptic(raw, warn) {
     const answer = str(c.answer).toUpperCase().replace(/[^A-Z]/g, '');
     const def = str(c.definition);
     if (def && !str(c.clue).includes(def)) warn(`cryptic.json: the definition "${def}" is not inside the clue for ${c.date}`);
-    const hints = list(c.hints).map(h => str(h));
-    while (hints.length < 3) hints.push('');
+    // a hint is plain text, or { title, text } with its own title, or { title, letters: true }:
+    // a hint that shows one more letter of the answer each time it is tapped
+    let hints = list(c.hints).map(h => (isObj(h) ? { title: str(h.title), text: str(h.text), letters: h.letters === true } : { title: '', text: str(h), letters: false }));
+    if (!hints.some(h => h.title || h.letters)) {
+      while (hints.length < 3) hints.push({ title: '', text: '', letters: false });
+      hints = hints.slice(0, 3);
+    }
+    // word breaks come from spaces in the answer: "BIO LAB" -> a gap after the third box
+    const breaks = [];
+    str(c.answer).toUpperCase().replace(/[^A-Z ]/g, '').trim().split(/\s+/).reduce((n, w) => { breaks.push(n + w.length); return n + w.length; }, 0);
+    breaks.pop();
+    const par = Number.isFinite(Number(c.par)) && Number(c.par) > 0 ? Number(c.par) : null;
     // optional: `highlight` (shown with hint 2) and `hidden` (lit up once solved) are parts of the clue
-    return { ...c, answer, definition: def, hints: hints.slice(0, 3), wordplay: str(c.wordplay), explanation: str(c.explanation), highlight: str(c.highlight), hidden: str(c.hidden) };
+    return { ...c, answer, breaks, par, definition: def, hints, wordplay: str(c.wordplay), explanation: str(c.explanation), highlight: str(c.highlight), hidden: str(c.hidden) };
   }).sort((a, b) => a.date.localeCompare(b.date));
 }
 

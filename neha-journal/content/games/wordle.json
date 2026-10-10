@@ -1,10 +1,140 @@
 {
   "strictWordList": true,
-  "hint": "SAMPLE · hint: something she can’t start a morning without",
+  "hint": "",
   "words": [
     {
       "date": "2026-10-11",
-      "word": "MANGO"
+      "word": "AGLOW"
+    },
+    {
+      "date": "2026-10-12",
+      "word": "ALPHA"
+    },
+    {
+      "date": "2026-10-13",
+      "word": "ANNOY"
+    },
+    {
+      "date": "2026-10-14",
+      "word": "BEEFY",
+      "note": "bc u are built"
+    },
+    {
+      "date": "2026-10-15",
+      "word": "BEAUT"
+    },
+    {
+      "date": "2026-10-16",
+      "word": "BULLY"
+    },
+    {
+      "date": "2026-10-17",
+      "word": "CHAMP"
+    },
+    {
+      "date": "2026-10-18",
+      "word": "CHARM"
+    },
+    {
+      "date": "2026-10-19",
+      "word": "CHOIR"
+    },
+    {
+      "date": "2026-10-20",
+      "word": "ARTSY"
+    },
+    {
+      "date": "2026-10-21",
+      "word": "DENSE"
+    },
+    {
+      "date": "2026-10-22",
+      "word": "DRAMA"
+    },
+    {
+      "date": "2026-10-23",
+      "word": "DUMMY"
+    },
+    {
+      "date": "2026-10-24",
+      "word": "QUEEN"
+    },
+    {
+      "date": "2026-10-25",
+      "word": "GIRTH",
+      "note": "😛"
+    },
+    {
+      "date": "2026-10-26",
+      "word": "GNOME"
+    },
+    {
+      "date": "2026-10-27",
+      "word": "HUMAN"
+    },
+    {
+      "date": "2026-10-28",
+      "word": "REACT"
+    },
+    {
+      "date": "2026-10-29",
+      "word": "LILAC"
+    },
+    {
+      "date": "2026-10-30",
+      "word": "MOMMY"
+    },
+    {
+      "date": "2026-10-31",
+      "word": "HONEY"
+    },
+    {
+      "date": "2026-11-01",
+      "word": "NYMPH"
+    },
+    {
+      "date": "2026-11-02",
+      "word": "PARTY"
+    },
+    {
+      "date": "2026-11-03",
+      "word": "PASTA"
+    },
+    {
+      "date": "2026-11-04",
+      "word": "RABID"
+    },
+    {
+      "date": "2026-11-05",
+      "word": "REGAL"
+    },
+    {
+      "date": "2026-11-06",
+      "word": "REBEL"
+    },
+    {
+      "date": "2026-11-07",
+      "word": "SERVE"
+    },
+    {
+      "date": "2026-11-08",
+      "word": "SHINE"
+    },
+    {
+      "date": "2026-11-09",
+      "word": "SILLY"
+    },
+    {
+      "date": "2026-11-10",
+      "word": "SUGAR"
+    },
+    {
+      "date": "2026-11-11",
+      "word": "SUSHI"
+    },
+    {
+      "date": "2026-11-12",
+      "word": "TASTY"
     }
   ]
 }

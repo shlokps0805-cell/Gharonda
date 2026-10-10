@@ -84,7 +84,9 @@ export default function Jokes({ content, go, reduced }) {
           </div>
 
           {notes.map(n => {
-            const isFlipped = flipped === n.j.id;
+            // a joke without an origin story stays face up
+            const canFlip = !!n.j.lore;
+            const isFlipped = canFlip && flipped === n.j.id;
             const hov = hover === n.j.id;
             const face = css(`grid-area:1/1;padding:24px 20px 16px;border-radius:2px;display:flex;flex-direction:column;gap:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:${hov ? '0 4px 8px rgba(19,15,31,.3),0 18px 30px rgba(19,15,31,.25)' : '0 1px 2px rgba(19,15,31,.3),0 6px 12px rgba(19,15,31,.16)'}`);
             return (
@@ -92,12 +94,12 @@ export default function Jokes({ content, go, reduced }) {
                 key={n.j.id}
                 type="button"
                 className="nh-btn"
-                aria-pressed={isFlipped}
+                aria-pressed={canFlip ? isFlipped : undefined}
                 aria-label={isFlipped ? n.j.lore : n.j.text}
-                onClick={() => setFlipped(isFlipped ? null : n.j.id)}
+                onClick={() => { if (canFlip) setFlipped(isFlipped ? null : n.j.id); }}
                 onMouseEnter={() => setHover(n.j.id)}
                 onMouseLeave={() => setHover(null)}
-                style={css(`position:absolute;left:${n.x}px;top:${n.y}px;width:${n.w}px;min-height:${n.h}px;transform:rotate(${n.r}deg) translateY(${hov ? -6 : 0}px);transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1);z-index:${hov ? 30 : n.i + 1};perspective:900px;cursor:pointer`)}
+                style={css(`position:absolute;left:${n.x}px;top:${n.y}px;width:${n.w}px;min-height:${n.h}px;transform:rotate(${n.r}deg) translateY(${hov ? -6 : 0}px);transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1);z-index:${hov ? 30 : n.i + 1};perspective:900px;cursor:${canFlip ? 'pointer' : 'default'}`)}
               >
                 <div style={css(`display:grid;width:100%;min-height:${n.h}px;transform-style:preserve-3d;transition:transform ${reduced ? 0 : 400}ms cubic-bezier(0.65,0,0.35,1);transform:rotateY(${isFlipped ? 180 : 0}deg)`)}>
                   {/* front: the joke (sizes the note) */}

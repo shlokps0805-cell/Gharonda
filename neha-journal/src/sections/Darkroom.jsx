@@ -33,7 +33,7 @@ export default function Darkroom({ content, reduced }) {
     return darkroom.sections.map((s, i) => {
       const built = buildSection(s.id, s.photos);
       if (!built) return null;
-      const sec = { ...s, ...built, y, name: t.codes[i] || s.label, code: `0${i + 1} · ${t.codes[i] || s.label.toUpperCase()}` };
+      const sec = { ...s, ...built, y, name: s.label || t.codes[i], code: `0${i + 1} · ${t.codes[i] || s.label.toUpperCase()}` };
       y += built.h + 100;
       return sec;
     }).filter(Boolean);

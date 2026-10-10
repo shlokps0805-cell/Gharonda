@@ -1,137 +1,314 @@
 [
   {
     "id": "song-1",
-    "title": "Song title 01",
-    "artist": "Artist",
+    "title": "baby ne bonvita peedav baby mood ma nathi",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-1",
-    "reason": "SAMPLE · the song from the goa bus, every single time",
-    "side": "A"
+    "pickedBy": "nea",
+    "reason": ""
   },
   {
     "id": "song-2",
-    "title": "Song title 02",
-    "artist": "Artist",
+    "title": "Aaja Mere Gaadi Mein Baith Jaa",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-8",
-    "reason": "SAMPLE · she sang this wrong for a year",
-    "side": "A"
+    "pickedBy": "kashisha",
+    "reason": ""
   },
   {
     "id": "song-3",
-    "title": "Song title 03",
-    "artist": "Artist",
+    "title": "Tere Liye",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-3",
-    "reason": "SAMPLE · our 2am kitchen anthem",
-    "side": "A"
+    "pickedBy": "kashisha",
+    "reason": ""
   },
   {
     "id": "song-4",
-    "title": "Song title 04",
-    "artist": "Artist",
+    "title": "Kukkad",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-10",
-    "reason": "SAMPLE · first song at her first party",
-    "side": "A"
+    "pickedBy": "kashisha",
+    "reason": ""
   },
   {
     "id": "song-5",
-    "title": "Song title 05",
-    "artist": "Artist",
+    "title": "What Makes You Beautiful",
+    "artist": "One Direction",
     "spotify": "",
-    "pickedBy": "friend-5",
-    "reason": "SAMPLE · the one she skips but secretly loves",
-    "side": "A"
+    "pickedBy": "kashisha",
+    "reason": ""
   },
   {
     "id": "song-6",
-    "title": "Song title 06",
-    "artist": "Artist",
+    "title": "Mirrors",
+    "artist": "Justin Timberlake",
     "spotify": "",
-    "pickedBy": "friend-12",
-    "reason": "SAMPLE · road trip, windows down",
-    "side": "A"
+    "pickedBy": "neel",
+    "reason": ""
   },
   {
     "id": "song-7",
-    "title": "Song title 07",
-    "artist": "Artist",
+    "title": "Tum Hi Ho Bandhu",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-7",
-    "reason": "SAMPLE · the exam week soundtrack",
-    "side": "A"
+    "pickedBy": "aarushi",
+    "reason": ""
   },
   {
     "id": "song-8",
-    "title": "Song title 08",
-    "artist": "Artist",
+    "title": "Fire Fire",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-2",
-    "reason": "SAMPLE · it played when we met",
-    "side": "A"
+    "pickedBy": "aarushi",
+    "reason": ""
   },
   {
     "id": "song-9",
-    "title": "Song title 09",
-    "artist": "Artist",
+    "title": "I Adore You",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-9",
-    "reason": "SAMPLE · the song from the goa bus, every single time",
-    "side": "B"
+    "pickedBy": "aarushi",
+    "reason": ""
   },
   {
     "id": "song-10",
-    "title": "Song title 10",
-    "artist": "Artist",
+    "title": "Party All Night",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-4",
-    "reason": "SAMPLE · she sang this wrong for a year",
-    "side": "B"
+    "pickedBy": "aarushi",
+    "reason": ""
   },
   {
     "id": "song-11",
-    "title": "Song title 11",
-    "artist": "Artist",
+    "title": "Dildara",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-11",
-    "reason": "SAMPLE · our 2am kitchen anthem",
-    "side": "B"
+    "pickedBy": "aarushi",
+    "reason": ""
   },
   {
     "id": "song-12",
-    "title": "Song title 12",
-    "artist": "Artist",
+    "title": "This Town",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-6",
-    "reason": "SAMPLE · first song at her first party",
-    "side": "B"
+    "pickedBy": "aarushi",
+    "reason": ""
   },
   {
     "id": "song-13",
-    "title": "Song title 13",
-    "artist": "Artist",
+    "title": "Desi Girl",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-1",
-    "reason": "SAMPLE · the one she skips but secretly loves",
-    "side": "B"
+    "pickedBy": "aarushi",
+    "reason": ""
   },
   {
     "id": "song-14",
-    "title": "Song title 14",
-    "artist": "Artist",
+    "title": "Gangnam Style",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-8",
-    "reason": "SAMPLE · road trip, windows down",
-    "side": "B"
+    "pickedBy": "aarushi",
+    "reason": ""
   },
   {
     "id": "song-15",
-    "title": "Song title 15",
-    "artist": "Artist",
+    "title": "u+me=<3",
+    "artist": "",
     "spotify": "",
-    "pickedBy": "friend-3",
-    "reason": "SAMPLE · the exam week soundtrack",
-    "side": "B"
+    "pickedBy": "swara",
+    "reason": ""
+  },
+  {
+    "id": "song-16",
+    "title": "Shut Up and Dance",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "swara",
+    "reason": ""
+  },
+  {
+    "id": "song-17",
+    "title": "Homewrecker",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "aavya",
+    "reason": ""
+  },
+  {
+    "id": "song-18",
+    "title": "Hamke Call Kari Baby",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "aavya",
+    "reason": ""
+  },
+  {
+    "id": "song-19",
+    "title": "Stupid Song",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "aavya",
+    "reason": ""
+  },
+  {
+    "id": "song-20",
+    "title": "Wonderwall",
+    "artist": "Oasis",
+    "spotify": "",
+    "pickedBy": "rhea",
+    "reason": ""
+  },
+  {
+    "id": "song-21",
+    "title": "Kajra Re",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "shlok",
+    "reason": ""
+  },
+  {
+    "id": "song-22",
+    "title": "Ambarsariya",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "shlok",
+    "reason": ""
+  },
+  {
+    "id": "song-23",
+    "title": "Don’t Stop Believin’",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "shlok",
+    "reason": ""
+  },
+  {
+    "id": "song-24",
+    "title": "Neele Neele Ambar Par",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "shlok",
+    "reason": ""
+  },
+  {
+    "id": "song-25",
+    "title": "Arcade",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "shlok",
+    "reason": ""
+  },
+  {
+    "id": "song-26",
+    "title": "Manchild",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "trishala",
+    "reason": ""
+  },
+  {
+    "id": "song-27",
+    "title": "GIRLS",
+    "artist": "The Kid LAROI",
+    "spotify": "",
+    "pickedBy": "trishala",
+    "reason": ""
+  },
+  {
+    "id": "song-28",
+    "title": "Into You",
+    "artist": "Ariana Grande",
+    "spotify": "",
+    "pickedBy": "trishala",
+    "reason": ""
+  },
+  {
+    "id": "song-29",
+    "title": "It’s ok I’m ok",
+    "artist": "Tate McRae",
+    "spotify": "",
+    "pickedBy": "trishala",
+    "reason": ""
+  },
+  {
+    "id": "song-30",
+    "title": "Illegal",
+    "artist": "PinkPantheress",
+    "spotify": "",
+    "pickedBy": "trishala",
+    "reason": ""
+  },
+  {
+    "id": "song-31",
+    "title": "Desi Boys",
+    "artist": "",
+    "spotify": "",
+    "pickedBy": "dhwani",
+    "reason": ""
+  },
+  {
+    "id": "song-32",
+    "title": "Dancing Queen",
+    "artist": "ABBA",
+    "spotify": "",
+    "pickedBy": "dhwani",
+    "reason": ""
+  },
+  {
+    "id": "song-33",
+    "title": "Riptide",
+    "artist": "Vance Joy",
+    "spotify": "",
+    "pickedBy": "dhwani",
+    "reason": ""
+  },
+  {
+    "id": "song-34",
+    "title": "Under the Sea",
+    "artist": "The Little Mermaid",
+    "spotify": "",
+    "pickedBy": "dhwani",
+    "reason": ""
+  },
+  {
+    "id": "song-35",
+    "title": "Mamma Mia",
+    "artist": "ABBA",
+    "spotify": "",
+    "pickedBy": "dhwani",
+    "reason": ""
+  },
+  {
+    "id": "song-36",
+    "title": "Saturn",
+    "artist": "SZA",
+    "spotify": "",
+    "pickedBy": "dhwani",
+    "reason": ""
+  },
+  {
+    "id": "song-37",
+    "title": "Make You Mine",
+    "artist": "PUBLIC",
+    "spotify": "",
+    "pickedBy": "dhwani",
+    "reason": ""
+  },
+  {
+    "id": "song-38",
+    "title": "Until I Found You",
+    "artist": "Stephen Sanchez, Em Beihold",
+    "spotify": "",
+    "pickedBy": "dhwani",
+    "reason": ""
+  },
+  {
+    "id": "song-39",
+    "title": "Abhi Toh Party Shuru Hui Hai",
+    "artist": "Badshah",
+    "spotify": "",
+    "pickedBy": "dhwani",
+    "reason": ""
   }
 ]

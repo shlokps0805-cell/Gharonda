@@ -1,18 +1,28 @@
 [
   {
     "date": "2026-10-11",
-    "number": 284,
-    "clue": "Drink hidden in beach air (4)",
-    "answer": "CHAI",
-    "definition": "Drink",
+    "number": 1,
+    "par": 4,
+    "clue": "Initially absolutely tortured potatoes spam 67, bored?! (3,3)",
+    "answer": "BIO LAB",
+    "definition": "Initially absolutely tortured potatoes",
     "hints": [
-      "look at the first word.",
-      "hidden word: the answer is inside the clue.",
-      "the third letter is A."
-    ],
-    "wordplay": "hidden word: beaCH AIr",
-    "explanation": "“hidden in” tells you the answer is sitting inside the next words.",
-    "highlight": "beach air",
-    "hidden": "ch ai"
+      {
+        "title": "DEFINITION",
+        "text": "This clue is a partial &lit clue where the definition is initially absolutely tortured potatoes, meaning our answer will be something related to Neha and initially absolutely tortured potatoes"
+      },
+      {
+        "title": "INDICATORS",
+        "text": "This clues indicators are initially, tortured, spam and bored. Two of them are selection indicators, one of them is an anagram indicator, one is a containing indicator."
+      },
+      {
+        "title": "FODDER",
+        "text": "This clues fodders are absolutely, potatoes and 67. The letters of these words (or words that are around these words) are used to create our answer."
+      },
+      {
+        "title": "LETTERS",
+        "letters": true
+      }
+    ]
   }
 ]
