@@ -1,7 +1,7 @@
 // The joke archive (design: JokesScene "board"): a lavender felt board of notes, each on a
 // gold pin, with one red thread running pin to pin. Click a note to flip it to its origin
 // story. Filters: All, or by person. Any number of jokes: the board grows and scrolls.
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { css } from '../design/dc.js';
 import SpiralJournal from '../design/SpiralJournal.jsx';
 import RansomWord from '../design/RansomWord.jsx';
@@ -46,6 +46,13 @@ export default function Jokes({ content, go, reduced }) {
   const notes = useMemo(() => layout(shown), [shown]);
   const { d, pins } = useMemo(() => threadPath(notes), [notes]);
   const people = friends.filter(f => jokes.some(j => j.submittedBy === f.id));
+  // Esc closes the "by person" menu
+  useEffect(() => {
+    if (!menu) return undefined;
+    const onKey = e => { if (e.key === 'Escape') setMenu(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menu]);
   const H = Math.max(756, ...notes.map(n => n.y + n.h + 120)) + 40;
 
   return (

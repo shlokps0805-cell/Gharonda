@@ -25,7 +25,7 @@ Write one line in `DEVIATIONS.md` whenever you resolve a conflict or differ from
 - Fasteners are gold and hold only paper and photos. **Stickers never get pins or tape.**
 - Cursor: lavender dot + white ring, music-note trail every 34 px (off with reduced motion and on touch).
 - Mini player 280 × 80 bottom-left, slides in from the left, random song each load.
-- Every wax seal is `--wax-red`.
+- The opening's wax seal is `--wax-red`; wish seals are a deeper shade of each envelope (students' request, see DEVIATIONS.md).
 
 **Retired, never build:** name gate, hidden joke, joke favourites, lightbox, crossword, stamps/stars as
 status markers, selfies section and phone frames, light-table glow, any "skip intro" link, sparkle trail,
