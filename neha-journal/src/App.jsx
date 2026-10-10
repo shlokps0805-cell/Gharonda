@@ -39,7 +39,7 @@ const PAGES = {
   cover: { n: 0, paper: '#6B4A33', spread: false },
   contents: { n: 0.5, paper: '#FFFFFF', spread: true },
   timeline: { n: 1, paper: '#FFFFFF', spread: true },
-  darkroom: { n: 2, paper: '#1C1828', spread: true },
+  darkroom: { n: 2, paper: '#1C1828', spread: false },
   wishes: { n: 3, paper: '#FFFFFF', spread: false },
   wish: { n: 3.5, paper: '#EEE9F4', spread: false },
   playlist: { n: 4, paper: '#2A2140', spread: true },

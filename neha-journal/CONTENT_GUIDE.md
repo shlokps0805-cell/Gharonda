@@ -37,6 +37,7 @@ missing or extra comma near the line it mentions.
 
 ## The cover and other site text · `content/site.json`
 - `coverPhoto`: the big photo on the cover, e.g. `"photos/cover/cover.jpg"` (put the file in `public/media/photos/cover/`).
+- `coverNote`: the white note on the cover. `coverNote2`: the smaller lilac note under the ribbon (leave it `""` to hide it).
 - `groupPhoto`: the photo of everyone (contents page, wishes page, back pages).
 - `fromLine`: the name on the envelope's "by ____" line.
 - `contentsWelcome`: the welcome note on the contents page.

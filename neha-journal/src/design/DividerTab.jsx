@@ -29,8 +29,8 @@ export default class DividerTab extends DC {
       <button type="button" className="nh-btn" aria-label={v.label} aria-current={v.active ? 'page' : undefined} style={css("position:relative;flex:none;width:72px;height:104px;overflow:hidden;cursor:pointer")} onMouseEnter={v.enter} onMouseLeave={v.leave} onFocus={v.enter} onBlur={v.leave} onClick={v.onClick}>
         <div style={css(`position:absolute;top:4px;left:${v.x}px;width:64px;height:96px;border-radius:0 14px 14px 0;background:${v.bg};box-shadow:1px 1px 0 rgba(255,255,255,.25) inset,2px 2px 3px rgba(19,15,31,.28),4px 6px 12px rgba(19,15,31,.16);transition:left 200ms cubic-bezier(0.34,1.56,0.64,1),background 150ms ease-out`)}>
           <div style={css("position:absolute;inset:0;border-radius:0 14px 14px 0;background:url(/media/textures/grain.png) 0 0/128px 128px;opacity:.6")} />
-          <div style={css(`position:absolute;right:0;top:0;bottom:0;width:${v.vis}px;display:flex;flex-direction:column;align-items:center;padding:10px 3px 0 0;gap:7px`)}>
-            <div style={css("position:relative;width:26px;height:26px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 2px rgba(19,15,31,.3);display:flex;align-items:center;justify-content:center")}>
+          <div style={css(`position:absolute;right:0;top:0;bottom:0;width:${v.vis}px;display:flex;flex-direction:column;align-items:center;padding:8px 3px 6px 0;gap:5px;overflow:hidden`)}>
+            <div style={css("position:relative;flex:none;width:23px;height:23px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 2px rgba(19,15,31,.3);display:flex;align-items:center;justify-content:center")}>
               {v.img ? (<>
                 <img src={v.src} alt="" style={css(`width:${v.iw}px;height:${v.ih}px;display:block`)} />
               </>) : null}
@@ -49,7 +49,7 @@ export default class DividerTab extends DC {
                 <div style={css("width:16px;height:16px;border-radius:4px;background:radial-gradient(circle 1.8px at 28% 28%,#FFF 96%,transparent),radial-gradient(circle 1.8px at 50% 50%,#FFF 96%,transparent),radial-gradient(circle 1.8px at 72% 72%,#FFF 96%,transparent),#5E3695;transform:rotate(-10deg)")} />
               </>) : null}
             </div>
-            <div style={css(`writing-mode:vertical-rl;text-align:center;font:700 11px/1 'Courier Prime',monospace;letter-spacing:.12em;text-transform:uppercase;color:${v.fg};white-space:nowrap`)}>
+            <div style={css(`writing-mode:vertical-rl;text-align:center;font:700 9.5px/1 'Courier Prime',monospace;letter-spacing:.06em;text-transform:uppercase;color:${v.fg};white-space:nowrap`)}>
               {v.label}
             </div>
           </div>

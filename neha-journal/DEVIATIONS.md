@@ -32,6 +32,7 @@ Every place the build intentionally differs from the design files or the final p
 - The sticker pile keeps clear of the "reset stickers" button, as it does of the player.
 - The right-click menu is drawn above the whole page, closes on any click outside it, when another sticker's menu opens or on scroll, as well as with Esc (the design only closed it with Esc).
 - Loose stickers resting on one that is moved, peeled or resized fall back down instead of hanging in the air; loose pile stickers saved mid-fall settle again on the next visit.
+- **The pile has no bounce**: stickers land and stay, stacking into a few overlapping heaps under the journal instead of one long row.
 - **Resize handle is at the sticker's top-right corner** (the design's lavender knob), because the turn handle already sits at the bottom-right.
 - New stickers added without a pixel size are measured once in the browser so their aspect ratio is right.
 - The opening's 13 desk stickers can be dragged too (they are a sticker layer like every other page).
@@ -45,6 +46,9 @@ Every place the build intentionally differs from the design files or the final p
 - **Timeline, photobooth wall:** each 4-frame strip uses four different photos, so with 9 photos the page shows two strips plus singles (the design showed three strips of placeholders).
 - **Timeline:** with more than five eras the clusters lay out in two smaller rows with a straight pencil line; with exactly five they use the design's spots and hand-drawn line.
 - **Timeline:** an optional `shortName` field gives the year buttons and switcher a shorter label ("middle school"), as in the design.
+- **Darkroom is one wide dark page** with the spiral on the left (the design's two-page spread put coils behind the scrolling photos).
+- **Cover:** a second, smaller lilac note (`coverNote2`) under the ribbon; it hides when empty.
+- **Divider tab labels are 9.5 px** (design: 11 px) with a slightly smaller icon, so the longer words (TIMELINE, DARKROOM, PLAYLIST) fit inside the tab.
 - **Darkroom:** the film strips in the header show the first "on film" photos once real photos exist.
 - **Darkroom, give it a shake:** polaroids start at the design's develop ramp (95% → 0% darkness across the row) and develop over about 1,200 px of shaking (the design's code used 2,400 px; the brief says 1,200).
 - **Wishes:** the photo block in a letter only shows when the wish has a `photo` or `photoCaption`.

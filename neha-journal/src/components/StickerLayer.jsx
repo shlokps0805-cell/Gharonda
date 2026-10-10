@@ -15,6 +15,7 @@ import { css } from '../design/dc.js';
 
 const VERSION = 1;
 const GRAVITY = 2400;
+const HEAPS = [480, 935, 1080, 1215, 1385];
 const BIG = new Set(['happy-birthday', 'core-memory', 'dnd', 'patch-red', 'patch-baddie', 'dancers', 'piano', 'vinyl-purple', 'disco-violet']);
 const clampSize = n => Math.max(40, Math.min(320, Math.round(n)));
 
@@ -111,12 +112,16 @@ export default class StickerLayer extends React.Component {
   // start a pile sticker above the page so it falls in
   launch(b, i) {
     const [a, c, e, f, g] = b.seed || [Math.random(), Math.random(), Math.random(), Math.random(), Math.random()];
-    b.x = 80 + a * (this.W() - 160);
-    b.y = -60 - (i % 40) * 38 - c * 80;
-    b.vx = (e - 0.5) * 120;
+    // the pile drops into a few heaps (clear of the player and the reset button) so the
+    // stickers stack on top of each other instead of spreading into one line
+    const heaps = this.props.floors === 'cover' ? HEAPS : HEAPS.map(x => x - 60);
+    const h = i % heaps.length, layer = Math.floor(i / heaps.length);
+    b.x = heaps[h] + (a - 0.5) * 56;
+    b.y = -80 - layer * 110 - c * 40;
+    b.vx = (e - 0.5) * 16;
     b.vy = 0;
-    b.r = (f - 0.5) * 30;
-    b.vr = (g - 0.5) * 120;
+    b.r = (f - 0.5) * 36;
+    b.vr = (g - 0.5) * 40;
     b.sleep = false;
     b.calm = 0;
   }
@@ -198,11 +203,10 @@ export default class StickerLayer extends React.Component {
       const b = B[i];
       if (this.isFixed(b)) continue;
       b.vy += GRAVITY * dt; b.x += b.vx * dt; b.y += b.vy * dt; b.r += b.vr * dt;
-      const h = b.size / 2, fl = this.floor(b.x), sink = fl < this.H() ? h : h * 0.62;
+      const h = b.size / 2, fl = this.floor(b.x), sink = fl < this.H() ? h : h * 0.85;
       if (b.y + sink >= fl) {
         b.y = fl - sink;
-        if (b.vy > 120) { b.vy = -b.vy * 0.35; b.vr *= 0.5; } else { b.vy = 0; b.vr *= 0.7; }
-        b.vx *= 0.82;
+        b.vy = 0; b.vr *= 0.5; b.vx *= 0.6;
       }
       if (b.x < h * 0.6) { b.x = h * 0.6; b.vx = Math.abs(b.vx) * 0.5; }
       if (b.x > this.W() - h * 0.6) { b.x = this.W() - h * 0.6; b.vx = -Math.abs(b.vx) * 0.5; }
@@ -218,16 +222,17 @@ export default class StickerLayer extends React.Component {
         if (fa && fc) continue;
         // stuck stickers never push physics ones around (they are flat on the paper)
         if ((a.stuck && !a.pile) || (c.stuck && !c.pile)) continue;
-        const dx = c.x - a.x, dy = c.y - a.y, d = Math.hypot(dx, dy) || 1, min = (a.size + c.size) * 0.34;
+        const dx = c.x - a.x, dy = c.y - a.y, d = Math.hypot(dx, dy) || 1, min = (a.size + c.size) * 0.42;
         if (d < min - 0.5) {
           const o = (min - d) / 2, nx = dx / d, ny = dy / d;
           if (!fa) { a.x -= nx * o * (fc ? 2 : 1); a.y -= ny * o * (fc ? 2 : 1); }
           if (!fc) { c.x += nx * o * (fa ? 2 : 1); c.y += ny * o * (fa ? 2 : 1); }
           const rv = (c.vx - a.vx) * nx + (c.vy - a.vy) * ny;
           if (rv < 0) {
-            const im = rv * 0.4;
-            if (!fa) { a.vx += im * nx; a.vy += im * ny; }
-            if (!fc) { c.vx -= im * nx; c.vy -= im * ny; }
+            // stop the approach without bouncing, and add a little friction so heaps hold
+            const wa = fa ? 0 : 1, wc = fc ? 0 : 1, share = rv / (wa + wc);
+            if (!fa) { a.vx += share * nx; a.vy += share * ny; a.vx *= 0.8; a.vr *= 0.8; }
+            if (!fc) { c.vx -= share * nx; c.vy -= share * ny; c.vx *= 0.8; c.vr *= 0.8; }
           }
         }
       }

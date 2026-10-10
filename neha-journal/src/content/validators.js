@@ -92,6 +92,7 @@ export function validateSite(raw, warn) {
     envelopeFont: ['Great Vibes', 'Alex Brush', 'Parisienne', 'Mrs Saint Delafield'].includes(s.envelopeFont) ? s.envelopeFont : 'Great Vibes',
     coverPhoto: str(s.coverPhoto).trim(),
     coverNote: str(s.coverNote, 'this whole journal is about you.'),
+    coverNote2: str(s.coverNote2, ''),
     contentsWelcome: str(s.contentsWelcome),
     contentsSignoff: str(s.contentsSignoff, '— all of us'),
     contentsPhotoCaption: str(s.contentsPhotoCaption),

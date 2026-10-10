@@ -62,6 +62,12 @@ export function CoverPage({ content, onOpen, interactive = true }) {
           </div>
         </div>
       </div>
+      {/* a second, smaller note under the ribbon (hidden while coverNote2 is empty) */}
+      {site.coverNote2 ? (
+        <div style={css("position:absolute;left:762px;top:622px;width:230px;transform:rotate(2deg);padding:14px 16px 12px;background:#ECE3F8;box-shadow:0 1px 2px rgba(19,15,31,.3),0 6px 12px rgba(19,15,31,.18);font:600 24px/1.2 'Caveat',cursive;color:#320F6F")}>
+          {site.coverNote2}
+        </div>
+      ) : null}
       {secret && egg.note ? (
         <div role="note" style={css("position:absolute;left:760px;top:286px;width:300px;transform:rotate(3deg);padding:18px 16px 14px;background:#ECE3F8;box-shadow:0 1px 2px rgba(19,15,31,.3),0 8px 14px rgba(19,15,31,.18);font:600 26px/1.15 'Caveat',cursive;color:#320F6F;z-index:20;animation:nh-fade-up 300ms ease-out both")}>
           {egg.note}

@@ -83,15 +83,11 @@ export default function Darkroom({ content, reduced }) {
 
   return (
     <>
-      {/* fixed: the dark page, the spiral and the safelight glow */}
-      <div style={css('position:absolute;left:94px;top:34px;width:590px;height:756px;border-radius:8px 2px 2px 8px;background:#0E0B16')} />
-      <div style={css('position:absolute;left:88px;top:28px;width:590px;height:756px;border-radius:8px 2px 2px 8px;background:#1C1828;box-shadow:0 2px 3px rgba(0,0,0,.4),0 18px 40px rgba(0,0,0,.4);overflow:hidden')}>
-        <div style={css('position:absolute;inset:0;background:url(/media/textures/film-grain.png) 0 0/200px 200px')} />
-        <div style={css('position:absolute;top:0;bottom:0;right:0;width:60px;background:linear-gradient(270deg,rgba(0,0,0,.35),rgba(0,0,0,0))')} />
+      {/* fixed: one dark page with the spiral on the left (no middle coils behind the content) */}
+      <div style={css('position:absolute;left:88px;top:28px')}>
+        <SpiralJournal w={1180} h={756} paper="dark" coil="silver" holeColor="#0E0B16" />
       </div>
-      <div style={css('position:absolute;left:678px;top:28px')}>
-        <SpiralJournal w={590} h={756} paper="dark" coil="silver" holeColor="#0E0B16" />
-      </div>
+      <div style={css('position:absolute;left:120px;top:30px;width:1146px;height:752px;pointer-events:none;background:url(/media/textures/film-grain.png) 0 0/200px 200px;opacity:.9')} />
 
       <div ref={scroller} className="nh-hide-scroll" style={css('position:absolute;left:0;top:18px;width:1440px;height:788px;overflow-y:auto;overflow-x:hidden')}>
         <div style={css(`position:relative;left:0;top:-18px;width:1440px;height:${H}px;margin-bottom:-18px`)}>
