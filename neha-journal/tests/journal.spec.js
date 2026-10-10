@@ -16,7 +16,7 @@ test('first visit plays the opening, then a reload goes straight to the cover', 
   await expect(page.getByText('tap the seal')).toBeVisible();
   // the envelope floats gently, so it is never 'stable' for the test robot
   await page.getByRole('button', { name: 'break the seal' }).click({ force: true });
-  await expect(page.getByRole('button', { name: 'OPEN YOUR JOURNAL' })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByRole('button', { name: 'OPEN YOUR JOURNAL' })).toBeVisible({ timeout: 25000 });
   await page.getByRole('button', { name: 'OPEN YOUR JOURNAL' }).click();
   await expect(page).toHaveURL(/#\/cover\/contents$/);
   expect(await page.evaluate(() => localStorage.getItem('neha.v1.opened'))).toBe('true');

@@ -17,6 +17,7 @@ import PlayerDock from './components/PlayerDock.jsx';
 import CursorTrail from './components/CursorTrail.jsx';
 import StickerLayer from './components/StickerLayer.jsx';
 import EasterEggs from './components/EasterEggs.jsx';
+import JournalBoard from './components/JournalBoard.jsx';
 import PhoneNotice from './components/PhoneNotice.jsx';
 import DevPanel from './components/DevPanel.jsx';
 import Opening from './sections/Opening.jsx';
@@ -130,6 +131,11 @@ function Journal({ hostRef }) {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  // the music-note cursor replaces the normal one everywhere on the page, desk included
+  useEffect(() => {
+    document.documentElement.classList.toggle('nh-custom-cursor', !touch);
+  }, [touch]);
+
   const go = useCallback(path => navigate(path), []);
 
   const finishOpening = useCallback((toContents = false) => {
@@ -187,7 +193,8 @@ function Journal({ hostRef }) {
   return (
     <>
       <Desk kind={desk} />
-      <Stage className={customCursor ? 'nh-custom-cursor' : ''} minScale={phone && phoneAnyway ? 0.2 : 0.6}>
+      <Stage minScale={phone && phoneAnyway ? 0.2 : 0.6}>
+        {!opening && page !== 'cover' && section !== 'dev' ? <JournalBoard /> : null}
         <main key={opening ? 'opening' : page} style={{ position: 'absolute', inset: 0 }}>
           {body}
         </main>

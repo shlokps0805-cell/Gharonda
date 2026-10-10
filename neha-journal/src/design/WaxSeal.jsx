@@ -22,6 +22,8 @@ export default class WaxSeal extends DC {
       ],
       onClick: this.props.onClick,
       // a real button only when the seal is clickable (the opening envelope)
+      // when it cracks in front of her: presses in, then the two halves split apart
+      crackAnim: this.props.animate ? 'nh-crack 900ms cubic-bezier(0.34,1.56,0.64,1) both' : 'none',
       Tag: this.props.onClick ? 'button' : 'div', ariaLabel: this.props.ariaLabel ?? 'break the seal'
     };
   }
@@ -49,7 +51,7 @@ export default class WaxSeal extends DC {
           </>) : null}
           {v.cracked ? (<>
             {(v.halves || []).map((hv, $index) => (<React.Fragment key={$index}>
-              <div style={css(`position:absolute;inset:0;clip-path:${hv.clip};transform:${hv.tf};filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))`)}>
+              <div style={{ ...css(`position:absolute;inset:0;clip-path:${hv.clip};transform:${hv.tf};filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))`), '--to': hv.tf, animation: v.crackAnim }}>
                 <div style={css(`position:absolute;left:2px;top:34px;width:26px;height:26px;border-radius:50%;background:${v.base}`)} />
                 <div style={css(`position:absolute;left:62px;top:2px;width:24px;height:24px;border-radius:50%;background:${v.base}`)} />
                 <div style={css(`position:absolute;left:74px;top:60px;width:24px;height:24px;border-radius:50%;background:${v.dark}`)} />

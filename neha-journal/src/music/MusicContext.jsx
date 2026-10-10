@@ -85,6 +85,15 @@ export function MusicProvider({ songs, hostRef, children }) {
       }
       // ending detection: within 600 ms of the end while moving -> next song, once per song
       const { position = 0, duration = 0 } = d;
+      // some songs stop and jump back to the start instead of reporting the last moment
+      const stoppedAtEnd = d.isPaused === true && duration > 0 && lastPos.current >= duration - 1500 && position < 1000 && state.current.status === 'playing';
+      if (stoppedAtEnd && endGuard.current !== loadedUri.current) {
+        endGuard.current = loadedUri.current;
+        lastPos.current = 0;
+        const n = state.current.order.length;
+        if (n) playAt((state.current.pos + 1) % n);
+        return;
+      }
       const moving = position > lastPos.current;
       lastPos.current = position;
       const id = loadedUri.current;

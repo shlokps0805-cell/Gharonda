@@ -4,6 +4,7 @@
 // resolves false and the site carries on without music.
 let controller = null;
 let initPromise = null;
+let playWhenReady = false;
 const listeners = new Set();
 
 function waitForApi(timeoutMs) {
@@ -28,9 +29,14 @@ export function init(element, firstUri) {
       try {
         api.createController(element, { width: 300, height: 80, uri: firstUri }, ctrl => {
           controller = ctrl;
-          ctrl.addListener('playback_update', e => listeners.forEach(cb => cb(e.data || {})));
+          ctrl.addListener('playback_update', e => {
+            if (e.data && e.data.isPaused === false) playWhenReady = false;
+            listeners.forEach(cb => cb(e.data || {}));
+          });
           ctrl.addListener('ready', () => {
             clearTimeout(giveUp);
+            // the embed fires 'ready' again after each new song loads: start it if asked to
+            if (playWhenReady) { playWhenReady = false; ctrl.play(); }
             resolve(true);
           });
         });
@@ -48,14 +54,22 @@ export function isReady() {
 }
 
 export function load(uri) {
-  if (controller && uri) controller.loadUri(uri);
+  if (controller && uri) {
+    playWhenReady = false;
+    controller.loadUri(uri);
+  }
 }
 
+// play() is called straight away (inside the click, for the browser's sound rules) and
+// once more when a freshly loaded song reports ready
 export function play() {
-  if (controller) controller.play();
+  if (!controller) return;
+  playWhenReady = true;
+  controller.play();
 }
 
 export function pause() {
+  playWhenReady = false;
   if (controller) controller.pause();
 }
 

@@ -79,7 +79,7 @@ export default function Jokes({ content, go, reduced }) {
           {notes.map(n => {
             const isFlipped = flipped === n.j.id;
             const hov = hover === n.j.id;
-            const face = css(`position:absolute;inset:0;padding:24px 20px 16px;border-radius:2px;display:flex;flex-direction:column;gap:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:${hov ? '0 4px 8px rgba(19,15,31,.3),0 18px 30px rgba(19,15,31,.25)' : '0 1px 2px rgba(19,15,31,.3),0 6px 12px rgba(19,15,31,.16)'}`);
+            const face = css(`grid-area:1/1;padding:24px 20px 16px;border-radius:2px;display:flex;flex-direction:column;gap:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:${hov ? '0 4px 8px rgba(19,15,31,.3),0 18px 30px rgba(19,15,31,.25)' : '0 1px 2px rgba(19,15,31,.3),0 6px 12px rgba(19,15,31,.16)'}`);
             return (
               <button
                 key={n.j.id}
@@ -92,16 +92,16 @@ export default function Jokes({ content, go, reduced }) {
                 onMouseLeave={() => setHover(null)}
                 style={css(`position:absolute;left:${n.x}px;top:${n.y}px;width:${n.w}px;min-height:${n.h}px;transform:rotate(${n.r}deg) translateY(${hov ? -6 : 0}px);transition:transform 200ms cubic-bezier(0.34,1.56,0.64,1);z-index:${hov ? 30 : n.i + 1};perspective:900px;cursor:pointer`)}
               >
-                <div style={css(`position:relative;width:100%;min-height:${n.h}px;transform-style:preserve-3d;transition:transform ${reduced ? 0 : 400}ms cubic-bezier(0.65,0,0.35,1);transform:rotateY(${isFlipped ? 180 : 0}deg)`)}>
+                <div style={css(`display:grid;width:100%;min-height:${n.h}px;transform-style:preserve-3d;transition:transform ${reduced ? 0 : 400}ms cubic-bezier(0.65,0,0.35,1);transform:rotateY(${isFlipped ? 180 : 0}deg)`)}>
                   {/* front: the joke (sizes the note) */}
-                  <div style={{ ...face, position: 'relative', minHeight: n.h, background: n.i % 3 === 2 ? '#FBF9F5' : '#FFFFFF', backgroundImage: n.i % 3 === 1 ? 'repeating-linear-gradient(180deg,transparent 0 27px,rgba(142,167,201,.35) 27px 28px)' : 'none' }}>
+                  <div style={{ ...face, minHeight: n.h, background: n.i % 3 === 2 ? '#FBF9F5' : '#FFFFFF', backgroundImage: n.i % 3 === 1 ? 'repeating-linear-gradient(180deg,transparent 0 27px,rgba(142,167,201,.35) 27px 28px)' : 'none' }}>
                     <div style={css(`font:${n.i % 2 ? "400 22px/1.3 'Kalam',cursive" : "500 17px/1.45 'DM Sans',sans-serif"};color:#130F1F`)}>{n.j.text}</div>
                     {n.j.submittedByName ? <div style={css("margin-top:auto;font:700 10px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#3D4A66;text-transform:uppercase")}>{t.submittedBy} {n.j.submittedByName}</div> : null}
                   </div>
                   {/* back: the origin story on lilac paper */}
-                  <div style={{ ...face, background: '#ECE3F8', transform: 'rotateY(180deg)', overflow: 'hidden' }}>
+                  <div style={{ ...face, background: '#ECE3F8', transform: 'rotateY(180deg)' }}>
                     <div style={css("font:700 11px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#4A3560")}>{t.origin}</div>
-                    <div style={css(`font:600 ${n.j.lore.length > 90 ? 21 : 26}px/1.15 'Caveat',cursive;color:#320F6F`)}>{n.j.lore}</div>
+                    <div style={css(`font:600 ${n.j.lore.length > 60 ? 22 : 26}px/1.15 'Caveat',cursive;color:#320F6F`)}>{n.j.lore}</div>
                   </div>
                 </div>
               </button>

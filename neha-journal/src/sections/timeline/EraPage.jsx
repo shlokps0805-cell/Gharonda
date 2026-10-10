@@ -57,7 +57,7 @@ export default function EraPage({ era, eras, content, go, reduced }) {
           <div style={css('position:absolute;left:44px;top:80px;right:40px;display:flex;align-items:baseline;gap:18px;white-space:nowrap;overflow:hidden')}>
             <span style={css(`font:700 13px/1 'Courier Prime',monospace;letter-spacing:.16em;color:${ink2}`)}>{era.year}</span>
             <h2 style={css(`margin:0;font:400 44px/1.1 'Libre Caslon Text',serif;color:${ink}`)}>{era.name}</h2>
-            <span style={css(`font:600 26px/1 'Caveat',cursive;color:${ink2};overflow:hidden;text-overflow:ellipsis`)}>{era.description}</span>
+            <span style={css(`font:600 26px/1.3 'Caveat',cursive;color:${ink2};overflow:hidden;text-overflow:ellipsis;padding-bottom:2px`)}>{era.description}</span>
           </div>
 
           <div className="nh-hide-scroll" style={css('position:absolute;left:30px;right:20px;top:136px;bottom:66px;overflow-y:auto;overflow-x:hidden')}>

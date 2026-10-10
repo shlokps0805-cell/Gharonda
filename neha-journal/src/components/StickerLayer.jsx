@@ -6,6 +6,7 @@
 //    saved stickers load exactly where they were left, already at rest
 //  - adds a resize handle, Safari trackpad rotate and the first-drag hint
 import React from 'react';
+import { createPortal } from 'react-dom';
 import Sticker from '../design/Sticker.jsx';
 import StickerMenu from './StickerMenu.jsx';
 import { stickerInfo, pileStickers } from '../design/stickerSheet.js';
@@ -19,6 +20,7 @@ const clampSize = n => Math.max(40, Math.min(320, Math.round(n)));
 
 export default class StickerLayer extends React.Component {
   root = React.createRef();
+  menuRef = React.createRef();
   els = {};
   state = { v: 0, menu: null, drag: null, resizing: null, hint: null };
 
@@ -28,6 +30,13 @@ export default class StickerLayer extends React.Component {
     this._mv = e => this.onMove(e);
     this._up = e => this.onUp(e);
     this._wheel = e => this.onWheel(e);
+    // the menu closes on any click outside it, when another sticker menu opens, or on scroll
+    this._outside = e => { if (this.state.menu && !(this.menuRef.current && this.menuRef.current.contains(e.target))) this.setState({ menu: null }); };
+    this._otherMenu = e => { if (e.detail !== this && this.state.menu) this.setState({ menu: null }); };
+    this._scroll = e => { if (this.state.menu && !(this.menuRef.current && this.menuRef.current.contains(e.target))) this.setState({ menu: null }); };
+    document.addEventListener('pointerdown', this._outside, true);
+    window.addEventListener('nh-sticker-menu', this._otherMenu);
+    window.addEventListener('scroll', this._scroll, true);
     this._gs = e => this.onGesture(e, true);
     this._gc = e => this.onGesture(e, false);
     window.addEventListener('keydown', this._key);
@@ -59,6 +68,9 @@ export default class StickerLayer extends React.Component {
     clearTimeout(this._saveT);
     clearTimeout(this._hintT);
     window.removeEventListener('keydown', this._key);
+    document.removeEventListener('pointerdown', this._outside, true);
+    window.removeEventListener('nh-sticker-menu', this._otherMenu);
+    window.removeEventListener('scroll', this._scroll, true);
     window.removeEventListener('pointermove', this._mv);
     window.removeEventListener('pointerup', this._up);
     const root = this.root.current;
@@ -120,7 +132,8 @@ export default class StickerLayer extends React.Component {
       const sv = savedById[d.id];
       if (sv && exists(sv.k)) {
         // saved stickers come back exactly where they were, already at rest
-        bodies.push(this.body({ ...d, x: sv.x, y: sv.y, size: sv.size, r: sv.r, stuck: !!sv.stuck, deleted: !!sv.deleted, z: sv.z || 1, sleep: true }));
+        // loose pile stickers are allowed to settle again, so one saved mid-fall never hangs in the air
+        bodies.push(this.body({ ...d, x: sv.x, y: sv.y, size: sv.size, r: sv.r, stuck: !!sv.stuck, deleted: !!sv.deleted, z: sv.z || 1, sleep: !(d.pile && !sv.stuck) }));
       } else {
         const b = this.body(d);
         if (b.pile) this.launch(b, i);
@@ -169,6 +182,13 @@ export default class StickerLayer extends React.Component {
     return b.stuck || b.sleep || b.dying || b.deleted || (d && d.b === b);
   }
 
+  // after a sticker is moved, peeled or resized, loose stickers that were resting on it fall again
+  wakePile() {
+    if (!this.b) return;
+    this.b.forEach(b => { if (!b.stuck && !b.deleted && b.sleep) { b.sleep = false; b.calm = 0; } });
+    this.start();
+  }
+
   anyMoving() { return this.b && this.b.some(b => !this.isFixed(b)); }
 
   step(dt) {
@@ -178,7 +198,7 @@ export default class StickerLayer extends React.Component {
       const b = B[i];
       if (this.isFixed(b)) continue;
       b.vy += GRAVITY * dt; b.x += b.vx * dt; b.y += b.vy * dt; b.r += b.vr * dt;
-      const h = b.size / 2, fl = this.floor(b.x), sink = fl < this.H() ? h : h * 0.8;
+      const h = b.size / 2, fl = this.floor(b.x), sink = fl < this.H() ? h : h * 0.62;
       if (b.y + sink >= fl) {
         b.y = fl - sink;
         if (b.vy > 120) { b.vy = -b.vy * 0.35; b.vr *= 0.5; } else { b.vy = 0; b.vr *= 0.7; }
@@ -198,7 +218,7 @@ export default class StickerLayer extends React.Component {
         if (fa && fc) continue;
         // stuck stickers never push physics ones around (they are flat on the paper)
         if ((a.stuck && !a.pile) || (c.stuck && !c.pile)) continue;
-        const dx = c.x - a.x, dy = c.y - a.y, d = Math.hypot(dx, dy) || 1, min = (a.size + c.size) * 0.3;
+        const dx = c.x - a.x, dy = c.y - a.y, d = Math.hypot(dx, dy) || 1, min = (a.size + c.size) * 0.34;
         if (d < min - 0.5) {
           const o = (min - d) / 2, nx = dx / d, ny = dy / d;
           if (!fa) { a.x -= nx * o * (fc ? 2 : 1); a.y -= ny * o * (fc ? 2 : 1); }
@@ -279,6 +299,7 @@ export default class StickerLayer extends React.Component {
     e.stopPropagation();
     e.preventDefault();
     const [x, y] = this.pt(e);
+    try { e.currentTarget.setPointerCapture(e.pointerId); } catch { /* not supported */ }
     b.sleep = false;
     b.z = this.top();
     this.setState({ drag: { b, off: [x - b.x, y - b.y], moved: false }, menu: null });
@@ -311,11 +332,12 @@ export default class StickerLayer extends React.Component {
       d.b.vx = d.b.vy = d.b.vr = 0;
       d.b.stuck = true;
       this.setState({ drag: null });
-      if (d.moved) this.firstDragHint(d.b);
+      if (d.moved) { this.firstDragHint(d.b); this.wakePile(); }
       this.refresh();
     }
     if (this.state.resizing) {
       this.setState({ resizing: null });
+      this.wakePile();
       this.refresh();
     }
   }
@@ -386,8 +408,12 @@ export default class StickerLayer extends React.Component {
   openMenu(e, b) {
     e.preventDefault();
     e.stopPropagation();
-    const [x, y] = this.pt(e);
-    this.setState({ menu: { b, x: Math.min(x + 8, this.W() - 252), y: Math.min(y + 8, this.H() - 300) } });
+    // the menu is drawn on top of the whole stage, so it is never hidden behind anything
+    const stage = document.getElementById('stage');
+    const r = stage.getBoundingClientRect(), k = r.width / 1440 || 1;
+    const x = (e.clientX - r.left) / k, y = (e.clientY - r.top) / k;
+    window.dispatchEvent(new CustomEvent('nh-sticker-menu', { detail: this }));
+    this.setState({ menu: { b, x: Math.max(8, Math.min(x + 8, 1440 - 248)), y: Math.max(8, Math.min(y + 8, 900 - 318)) } });
   }
 
   act = (what, value) => {
@@ -405,7 +431,7 @@ export default class StickerLayer extends React.Component {
     if (what === 'angle') { b.r = value; b.sleep = true; }
     if (what === 'peel') {
       b.dying = true;
-      setTimeout(() => { b.deleted = true; b.dying = false; this.refresh(); }, 440);
+      setTimeout(() => { b.deleted = true; b.dying = false; this.refresh(); this.wakePile(); }, 440);
     }
     const keepOpen = what === 'size' || what === 'angle';
     this.setState(s => ({ v: s.v + 1, menu: keepOpen ? s.menu : null }));
@@ -422,7 +448,6 @@ export default class StickerLayer extends React.Component {
       <div
         ref={this.root}
         data-sticker-layer={this.props.pageId}
-        onPointerDown={() => menu && this.setState({ menu: null })}
         style={{ position: 'absolute', left: 0, top: 0, width: this.W(), height: this.H(), pointerEvents: 'none', userSelect: 'none', zIndex: this.props.z ?? 30 }}
       >
         {items.map(b => {
@@ -462,16 +487,19 @@ export default class StickerLayer extends React.Component {
             </div>
           );
         })}
-        {menu ? (
-          <StickerMenu
-            ui={ui}
-            x={menu.x}
-            y={menu.y}
-            size={menu.b.size}
-            angle={Math.round(menu.b.r)}
-            stuck={menu.b.stuck}
-            onAct={this.act}
-          />
+        {menu && document.getElementById('stage') ? createPortal(
+          <div ref={this.menuRef} style={{ position: 'absolute', inset: 0, zIndex: 99990, pointerEvents: 'none' }}>
+            <StickerMenu
+              ui={ui}
+              x={menu.x}
+              y={menu.y}
+              size={menu.b.size}
+              angle={Math.round(menu.b.r)}
+              stuck={menu.b.stuck}
+              onAct={this.act}
+            />
+          </div>,
+          document.getElementById('stage'),
         ) : null}
         {hint ? (
           <div style={{ ...css("position:absolute;width:240px;transform:rotate(2deg);padding:20px 16px 14px;background:#FFFFFF;box-shadow:0 1px 2px rgba(19,15,31,.3),0 8px 14px rgba(19,15,31,.18);font:600 21px/1.1 'Caveat',cursive;color:#204670;z-index:9998;pointer-events:none;animation:nh-fade-in 300ms ease-out"), left: hint.x, top: hint.y }}>

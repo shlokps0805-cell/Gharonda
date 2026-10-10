@@ -27,7 +27,12 @@ export default class SpiralJournal extends DC {
     const darkish = ['dark', 'cover-navy', 'cover-violet', 'cover-brown'].includes(paper);
     const silver = 'linear-gradient(180deg,#F4F5F8 0%,#B4BAC6 30%,#7D8492 52%,#C9CED8 72%,#8E95A3 100%)';
     const purple = 'linear-gradient(180deg,#EBE0F8 0%,#C4A8E6 32%,#9277BF 55%,#D6C3EF 76%,#A57BD5 100%)';
-    const stackC = paper === 'kraft' ? ['#BFA889', '#C9B394', '#B39C7E', '#C4AE8F'] : ['#ECE8E1', '#F4F1EC', '#E3DED6', '#EFEBE5'];
+    // the page edges under a dark or tinted page are dark too, so no pale sliver shows at the edge
+    const tintDark = paper === 'tint' && /^#/.test(this.props.tint || '') && parseInt((this.props.tint || '#ffffff').slice(1, 3), 16) < 0x80;
+    const stackC = paper === 'kraft' ? ['#BFA889', '#C9B394', '#B39C7E', '#C4AE8F']
+      : paper === 'dark' ? ['#100C18', '#16121F', '#0E0B16', '#14101D']
+      : tintDark ? [0.62, 0.7, 0.58, 0.66].map(k => `color-mix(in oklch, ${this.props.tint} ${Math.round(k * 100)}%, #000)`)
+      : ['#ECE8E1', '#F4F1EC', '#E3DED6', '#EFEBE5'];
     const stack = edges ? [4, 3, 2, 1].map(i => ({ x: i * 3, y: i * 3, c: stackC[i - 1] })) : [];
     return {
       w, h, ow: w + (edges ? 12 : 0), oh: h + (edges ? 12 : 0) + ((this.props.ribbon ?? false) ? 56 : 0), edges, stack,

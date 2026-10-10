@@ -15,8 +15,9 @@ import { useMusic } from '../music/MusicContext.jsx';
 
 // design timings (ms) from the Phase 2 annotations; reduced motion uses quick fades
 const T = {
-  normal: { rise: 480, birthday: 1500, confetti: 2600, settles: 2200, auto: 4000 },
-  reduced: { rise: 0, birthday: 900, confetti: 1200, settles: 1200, auto: 0 },
+  // crack (seal splits) -> flap opens -> journal rises -> birthday -> stickers -> settles
+  normal: { flap: 1100, rise: 2200, birthday: 2400, confetti: 3600, settles: 3000, auto: 5000 },
+  reduced: { flap: 0, rise: 0, birthday: 900, confetti: 1200, settles: 1200, auto: 0 },
 };
 // stickers mixed into the confetti burst (design: "17 approved stickers mixed in")
 const AIR = ['star-balloon', 'jelly-star', 'check-star', 'star-felt', 'cookie-bear', 'iconic', 'happy-birthday', 'camera-cat', 'sparkle', 'star-origami', 'core-memory', 'star-glitter-edge', 'cd', 'paint-star', 'star-embroidered', 'lily', 'eight-ball'];
@@ -78,8 +79,8 @@ export default function Opening({ content, onStep, onDone, reduced }) {
     if (step !== 'birthday') return undefined;
     if (reduced) { setLit(totalLetters); return undefined; }
     let n = 0;
-    const id = setInterval(() => { n += 1; setLit(n); if (n >= totalLetters) clearInterval(id); }, 40);
-    return () => clearInterval(id);
+    const id = setTimeout(function tick() { n += 1; setLit(n); if (n < totalLetters) timers.current.push(setTimeout(tick, 70)); }, 700);
+    return () => clearTimeout(id);
   }, [step, reduced, totalLetters]);
 
   function burst() {
@@ -94,8 +95,11 @@ export default function Opening({ content, onStep, onDone, reduced }) {
     // must run inside the click, before any timeout: this is the gesture that unlocks audio
     music.start();
     setSealState('cracked');
+    if (t.flap) later(() => setSealState('open'), t.flap);
     later(() => setStep('rises'), t.rise);
-    later(() => { setStep('birthday'); burst(); }, t.rise + t.birthday);
+    later(() => setStep('birthday'), t.rise + t.birthday);
+    // the confetti bursts as the journal finishes growing
+    later(burst, t.rise + t.birthday + (reduced ? 0 : 900));
     later(() => setStep('confetti'), t.rise + t.birthday + t.confetti);
     later(() => setStep('settles'), t.rise + t.birthday + t.confetti + t.settles);
     if (!reduced) later(() => onDone(false), t.rise + t.birthday + t.confetti + t.settles + t.auto);
@@ -105,7 +109,8 @@ export default function Opening({ content, onStep, onDone, reduced }) {
   const rises = step === 'rises';
   const bd = step === 'birthday';
   const big = step === 'birthday' || step === 'confetti';
-  const fade = reduced ? 'opacity 200ms linear' : 'opacity 500ms ease, transform 700ms cubic-bezier(0.34,1.56,0.64,1), left 700ms cubic-bezier(0.34,1.56,0.64,1), top 700ms cubic-bezier(0.34,1.56,0.64,1)';
+  const showBig = big || (step === 'settles' && !reduced);
+  const fade = reduced ? 'opacity 200ms linear' : 'opacity 700ms ease, transform 1200ms cubic-bezier(0.34,1.4,0.64,1), left 1200ms cubic-bezier(0.34,1.4,0.64,1), top 1200ms cubic-bezier(0.34,1.4,0.64,1)';
 
   let letterIndex = 0;
   return (
@@ -115,10 +120,10 @@ export default function Opening({ content, onStep, onDone, reduced }) {
       {isEnv ? <StickerLayer pageId="opening" fixed={content.stickers.pages.opening?.fixed} ui={ui.stickerMenu} z={3} /> : null}
 
       {/* the envelope: 1.4x, idle float, seal pulsing */}
-      <div style={{ ...css('position:absolute;width:560px;height:360px;transform-origin:0 0;z-index:5'), left: rises ? 398 : 328, top: bd ? 740 : rises ? 380 : 190, transform: `scale(${rises ? 1.15 : 1.4})`, opacity: isEnv ? 1 : bd ? 0.85 : 0, transition: bd ? 'top 500ms ease-in, opacity 500ms ease-in' : fade, pointerEvents: isEnv ? 'auto' : 'none' }}>
-        <div style={{ animation: step === 'envelope' && !reduced ? 'nh-bob 4000ms ease-in-out infinite' : 'none' }}>
+      <div style={{ ...css('position:absolute;width:560px;height:360px;transform-origin:0 0;z-index:5'), left: rises ? 398 : 328, top: bd ? 740 : rises ? 380 : 190, transform: `scale(${rises ? 1.15 : 1.4})`, opacity: isEnv ? 1 : bd ? 0.85 : 0, transition: bd ? 'top 900ms ease-in, opacity 900ms ease-in' : fade, pointerEvents: isEnv ? 'auto' : 'none' }}>
+        <div style={{ animation: step === 'envelope' && sealState === 'pulse' && !reduced ? 'nh-bob 4000ms ease-in-out infinite' : 'none' }}>
           <Envelope
-            state={rises || big ? 'letter' : sealState}
+            state={rises ? 'letter' : big ? 'open' : sealState}
             animate={!reduced}
             label={ui.opening.forName}
             by={site.fromLine}
@@ -150,8 +155,8 @@ export default function Opening({ content, onStep, onDone, reduced }) {
       {rises ? <div style={css('position:absolute;left:670px;top:640px;opacity:.55;transform:translateY(18px);z-index:4;animation:nh-fade-in 400ms ease-out both')}><WaxSeal state="cracked" size={100} /></div> : null}
 
       {/* the brown journal grows into "Happy Birthday, Neha" */}
-      {big ? (
-        <div style={{ ...css('position:absolute;left:394px;top:30px;width:652px;height:832px;z-index:8'), '--gx': '120px', '--gy': '420px', animation: reduced ? 'nh-fade-in 200ms linear both' : 'nh-grow 800ms cubic-bezier(0.34,1.56,0.64,1) both' }}>
+      {showBig ? (
+        <div style={{ ...css('position:absolute;left:394px;top:30px;width:652px;height:832px;z-index:8'), '--gx': '0px', '--gy': '-190px', animation: reduced ? 'nh-fade-in 200ms linear both' : step === 'settles' ? 'nh-journal-out 450ms ease-in both' : 'nh-grow 1500ms cubic-bezier(0.22,1,0.36,1) both' }}>
           <SpiralJournal w={640} h={820} paper="cover-brown" coil="silver" />
           <div style={css('position:absolute;left:60px;top:84px;width:560px;height:650px;border:1px solid rgba(216,184,94,.55);border-radius:4px')} />
           <div style={css('position:absolute;left:66px;top:90px;width:548px;height:638px;border:1px solid rgba(216,184,94,.3);border-radius:3px')} />
@@ -161,7 +166,7 @@ export default function Opening({ content, onStep, onDone, reduced }) {
               <div key={wi} aria-hidden="true" style={css('display:flex;align-items:baseline;justify-content:center;width:100%')}>
                 {[...w].map((c, i) => {
                   const n = letterIndex++;
-                  return <span key={i} style={css(`font:400 ${wi ? 150 : 74}px/1.25 'Pinyon Script',cursive;color:#E9CF85;text-shadow:0 1px 0 #B08A2E,0 0 10px rgba(246,227,161,.35);opacity:${n < lit || step === 'confetti' ? 1 : 0.12};transition:opacity 200ms;white-space:pre`)}>{c}</span>;
+                  return <span key={i} style={css(`font:400 ${wi ? 150 : 74}px/1.25 'Pinyon Script',cursive;color:#E9CF85;text-shadow:0 1px 0 #B08A2E,0 0 10px rgba(246,227,161,.35);opacity:${n < lit || step === 'confetti' ? 1 : 0.12};transition:opacity 350ms ease-out;white-space:pre`)}>{c}</span>;
                 })}
               </div>
             ))}
@@ -174,15 +179,22 @@ export default function Opening({ content, onStep, onDone, reduced }) {
       ) : null}
 
       {/* stickers mixed into the confetti */}
-      {bd && !reduced ? air.map((s, i) => (
-        <div key={i} style={{ position: 'absolute', left: s.x, top: s.y, zIndex: 9, animation: `nh-pop 450ms cubic-bezier(0.34,1.56,0.64,1) ${s.delay}ms both` }}>
+      {big && !reduced ? air.map((s, i) => (
+        <div
+          key={i}
+          style={{
+            position: 'absolute', left: s.x, top: s.y, zIndex: 9,
+            '--fx': `${(s.side ? 1440 : 0) - s.x - s.size / 2}px`, '--fy': `${900 - s.y}px`, '--fr': `${s.side ? 160 : -160}deg`,
+            animation: bd ? `nh-air-in 1300ms cubic-bezier(0.2,0.9,0.3,1.1) ${900 + s.delay * 2}ms both` : `nh-air-fall 1400ms cubic-bezier(0.55,0,0.9,0.5) ${s.delay}ms both`,
+          }}
+        >
           <Sticker kind={s.k} size={s.size} rotate={s.r} />
         </div>
       )) : null}
 
       {/* the journal settles and becomes the cover */}
       {step === 'settles' ? (
-        <div style={{ position: 'absolute', inset: 0, zIndex: 10, animation: reduced ? 'nh-fade-in 200ms linear both' : 'nh-settle 900ms cubic-bezier(0.65,0,0.35,1) both' }}>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 10, animation: reduced ? 'nh-fade-in 200ms linear both' : 'nh-settle 1100ms cubic-bezier(0.22,1,0.36,1) 150ms both' }}>
           <CoverPage content={content} interactive={false} />
           <div style={css('position:absolute;left:770px;top:660px;display:flex;align-items:center;gap:14px;animation:nh-fade-up 250ms ease-out 600ms both')}>
             <button type="button" className="nh-btn" onClick={() => onDone(true)} style={css("display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;background:#FFFFFF;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;white-space:nowrap;box-shadow:0 2px 6px rgba(19,15,31,.3);cursor:pointer")}>

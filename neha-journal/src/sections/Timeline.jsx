@@ -64,7 +64,7 @@ export default function Timeline({ content, parts, go, reduced }) {
             style={css(`width:98px;padding:9px 8px 8px;background:${openId === e.id ? '#204670' : '#FFFFFF'};border-radius:3px;box-shadow:0 1px 2px rgba(19,15,31,.22);transform:translateY(${hover === i ? -2 : 0}px) rotate(${[-2, 1, -1, 2, -1][i % 5]}deg);transition:transform 150ms;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer`)}
           >
             <span style={css(`font:700 14px/1 'Courier Prime',monospace;letter-spacing:.08em;color:${openId === e.id ? '#FFFFFF' : '#204670'}`)}>{e.year}</span>
-            <span style={css(`font:400 15px/1.1 'Kalam',cursive;color:${openId === e.id ? '#DCCBF3' : '#5E3695'};text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90px;text-decoration-line:${hover === i ? 'underline' : 'none'};text-decoration-color:#A57BD5;text-decoration-thickness:2px;text-underline-offset:4px`)}>{e.shortName}</span>
+            <span style={css(`font:400 15px/1.35 'Kalam',cursive;padding-bottom:2px;color:${openId === e.id ? '#DCCBF3' : '#5E3695'};text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90px;text-decoration-line:${hover === i ? 'underline' : 'none'};text-decoration-color:#A57BD5;text-decoration-thickness:2px;text-underline-offset:4px`)}>{e.shortName}</span>
           </button>
         ))}
       </div>

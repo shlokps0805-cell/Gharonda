@@ -49,7 +49,7 @@ export default function BackPages({ content, onReplay, reduced }) {
         {friends.map((f, i) => {
           // light colours are hard to read as signatures on white: a 45% deeper shade, with a true-colour dot
           const ink = f.dark ? f.colour : `color-mix(in oklch, ${f.colour} 45%, #130F1F)`;
-          const font = f.hand === 'kalam' ? `400 ${twoCols ? 20 : 26}px/1.1 'Kalam',cursive` : `600 ${twoCols ? 23 : 30}px/1.1 'Caveat',cursive`;
+          const font = f.hand === 'kalam' ? `400 ${twoCols ? 20 : 26}px/1.4 'Kalam',cursive` : `600 ${twoCols ? 23 : 30}px/1.35 'Caveat',cursive`;
           return (
             <li key={f.id} style={css(`display:flex;align-items:center;gap:8px;transform:rotate(${TILT[i % 12]}deg);min-width:0`)}>
               <span style={css(`width:10px;height:10px;border-radius:50%;background:${f.colour};flex:none`)} />

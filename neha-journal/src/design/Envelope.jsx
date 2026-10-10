@@ -31,7 +31,7 @@ export default class Envelope extends DC {
       sealColor: this.props.sealColor ?? '#9E2A2B',
       name: this.props.label ?? (hero ? 'For Neha' : 'Friend 1'),
       showName: !(nameTop && (st === 'open' || st === 'letter')),
-      nameSize: hero ? (this.props.nameFont === 'Mrs Saint Delafield' ? 64 : 56) : 28, nameFF: hero ? `'${this.props.nameFont ?? 'Great Vibes'}',cursive` : `'${this.props.handFont ?? 'Caveat'}',cursive`, nameW: hero || this.props.handFont === 'Kalam' ? 400 : 600, nameSq: hero ? .84 : 1,
+      nameSize: hero ? (this.props.nameFont === 'Mrs Saint Delafield' ? 64 : 56) : Math.max(22, Math.min(28, Math.round(280 / Math.max(1, (this.props.label || '').length)))), nameFF: hero ? `'${this.props.nameFont ?? 'Great Vibes'}',cursive` : `'${this.props.handFont ?? 'Caveat'}',cursive`, nameW: hero || this.props.handFont === 'Kalam' ? 400 : 600, nameSq: hero ? .84 : 1,
       showBy: hero && (this.props.showBy ?? true), by: this.props.by ?? '', bySize: 26, byW: 150, byY: nameTop ? '23%' : '86%',
       nameX: hero ? '7%' : '8%', nameY: nameTop ? (hero ? '9%' : '10%') : (hero ? '74%' : '68%'),
       stamp: (this.props.stamp ?? false) && !(st === 'open' || st === 'letter'), stampSize: hero ? 84 : 34,
@@ -39,8 +39,8 @@ export default class Envelope extends DC {
       onSeal: this.props.onSeal,
       // the flap folds open in 3D when the state changes to open (design: rotateX 0 → 180°, 500ms spring)
       // the small brown journal rises out 150 ms after the flap (700 ms spring)
-      riseAnim: this.props.animate ? 'nh-rise 700ms cubic-bezier(0.34,1.56,0.64,1) 150ms both' : 'none',
-      flapAnim: this.props.animate ? 'nh-flap 500ms cubic-bezier(0.34,1.56,0.64,1) both' : 'none'
+      riseAnim: this.props.animate ? 'nh-rise 1500ms cubic-bezier(0.22,1,0.36,1) 100ms both' : 'none',
+      flapAnim: this.props.animate ? 'nh-flap 1000ms cubic-bezier(0.34,1.4,0.64,1) both' : 'none'
     };
   }
   template(v) {
@@ -93,7 +93,7 @@ export default class Envelope extends DC {
           <div style={css("position:absolute;inset:0;border:1px solid rgba(255,255,255,.55);border-radius:4px;pointer-events:none")} />
         </>) : null}
         {v.showName ? (<>
-          <div style={css(`position:absolute;left:${v.nameX};top:${v.nameY};font:${v.nameW} ${v.nameSize}px/1 ${v.nameFF};color:${v.ink};transform:rotate(-3deg) scaleY(${v.nameSq});transform-origin:0 50%;white-space:nowrap`)}>
+          <div style={css(`position:absolute;left:${v.nameX};top:${v.nameY};font:${v.nameW} ${v.nameSize}px/${v.hero ? 1 : 1.4} ${v.nameFF};margin-top:${v.hero ? 0 : -6}px;color:${v.ink};transform:rotate(-3deg) scaleY(${v.nameSq});transform-origin:0 50%;white-space:nowrap;max-width:${v.hero ? 520 : 168}px;overflow:hidden;text-overflow:ellipsis;padding-bottom:4px`)}>
             {v.name}
           </div>
           {v.showBy ? (<>
@@ -114,7 +114,7 @@ export default class Envelope extends DC {
         </>) : null}
         {v.closed ? (<>
           <div style={css("position:absolute;left:50%;top:58%;transform:translate(-50%,-50%)")}>
-            <WaxSeal size={v.sealSize} state={v.sealState} color={v.sealColor} onClick={v.onSeal} />
+            <WaxSeal size={v.sealSize} state={v.sealState} color={v.sealColor} onClick={v.onSeal} animate={this.props.animate} />
           </div>
         </>) : null}
         {v.openOnly ? (<>

@@ -11,6 +11,7 @@ Every place the build intentionally differs from the design files or the final p
 - The Wordle allowed-words list (`src/games/words5.json`, 12,578 five-letter words) is taken from the MIT-licensed `word-list` package by Sindre Sorhus. It is stricter only for five-letter answers; 4, 6 and 7-letter answers accept any guess of the right length.
 
 ## Global
+- **Brown leather boards behind every open page** (and darker page edges under dark pages), so the journal always reads as one brown book with the spiral at the binding; the designs drew the open pages straight on the desk.
 - **Reload keeps her on the section she was on.** A fresh link (no hash) lands on the Cover; a reload keeps the current `#/section`. This is a small, deliberate clarification of "returning visits load the Cover" (brief 3.1).
 - **Music-note trail:** ported from the design scenes' code, but with the brief's locked values (14–18 px notes in lavender and white, ±12° tilt) instead of the scenes' 18–28 px multicoloured notes.
 - **Cursor hover state:** over anything clickable the cursor becomes the 32 px glass-star sticker, as the Phase 3 global-frame board shows.
@@ -19,12 +20,15 @@ Every place the build intentionally differs from the design files or the final p
 - **Era pages, wishes and games have no page-turn on every sub-step**: the turn plays when the page itself changes (tab, contents link, opening a letter).
 
 ## Opening
+- **Slower than the Phase 2 annotations**, at the students' request: the seal presses in and splits (900 ms), the flap opens (1 s), the journal bounces up out of the envelope (1.5 s), grows into the birthday cover (1.5 s, letters shimmer at 70 ms each) and the confetti stickers fly out and then fall away. Auto-continue after 5 s instead of 4 s.
 - The cover's fixed stickers (ribbon, ticket, rosette, date stamp…) appear when the opening finishes, as the design's "settles" frame shows only the physics pile.
 - The sticker pile uses the cover floor (resting below the journal, clear of the player zone) from the start of step 4, instead of first resting on the full floor and then moving.
 - "Open your journal" finishes the opening and opens the contents spread; waiting 4 s finishes it on the Cover. With reduced motion there is no auto-advance (as designed).
 - **Replay** drops a separate, unsaved pile during the replayed opening; afterwards the cover loads her saved stickers untouched.
 
 ## Stickers
+- The right-click menu is drawn above the whole page, closes on any click outside it, when another sticker's menu opens or on scroll, as well as with Esc (the design only closed it with Esc).
+- Loose stickers resting on one that is moved, peeled or resized fall back down instead of hanging in the air; loose pile stickers saved mid-fall settle again on the next visit.
 - **Resize handle is at the sticker's top-right corner** (the design's lavender knob), because the turn handle already sits at the bottom-right.
 - New stickers added without a pixel size are measured once in the browser so their aspect ratio is right.
 - The opening's 13 desk stickers can be dragged too (they are a sticker layer like every other page).
