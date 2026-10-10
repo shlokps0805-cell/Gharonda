@@ -234,8 +234,15 @@ function Journal({ hostRef }) {
           data-spotify-host
           style={page === 'playlist' && !opening
             ? { position: 'absolute', left: 150, top: 640, width: 300, height: 80, zIndex: 50, borderRadius: 10, overflow: 'hidden' }
-            : { position: 'absolute', left: 20, top: 800, width: 300, height: 80, opacity: 0, pointerEvents: 'none', zIndex: -1 }}
+            : music.needsSpotifyTap && showChrome
+              ? { position: 'absolute', left: 24, top: 796, width: 300, height: 80, zIndex: 72, borderRadius: 10, overflow: 'hidden', boxShadow: '0 2px 6px rgba(19,15,31,.35), 0 10px 22px rgba(19,15,31,.25)' }
+              : { position: 'absolute', left: 20, top: 800, width: 300, height: 80, opacity: 0, pointerEvents: 'none', zIndex: -1 }}
         />
+        {music.needsSpotifyTap && showChrome && !(page === 'playlist' && !opening) ? (
+          <div role="status" style={{ position: 'absolute', left: 28, top: 760, zIndex: 72, padding: '6px 12px', borderRadius: 999, background: '#FFFFFF', boxShadow: '0 1px 3px rgba(19,15,31,.3)', font: "700 11px/1 'Courier Prime', monospace", letterSpacing: '.12em', color: '#204670', whiteSpace: 'nowrap', animation: 'nh-bob 1600ms ease-in-out infinite' }}>
+            {ui.player.tapSpotify}
+          </div>
+        ) : null}
       </Stage>
       {customCursor ? <CursorTrail trail={!reduced && !(phone && phoneAnyway)} /> : null}
       <EasterEggs site={content.site} ui={ui.eggs} reduced={reduced} />

@@ -8,7 +8,7 @@ export default function PlayerDock({ ui, show, slideIn, noteColor }) {
   if (!show) return null;
   let state = 'paused';
   if (m.status === 'playing') state = 'playing';
-  else if (m.status === 'press') state = 'press';
+  else if (m.status === 'press') state = m.needsSpotifyTap ? 'paused' : 'press'; // Spotify's own player is shown instead
   else if (m.status === 'unavailable' || m.status === 'nosongs') state = 'unavailable';
   const title = !m.hasSongs ? ui.noSongs : m.status === 'unavailable' ? ui.unavailable : m.song ? `${m.song.title}${m.song.artist ? ' · ' + m.song.artist : ''}` : '';
   const picked = m.song && m.song.pickedByName ? `${ui.pickedBy} ${m.song.pickedByName}` : '';

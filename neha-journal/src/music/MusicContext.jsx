@@ -30,6 +30,7 @@ export function MusicProvider({ songs, playlist, hostRef, children }) {
   const [pos, setPos] = useState(0);
   const [status, setStatus] = useState(playable.length ? 'idle' : 'nosongs');
   const [muted, setMuted] = useState(false);
+  const [tried, setTried] = useState(false); // a start was attempted (so 'press' means the browser held the sound back)
   const ready = useRef(false);
   const wanted = useRef(false); // start() was called before the controller was ready
   const loadedUri = useRef('');
@@ -56,6 +57,7 @@ export function MusicProvider({ songs, playlist, hostRef, children }) {
     if (!s) return;
     setPos(p);
     setMuted(false);
+    setTried(true);
     if (!ready.current) { wanted.current = true; setStatus('loading'); return; }
     if (loadedUri.current !== s.uri) { spotify.load(s.uri); loadedUri.current = s.uri; endGuard.current = ''; lastPos.current = 0; started.current = ''; }
     // after a pause, carry on from the same spot instead of starting the song (or playlist) over
@@ -160,6 +162,8 @@ export function MusicProvider({ songs, playlist, hostRef, children }) {
 
   const value = {
     status, muted, song, songs, playable, hasSongs: playable.length > 0, playlistMode,
+    // Spotify would not start from our click: show its own player so one tap on its ▶ starts it
+    needsSpotifyTap: tried && status === 'press',
     start, toggle, next, prev, toggleMute, playSong, pauseForGame, pause,
     // until the first click on a return visit, the player pulses "tap to start the music"
     askForTap: () => setStatus(s => (s === 'idle' ? 'press' : s)),

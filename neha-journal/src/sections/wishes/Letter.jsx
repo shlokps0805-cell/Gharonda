@@ -31,6 +31,9 @@ export default function Letter({ wish, wishes, content, go, reduced }) {
   const tint = f.dark ? f.colour : `color-mix(in oklch, ${f.colour} 30%, #FFFFFF)`;
   const backRef = useRef(null);
   const long = wish.headline.length > 26;
+  // short letters keep the newspaper's two columns; longer ones read as one column that scrolls
+  // down (two columns in a fixed-height box overflow sideways, so the end could not be reached)
+  const twoCols = (wish.words || 0) <= 200 && !wish.photo;
   const showPhoto = !!(wish.photo || wish.photoCaption);
 
   useEffect(() => {
@@ -77,7 +80,8 @@ export default function Letter({ wish, wishes, content, go, reduced }) {
                 <h1 style={css(`margin:0;font:400 ${long ? 34 : 42}px/1.05 'Libre Caslon Text',serif;color:#130F1F`)}>{wish.headline}</h1>
                 <div style={css("font:700 12px/1 'Courier Prime',monospace;letter-spacing:.14em;color:#3D4A66")}>{[site.city, site.dateLine, wish.words ? `${wish.words} ${t.words}` : ''].filter(Boolean).join(' · ')}</div>
               </div>
-              <div className="nh-scroll" tabIndex={0} aria-label="the letter" style={css('flex:1;min-height:0;overflow-y:auto;padding:18px 10px 48px 0;columns:2;column-gap:36px')}>
+              <div className="nh-scroll" tabIndex={0} aria-label="the letter" style={css('flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:18px 10px 48px 0')}>
+                <div style={css(twoCols ? 'columns:2;column-gap:36px' : 'max-width:690px;margin:0 auto')}>
                 {showPhoto ? (
                   <figure style={css('break-inside:avoid;margin:0 0 14px')}>
                     <div style={css('position:relative;height:250px;background:repeating-linear-gradient(135deg,#ACBFD3 0 12px,#B9CADB 12px 24px);display:flex;align-items:flex-end;padding:10px;filter:grayscale(.3);overflow:hidden')}>
@@ -91,6 +95,7 @@ export default function Letter({ wish, wishes, content, go, reduced }) {
                   <p key={i} style={css("margin:0 0 14px;font:400 18px/1.6 'DM Sans',sans-serif;color:#130F1F;text-align:justify;hyphens:auto;-webkit-hyphens:auto")}>{inline(p)}</p>
                 ))}
                 {!wish.soon ? <div style={css(`font:400 34px/1.1 '${f.font}',cursive;color:#5E3695;padding-top:4px;break-inside:avoid`)}>{t.signoff} {f.name}</div> : null}
+                </div>
               </div>
               <div style={css('position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(180deg,rgba(238,234,224,0),#EEEAE0 80%);pointer-events:none')} />
             </div>

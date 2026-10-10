@@ -56,10 +56,12 @@ Every place the build intentionally differs from the design files or the final p
 - **Jokes:** a joke with no origin story does not flip; a joke can show pictures on its note.
 - **Wishes:** the handwritten “you’re (colour) to me” line on each letter is removed (the students' request).
 - **Playlist:** a song picked by several friends credits all of them.
+- **Music:** if the browser keeps Spotify from starting after a click, Spotify's own player appears over the mini player with "tap ▶ below to start the music"; one tap on it always starts the music, then it hides again.
 - **Music:** while no song has its own Spotify link, the player plays the friends' Spotify playlist as one item (next and previous do nothing then).
 - **Neha's World:** the key hints under the console match the friends' game (move, run, jump, sound).
 - **Darkroom:** the film strips in the header show the first "on film" photos once real photos exist.
 - **Darkroom, give it a shake:** polaroids start at the design's develop ramp (95% → 0% darkness across the row) and develop over about 1,200 px of shaking (the design's code used 2,400 px; the brief says 1,200).
+- **Wishes:** letters over about 200 words read as one scrolling column instead of the newspaper's two columns (two columns in a fixed-height box overflowed sideways, so long letters could not be scrolled to the end).
 - **Wishes:** the photo block in a letter only shows when the wish has a `photo` or `photoCaption`.
 - **Wishes:** the "that's everyone" line lets clicks through, so the envelopes can still be opened again.
 - **Wishes:** left and right arrow keys move between letters.
