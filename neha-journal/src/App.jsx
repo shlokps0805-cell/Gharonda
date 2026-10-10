@@ -187,7 +187,7 @@ function Journal({ hostRef }) {
   return (
     <>
       <Desk kind={desk} />
-      <Stage className={customCursor ? 'nh-custom-cursor' : ''}>
+      <Stage className={customCursor ? 'nh-custom-cursor' : ''} minScale={phone && phoneAnyway ? 0.2 : 0.6}>
         <main key={opening ? 'opening' : page} style={{ position: 'absolute', inset: 0 }}>
           {body}
         </main>

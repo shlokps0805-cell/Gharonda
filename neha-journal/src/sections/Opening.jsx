@@ -46,7 +46,7 @@ export default function Opening({ content, onStep, onDone, reduced }) {
   const light = useRef(null);
   const t = reduced ? T.reduced : T.normal;
   const name = site.name;
-  const hbWords = ['Happy Birthday,', name];
+  const hbWords = [ui.opening.happyBirthday, name];
   const totalLetters = hbWords.join('').length;
   const air = useRef(airStickers()).current;
 
@@ -156,7 +156,7 @@ export default function Opening({ content, onStep, onDone, reduced }) {
           <div style={css('position:absolute;left:60px;top:84px;width:560px;height:650px;border:1px solid rgba(216,184,94,.55);border-radius:4px')} />
           <div style={css('position:absolute;left:66px;top:90px;width:548px;height:638px;border:1px solid rgba(216,184,94,.3);border-radius:3px')} />
           <div style={css('position:absolute;left:30px;width:620px;top:200px;display:flex;flex-direction:column;align-items:center;overflow:hidden')}>
-            <h1 className="sr-only">Happy Birthday, {name}</h1>
+            <h1 className="sr-only">{ui.opening.happyBirthday} {name}</h1>
             {hbWords.map((w, wi) => (
               <div key={wi} aria-hidden="true" style={css('display:flex;align-items:baseline;justify-content:center;width:100%')}>
                 {[...w].map((c, i) => {
@@ -186,9 +186,9 @@ export default function Opening({ content, onStep, onDone, reduced }) {
           <CoverPage content={content} interactive={false} />
           <div style={css('position:absolute;left:770px;top:660px;display:flex;align-items:center;gap:14px;animation:nh-fade-up 250ms ease-out 600ms both')}>
             <button type="button" className="nh-btn" onClick={() => onDone(true)} style={css("display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:999px;background:#FFFFFF;font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:#204670;white-space:nowrap;box-shadow:0 2px 6px rgba(19,15,31,.3);cursor:pointer")}>
-              OPEN YOUR JOURNAL
+              {ui.opening.openYourJournal}
             </button>
-            {!reduced ? <span style={css("font:400 12px/1 'Courier Prime',monospace;color:#DCCBF3;white-space:nowrap")}>opens itself in 4s</span> : null}
+            {!reduced ? <span style={css("font:400 12px/1 'Courier Prime',monospace;color:#DCCBF3;white-space:nowrap")}>{ui.opening.opensItself}</span> : null}
           </div>
         </div>
       ) : null}

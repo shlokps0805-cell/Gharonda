@@ -115,7 +115,7 @@ export function ContentsSpread({ content, go, resetToken }) {
             <div style={{ ...css('width:52px;display:flex;justify-content:center'), animation: hover === i ? 'nh-wiggle 300ms ease-in-out' : 'none' }}>
               <Sticker kind={t.sticker} size={46} movable={false} />
             </div>
-            <span style={css(`font:600 32px/1 'Caveat',cursive;color:#204670;white-space:nowrap;text-decoration:${hover === i ? 'underline' : 'none'};text-decoration-color:#A57BD5;text-decoration-thickness:2px;text-underline-offset:6px`)}>{t.label}</span>
+            <span style={css(`font:600 32px/1 'Caveat',cursive;color:#204670;white-space:nowrap;text-decoration-line:${hover === i ? 'underline' : 'none'};text-decoration-color:#A57BD5;text-decoration-thickness:2px;text-underline-offset:6px`)}>{t.label}</span>
             <span style={css('flex:1;border-bottom:2px dotted #ACBFD3;transform:translateY(8px)')} />
             <span style={css("font:600 30px/1 'Caveat',cursive;color:#5E3695")}>p. {t.page}</span>
           </button>
