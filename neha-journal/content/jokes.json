@@ -94,5 +94,15 @@
     "text": "You get me, i get you, together, there’s really nothing we can’t do!",
     "submittedBy": "dhwani",
     "lore": ""
+  },
+  {
+    "id": "joke-17",
+    "text": "To my",
+    "submittedBy": "dhwani",
+    "lore": "",
+    "images": [
+      "jokes/dhwani-1.webp",
+      "jokes/dhwani-2.webp"
+    ]
   }
 ]

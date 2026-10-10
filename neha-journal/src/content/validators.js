@@ -290,13 +290,16 @@ export function validateSongs(raw, warn, friends) {
   return items.map((s, i) => {
     const uri = spotifyUri(s.spotify);
     if (str(s.spotify) && !uri) warn(`songs.json: "${s.title}" has a Spotify link that is not a track link`);
-    const friend = friendsById[s.pickedBy];
+    // pickedBy is one friend id, or a list when several friends chose the same song
+    const pickers = (Array.isArray(s.pickedBy) ? s.pickedBy : [s.pickedBy]).map(str).filter(Boolean);
+    const names = pickers.map(id => (friendsById[id] ? friendsById[id].name : id));
     return {
       ...s,
       title: str(s.title).trim(),
       artist: str(s.artist),
       uri,
-      pickedByName: friend ? friend.name : str(s.pickedBy),
+      pickedBy: pickers[0] || '',
+      pickedByName: names.length > 1 ? `${names.slice(0, -1).join(', ')} & ${names[names.length - 1]}` : names[0] || '',
       reason: str(s.reason),
       side: s.side === 'A' || s.side === 'B' ? s.side : i < half ? 'A' : 'B',
     };
@@ -315,7 +318,7 @@ export function validateJokes(raw, warn, friends) {
   items = ensureIds(items, 'jokes', warn, ['text']);
   return items.map(j => {
     const friend = friendsById[j.submittedBy];
-    return { ...j, text: str(j.text).trim(), lore: str(j.lore), submittedBy: str(j.submittedBy), submittedByName: friend ? friend.name : str(j.submittedBy) };
+    return { ...j, text: str(j.text).trim(), lore: str(j.lore), images: list(j.images).map(str).filter(Boolean), submittedBy: str(j.submittedBy), submittedByName: friend ? friend.name : str(j.submittedBy) };
   });
 }
 

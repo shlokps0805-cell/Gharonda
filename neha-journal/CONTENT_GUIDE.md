@@ -96,6 +96,7 @@ A friend with no letter yet shows "letter coming soon", so nothing breaks.
 { "id": "song-16", "title": "Song title", "artist": "Artist", "spotify": "https://open.spotify.com/track/...", "pickedBy": "friend-3", "reason": "the goa bus song", "side": "A" }
 ```
 - `spotify`: in Spotify, click **⋯ > Share > Copy Song Link** and paste it here.
+- `pickedBy` can be a list when several friends picked the same song: `"pickedBy": ["kashisha", "aarushi"]`.
 - `side` is `A` or `B` (leave out to split the list in half). Songs with no Spotify link are listed but cannot play.
 - **Quickest way to add every link:** in the Spotify desktop app open the playlist, click one song, press Ctrl+A (Cmd+A on a Mac), then Ctrl+C. That copies every song's link, in order; paste them here (or send them to Claude).
 - While no song has a link, the player plays the whole playlist from `site.json` → `spotifyPlaylistUrl` instead (play and pause work; Spotify moves through the songs by itself, so next and previous do nothing).
@@ -104,7 +105,7 @@ A friend with no letter yet shows "letter coming soon", so nothing breaks.
 ```json
 { "id": "joke-11", "text": "the joke", "submittedBy": "friend-5", "lore": "the origin story on the back" }
 ```
-Leave `lore` as `""` and the note stays face up (it only flips when there is an origin story).
+Leave `lore` as `""` and the note stays face up (it only flips when there is an origin story). Add `"images": ["jokes/my-picture.webp"]` to show pictures on the note (files in `public/media/jokes/`).
 
 ## Stickers · `content/stickers.json`
 1. Save a transparent PNG or WebP (background already removed) in `public/media/stickers/`.

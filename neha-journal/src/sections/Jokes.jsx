@@ -5,6 +5,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { css } from '../design/dc.js';
 import SpiralJournal from '../design/SpiralJournal.jsx';
 import RansomWord from '../design/RansomWord.jsx';
+import { mediaUrl } from '../design/Photo.jsx';
 import Fastener from '../design/Fastener.jsx';
 import StickerLayer from '../components/StickerLayer.jsx';
 
@@ -17,7 +18,8 @@ function layout(jokes) {
   return jokes.map((j, i) => {
     const [x, y, w, r] = POS[i % 10];
     const len = j.text.length;
-    return { j, i, x, y: y + Math.floor(i / 10) * BLOCK, w: len > 120 ? Math.max(w, 300) : w, r, h: len > 50 ? 150 : len > 30 ? 120 : 96 };
+    const pics = j.images && j.images.length;
+    return { j, i, x, y: y + Math.floor(i / 10) * BLOCK, w: len > 120 || pics ? Math.max(w, 300) : w, r, h: (len > 50 ? 150 : len > 30 ? 120 : 96) + (pics ? 140 : 0) };
   });
 }
 
@@ -105,6 +107,11 @@ export default function Jokes({ content, go, reduced }) {
                   {/* front: the joke (sizes the note) */}
                   <div style={{ ...face, minHeight: n.h, background: n.i % 3 === 2 ? '#FBF9F5' : '#FFFFFF', backgroundImage: n.i % 3 === 1 ? 'repeating-linear-gradient(180deg,transparent 0 27px,rgba(142,167,201,.35) 27px 28px)' : 'none' }}>
                     <div style={css(`font:${n.i % 2 ? "400 22px/1.3 'Kalam',cursive" : "500 17px/1.45 'DM Sans',sans-serif"};color:#130F1F`)}>{n.j.text}</div>
+                    {n.j.images.length ? (
+                      <div style={css('display:flex;gap:8px')}>
+                        {n.j.images.map(src => <img key={src} src={mediaUrl(src)} alt="" draggable="false" style={css('flex:1;min-width:0;height:130px;object-fit:cover;border-radius:2px;display:block')} />)}
+                      </div>
+                    ) : null}
                     {n.j.submittedByName ? <div style={css("margin-top:auto;font:700 10px/1 'Courier Prime',monospace;letter-spacing:.1em;color:#3D4A66;text-transform:uppercase")}>{t.submittedBy} {n.j.submittedByName}</div> : null}
                   </div>
                   {/* back: the origin story on lilac paper */}

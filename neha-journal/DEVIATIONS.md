@@ -52,7 +52,9 @@ Every place the build intentionally differs from the design files or the final p
 - **Darkroom:** the section tabs show each section's own `label` (the friends' photo categories: hangouts, party, chill, festival, casual); the style code (ON FILM…) stays in the small heading.
 - **Daily cryptic:** a clue can have any number of hints with its own titles, including a LETTERS hint that shows one more letter per tap (the design had three fixed hints); a `par` and two-word gaps are shown. The open hint's text sits in one panel under the hint tabs so long hints fit.
 - **Wordle:** a word can carry a `note` shown when it is solved or revealed; the page subtitle is the friends' hint line.
-- **Jokes:** a joke with no origin story does not flip.
+- **Jokes:** a joke with no origin story does not flip; a joke can show pictures on its note.
+- **Wishes:** the handwritten “you’re (colour) to me” line on each letter is removed (the students' request).
+- **Playlist:** a song picked by several friends credits all of them.
 - **Music:** while no song has its own Spotify link, the player plays the friends' Spotify playlist as one item (next and previous do nothing then).
 - **Neha's World:** the key hints under the console match the friends' game (move, run, jump, sound).
 - **Darkroom:** the film strips in the header show the first "on film" photos once real photos exist.

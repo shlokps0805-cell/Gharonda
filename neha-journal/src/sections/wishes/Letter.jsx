@@ -54,7 +54,6 @@ export default function Letter({ wish, wishes, content, go, reduced }) {
         <button ref={backRef} type="button" className="nh-btn" onClick={() => go('wishes')} style={css(`display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;border:1.5px solid ${ink};font:700 12px/1 'Courier Prime',monospace;letter-spacing:.12em;color:${ink};white-space:nowrap;cursor:pointer`)}>{t.back}</button>
         <span style={css(`font:400 12px/1 'Courier Prime',monospace;color:${ink}`)}>{t.orEsc}</span>
       </div>
-      <div style={css(`position:absolute;left:150px;top:690px;width:200px;font:600 34px/1.1 'Caveat',cursive;color:${ink};transform:rotate(-3deg)`)}>{t.youre} {f.colourName} {t.toMe}</div>
       {n > 1 ? (
         <div style={css('position:absolute;left:1040px;top:722px;display:flex;align-items:center;gap:14px;z-index:5')}>
           <button type="button" className="nh-btn" aria-label={t.prev} onClick={() => go(`wishes/${prev.id}`)} style={css(`width:44px;height:44px;border-radius:50%;border:1.5px solid ${ink};display:flex;align-items:center;justify-content:center;font:700 18px/1 'DM Sans',sans-serif;color:${ink};cursor:pointer`)}>←</button>

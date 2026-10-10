@@ -4,7 +4,10 @@
     "title": "baby ne bonvita peedav baby mood ma nathi",
     "artist": "",
     "spotify": "",
-    "pickedBy": "nea",
+    "pickedBy": [
+      "nea",
+      "aavya"
+    ],
     "reason": ""
   },
   {
@@ -20,7 +23,10 @@
     "title": "Tere Liye",
     "artist": "",
     "spotify": "",
-    "pickedBy": "kashisha",
+    "pickedBy": [
+      "kashisha",
+      "aarushi"
+    ],
     "reason": ""
   },
   {
@@ -36,7 +42,10 @@
     "title": "What Makes You Beautiful",
     "artist": "One Direction",
     "spotify": "",
-    "pickedBy": "kashisha",
+    "pickedBy": [
+      "kashisha",
+      "dhwani"
+    ],
     "reason": ""
   },
   {
@@ -52,7 +61,10 @@
     "title": "Tum Hi Ho Bandhu",
     "artist": "",
     "spotify": "",
-    "pickedBy": "aarushi",
+    "pickedBy": [
+      "aarushi",
+      "dhwani"
+    ],
     "reason": ""
   },
   {
@@ -100,7 +112,10 @@
     "title": "Desi Girl",
     "artist": "",
     "spotify": "",
-    "pickedBy": "aarushi",
+    "pickedBy": [
+      "aarushi",
+      "dhwani"
+    ],
     "reason": ""
   },
   {
@@ -116,7 +131,10 @@
     "title": "u+me=<3",
     "artist": "",
     "spotify": "",
-    "pickedBy": "swara",
+    "pickedBy": [
+      "swara",
+      "aavya"
+    ],
     "reason": ""
   },
   {
