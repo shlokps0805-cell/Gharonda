@@ -138,10 +138,7 @@ export default class StickerLayer extends React.Component {
       if (sv && exists(sv.k)) {
         // saved stickers come back exactly where they were, already at rest
         // loose pile stickers are allowed to settle again, so one saved mid-fall never hangs in the air
-        const b = this.body({ ...d, x: sv.x, y: sv.y, size: sv.size, r: sv.r, stuck: !!sv.stuck, deleted: !!sv.deleted, z: sv.z || 1, sleep: !(d.pile && !sv.stuck) });
-        // one saved off the page before stickers were kept on it comes back into view
-        if (b.stuck && (b.x < 0 || b.y < 0 || b.x > this.W() || b.y > this.H())) this.keepIn(b);
-        bodies.push(b);
+        bodies.push(this.body({ ...d, x: sv.x, y: sv.y, size: sv.size, r: sv.r, stuck: !!sv.stuck, deleted: !!sv.deleted, z: sv.z || 1, sleep: !(d.pile && !sv.stuck) }));
       } else {
         const b = this.body(d);
         if (b.pile) this.launch(b, i);
@@ -302,11 +299,25 @@ export default class StickerLayer extends React.Component {
 
   top() { return Math.max(1, ...this.b.map(b => b.z)) + 1; }
 
-  // a sticker always stays fully on the page, so it can never be lost past an edge
+  // a sticker can go anywhere on the screen, past the journal and the page edges,
+  // but never out of the visible window (or the scrolling box it lives in), so it is never lost
   keepIn(b) {
+    const el = this.root.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const k = r.width / this.W() || 1;
+    let L = 0, T = 0, R = window.innerWidth, B = window.innerHeight;
+    for (let p = el.parentElement; p && p !== document.body; p = p.parentElement) {
+      const st = getComputedStyle(p);
+      const q = st.overflowX !== 'visible' || st.overflowY !== 'visible' ? p.getBoundingClientRect() : null;
+      if (q && st.overflowX !== 'visible') { L = Math.max(L, q.left); R = Math.min(R, q.right); }
+      if (q && st.overflowY !== 'visible') { T = Math.max(T, q.top); B = Math.min(B, q.bottom); }
+    }
     const h = b.size / 2;
-    b.x = Math.min(Math.max(b.x, h), this.W() - h);
-    b.y = Math.min(Math.max(b.y, h), this.H() - h);
+    const x0 = (L - r.left) / k + h, x1 = (R - r.left) / k - h;
+    const y0 = (T - r.top) / k + h, y1 = (B - r.top) / k - h;
+    if (x0 <= x1) b.x = Math.min(Math.max(b.x, x0), x1);
+    if (y0 <= y1) b.y = Math.min(Math.max(b.y, y0), y1);
   }
 
   down(e, b) {

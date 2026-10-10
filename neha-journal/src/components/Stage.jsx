@@ -19,13 +19,16 @@ export default function Stage({ children, className = '', minScale = 0.6 }) {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, [minScale]);
+  // the stage does not clip, so stickers can sit on the desk around the journal; the window
+  // clips instead (it only scrolls when the stage is bigger than the window, on phones)
+  const fits = STAGE_W * scale <= window.innerWidth + 1 && STAGE_H * scale <= window.innerHeight + 1;
   return (
-    <div style={{ position: 'fixed', inset: 0, overflow: 'auto', display: 'grid', placeItems: 'center' }} className="nh-hide-scroll">
+    <div style={{ position: 'fixed', inset: 0, overflow: fits ? 'hidden' : 'auto', display: 'grid', placeItems: 'center' }} className="nh-hide-scroll">
       <div style={{ width: STAGE_W * scale, height: STAGE_H * scale, position: 'relative', flex: 'none' }}>
         <div
           id="stage"
           className={className}
-          style={{ position: 'absolute', left: 0, top: 0, width: STAGE_W, height: STAGE_H, transform: `scale(${scale})`, transformOrigin: '0 0', overflow: 'hidden' }}
+          style={{ position: 'absolute', left: 0, top: 0, width: STAGE_W, height: STAGE_H, transform: `scale(${scale})`, transformOrigin: '0 0' }}
         >
           {children}
         </div>
