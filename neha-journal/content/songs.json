@@ -1,9 +1,9 @@
 [
   {
     "id": "song-1",
-    "title": "baby ne bonvita peedav baby mood ma nathi",
-    "artist": "",
-    "spotify": "",
+    "title": "Baby Mood Ma Nathi",
+    "artist": "Umesh Barot, Dhaval Kapadiya",
+    "spotify": "https://open.spotify.com/track/3crNwZik0j8FsXmPirDjf2",
     "pickedBy": [
       "nea",
       "aavya"
@@ -12,17 +12,17 @@
   },
   {
     "id": "song-2",
-    "title": "Aaja Mere Gaadi Mein Baith Jaa",
-    "artist": "",
-    "spotify": "",
+    "title": "Aaja Meri Gaadi Mein Baith Jaa",
+    "artist": "Baba Sehgal, Anu Malik",
+    "spotify": "https://open.spotify.com/track/0L2ha91BprKmkDtVqt6wDa",
     "pickedBy": "kashisha",
     "reason": ""
   },
   {
     "id": "song-3",
     "title": "Tere Liye",
-    "artist": "",
-    "spotify": "",
+    "artist": "Atif Aslam, Shreya Ghoshal",
+    "spotify": "https://open.spotify.com/track/0fCQRUbk8LIQTdQYGNtGyv",
     "pickedBy": [
       "kashisha",
       "aarushi"
@@ -32,8 +32,8 @@
   {
     "id": "song-4",
     "title": "Kukkad",
-    "artist": "",
-    "spotify": "",
+    "artist": "Vishal-Shekhar, Shahid Mallya",
+    "spotify": "https://open.spotify.com/track/7DbE178OOsJfJKyiNObOsw",
     "pickedBy": "kashisha",
     "reason": ""
   },
@@ -41,7 +41,7 @@
     "id": "song-5",
     "title": "What Makes You Beautiful",
     "artist": "One Direction",
-    "spotify": "",
+    "spotify": "https://open.spotify.com/track/4cluDES4hQEUhmXj6TXkSo",
     "pickedBy": [
       "kashisha",
       "dhwani"
@@ -52,15 +52,15 @@
     "id": "song-6",
     "title": "Mirrors",
     "artist": "Justin Timberlake",
-    "spotify": "",
+    "spotify": "https://open.spotify.com/track/4rHZZAmHpZrA3iH5zx8frV",
     "pickedBy": "neel",
     "reason": ""
   },
   {
     "id": "song-7",
     "title": "Tum Hi Ho Bandhu",
-    "artist": "",
-    "spotify": "",
+    "artist": "Pritam, Neeraj Shridhar",
+    "spotify": "https://open.spotify.com/track/5MxiAxvsFQIr8JZi8XRntN",
     "pickedBy": [
       "aarushi",
       "dhwani"
@@ -70,48 +70,48 @@
   {
     "id": "song-8",
     "title": "Fire Fire",
-    "artist": "",
-    "spotify": "",
+    "artist": "Shimza, AR/CO",
+    "spotify": "https://open.spotify.com/track/35dt2bP4CcBzepyufQbvYZ",
     "pickedBy": "aarushi",
     "reason": ""
   },
   {
     "id": "song-9",
-    "title": "I Adore You",
-    "artist": "",
-    "spotify": "",
+    "title": "I Adore You (feat. Daecolm)",
+    "artist": "HUGEL, Topic",
+    "spotify": "https://open.spotify.com/track/5nPbKG04fhLkIAjcPFaZq7",
     "pickedBy": "aarushi",
     "reason": ""
   },
   {
     "id": "song-10",
     "title": "Party All Night",
-    "artist": "",
-    "spotify": "",
+    "artist": "Yo Yo Honey Singh, Sahil Kaushal",
+    "spotify": "https://open.spotify.com/track/0fGImK9uWSruIRhKGyjUC0",
     "pickedBy": "aarushi",
     "reason": ""
   },
   {
     "id": "song-11",
-    "title": "Dildara",
-    "artist": "",
-    "spotify": "",
+    "title": "Dildaara (Stand By Me)",
+    "artist": "Vishal-Shekhar, Shafqat Amanat Ali",
+    "spotify": "https://open.spotify.com/track/6ZoCBDOB308GqUdt2AJrV2",
     "pickedBy": "aarushi",
     "reason": ""
   },
   {
     "id": "song-12",
     "title": "This Town",
-    "artist": "",
-    "spotify": "",
+    "artist": "Niall Horan",
+    "spotify": "https://open.spotify.com/track/0qvzXomUDJVaUboy2wMfiS",
     "pickedBy": "aarushi",
     "reason": ""
   },
   {
     "id": "song-13",
     "title": "Desi Girl",
-    "artist": "",
-    "spotify": "",
+    "artist": "Vishal-Shekhar, Shankar Mahadevan",
+    "spotify": "https://open.spotify.com/track/3Qpk2qHree1RTH5lZaKnEK",
     "pickedBy": [
       "aarushi",
       "dhwani"
@@ -120,17 +120,17 @@
   },
   {
     "id": "song-14",
-    "title": "Gangnam Style",
-    "artist": "",
-    "spotify": "",
+    "title": "Gangnam Style (강남스타일)",
+    "artist": "PSY",
+    "spotify": "https://open.spotify.com/track/03UrZgTINDqvnUMbbIMhql",
     "pickedBy": "aarushi",
     "reason": ""
   },
   {
     "id": "song-15",
-    "title": "u+me=<3",
-    "artist": "",
-    "spotify": "",
+    "title": "u + me = <3",
+    "artist": "Olivia Rodrigo",
+    "spotify": "https://open.spotify.com/track/6Hdc3IQeyCxG5d14uAcwQW",
     "pickedBy": [
       "swara",
       "aavya"
@@ -140,32 +140,32 @@
   {
     "id": "song-16",
     "title": "Shut Up and Dance",
-    "artist": "",
-    "spotify": "",
+    "artist": "WALK THE MOON",
+    "spotify": "https://open.spotify.com/track/4kbj5MwxO1bq9wjT5g9HaA",
     "pickedBy": "swara",
     "reason": ""
   },
   {
     "id": "song-17",
-    "title": "Homewrecker",
-    "artist": "",
-    "spotify": "",
+    "title": "HAMKE CALL KARI BABY",
+    "artist": "Anubhav Tiwari",
+    "spotify": "https://open.spotify.com/track/2i8wFHSz7EqReaoBTkjL10",
     "pickedBy": "aavya",
     "reason": ""
   },
   {
     "id": "song-18",
-    "title": "Hamke Call Kari Baby",
-    "artist": "",
-    "spotify": "",
+    "title": "Homewrecker",
+    "artist": "sombr",
+    "spotify": "https://open.spotify.com/track/7tICCrK3CcyRFKza7yrR0z",
     "pickedBy": "aavya",
     "reason": ""
   },
   {
     "id": "song-19",
-    "title": "Stupid Song",
-    "artist": "",
-    "spotify": "",
+    "title": "stupid song",
+    "artist": "Olivia Rodrigo",
+    "spotify": "https://open.spotify.com/track/4LfCY65LvojKjWEnU7fNN4",
     "pickedBy": "aavya",
     "reason": ""
   },
@@ -173,55 +173,55 @@
     "id": "song-20",
     "title": "Wonderwall",
     "artist": "Oasis",
-    "spotify": "",
+    "spotify": "https://open.spotify.com/track/35EfXlRKogBr1RvrkFBMHr",
     "pickedBy": "rhea",
     "reason": ""
   },
   {
     "id": "song-21",
     "title": "Kajra Re",
-    "artist": "",
-    "spotify": "",
+    "artist": "Shankar-Ehsaan-Loy, Alisha Chinai",
+    "spotify": "https://open.spotify.com/track/72HdutlIHBZJ7WT1xVAAZT",
     "pickedBy": "shlok",
     "reason": ""
   },
   {
     "id": "song-22",
     "title": "Ambarsariya",
-    "artist": "",
-    "spotify": "",
+    "artist": "Sona Mohapatra, Ram Sampath",
+    "spotify": "https://open.spotify.com/track/4qRcjFkFqSpLBzcbLDt7HL",
     "pickedBy": "shlok",
     "reason": ""
   },
   {
     "id": "song-23",
-    "title": "Don’t Stop Believin’",
-    "artist": "",
-    "spotify": "",
+    "title": "Don't Stop Believin'",
+    "artist": "Journey",
+    "spotify": "https://open.spotify.com/track/77NNZQSqzLNqh2A9JhLRkg",
     "pickedBy": "shlok",
     "reason": ""
   },
   {
     "id": "song-24",
-    "title": "Neele Neele Ambar Par",
-    "artist": "",
-    "spotify": "",
+    "title": "Neele Neele Ambar Par - Male Version",
+    "artist": "Kalyanji-Anandji, Kishore Kumar",
+    "spotify": "https://open.spotify.com/track/02zPo0Dt0R4TTFY5zLJZnK",
     "pickedBy": "shlok",
     "reason": ""
   },
   {
     "id": "song-25",
     "title": "Arcade",
-    "artist": "",
-    "spotify": "",
+    "artist": "Duncan Laurence",
+    "spotify": "https://open.spotify.com/track/1Xi84slp6FryDSCbzq4UCD",
     "pickedBy": "shlok",
     "reason": ""
   },
   {
     "id": "song-26",
     "title": "Manchild",
-    "artist": "",
-    "spotify": "",
+    "artist": "Sabrina Carpenter",
+    "spotify": "https://open.spotify.com/track/42UBPzRMh5yyz0EDPr6fr1",
     "pickedBy": "trishala",
     "reason": ""
   },
@@ -229,7 +229,7 @@
     "id": "song-27",
     "title": "GIRLS",
     "artist": "The Kid LAROI",
-    "spotify": "",
+    "spotify": "https://open.spotify.com/track/7z3PblAN3dH1JMewiRydkZ",
     "pickedBy": "trishala",
     "reason": ""
   },
@@ -237,96 +237,136 @@
     "id": "song-28",
     "title": "Into You",
     "artist": "Ariana Grande",
-    "spotify": "",
+    "spotify": "https://open.spotify.com/track/76FZM38RC8XaAjJ77CVTNe",
     "pickedBy": "trishala",
     "reason": ""
   },
   {
     "id": "song-29",
-    "title": "It’s ok I’m ok",
+    "title": "It's ok I'm ok",
     "artist": "Tate McRae",
-    "spotify": "",
+    "spotify": "https://open.spotify.com/track/24XihnoVPWXlKJ4BgXqjVM",
     "pickedBy": "trishala",
     "reason": ""
   },
   {
     "id": "song-30",
-    "title": "Illegal",
-    "artist": "PinkPantheress",
-    "spotify": "",
-    "pickedBy": "trishala",
+    "title": "Ilahi",
+    "artist": "Pritam, Arijit Singh",
+    "spotify": "https://open.spotify.com/track/5cgKosPPj5Cs9a2JQufUc1",
+    "pickedBy": "",
     "reason": ""
   },
   {
     "id": "song-31",
-    "title": "Desi Boys",
-    "artist": "",
-    "spotify": "",
-    "pickedBy": "dhwani",
+    "title": "Illegal",
+    "artist": "PinkPantheress",
+    "spotify": "https://open.spotify.com/track/1WmBVbFmLt0w6zPP37TeCG",
+    "pickedBy": "trishala",
     "reason": ""
   },
   {
     "id": "song-32",
-    "title": "Dancing Queen",
-    "artist": "ABBA",
-    "spotify": "",
+    "title": "Make Some Noise For The Desi Boyz",
+    "artist": "Pritam, KK",
+    "spotify": "https://open.spotify.com/track/71s7tZo8OGlN3VXyURWLUr",
     "pickedBy": "dhwani",
     "reason": ""
   },
   {
     "id": "song-33",
-    "title": "Riptide",
-    "artist": "Vance Joy",
-    "spotify": "",
+    "title": "Dancing Queen",
+    "artist": "ABBA",
+    "spotify": "https://open.spotify.com/track/0GjEhVFGZW8afUYGChu3Rr",
     "pickedBy": "dhwani",
     "reason": ""
   },
   {
     "id": "song-34",
-    "title": "Under the Sea",
-    "artist": "The Little Mermaid",
-    "spotify": "",
+    "title": "Riptide",
+    "artist": "Vance Joy",
+    "spotify": "https://open.spotify.com/track/7yq4Qj7cqayVTp3FF9CWbm",
     "pickedBy": "dhwani",
     "reason": ""
   },
   {
     "id": "song-35",
-    "title": "Mamma Mia",
-    "artist": "ABBA",
-    "spotify": "",
+    "title": "Under the Sea",
+    "artist": "Samuel E. Wright, Disney",
+    "spotify": "https://open.spotify.com/track/4qqfI5oNO53a6W7nWfutKH",
     "pickedBy": "dhwani",
     "reason": ""
   },
   {
     "id": "song-36",
-    "title": "Saturn",
-    "artist": "SZA",
-    "spotify": "",
+    "title": "Mamma Mia",
+    "artist": "ABBA",
+    "spotify": "https://open.spotify.com/track/2TxCwUlqaOH3TIyJqGgR91",
     "pickedBy": "dhwani",
     "reason": ""
   },
   {
     "id": "song-37",
-    "title": "Make You Mine",
-    "artist": "PUBLIC",
-    "spotify": "",
+    "title": "Saturn",
+    "artist": "SZA",
+    "spotify": "https://open.spotify.com/track/1bjeWoagtHmUKputLVyDxQ",
     "pickedBy": "dhwani",
     "reason": ""
   },
   {
     "id": "song-38",
-    "title": "Until I Found You",
-    "artist": "Stephen Sanchez, Em Beihold",
-    "spotify": "",
+    "title": "Make You Mine",
+    "artist": "PUBLIC",
+    "spotify": "https://open.spotify.com/track/5iFwAOB2TFkPJk8sMlxP8g",
     "pickedBy": "dhwani",
     "reason": ""
   },
   {
     "id": "song-39",
     "title": "Abhi Toh Party Shuru Hui Hai",
-    "artist": "Badshah",
-    "spotify": "",
+    "artist": "Badshah, Aastha Gill",
+    "spotify": "https://open.spotify.com/track/0rUN8ascPVT9iiLzC5ocPw",
     "pickedBy": "dhwani",
+    "reason": ""
+  },
+  {
+    "id": "song-40",
+    "title": "Until I Found You",
+    "artist": "Stephen Sanchez",
+    "spotify": "https://open.spotify.com/track/0T5iIrXA4p5GsubkhuBIKV",
+    "pickedBy": "dhwani",
+    "reason": ""
+  },
+  {
+    "id": "song-41",
+    "title": "Barsaat",
+    "artist": "Banjaare, Roni",
+    "spotify": "https://open.spotify.com/track/0DpUQ3mpAGy3bYsEKVy6t5",
+    "pickedBy": "",
+    "reason": ""
+  },
+  {
+    "id": "song-42",
+    "title": "Bairan",
+    "artist": "Banjaare",
+    "spotify": "https://open.spotify.com/track/0RsH8g8DxdYZgdGcod5I36",
+    "pickedBy": "",
+    "reason": ""
+  },
+  {
+    "id": "song-43",
+    "title": "Dooron Dooron",
+    "artist": "Paresh Pahuja, Shiv Tandan",
+    "spotify": "https://open.spotify.com/track/0q5e5KtUOhYQujmhLP0pKd",
+    "pickedBy": "",
+    "reason": ""
+  },
+  {
+    "id": "song-44",
+    "title": "Aarzu",
+    "artist": "Noor, Khan",
+    "spotify": "https://open.spotify.com/track/0wHYuCTWPntEgWiUVED4wB",
+    "pickedBy": "",
     "reason": ""
   }
 ]
